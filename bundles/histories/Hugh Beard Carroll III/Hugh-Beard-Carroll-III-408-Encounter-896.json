@@ -1,0 +1,207 @@
+{
+  "resourceType": "Bundle",
+  "id": "Hugh-Beard-Carroll-III-408-Encounter-896",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-896",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-896",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "outpatient",
+          "display": "outpatient"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "185345009",
+                "display": "Encounter for symptom"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-408",
+          "display": "Hugh Beard Carroll III"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2017-04-04T21:00:00-04:00",
+              "end": "2017-04-04T21:00:00-04:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-405",
+              "display": "Pamela McPherson Castro MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2017-04-04T21:00:00-04:00",
+          "end": "2017-04-04T21:00:00-04:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-274",
+              "display": "Healthy Living Clinic"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1111",
+          "display": "Healthy Living Clinic"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-896"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-45081",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-45081",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "66d5176b-1541-407a-8921-54000461c37d"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "413473000",
+              "display": "Counseling about alcohol consumption (procedure)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-408",
+          "display": "Hugh Beard Carroll III"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-896",
+          "display": "Followup_Encounter"
+        },
+        "performedPeriod": {
+          "start": "2017-04-04T21:00:00-04:00",
+          "end": "2017-04-04T21:00:00-04:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-405",
+              "display": "Pamela McPherson Castro MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-274",
+          "display": "Healthy Living Clinic"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-45081"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-45082",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-45082",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "17f35ad7-265d-4aba-8637-73474cf3d70a"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "therapy",
+                "display": "Therapy"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://www.cms.gov/Medicare/Coding/MedHCPCSGenInfo",
+              "code": "H0050",
+              "display": "Alcohol and/or drug services, brief intervention, per 15 minutes (H0050)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-408",
+          "display": "Hugh Beard Carroll III"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-896",
+          "display": "Followup_Encounter"
+        },
+        "effectiveDateTime": "2017-04-04T21:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-405",
+            "display": "Pamela McPherson Castro MD"
+          }
+        ],
+        "valueString": "Why Not Procedure?"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-45082"
+      }
+    }
+  ]
+}

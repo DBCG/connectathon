@@ -1,0 +1,151 @@
+{
+  "resourceType": "Bundle",
+  "id": "Marie-Dianne-Donaldson-467-Encounter-3930",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-3930",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-3930",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "inpatient",
+          "display": "inpatient"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "32485007",
+                "display": "Hospital admission"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-467",
+          "display": "Marie Dianne Donaldson"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2019-02-24T17:05:00-05:00",
+              "end": "2019-02-25T08:19:00-05:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-41",
+              "display": "Melissa Lena Snyder MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2019-02-24T17:05:00-05:00",
+          "end": "2019-02-25T08:19:00-05:00"
+        },
+        "reason": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "397145000",
+                "display": "Mammography assessment (Category 5) - Highly suggestive of malignancy"
+              }
+            ]
+          }
+        ],
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-168",
+              "display": "St. Michael's Hospital"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1014",
+          "display": "St. Michael's Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-3930"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-117094",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-117094",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "1f1560fa-b5f8-4b19-91f3-decb956a2e23"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "https://www.cms.gov/Medicare/Coding/ICD10/index.html",
+              "code": "0HTT0ZZ"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-467",
+          "display": "Marie Dianne Donaldson"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-3930",
+          "display": "Cancer_Treatment_Encounter"
+        },
+        "performedPeriod": {
+          "start": "2019-02-24T17:05:00-05:00",
+          "end": "2019-02-25T08:19:00-05:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-41",
+              "display": "Melissa Lena Snyder MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-168",
+          "display": "St. Michael's Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-117094"
+      }
+    }
+  ]
+}

@@ -1,0 +1,273 @@
+{
+  "resourceType": "Bundle",
+  "id": "Albert-Kaufman-Estes-487-Encounter-1068",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-1068",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-1068",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "outpatient",
+          "display": "outpatient"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://www.ama-assn.org/go/cpt",
+                "code": "99214",
+                "display": "OFFICE/OUTPATIENT VISIT EST"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-487",
+          "display": "Albert Kaufman Estes"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2017-05-10T01:00:00-04:00",
+              "end": "2017-05-10T01:00:00-04:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-325",
+              "display": "Darren Baxter Padilla MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2017-05-10T01:00:00-04:00",
+          "end": "2017-05-10T01:00:00-04:00"
+        },
+        "reason": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "718636001",
+                "display": "Minimal depression (disorder)"
+              }
+            ]
+          }
+        ],
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-252",
+              "display": "Dickerson Clinic"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1060",
+          "display": "Dickerson Clinic"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-1068"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-48878",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-48878",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "021b98df-db8b-4948-903e-88cfc1d2ba42"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://test",
+              "code": "2.16.840.1.113883.3.67.1.101.11.723",
+              "display": "2.16.840.1.113883.3.67.1.101.11.723"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-487",
+          "display": "Albert Kaufman Estes"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-1068",
+          "display": "DRR_Encounter"
+        },
+        "performedPeriod": {
+          "start": "2017-05-10T01:00:00-04:00",
+          "end": "2017-05-10T01:00:00-04:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-325",
+              "display": "Darren Baxter Padilla MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-252",
+          "display": "Dickerson Clinic"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-48878"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-48879",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-48879",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "7b071c1e-b801-400a-b13c-8801f9a49f58"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://cqframework.info/codesystem/placeholder",
+              "code": "00009",
+              "display": "PHQ-9 Modified Score"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-487",
+          "display": "Albert Kaufman Estes"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-1068",
+          "display": "DRR_Encounter"
+        },
+        "effectiveDateTime": "2017-05-10T01:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-325",
+            "display": "Darren Baxter Padilla MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 2.0,
+          "unit": "score"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-48879"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-48881",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "DiagnosticReport-48881",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-diagnosticreport"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "2cbf056a-d7c7-49d1-b540-5286f5dbc18f"
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "66344007",
+              "display": "Recurrent major depression (disorder)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-487",
+          "display": "Albert Kaufman Estes"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-1068",
+          "display": "DRR_Encounter"
+        },
+        "effectivePeriod": {
+          "start": "2017-05-10T01:00:00-04:00",
+          "end": "2017-05-10T01:00:00-04:00"
+        },
+        "issued": "2017-05-10T01:00:00.000-04:00"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-48881"
+      }
+    }
+  ]
+}
