@@ -20,7 +20,10 @@ HEDIS Screening Measures (Colorectal, Cancer, and Breast Cancer Screening): [bun
 
 # Expected Output
 
+## COL
 For the measure period 2017-01-01 to 2017-12-31, COL measure: [output/col/output.txt](output/col/output.txt)
+
 MeasureReport: [output/col/measure-col-2017/measure-col-2017.json](output/col/measure-col-2017-measure-col-2017.json)
+
 Patient Measure Reports: [output/col/measure-col-2017/measure-col-2017-patient](output/col/measure-col-2017-measure-col-2017/measure-col-2017-patient)
 
