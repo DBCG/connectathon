@@ -4,15 +4,15 @@ MEASURE=${1:-measure-col}
 YEAR=${2:-2017}
 BASE_URL=${3:-http://localhost:8080/cqf-ruler/baseDstu3}
 
-file=../results/$MEASURE-$YEAR.json
-if [ ! -f $file ]
+file=../results/$MEASURE/$MEASURE-$YEAR.json
+if [ ! -f "$file" ]
 then
 	echo "$file not found. Exiting"
     exit
 fi
 
-directory=../results/$MEASURE-$YEAR-patient
-if [ -d $directory ]
+directory=../results/$MEASURE/$MEASURE-$YEAR-patient
+if [ -d "$directory" ]
 then
     rm -r -f $directory
 fi
