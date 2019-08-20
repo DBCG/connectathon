@@ -14,10 +14,10 @@ in the measure development community.
 using FHIR version '4.0.0'
 
 include FHIRHelpers version '4.0.0' called FHIRHelpers
-include Hospice_FHIR4 version '2.0.000' called Hospice
-include AdultOutpatientEncounters_FHIR4 version '2.0.000' called AdultOutpatientEncounters
+include Hospice_FHIR4 version '1.0.000' called Hospice
+include AdultOutpatientEncounters_FHIR4 version '1.1.000' called AdultOutpatientEncounters
 include MATGlobalCommonFunctions_FHIR4 version '4.0.000' called Global
-library SupplementalDataElements_FHIR4 version '1.0.0' called SDE
+include SupplementalDataElements_FHIR4 version '1.0.0' called SDE
 
 valueset "ONC Administrative Sex": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1'
 valueset "Race": 'https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.836'
