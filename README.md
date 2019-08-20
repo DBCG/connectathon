@@ -5,6 +5,12 @@ Resources for use at HL7 FHIR Connectathon 22, Clinical Reasoning Track.
 * [Track Description](https://confluence.hl7.org/display/FHIR/2019-09+Clinical+Reasoning+Track)
 * [Zulip Stream](https://chat.fhir.org/#narrow/stream/179207-connectathon-mgmt/topic/Clinical.20Reasoning.20Track)
 
+* CQF-Ruler Docker Container:
+
+```
+docker run -p 8080:8080 contentgroup/cqf-ruler
+```
+
 ## Measure Reporting Scenarios
 
 ### Controlling Blood Pressure - EXM165
