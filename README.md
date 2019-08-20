@@ -27,14 +27,14 @@ Resources for use at HL7 FHIR Connectathon 22, Clinical Reasoning Track.
 
 #### FHIR3
 
-* [Measure CQL](cql/fhir3/EXM124_FHIR3-8.5.000.cql)
+* [Measure CQL](cql/fhir3/EXM124_FHIR3-7.2.000.cql)
 * [Measure Bundle](bundles/fhir3/exm124-fhir3-bundle.json)
 * [Denominator Patient (ID: XXXX)](tests/fhir3/EXM124/exm124-fhir3-denominator-test-bundle.json)
 * [Numerator Patient (ID: XXXX)](tests/fhir3/EXM124/exm124-fhir3-numerator-test-bundle.json)
 
 #### FHIR4
 
-* [Measure CQL](cql/fhir4/EXM124_FHIR4-8.5.000.cql)
+* [Measure CQL](cql/fhir4/EXM124_FHIR4-7.2.000.cql)
 * [Measure Bundle](bundles/fhir4/exm124-fhir4-bundle.json)
 * [Denominator Patient (ID: XXXX)](tests/fhir4/EXM124/exm124-fhir4-denominator-test-bundle.json)
 * [Numerator Patient (ID: XXXX)](tests/fhir4/EXM124/exm124-fhir4-numerator-test-bundle.json)
@@ -43,14 +43,14 @@ Resources for use at HL7 FHIR Connectathon 22, Clinical Reasoning Track.
 
 #### FHIR3
 
-* [Measure CQL](cql/fhir3/EXM125_FHIR3-8.5.000.cql)
+* [Measure CQL](cql/fhir3/EXM125_FHIR3-7.2.000.cql)
 * [Measure Bundle](bundles/fhir3/exm125-fhir3-bundle.json)
 * [Denominator Patient (ID: XXXX)](tests/fhir3/EXM125/exm125-fhir3-denominator-test-bundle.json)
 * [Numerator Patient (ID: XXXX)](tests/fhir3/EXM125/exm125-fhir3-numerator-test-bundle.json)
 
 #### FHIR4
 
-* [Measure CQL](cql/fhir4/EXM125_FHIR4-8.5.000.cql)
+* [Measure CQL](cql/fhir4/EXM125_FHIR4-7.2.000.cql)
 * [Measure Bundle](bundles/fhir4/exm125-fhir4-bundle.json)
 * [Denominator Patient (ID: XXXX)](tests/fhir4/EXM125/exm125-fhir4-denominator-test-bundle.json)
 * [Numerator Patient (ID: XXXX)](tests/fhir4/EXM125/exm125-fhir4-numerator-test-bundle.json)
@@ -59,14 +59,14 @@ Resources for use at HL7 FHIR Connectathon 22, Clinical Reasoning Track.
 
 #### FHIR3
 
-* [Measure CQL](cql/fhir3/EXM130_FHIR3-8.5.000.cql)
+* [Measure CQL](cql/fhir3/EXM130_FHIR3-7.2.000.cql)
 * [Measure Bundle](bundles/fhir3/exm130-fhir3-bundle.json)
 * [Denominator Patient (ID: XXXX)](tests/fhir3/EXM130/exm130-fhir3-denominator-test-bundle.json)
 * [Numerator Patient (ID: XXXX)](tests/fhir3/EXM130/exm130-fhir3-numerator-test-bundle.json)
 
 #### FHIR4
 
-* [Measure CQL](cql/fhir4/EXM130_FHIR4-8.5.000.cql)
+* [Measure CQL](cql/fhir4/EXM130_FHIR4-7.2.000.cql)
 * [Measure Bundle](bundles/fhir4/exm130-fhir4-bundle.json)
 * [Denominator Patient (ID: XXXX)](tests/fhir4/EXM130/exm130-fhir4-denominator-test-bundle.json)
 * [Numerator Patient (ID: XXXX)](tests/fhir4/EXM130/exm130-fhir4-numerator-test-bundle.json)
@@ -75,14 +75,14 @@ Resources for use at HL7 FHIR Connectathon 22, Clinical Reasoning Track.
 
 #### FHIR3
 
-* [Measure CQL](cql/fhir3/EXM108_FHIR3-8.5.000.cql)
+* [Measure CQL](cql/fhir3/EXM108_FHIR3-7.4.000.cql)
 * [Measure Bundle](bundles/fhir3/exm108-fhir3-bundle.json)
 * [Denominator Patient (ID: XXXX)](tests/fhir3/EXM108/exm108-fhir3-denominator-test-bundle.json)
 * [Numerator Patient (ID: XXXX)](tests/fhir3/EXM108/exm108-fhir3-numerator-test-bundle.json)
 
 #### FHIR4
 
-* [Measure CQL](cql/fhir4/EXM108_FHIR4-8.5.000.cql)
+* [Measure CQL](cql/fhir4/EXM108_FHIR4-7.4.000.cql)
 * [Measure Bundle](bundles/fhir4/exm108-fhir4-bundle.json)
 * [Denominator Patient (ID: XXXX)](tests/fhir4/EXM108/exm108-fhir4-denominator-test-bundle.json)
 * [Numerator Patient (ID: XXXX)](tests/fhir4/EXM108/exm108-fhir4-numerator-test-bundle.json)
@@ -91,14 +91,14 @@ Resources for use at HL7 FHIR Connectathon 22, Clinical Reasoning Track.
 
 #### FHIR3
 
-* [Measure CQL](cql/fhir3/EXM72_FHIR3-8.5.000.cql)
+* [Measure CQL](cql/fhir3/EXM72_FHIR3-8.1.000.cql)
 * [Measure Bundle](bundles/fhir3/exm72-fhir3-bundle.json)
 * [Denominator Patient (ID: XXXX)](tests/fhir3/EXM72/exm72-fhir3-denominator-test-bundle.json)
 * [Numerator Patient (ID: XXXX)](tests/fhir3/EXM72/exm72-fhir3-numerator-test-bundle.json)
 
 #### FHIR4
 
-* [Measure CQL](cql/fhir4/EXM72_FHIR4-8.5.000.cql)
+* [Measure CQL](cql/fhir4/EXM72_FHIR4-8.1.000.cql)
 * [Measure Bundle](bundles/fhir4/exm72-fhir4-bundle.json)
 * [Denominator Patient (ID: XXXX)](tests/fhir4/EXM72/exm72-fhir4-denominator-test-bundle.json)
 * [Numerator Patient (ID: XXXX)](tests/fhir4/EXM72/exm72-fhir4-numerator-test-bundle.json)

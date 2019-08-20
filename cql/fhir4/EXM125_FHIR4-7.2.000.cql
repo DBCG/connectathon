@@ -1,4 +1,4 @@
-library EXM125_FHIR4 version '8.2.000'
+library EXM125_FHIR4 version '7.2.000'
 
 /*
 Based on CMS125v7 - Breast Cancer Screening
