@@ -53,12 +53,12 @@ define "Denominator":
 define "Flexible Sigmoidoscopy Performed":
 	[Procedure: "Flexible Sigmoidoscopy"] FlexibleSigmoidoscopy
 		where FlexibleSigmoidoscopy.status = 'completed'
-			and FlexibleSigmoidoscopy.performed ends 5 years or less on or before end of "Measurement Period"
+			and Global."Normalize Performed"(FlexibleSigmoidoscopy.performed) ends 5 years or less on or before end of "Measurement Period"
 
 define "CT Colonography Performed":
 	[Procedure: "CT Colonography"] Colonography
 		where Colonography.status = 'completed'
-			and Colonography.performed ends 5 years or less on or before end of "Measurement Period"
+			and Global."Normalize Performed"(Colonography.performed) ends 5 years or less on or before end of "Measurement Period"
 
 define "Total Colectomy Performed":
 	[Procedure: "Total Colectomy"] Colectomy
@@ -85,7 +85,7 @@ define "Fecal Immunochemical Test DNA":
 define "Colonoscopy Performed":
 	[Procedure: "Colonoscopy"] Colonoscopy
 		where Colonoscopy.status = 'completed'
-		 	and Colonoscopy.performed ends 10 years or less on or before end of "Measurement Period"
+		 	and Global."Normalize Performed"(Colonoscopy.performed) ends 10 years or less on or before end of "Measurement Period"
 
 define "Numerator":
 	exists "Colonoscopy Performed"
