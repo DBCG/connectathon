@@ -93,21 +93,21 @@ docker run -p 8080:8080 contentgroup/cqf-ruler
 * [Denominator Patient (ID: XXXX)](tests/fhir4/EXM108/exm108-fhir4-denominator-test-bundle.json)
 * [Numerator Patient (ID: XXXX)](tests/fhir4/EXM108/exm108-fhir4-numerator-test-bundle.json)
 
-### Antithrombotic Therapy by End of Day 2 - EXM72
+### Discharged on Antithrombotic Therapy - EXM104
 
 #### FHIR3
 
-* [Measure CQL](cql/fhir3/EXM72_FHIR3-8.1.000.cql)
-* [Measure Bundle](bundles/fhir3/exm72-fhir3-bundle.json)
-* [Denominator Patient (ID: XXXX)](tests/fhir3/EXM72/exm72-fhir3-denominator-test-bundle.json)
-* [Numerator Patient (ID: XXXX)](tests/fhir3/EXM72/exm72-fhir3-numerator-test-bundle.json)
+* [Measure CQL](cql/fhir3/EXM104_FHIR3-8.1.000.cql)
+* [Measure Bundle](bundles/fhir3/exm104-fhir3-bundle.json)
+* [Denominator Patient (ID: XXXX)](tests/fhir3/EXM104/exm104-fhir3-denominator-test-bundle.json)
+* [Numerator Patient (ID: XXXX)](tests/fhir3/EXM104/exm72-fhir3-numerator-test-bundle.json)
 
 #### FHIR4
 
-* [Measure CQL](cql/fhir4/EXM72_FHIR4-8.1.000.cql)
+* [Measure CQL](cql/fhir4/EXM104_FHIR4-8.1.000.cql)
 * [Measure Bundle](bundles/fhir4/exm72-fhir4-bundle.json)
-* [Denominator Patient (ID: XXXX)](tests/fhir4/EXM72/exm72-fhir4-denominator-test-bundle.json)
-* [Numerator Patient (ID: XXXX)](tests/fhir4/EXM72/exm72-fhir4-numerator-test-bundle.json)
+* [Denominator Patient (ID: XXXX)](tests/fhir4/EXM104/exm72-fhir4-denominator-test-bundle.json)
+* [Numerator Patient (ID: XXXX)](tests/fhir4/EXM104/exm72-fhir4-numerator-test-bundle.json)
 
 ## CDC Opioid Prescribing Support Guideline
 
