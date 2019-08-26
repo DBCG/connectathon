@@ -12,7 +12,7 @@
                         "http://hl7.org/fhir/profiles/Patient"
                     ]
                 },
-                "birthDate": "1965-01-01"
+                "birthDate": "1969-01-01"
             },
             "request": {
                 "method": "PUT",
@@ -71,13 +71,45 @@
                     "reference": "Patient/4730f4e5-3933-4d84-bb61-b491cd400102-1"
                 },
                 "performedPeriod": {
-                    "start": "2001-01-01T00:00:00",
-                    "end": "2001-01-02T00:00:00"
+                    "start": "2009-01-01T00:00:00",
+                    "end": "2009-01-02T00:00:00"
                 }
             },
             "request": {
                 "method": "PUT",
                 "url": "Procedure/4730f4e5-3933-4d84-bb61-b491cd400102-4"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Procedure",
+                "id": "4730f4e5-3933-4d84-bb61-b491cd400102-5",
+                "meta": {
+                    "profile": [
+                        "https://hl7.org/fhir/profiles/Procedure"
+                    ]
+                },
+                "status": "completed",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://www.ama-assn.org/go/cpt",
+                            "code": "44152",
+                            "display": "Colectomy, total, abdominal, without proctectomy; with rectal mucosectomy, ileoanal anastomosis, with or without loop ileostomy"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/4730f4e5-3933-4d84-bb61-b491cd400102-1"
+                },
+                "performedPeriod": {
+                    "start": "2018-01-01T00:00:00",
+                    "end": "2018-01-02T00:00:00"
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Procedure/4730f4e5-3933-4d84-bb61-b491cd400102-5"
             }
         }
     ]
