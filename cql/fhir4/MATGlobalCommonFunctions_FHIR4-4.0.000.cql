@@ -124,6 +124,11 @@ define function "Normalize Onset"(onset Choice<FHIR.dateTime, FHIR.Age, FHIR.Per
 	else if onset is FHIR.Period then FHIRHelpers.ToInterval(onset as FHIR.Period)
 	else null
 
+define function "Normalize Performed"(performed Choice<FHIR.dateTime, FHIR.Age, FHIR.Period, FHIR.Range, FHIR.string>):
+	if performed is FHIR.dateTime then Interval[performed.value, performed.value]
+	else if performed is FHIR.Period then FHIRHelpers.ToInterval(performed as FHIR.Period)
+	else null
+
 define function "Get Choice Interval - dateTime or Period"(performed Choice<FHIR.dateTime,FHIR.Period>):
 	if performed is FHIR.dateTime then Interval[performed.value, performed.value]
 	else FHIRHelpers.ToInterval(performed as FHIR.Period)

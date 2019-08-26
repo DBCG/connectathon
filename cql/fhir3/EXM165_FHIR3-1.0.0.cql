@@ -1,4 +1,4 @@
-library EXM165_FHIR version '8.5.000'
+library EXM165_FHIR3 version '8.5.000'
 
 /*
 Controlling High Blood Pressure (CBP)
