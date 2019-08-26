@@ -92,11 +92,13 @@ define "Denominator Exclusion":
 define "Absence of Cervix":
 	[Condition : "Congenital absence of cervix (disorder)"] NoCervixBirth
 		where NoCervixBirth.onset as dateTime before end of "Measurement Period"
-			and NoCervixBirth.clinicalStatus = 'active'
+			and exists ( NoCervixBirth.clinicalStatus.coding Coding
+        where Coding.code = 'active'
+      )
 
 define "Surgical Absence of Cervix":
 	[Procedure: "Hysterectomy with No Residual Cervix"] NoCervixHysterectomy
-		where NoCervixHysterectomy.performed ends before end of "Measurement Period"
+		where Global."Normalize Performed"(NoCervixHysterectomy.performed) ends before end of "Measurement Period"
 			and NoCervixHysterectomy.status = 'completed'
 
 define "Initial Population":
