@@ -1,4 +1,4 @@
-library EXM124_FHIR4 version '8.2.000'
+library EXM124_FHIR4 version '8.2.000' 
 
 /*
 Based on CMS124v7 - Cervical Cancer Screening
@@ -66,12 +66,12 @@ define "Pap Test with Results":
 
 define "Pap Test Within 3 Years":
 	"Pap Test with Results" PapTest
-		where PapTest.effective 3 years or less before end of "Measurement Period"
+		where FHIRHelpers.ToDateTime(PapTest.effective as dateTime) 3 years or less before end of "Measurement Period"
 
 define "PapTest Within 5 Years":
 	( "Pap Test with Results" PapTestOver30YearsOld
 			where Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(Patient.birthDate), start of Global."Get Choice Interval - dateTime or Period"(PapTestOver30YearsOld.effective))>= 30
-				and PapTestOver30YearsOld.effective 5 years or less before end of "Measurement Period"
+				and FHIRHelpers.ToDateTime(PapTestOver30YearsOld.effective as dateTime) 5 years or less before end of "Measurement Period"
 	)
 
 define "Pap Test With HPV Within 5 Years":
@@ -91,14 +91,14 @@ define "Denominator Exclusion":
 
 define "Absence of Cervix":
 	[Condition : "Congenital absence of cervix (disorder)"] NoCervixBirth
-		where NoCervixBirth.onset as dateTime before end of "Measurement Period"
+		where FHIRHelpers.ToDateTime(NoCervixBirth.onset as dateTime) before end of "Measurement Period"
 			and exists ( NoCervixBirth.clinicalStatus.coding Coding
         where Coding.code = 'active'
       )
 
 define "Surgical Absence of Cervix":
 	[Procedure: "Hysterectomy with No Residual Cervix"] NoCervixHysterectomy
-		where Global."Normalize Performed"(NoCervixHysterectomy.performed) ends before end of "Measurement Period"
+		where Global."Normalize Onset"(NoCervixHysterectomy.performed) ends before end of "Measurement Period"
 			and NoCervixHysterectomy.status = 'completed'
 
 define "Initial Population":

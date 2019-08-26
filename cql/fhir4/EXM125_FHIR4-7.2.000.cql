@@ -1,4 +1,4 @@
-library EXM125_FHIR4 version '7.2.000'
+library EXM125_FHIR4 version '7.2.000' 
 
 /*
 Based on CMS125v7 - Breast Cancer Screening
@@ -55,7 +55,7 @@ define "Denominator":
 
 define "Unilateral Mastectomy Procedure":
 		[Procedure: "Unilateral Mastectomy"] UnilateralMastectomyProcedure
-				where Global."Normalize Performed"(UnilateralMastectomyProcedure.performed) ends before day of end of "Measurement Period"
+				where Global."Normalize Onset"(UnilateralMastectomyProcedure.performed) ends before day of end of "Measurement Period"
 						and UnilateralMastectomyProcedure.status = 'completed'
 
 define "Right Mastectomy":
@@ -102,7 +102,7 @@ define "History Bilateral Mastectomy":
 
 define "Bilateral Mastectomy Procedure":
 		[Procedure: "Bilateral Mastectomy"] BilateralMastectomyPerformed
-				where Global."Normalize Performed"(BilateralMastectomyPerformed.performed) ends before day of end of "Measurement Period"
+				where Global."Normalize Onset"(BilateralMastectomyPerformed.performed) ends before day of end of "Measurement Period"
 						and BilateralMastectomyPerformed.status = 'completed'
 
 define "Numerator":
