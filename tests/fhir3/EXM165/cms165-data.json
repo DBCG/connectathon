@@ -1,6 +1,6 @@
 {
   "resourceType": "Bundle",
-  "id": "cms165-data",
+  "id": "cms165-data-stu3",
   "type": "transaction",
   "entry": [
     {
@@ -20,8 +20,8 @@
                 "url": "ombCategory",
                 "valueCoding": {
                   "system": "urn:oid:2.16.840.1.113883.6.238",
-                  "code": "2106-3",
-                  "display": "White"
+                  "code": "2028-9",
+                  "display": "Asian"
                 }
               }
             ]
@@ -65,7 +65,7 @@
           }
         ],
         "gender": "male",
-        "birthDate": "1971-05-21"
+        "birthDate": "1974-01-24"
       },
       "request": {
         "method": "PUT",
@@ -89,8 +89,8 @@
                 "url": "ombCategory",
                 "valueCoding": {
                   "system": "urn:oid:2.16.840.1.113883.6.238",
-                  "code": "2028-9",
-                  "display": "Asian"
+                  "code": "2106-3",
+                  "display": "White"
                 }
               }
             ]
@@ -127,14 +127,14 @@
         ],
         "name": [
           {
-            "family": "Jones",
+            "family": "Doe",
             "given": [
-              "Sarah"
+              "Jill"
             ]
           }
         ],
         "gender": "female",
-        "birthDate": "1961-06-11"
+        "birthDate": "1960-12-10"
       },
       "request": {
         "method": "PUT",
@@ -150,6 +150,7 @@
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
           ]
         },
+        "verificationStatus": "confirmed",
         "category": [
           {
             "coding": [
@@ -173,7 +174,7 @@
         "subject": {
           "reference": "Patient/Patient-1"
         },
-        "onsetDateTime": "2019-02-02T12:47:05-05:00"
+        "assertedDate": "2019-03-01T10:19:45-07:00"
       },
       "request": {
         "method": "PUT",
@@ -189,6 +190,7 @@
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
           ]
         },
+        "verificationStatus": "confirmed",
         "category": [
           {
             "coding": [
@@ -204,15 +206,15 @@
           "coding": [
             {
               "system": "http://snomed.info/sct",
-              "code": "46481004",
-              "display": "Low-renin essential hypertension (disorder)"
+              "code": "59621000",
+              "display": "Essential hypertension (disorder)"
             }
           ]
         },
         "subject": {
           "reference": "Patient/Patient-2"
         },
-        "onsetDateTime": "2019-07-17T12:47:05-04:00"
+        "assertedDate": "2019-05-02T10:19:45-06:00"
       },
       "request": {
         "method": "PUT",
@@ -231,15 +233,15 @@
         "status": "finished",
         "class": {
           "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-          "code": "AMB",
-          "display": "ambulatory"
+          "code": "IMP",
+          "display": "inpatient encounter"
         },
         "type": [
           {
             "coding": [
               {
                 "system": "http://www.ama-assn.org/go/cpt",
-                "code": "99205"
+                "code": "99203"
               }
             ]
           }
@@ -248,7 +250,7 @@
           "reference": "Patient/Patient-1"
         },
         "period": {
-          "start": "2019-12-01T12:47:05-05:00"
+          "start": "2019-04-07T10:19:45-06:00"
         }
       },
       "request": {
@@ -268,8 +270,8 @@
         "status": "finished",
         "class": {
           "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-          "code": "AMB",
-          "display": "ambulatory"
+          "code": "IMP",
+          "display": "inpatient encounter"
         },
         "type": [
           {
@@ -285,7 +287,7 @@
           "reference": "Patient/Patient-2"
         },
         "period": {
-          "start": "2019-02-18T12:47:05-05:00"
+          "start": "2019-08-08T10:19:45-06:00"
         }
       },
       "request": {
@@ -326,6 +328,10 @@
         "subject": {
           "reference": "Patient/Patient-2"
         },
+        "context": {
+          "reference": "Encounter/Encounter-2"
+        },
+        "effectiveDateTime": "2019-02-11T10:19:45-07:00",
         "component": [
           {
             "code": {
@@ -338,7 +344,7 @@
               ]
             },
             "valueQuantity": {
-              "value": 104,
+              "value": 106,
               "unit": "mmHg",
               "system": "http://unitsofmeasure.org",
               "code": "mm[Hg]"
@@ -355,7 +361,7 @@
               ]
             },
             "valueQuantity": {
-              "value": 64,
+              "value": 71,
               "unit": "mmHg",
               "system": "http://unitsofmeasure.org",
               "code": "mm[Hg]"
