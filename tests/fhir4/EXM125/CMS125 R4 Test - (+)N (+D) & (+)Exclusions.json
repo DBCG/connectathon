@@ -1,0 +1,141 @@
+{
+    "resourceType": "Bundle",
+    "id": "a3de779b-8f63-4fd8-84c2-97c4b92da43e",
+    "type": "transaction",
+    "entry": [
+        {
+            "resource": {
+                "resourceType": "Patient",
+                "id": "a3de779b-8f63-4fd8-84c2-97c4b92da43e-1",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/Patient"
+                    ]
+                },
+                "birthDate": "1968-01-01",
+                "gender": "female"
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Patient/a3de779b-8f63-4fd8-84c2-97c4b92da43e-1"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Encounter",
+                "id": "a3de779b-8f63-4fd8-84c2-97c4b92da43e-2",
+                "status": "finished",
+                "subject": {
+                    "reference": "Patient/a3de779b-8f63-4fd8-84c2-97c4b92da43e-1"
+                },
+                "type": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://www.ama-assn.org/go/cpt",
+                                "code": "99201",
+                                "display": "Office or other outpatient visit for the evaluation and management of a new patient, which requires these 3 key components: A problem focused history; A problem focused examination; Straightforward medical decision making. Counseling and/or coordination of care with other physicians, other qualified health care professionals, or agencies are provided consistent with the nature of the problem(s) and the patient's and/or family's needs. Usually, the presenting problem(s) are self limited or minor. Typically, 10 minutes are spent face-to-face with the patient and/or family."
+                            }
+                        ] 
+                    }
+                ],
+                "period": {
+                    "start": "2019-05-30T00:00:00-00:00",
+                    "end": "2019-05-31T00:00:00-00:00"
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Encounter/a3de779b-8f63-4fd8-84c2-97c4b92da43e-2"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "DiagnosticReport",
+                "id": "a3de779b-8f63-4fd8-84c2-97c4b92da43e-3",
+                "status": "final",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "24604-1",
+                            "display": "MG Breast Diagnostic Limited Views"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/a3de779b-8f63-4fd8-84c2-97c4b92da43e-1"
+                },
+                "effectiveDateTime": "2019-02-01T00:00:00"
+            },
+            "request": {
+                "method": "PUT",
+                "url": "DiagnosticReport/a3de779b-8f63-4fd8-84c2-97c4b92da43e-3"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Procedure",
+                "id": "a3de779b-8f63-4fd8-84c2-97c4b92da43e-4",
+                "meta": {
+                    "profile": [
+                        "https://hl7.org/fhir/profiles/Procedure"
+                    ]
+                },
+                "status": "completed",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://www.ama-assn.org/go/cpt",
+                            "code": "19180",
+                            "display": "Mastectomy, simple, complete"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/a3de779b-8f63-4fd8-84c2-97c4b92da43e-1"
+                },
+                "performedPeriod": {
+                    "start": "2019-03-01T00:00:00",
+                    "end": "2019-03-02T00:00:00"
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Procedure/a3de779b-8f63-4fd8-84c2-97c4b92da43e-4"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Procedure",
+                "id": "a3de779b-8f63-4fd8-84c2-97c4b92da43e-5",
+                "meta": {
+                    "profile": [
+                        "https://hl7.org/fhir/profiles/Procedure"
+                    ]
+                },
+                "status": "completed",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://www.ama-assn.org/go/cpt",
+                            "code": "19180",
+                            "display": "Mastectomy, simple, complete"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/a3de779b-8f63-4fd8-84c2-97c4b92da43e-1"
+                },
+                "performedPeriod": {
+                    "start": "2019-04-01T00:00:00",
+                    "end": "2019-04-02T00:00:00"
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Procedure/a3de779b-8f63-4fd8-84c2-97c4b92da43e-5"
+            }
+        }
+    ]
+}
