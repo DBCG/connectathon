@@ -58,14 +58,14 @@
         ],
         "name": [
           {
-            "family": "Doe",
+            "family": "Johnson",
             "given": [
-              "Rick"
+              "John"
             ]
           }
         ],
         "gender": "male",
-        "birthDate": "1966-05-16"
+        "birthDate": "1956-01-06"
       },
       "request": {
         "method": "PUT",
@@ -89,8 +89,8 @@
                 "url": "ombCategory",
                 "valueCoding": {
                   "system": "urn:oid:2.16.840.1.113883.6.238",
-                  "code": "2054-5",
-                  "display": "Black or African American"
+                  "code": "2028-9",
+                  "display": "Asian"
                 }
               }
             ]
@@ -102,8 +102,8 @@
                 "url": "ombCategory",
                 "valueCoding": {
                   "system": "urn:oid:2.16.840.1.113883.6.238",
-                  "code": "2186-5",
-                  "display": "Not Hispanic or Latino"
+                  "code": "2135-2",
+                  "display": "Hispanic or Latino"
                 }
               }
             ]
@@ -129,12 +129,12 @@
           {
             "family": "Adams",
             "given": [
-              "Jane"
+              "Jill"
             ]
           }
         ],
         "gender": "female",
-        "birthDate": "1958-06-08"
+        "birthDate": "1968-08-18"
       },
       "request": {
         "method": "PUT",
@@ -150,6 +150,15 @@
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
           ]
         },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
         "category": [
           {
             "coding": [
@@ -165,15 +174,15 @@
           "coding": [
             {
               "system": "http://snomed.info/sct",
-              "code": "56218007",
-              "display": "Systolic hypertension (disorder)"
+              "code": "46481004",
+              "display": "Low-renin essential hypertension (disorder)"
             }
           ]
         },
         "subject": {
           "reference": "Patient/Patient-3"
         },
-        "onsetDateTime": "2019-04-03T12:36:35-06:00"
+        "recordedDate": "2019-05-20T10:19:46-06:00"
       },
       "request": {
         "method": "PUT",
@@ -189,6 +198,15 @@
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
           ]
         },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
         "category": [
           {
             "coding": [
@@ -204,15 +222,15 @@
           "coding": [
             {
               "system": "http://snomed.info/sct",
-              "code": "56218007",
-              "display": "Systolic hypertension (disorder)"
+              "code": "59621000",
+              "display": "Essential hypertension (disorder)"
             }
           ]
         },
         "subject": {
           "reference": "Patient/Patient-4"
         },
-        "onsetDateTime": "2019-07-17T12:36:35-06:00"
+        "recordedDate": "2019-04-25T10:19:46-06:00"
       },
       "request": {
         "method": "PUT",
@@ -231,15 +249,15 @@
         "status": "finished",
         "class": {
           "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-          "code": "AMB",
-          "display": "ambulatory"
+          "code": "IMP",
+          "display": "inpatient encounter"
         },
         "type": [
           {
             "coding": [
               {
                 "system": "http://www.ama-assn.org/go/cpt",
-                "code": "99202"
+                "code": "99205"
               }
             ]
           }
@@ -248,7 +266,7 @@
           "reference": "Patient/Patient-3"
         },
         "period": {
-          "start": "2019-06-25T12:36:35-06:00"
+          "start": "2019-12-19T10:19:46-07:00"
         }
       },
       "request": {
@@ -268,8 +286,8 @@
         "status": "finished",
         "class": {
           "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-          "code": "AMB",
-          "display": "ambulatory"
+          "code": "IMP",
+          "display": "inpatient encounter"
         },
         "type": [
           {
@@ -285,7 +303,7 @@
           "reference": "Patient/Patient-4"
         },
         "period": {
-          "start": "2019-04-22T12:36:35-06:00"
+          "start": "2019-08-10T10:19:46-06:00"
         }
       },
       "request": {
@@ -326,6 +344,10 @@
         "subject": {
           "reference": "Patient/Patient-4"
         },
+        "encounter": {
+          "reference": "Encounter/Encounter-4"
+        },
+        "effectiveDateTime": "2019-12-11T10:19:46-07:00",
         "component": [
           {
             "code": {
@@ -338,7 +360,7 @@
               ]
             },
             "valueQuantity": {
-              "value": 130,
+              "value": 129,
               "unit": "mmHg",
               "system": "http://unitsofmeasure.org",
               "code": "mm[Hg]"
@@ -355,7 +377,7 @@
               ]
             },
             "valueQuantity": {
-              "value": 68,
+              "value": 88,
               "unit": "mmHg",
               "system": "http://unitsofmeasure.org",
               "code": "mm[Hg]"
