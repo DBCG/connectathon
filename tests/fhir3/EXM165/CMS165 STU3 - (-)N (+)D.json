@@ -1,0 +1,162 @@
+{
+    "resourceType": "Bundle",
+    "id": "bb8c28af-315f-4a3d-b2b5-86b40a0639dd",
+    "type": "transaction",
+    "entry": [
+        {
+            "resource": {
+                "resourceType": "Patient",
+                "id": "bb8c28af-315f-4a3d-b2b5-86b40a0639dd-1",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/Patient"
+                    ]
+                },
+                "birthDate": "2000-01-01"
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Patient/bb8c28af-315f-4a3d-b2b5-86b40a0639dd-1"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Encounter",
+                "id": "bb8c28af-315f-4a3d-b2b5-86b40a0639dd-2",
+                "status": "finished",
+                "subject": {
+                    "reference": "Patient/bb8c28af-315f-4a3d-b2b5-86b40a0639dd-1"
+                },
+                "type": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://www.ama-assn.org/go/cpt",
+                                "code": "99201",
+                                "display": "Office or other outpatient visit for the evaluation and management of a new patient, which requires these 3 key components: A problem focused history; A problem focused examination; Straightforward medical decision making. Counseling and/or coordination of care with other physicians, other qualified health care professionals, or agencies are provided consistent with the nature of the problem(s) and the patient's and/or family's needs. Usually, the presenting problem(s) are self limited or minor. Typically, 10 minutes are spent face-to-face with the patient and/or family."
+                            }
+                        ]
+                    }
+                ],
+                "period": {
+                    "start": "2019-01-01T00:00:00-00:00",
+                    "end": "2019-01-02T00:00:00-00:00"
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Encounter/bb8c28af-315f-4a3d-b2b5-86b40a0639dd-2"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Observation",
+                "id": "bb8c28af-315f-4a3d-b2b5-86b40a0639dd-3",
+                "status": "final",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "85354-9",
+                            "display": "Blood pressure"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/bb8c28af-315f-4a3d-b2b5-86b40a0639dd-1"
+                },
+                "effectiveDateTime": "2019-11-01T00:00:00",
+                "component": [
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "http://loinc.org",
+                                    "code": "8462-4",
+                                    "display": "Diastolic blood pressure"    
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "valueQuantity": {
+                            "value": "89",
+                            "unit": "mm[Hg]"
+                        }
+                    }
+                ]
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Observation/bb8c28af-315f-4a3d-b2b5-86b40a0639dd-3"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Observation",
+                "id": "bb8c28af-315f-4a3d-b2b5-86b40a0639dd-4",
+                "status": "final",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "85354-9",
+                            "display": "Blood pressure"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/bb8c28af-315f-4a3d-b2b5-86b40a0639dd-1"
+                },
+                "effectiveDateTime": "2019-11-01T00:00:00",
+                "component": [
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "http://loinc.org",
+                                    "code": "8480-6",
+                                    "display": "Systolic blood pressure"    
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "valueQuantity": {
+                            "value": "140",
+                            "unit": "mm[Hg]"
+                        }
+                    }
+                ]
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Observation/bb8c28af-315f-4a3d-b2b5-86b40a0639dd-4"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Condition",
+                "id": "bb8c28af-315f-4a3d-b2b5-86b40a0639dd-5",
+                "verificationStatus": "confirmed",
+                "assertedDate": "2019-03-01T00:00:00.0",
+                "subject": {
+                    "reference": "Patient/bb8c28af-315f-4a3d-b2b5-86b40a0639dd-1"
+                },
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "1201005",
+                            "display": "Benign essential hypertension (disorder)"
+                        }
+                    ]
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Condition/bb8c28af-315f-4a3d-b2b5-86b40a0639dd-5"
+            }
+        }
+    ]
+}

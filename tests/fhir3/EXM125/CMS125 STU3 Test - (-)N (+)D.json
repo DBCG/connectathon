@@ -1,0 +1,77 @@
+{
+    "resourceType": "Bundle",
+    "id": "cbb3375f-0962-4f31-8681-c7e6f29968dd",
+    "type": "transaction",
+    "entry": [
+        {
+            "resource": {
+                "resourceType": "Patient",
+                "id": "cbb3375f-0962-4f31-8681-c7e6f29968dd-1",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/Patient"
+                    ]
+                },
+                "birthDate": "1965-01-01",
+                "gender": "female"
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Patient/cbb3375f-0962-4f31-8681-c7e6f29968dd-1"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Encounter",
+                "id": "cbb3375f-0962-4f31-8681-c7e6f29968dd-2",
+                "status": "finished",
+                "subject": {
+                    "reference": "Patient/cbb3375f-0962-4f31-8681-c7e6f29968dd-1"
+                },
+                "type": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://www.ama-assn.org/go/cpt",
+                                "code": "99201",
+                                "display": "Office or other outpatient visit for the evaluation and management of a new patient, which requires these 3 key components: A problem focused history; A problem focused examination; Straightforward medical decision making. Counseling and/or coordination of care with other physicians, other qualified health care professionals, or agencies are provided consistent with the nature of the problem(s) and the patient's and/or family's needs. Usually, the presenting problem(s) are self limited or minor. Typically, 10 minutes are spent face-to-face with the patient and/or family."
+                            }
+                        ] 
+                    }
+                ],
+                "period": {
+                    "start": "2019-05-31T00:00:00-00:00",
+                    "end": "2019-05-31T00:00:00-00:00"
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Encounter/cbb3375f-0962-4f31-8681-c7e6f29968dd-2"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "DiagnosticReport",
+                "id": "cbb3375f-0962-4f31-8681-c7e6f29968dd-3",
+                "status": "final",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://loinc.org",
+                            "code": "24604-1",
+                            "display": "MG Breast Diagnostic Limited Views"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/cbb3375f-0962-4f31-8681-c7e6f29968dd-1"
+                },
+                "effectiveDateTime": "2016-11-01T00:00:00"
+            },
+            "request": {
+                "method": "PUT",
+                "url": "DiagnosticReport/cbb3375f-0962-4f31-8681-c7e6f29968dd-3"
+            }
+        }
+    ]
+}

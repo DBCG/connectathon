@@ -1,31 +1,32 @@
 {
     "resourceType": "Bundle",
-    "id": "4730f4e5-3933-4d84-bb61-b491cd400102",
+    "id": "8ce4913e-4b06-4914-a43b-ec45b53850e5",
     "type": "transaction",
     "entry": [
         {
             "resource": {
                 "resourceType": "Patient",
-                "id": "4730f4e5-3933-4d84-bb61-b491cd400102-1",
+                "id": "8ce4913e-4b06-4914-a43b-ec45b53850e5-1",
                 "meta": {
                     "profile": [
                         "http://hl7.org/fhir/profiles/Patient"
                     ]
                 },
-                "birthDate": "1965-01-01"
+                "birthDate": "1995-01-01",
+                "gender": "female"
             },
             "request": {
                 "method": "PUT",
-                "url": "Patient/4730f4e5-3933-4d84-bb61-b491cd400102-1"
+                "url": "Patient/8ce4913e-4b06-4914-a43b-ec45b53850e5-1"
             }
         },
         {
             "resource": {
                 "resourceType": "Encounter",
-                "id": "4730f4e5-3933-4d84-bb61-b491cd400102-2",
+                "id": "8ce4913e-4b06-4914-a43b-ec45b53850e5-2",
                 "status": "finished",
                 "subject": {
-                    "reference": "Patient/4730f4e5-3933-4d84-bb61-b491cd400102-1"
+                    "reference": "Patient/8ce4913e-4b06-4914-a43b-ec45b53850e5-1"
                 },
                 "type": [
                     {
@@ -35,49 +36,41 @@
                                 "code": "99201",
                                 "display": "Office or other outpatient visit for the evaluation and management of a new patient, which requires these 3 key components: A problem focused history; A problem focused examination; Straightforward medical decision making. Counseling and/or coordination of care with other physicians, other qualified health care professionals, or agencies are provided consistent with the nature of the problem(s) and the patient's and/or family's needs. Usually, the presenting problem(s) are self limited or minor. Typically, 10 minutes are spent face-to-face with the patient and/or family."
                             }
-                        ] 
+                        ]
                     }
                 ],
                 "period": {
-                    "start": "2019-05-30T00:00:00-00:00",
-                    "end": "2019-05-31T00:00:00-00:00"
+                    "start": "2019-01-01T00:00:00-00:00",
+                    "end": "2019-01-02T00:00:00-00:00"
                 }
             },
             "request": {
                 "method": "PUT",
-                "url": "Encounter/4730f4e5-3933-4d84-bb61-b491cd400102-2"
+                "url": "Encounter/8ce4913e-4b06-4914-a43b-ec45b53850e5-2"
             }
         },
         {
             "resource": {
-                "resourceType": "Procedure",
-                "id": "4730f4e5-3933-4d84-bb61-b491cd400102-4",
-                "meta": {
-                    "profile": [
-                        "https://hl7.org/fhir/profiles/Procedure"
-                    ]
-                },
-                "status": "completed",
+                "resourceType": "Observation",
+                "id": "8ce4913e-4b06-4914-a43b-ec45b53850e5-3",
+                "status": "final",
                 "code": {
                     "coding": [
                         {
-                            "system": "http://www.ama-assn.org/go/cpt",
-                            "code": "44393",
-                            "display": "Colonoscopy through stoma; with ablation of tumor(s), polyp(s), or other lesion(s) not amenable to removal by hot biopsy forceps, bipolar cautery or snare technique"
+                            "system": "http://loinc.org",
+                            "code": "10524-7",
+                            "display": "Microscopic observation [Identifier] in Cervix by Cyto stain"
                         }
                     ]
                 },
                 "subject": {
-                    "reference": "Patient/4730f4e5-3933-4d84-bb61-b491cd400102-1"
+                    "reference": "Patient/8ce4913e-4b06-4914-a43b-ec45b53850e5-1"
                 },
-                "performedPeriod": {
-                    "start": "2001-01-01T00:00:00",
-                    "end": "2001-01-02T00:00:00"
-                }
+                "effectiveDateTime": "2019-11-01T00:00:00"
             },
             "request": {
                 "method": "PUT",
-                "url": "Procedure/4730f4e5-3933-4d84-bb61-b491cd400102-4"
+                "url": "Observation/8ce4913e-4b06-4914-a43b-ec45b53850e5-3"
             }
         }
     ]

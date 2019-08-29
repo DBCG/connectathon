@@ -1,0 +1,84 @@
+{
+    "resourceType": "Bundle",
+    "id": "f374624b-bc08-47ac-986e-d155be195056",
+    "type": "transaction",
+    "entry": [
+        {
+            "resource": {
+                "resourceType": "Patient",
+                "id": "f374624b-bc08-47ac-986e-d155be195056-1",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/profiles/Patient"
+                    ]
+                },
+                "birthDate": "1965-01-01"
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Patient/f374624b-bc08-47ac-986e-d155be195056-1"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Encounter",
+                "id": "f374624b-bc08-47ac-986e-d155be195056-2",
+                "status": "finished",
+                "subject": {
+                    "reference": "Patient/f374624b-bc08-47ac-986e-d155be195056-1"
+                },
+                "type": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://www.ama-assn.org/go/cpt",
+                                "code": "99201",
+                                "display": "Office or other outpatient visit for the evaluation and management of a new patient, which requires these 3 key components: A problem focused history; A problem focused examination; Straightforward medical decision making. Counseling and/or coordination of care with other physicians, other qualified health care professionals, or agencies are provided consistent with the nature of the problem(s) and the patient's and/or family's needs. Usually, the presenting problem(s) are self limited or minor. Typically, 10 minutes are spent face-to-face with the patient and/or family."
+                            }
+                        ] 
+                    }
+                ],
+                "period": {
+                    "start": "2019-05-30T00:00:00-00:00",
+                    "end": "2019-05-31T00:00:00-00:00"
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Encounter/f374624b-bc08-47ac-986e-d155be195056-2"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Procedure",
+                "id": "f374624b-bc08-47ac-986e-d155be195056-4",
+                "meta": {
+                    "profile": [
+                        "https://hl7.org/fhir/profiles/Procedure"
+                    ]
+                },
+                "status": "completed",
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://www.ama-assn.org/go/cpt",
+                            "code": "44393",
+                            "display": "Colonoscopy through stoma; with ablation of tumor(s), polyp(s), or other lesion(s) not amenable to removal by hot biopsy forceps, bipolar cautery or snare technique"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/f374624b-bc08-47ac-986e-d155be195056-1"
+                },
+                "performedPeriod": {
+                    "start": "2009-12-30T12:00:00",
+                    "end": "2009-12-30T13:00:00"
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Procedure/f374624b-bc08-47ac-986e-d155be195056-4"
+            }
+        }
+    ]
+}
