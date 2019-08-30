@@ -1,4 +1,4 @@
-library EXM165_FHIR version '8.5.000'
+library EXM165_FHIR4 version '8.5.000'
 
 /*
 Controlling High Blood Pressure (CBP)
@@ -9,6 +9,9 @@ using FHIR version '4.0.0'
 include FHIRHelpers version '4.0.0'
 include MATGlobalCommonFunctions_FHIR4 version '4.0.000' called Common
 include AdultOutpatientEncounters_FHIR4 version '1.1.000' called AdultOutpatientEncounters
+include SupplementalDataElements_FHIR4 version '1.0.0' called SDE
+include AdvancedIllnessandFrailtyExclusion_FHIR4 version '4.0.000' called FrailtyLTI
+include Hospice_FHIR4 version '1.0.000' called Hospice
 //include NCQACommon_FHIR version '3.10.000' called Common
 //include Participation_FHIR version '1.0.0'
 
@@ -39,17 +42,17 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-//define "SDE Ethnicity":
-//	["Patient Characteristic Ethnicity": "Ethnicity"]
+define "SDE Ethnicity":
+  SDE."SDE Ethnicity"
 
-//define "SDE Payer":
-//	["Patient Characteristic Payer": "Payer"]
+define "SDE Payer":
+  SDE."SDE Payer"
 
-//define "SDE Race":
-//	["Patient Characteristic Race": "Race"]
+define "SDE Race":
+  SDE."SDE Race"
 
-//define "SDE Sex":
-//	["Patient Characteristic Sex": "ONC Administrative Sex"]
+define "SDE Sex":
+  SDE."SDE Sex"
 
 define "Has Diastolic Blood Pressure Less Than 90":
 	"Lowest Diastolic Reading on Most Recent Blood Pressure Day".value < 90
@@ -115,7 +118,7 @@ define "Qualifying Systolic Blood Pressure Reading":
 	  where BloodPressure.status in {'final', 'amended'}
       and BloodPressure.effective during "Measurement Period"
       // TODO: Turn this into a value set
-	    and not (GetEncounter(BloodPressure."encounter").class.code in { 'EMER', 'IMP', 'ACUTE', 'NONAC', 'PRENC', 'SS'})
+	    and not (GetEncounter(BloodPressure.encounter).class.code in { 'EMER', 'IMP', 'ACUTE', 'NONAC', 'PRENC', 'SS'})
       and exists (
         BloodPressure.component SystolicBP
           where FHIRHelpers.ToConcept(SystolicBP.code) ~ "Systolic blood pressure"
@@ -137,7 +140,7 @@ define "Pregnancy Or Renal Diagnosis Exclusions":
 		union ["Condition": "End Stage Renal Disease"]
 		union ["Condition": "Kidney Transplant Recipient"]
 		union ["Condition": "Chronic Kidney Disease, Stage 5"] ) PregnancyESRDDiagnosis
-      where 'confirmed' in PregnancyESRDDiagnosis.verificationStatus.coding.code
+      where PregnancyESRDDiagnosis.verificationStatus.coding.code contains 'confirmed'
         and PregnancyESRDDiagnosis.recordedDate before end of "Measurement Period"
 
 define "Denominator":
@@ -145,7 +148,7 @@ define "Denominator":
 
 define "End Stage Renal Disease Encounter":
 	["Encounter": "ESRD Monthly Outpatient Services"] ESRDEncounter
-		where ESRDEncounter.status.value in { 'planned', 'arrived', 'triaged', 'in-progress', 'onleave', 'finished' }
+		where ESRDEncounter.status.value in { 'arrived', 'triaged', 'in-progress', 'onleave', 'finished' }
 		  and ESRDEncounter.period starts before end of "Measurement Period"
 
 define "End Stage Renal Disease Procedures":
@@ -157,21 +160,19 @@ define "End Stage Renal Disease Procedures":
 
 define "Essential Hypertension Diagnosis":
 	["Condition": "Essential Hypertension"] Hypertension
-    where 'confirmed' in Hypertension.verificationStatus.coding.code
+    where Hypertension.verificationStatus.coding.code contains 'confirmed'
      and (Hypertension.recordedDate 6 months or less on or after start of "Measurement Period"
       or Hypertension.recordedDate before end of "Measurement Period"
     )
 
-/*
+
 // TODO: Translate exclusions
 define "Denominator Exclusions":
-	Hospice."Has Hospice"
-		or exists "Pregnancy Or Renal Diagnosis Exclusions"
-		or ( exists "End Stage Renal Disease Procedures"
-				or exists "End Stage Renal Disease Encounter"
-		)
-		or ( exists ["Patient Characteristic Birthdate": "Birth date"] BirthDate
-		    where exists (Common.CalendarAgeInYearsAt(FHIRHelpers.ToDate(Patient.birthDate), end of "Measurement Period")>= 65)
-		    									and FrailtyLTI."Has Spent More Than 90 Days in Long Term Care")
-								or FrailtyLTI."Advanced Illness and Frailty Exclusion Including Over Age 80"
-*/
+    Hospice."Has Hospice"("Measurement Period")
+        or exists "Pregnancy Or Renal Diagnosis Exclusions"
+        or ( exists "End Stage Renal Disease Procedures"
+                or exists "End Stage Renal Disease Encounter"
+        )
+   or (Common."CalendarAgeInYearsAt"(ToDateTime(Patient.birthDate), start of "Measurement Period")>= 65 )
+                and FrailtyLTI."Has Spent More Than 90 Days in Long Term Care"
+      or FrailtyLTI."Advanced Illness and Frailty Exclusion Including Over Age 80"
