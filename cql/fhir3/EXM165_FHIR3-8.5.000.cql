@@ -10,6 +10,8 @@ include FHIRHelpers version '3.0.0'
 include MATGlobalCommonFunctions_FHIR3 version '2.0.000' called Common
 include AdultOutpatientEncounters_FHIR3 version '1.1.000' called AdultOutpatientEncounters
 include SupplementalDataElements_FHIR3 version '1.0.0' called SDE
+include Hospice_FHIR3 version '1.0.000' called Hospice
+include AdvancedIllnessandFrailtyExclusion_FHIR3 version '4.0.000' called FrailtyLTI
 //include NCQACommon_FHIR version '3.10.000' called Common
 //include Participation_FHIR version '1.0.0'
 
@@ -163,16 +165,13 @@ define "Essential Hypertension Diagnosis":
       or Hypertension.assertedDate before end of "Measurement Period"
     )
 
-/*
 // TODO: Translate exclusions
 define "Denominator Exclusions":
-	Hospice."Has Hospice"
-		or exists "Pregnancy Or Renal Diagnosis Exclusions"
-		or ( exists "End Stage Renal Disease Procedures"
-				or exists "End Stage Renal Disease Encounter"
-		)
-		or ( exists ["Patient Characteristic Birthdate": "Birth date"] BirthDate
-		    where exists (Common.CalendarAgeInYearsAt(FHIRHelpers.ToDate(Patient.birthDate), end of "Measurement Period")>= 65)
-		    									and FrailtyLTI."Has Spent More Than 90 Days in Long Term Care")
-								or FrailtyLTI."Advanced Illness and Frailty Exclusion Including Over Age 80"
-*/
+    Hospice."Has Hospice"("Measurement Period")
+        or exists "Pregnancy Or Renal Diagnosis Exclusions"
+        or ( exists "End Stage Renal Disease Procedures"
+                or exists "End Stage Renal Disease Encounter"
+        )
+   or (Common."CalendarAgeInYearsAt"(ToDateTime(Patient.birthDate), start of "Measurement Period")>= 65 )
+                and FrailtyLTI."Has Spent More Than 90 Days in Long Term Care"
+      or FrailtyLTI."Advanced Illness and Frailty Exclusion Including Over Age 80"
