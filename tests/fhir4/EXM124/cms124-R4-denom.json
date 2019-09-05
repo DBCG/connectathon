@@ -9,9 +9,61 @@
                 "id": "8ce4913e-4b06-4914-a43b-ec45b53850e5-1",
                 "meta": {
                     "profile": [
-                        "http://hl7.org/fhir/profiles/Patient"
+                      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
                     ]
-                },
+                  },
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+                      "extension": [
+                        {
+                          "url": "ombCategory",
+                          "valueCoding": {
+                            "system": "urn:oid:2.16.840.1.113883.6.238",
+                            "code": "2028-9",
+                            "display": "Asian"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+                      "extension": [
+                        {
+                          "url": "ombCategory",
+                          "valueCoding": {
+                            "system": "urn:oid:2.16.840.1.113883.6.238",
+                            "code": "2135-2",
+                            "display": "Hispanic or Latino"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "identifier": [
+                    {
+                      "use": "usual",
+                      "type": {
+                        "coding": [
+                          {
+                            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                            "code": "MR",
+                            "display": "Medical Record Number"
+                          }
+                        ]
+                      },
+                      "system": "http://hospital.smarthealthit.org",
+                      "value": "999999995"
+                    }
+                  ],
+                  "name": [
+                    {
+                      "family": "Bertha",
+                      "given": [
+                        "Betty"
+                      ]
+                    }
+                  ],
                 "birthDate": "1995-01-01",
                 "gender": "female"
             },
@@ -24,10 +76,20 @@
             "resource": {
                 "resourceType": "Encounter",
                 "id": "8ce4913e-4b06-4914-a43b-ec45b53850e5-2",
-                "status": "finished",
                 "subject": {
                     "reference": "Patient/8ce4913e-4b06-4914-a43b-ec45b53850e5-1"
                 },
+                "meta": {
+                    "profile": [
+                      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+                    ]
+                  },
+                  "status": "finished",
+                  "class": {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                    "code": "AMB",
+                    "display": "ambulatory"
+                  },
                 "type": [
                     {
                         "coding": [
@@ -53,6 +115,9 @@
             "resource": {
                 "resourceType": "Observation",
                 "id": "8ce4913e-4b06-4914-a43b-ec45b53850e5-3",
+                "profile": [
+                    "http://hl7.org/fhir/observation"
+                ],
                 "status": "final",
                 "code": {
                     "coding": [
