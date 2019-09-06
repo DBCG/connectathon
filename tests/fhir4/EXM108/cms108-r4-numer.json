@@ -1,0 +1,233 @@
+{
+  "resourceType": "Bundle",
+  "id": "cms108-r4-numer",
+  "type": "transaction",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "a3a265b0-be81-4613-8a63-67b98748eb32",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2106-3",
+                  "display": "White"
+                }
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2186-5",
+                  "display": "Not Hispanic or Latino"
+                }
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR",
+                  "display": "Medical Record Number"
+                }
+              ]
+            },
+            "system": "http://hospital.smarthealthit.org",
+            "value": "999999999"
+          }
+        ],
+        "name": [
+          {
+            "family": "Doe",
+            "given": [
+              "Amy"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1957-10-07"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseR4/Patient/a3a265b0-be81-4613-8a63-67b98748eb32"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "7e318391-fcc2-4de6-8844-22fb1a3dbc2f",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "213213007",
+              "display": "Cardiac arrest as a complication of care (disorder)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/a3a265b0-be81-4613-8a63-67b98748eb32"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseR4/Condition/7e318391-fcc2-4de6-8844-22fb1a3dbc2f"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "264a062c-f0e3-4d35-accb-7d302bf83861",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "32485007",
+                "display": "Hospital admission (procedure)"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/a3a265b0-be81-4613-8a63-67b98748eb32"
+        },
+        "period": {
+          "start": "2019-01-16T08:30:00-07:00",
+          "end": "2019-01-20T08:30:00-07:00"
+        },
+        "diagnosis": [
+          {
+            "condition": {
+              "reference": "Condition/7e318391-fcc2-4de6-8844-22fb1a3dbc2f"
+            },
+            "use": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/diagnosis-role",
+                  "code": "billing",
+                  "display": "Billing"
+                }
+              ]
+            },
+            "rank": 1
+          }
+        ],
+        "hospitalization": {
+          "dischargeDisposition": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "306701001",
+                "display": "Discharge to community hospital (procedure)"
+              }
+            ]
+          }
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseR4/Encounter/264a062c-f0e3-4d35-accb-7d302bf83861"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DeviceUseStatement",
+        "id": "46325d4e-2667-4fb4-a14a-baf6e7a6a0ab",
+        "status": "completed",
+        "subject": {
+          "reference": "Patient/a3a265b0-be81-4613-8a63-67b98748eb32"
+        },
+        "timingPeriod": {
+          "start": "2019-01-17T12:30:00-07:00",
+          "end": "2019-01-17T12:45:00-07:00"
+        },
+        "device": {
+          "reference": "Device/d445ca45-67e2-462b-b04d-19a4d9db2682"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseR4/DeviceUseStatement/46325d4e-2667-4fb4-a14a-baf6e7a6a0ab"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Device",
+        "id": "d445ca45-67e2-462b-b04d-19a4d9db2682",
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "442023007",
+              "display": "Venous foot pump, device (physical object)"
+            }
+          ]
+        },
+        "patient": {
+          "reference": "Patient/a3a265b0-be81-4613-8a63-67b98748eb32"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseR4/Device/d445ca45-67e2-462b-b04d-19a4d9db2682"
+      }
+    }
+  ]
+}
