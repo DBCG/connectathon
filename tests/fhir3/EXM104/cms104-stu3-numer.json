@@ -1,0 +1,216 @@
+{
+  "resourceType": "Bundle",
+  "id": "cms104-stu3-numer",
+  "type": "transaction",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "35e045bf-080c-4bbb-9afb-4d144e17307e",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2106-3",
+                  "display": "White"
+                }
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2186-5",
+                  "display": "Not Hispanic or Latino"
+                }
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR",
+                  "display": "Medical Record Number"
+                }
+              ]
+            },
+            "system": "http://hospital.smarthealthit.org",
+            "value": "9999999911"
+          }
+        ],
+        "name": [
+          {
+            "family": "Jones",
+            "given": [
+              "Louise"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1971-11-21"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Patient/35e045bf-080c-4bbb-9afb-4d144e17307e"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "0db75720-c8fc-47a9-b68e-8397d8fde4c4",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+          ]
+        },
+        "verificationStatus": "confirmed",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "116288000",
+              "display": "Paralytic stroke (disorder)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/35e045bf-080c-4bbb-9afb-4d144e17307e"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Condition/0db75720-c8fc-47a9-b68e-8397d8fde4c4"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "dfa43ca7-fa82-4127-b602-e112b61c268a",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "32485007",
+                "display": "Hospital admission (procedure)"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/35e045bf-080c-4bbb-9afb-4d144e17307e"
+        },
+        "period": {
+          "start": "2019-08-21T00:00:00-06:00",
+          "end": "2019-12-19T08:15:00-07:00"
+        },
+        "diagnosis": [
+          {
+            "condition": {
+              "reference": "Condition/0db75720-c8fc-47a9-b68e-8397d8fde4c4"
+            },
+            "role": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/diagnosis-role",
+                  "code": "billing",
+                  "display": "Billing"
+                }
+              ]
+            },
+            "rank": 1
+          }
+        ],
+        "hospitalization": {
+          "dischargeDisposition": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "306701001",
+                "display": "Discharge to community hospital (procedure)"
+              }
+            ]
+          }
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/dfa43ca7-fa82-4127-b602-e112b61c268a"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "d7455596-9357-405d-91ed-78e45a72103f",
+        "status": "completed",
+        "intent": "order",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+              "code": "discharge",
+              "display": "Discharge"
+            }
+          ]
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "1037045",
+              "display": "dabigatran etexilate 150 MG Oral Capsule"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/35e045bf-080c-4bbb-9afb-4d144e17307e"
+        },
+        "authoredOn": "2019-12-19T08:00:00-07:00"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationRequest/d7455596-9357-405d-91ed-78e45a72103f"
+      }
+    }
+  ]
+}

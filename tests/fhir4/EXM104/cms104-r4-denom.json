@@ -1,0 +1,190 @@
+{
+  "resourceType": "Bundle",
+  "id": "cms104-r4-denom",
+  "type": "transaction",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "d2083276-0074-4015-9cd8-cfd669bd3a41",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2106-3",
+                  "display": "White"
+                }
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2135-2",
+                  "display": "Hispanic or Latino"
+                }
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR",
+                  "display": "Medical Record Number"
+                }
+              ]
+            },
+            "system": "http://hospital.smarthealthit.org",
+            "value": "9999999912"
+          }
+        ],
+        "name": [
+          {
+            "family": "Adams",
+            "given": [
+              "John"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1970-05-20"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseR4/Patient/d2083276-0074-4015-9cd8-cfd669bd3a41"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "4081cc6e-fb73-423e-85b9-a6b70779fa45",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "116288000",
+              "display": "Paralytic stroke (disorder)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/d2083276-0074-4015-9cd8-cfd669bd3a41"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseR4/Condition/4081cc6e-fb73-423e-85b9-a6b70779fa45"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "7bf51b99-8e21-4631-9fc5-a2bf304bf93f",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "32485007",
+                "display": "Hospital admission (procedure)"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/d2083276-0074-4015-9cd8-cfd669bd3a41"
+        },
+        "period": {
+          "start": "2019-08-21T00:00:00-06:00",
+          "end": "2019-12-19T08:15:00-07:00"
+        },
+        "diagnosis": [
+          {
+            "condition": {
+              "reference": "Condition/4081cc6e-fb73-423e-85b9-a6b70779fa45"
+            },
+            "use": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/diagnosis-role",
+                  "code": "billing",
+                  "display": "Billing"
+                }
+              ]
+            },
+            "rank": 1
+          }
+        ],
+        "hospitalization": {
+          "dischargeDisposition": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "306701001",
+                "display": "Discharge to community hospital (procedure)"
+              }
+            ]
+          }
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseR4/Encounter/7bf51b99-8e21-4631-9fc5-a2bf304bf93f"
+      }
+    }
+  ]
+}
