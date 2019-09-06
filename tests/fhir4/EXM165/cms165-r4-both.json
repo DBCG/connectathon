@@ -1,12 +1,12 @@
 {
   "resourceType": "Bundle",
-  "id": "cms165-data-r4",
+  "id": "cms165-r4-both",
   "type": "transaction",
   "entry": [
     {
       "resource": {
         "resourceType": "Patient",
-        "id": "Patient-3",
+        "id": "7c897218-9ee1-4c51-a1f8-ecfb1e22677c",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
@@ -20,8 +20,8 @@
                 "url": "ombCategory",
                 "valueCoding": {
                   "system": "urn:oid:2.16.840.1.113883.6.238",
-                  "code": "2028-9",
-                  "display": "Asian"
+                  "code": "2106-3",
+                  "display": "White"
                 }
               }
             ]
@@ -58,24 +58,24 @@
         ],
         "name": [
           {
-            "family": "Johnson",
+            "family": "Adams",
             "given": [
               "John"
             ]
           }
         ],
         "gender": "male",
-        "birthDate": "1956-01-06"
+        "birthDate": "1963-06-13"
       },
       "request": {
         "method": "PUT",
-        "url": "http://localhost:8080/cqf-ruler/baseR4/Patient/Patient-3"
+        "url": "http://localhost:8080/cqf-ruler/baseR4/Patient/7c897218-9ee1-4c51-a1f8-ecfb1e22677c"
       }
     },
     {
       "resource": {
         "resourceType": "Patient",
-        "id": "Patient-4",
+        "id": "50952b5c-3ed6-4fb4-802a-a72d55deebdb",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
@@ -89,8 +89,8 @@
                 "url": "ombCategory",
                 "valueCoding": {
                   "system": "urn:oid:2.16.840.1.113883.6.238",
-                  "code": "2028-9",
-                  "display": "Asian"
+                  "code": "2106-3",
+                  "display": "White"
                 }
               }
             ]
@@ -102,8 +102,8 @@
                 "url": "ombCategory",
                 "valueCoding": {
                   "system": "urn:oid:2.16.840.1.113883.6.238",
-                  "code": "2135-2",
-                  "display": "Hispanic or Latino"
+                  "code": "2186-5",
+                  "display": "Not Hispanic or Latino"
                 }
               }
             ]
@@ -127,24 +127,24 @@
         ],
         "name": [
           {
-            "family": "Adams",
+            "family": "Johnson",
             "given": [
-              "Jill"
+              "Louise"
             ]
           }
         ],
         "gender": "female",
-        "birthDate": "1968-08-18"
+        "birthDate": "1976-11-26"
       },
       "request": {
         "method": "PUT",
-        "url": "http://localhost:8080/cqf-ruler/baseR4/Patient/Patient-4"
+        "url": "http://localhost:8080/cqf-ruler/baseR4/Patient/50952b5c-3ed6-4fb4-802a-a72d55deebdb"
       }
     },
     {
       "resource": {
         "resourceType": "Condition",
-        "id": "Condition-3",
+        "id": "38a59e34-3d28-4fa8-8949-4e18c2fab834",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
@@ -174,25 +174,25 @@
           "coding": [
             {
               "system": "http://snomed.info/sct",
-              "code": "46481004",
-              "display": "Low-renin essential hypertension (disorder)"
+              "code": "78975002",
+              "display": "Malignant essential hypertension (disorder)"
             }
           ]
         },
         "subject": {
-          "reference": "Patient/Patient-3"
+          "reference": "Patient/7c897218-9ee1-4c51-a1f8-ecfb1e22677c"
         },
-        "recordedDate": "2019-05-20T10:19:46-06:00"
+        "recordedDate": "2019-03-23T11:01:33-06:00"
       },
       "request": {
         "method": "PUT",
-        "url": "http://localhost:8080/cqf-ruler/baseR4/Condition/Condition-3"
+        "url": "http://localhost:8080/cqf-ruler/baseR4/Condition/38a59e34-3d28-4fa8-8949-4e18c2fab834"
       }
     },
     {
       "resource": {
         "resourceType": "Condition",
-        "id": "Condition-4",
+        "id": "3e23a1ec-3a1f-48e5-9849-cb0ad695ad07",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
@@ -222,19 +222,19 @@
           "coding": [
             {
               "system": "http://snomed.info/sct",
-              "code": "59621000",
-              "display": "Essential hypertension (disorder)"
+              "code": "59720008",
+              "display": "Sustained diastolic hypertension (disorder)"
             }
           ]
         },
         "subject": {
-          "reference": "Patient/Patient-4"
+          "reference": "Patient/50952b5c-3ed6-4fb4-802a-a72d55deebdb"
         },
-        "recordedDate": "2019-04-25T10:19:46-06:00"
+        "recordedDate": "2019-05-02T11:01:33-06:00"
       },
       "request": {
         "method": "PUT",
-        "url": "http://localhost:8080/cqf-ruler/baseR4/Condition/Condition-4"
+        "url": "http://localhost:8080/cqf-ruler/baseR4/Condition/3e23a1ec-3a1f-48e5-9849-cb0ad695ad07"
       }
     },
     {
@@ -263,10 +263,10 @@
           }
         ],
         "subject": {
-          "reference": "Patient/Patient-3"
+          "reference": "Patient/7c897218-9ee1-4c51-a1f8-ecfb1e22677c"
         },
         "period": {
-          "start": "2019-12-19T10:19:46-07:00"
+          "start": "2019-06-07T11:01:33-06:00"
         }
       },
       "request": {
@@ -294,16 +294,16 @@
             "coding": [
               {
                 "system": "http://www.ama-assn.org/go/cpt",
-                "code": "99201"
+                "code": "99205"
               }
             ]
           }
         ],
         "subject": {
-          "reference": "Patient/Patient-4"
+          "reference": "Patient/50952b5c-3ed6-4fb4-802a-a72d55deebdb"
         },
         "period": {
-          "start": "2019-08-10T10:19:46-06:00"
+          "start": "2019-10-16T11:01:33-06:00"
         }
       },
       "request": {
@@ -314,7 +314,7 @@
     {
       "resource": {
         "resourceType": "Observation",
-        "id": "Observation-2",
+        "id": "22018bec-6233-42a9-ae2d-ae268320ad95",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/StructureDefinition/vitalsigns"
@@ -342,12 +342,12 @@
           ]
         },
         "subject": {
-          "reference": "Patient/Patient-4"
+          "reference": "Patient/50952b5c-3ed6-4fb4-802a-a72d55deebdb"
         },
         "encounter": {
           "reference": "Encounter/Encounter-4"
         },
-        "effectiveDateTime": "2019-12-11T10:19:46-07:00",
+        "effectiveDateTime": "2019-10-04T11:01:33-06:00",
         "component": [
           {
             "code": {
@@ -360,7 +360,7 @@
               ]
             },
             "valueQuantity": {
-              "value": 129,
+              "value": 130,
               "unit": "mmHg",
               "system": "http://unitsofmeasure.org",
               "code": "mm[Hg]"
@@ -377,7 +377,7 @@
               ]
             },
             "valueQuantity": {
-              "value": 88,
+              "value": 84,
               "unit": "mmHg",
               "system": "http://unitsofmeasure.org",
               "code": "mm[Hg]"
@@ -387,7 +387,7 @@
       },
       "request": {
         "method": "PUT",
-        "url": "http://localhost:8080/cqf-ruler/baseR4/Observation/Observation-2"
+        "url": "http://localhost:8080/cqf-ruler/baseR4/Observation/22018bec-6233-42a9-ae2d-ae268320ad95"
       }
     }
   ]
