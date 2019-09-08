@@ -42,8 +42,8 @@ docker run -p 8080:8080 contentgroup/cqf-ruler
 
 * [Measure CQL](cql/fhir4/EXM124_FHIR4-7.2.000.cql)
 * [Measure Bundle](bundles/fhir4/exm124-fhir4-bundle.json)
-* [Denominator Patient (ID: 8ce4913e-4b06-4914-a43b-ec45b53850e5-1)](tests/fhir4/EXM124/exm124-fhir4-denominator-test-bundle.json)
-* [Numerator Patient (ID: 33aff086-02fb-47ef-a802-be26266ca906-1)](tests/fhir4/EXM124/exm124-fhir4-numerator-test-bundle.json)
+* [Denominator Patient (ID: 8ce4913e-4b06-4914-a43b-ec45b53850e5-1)](tests/fhir4/EXM124/cms124-r4-denom.json)
+* [Numerator Patient (ID: 33aff086-02fb-47ef-a802-be26266ca906-1)](tests/fhir4/EXM124/cms124-r4-numer.json)
 
 ### Breast Cancer Screening - EXM125
 
