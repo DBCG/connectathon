@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1">
+   <identifier id="SupplementalDataElements_FHIR4" version="1.0.0"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localId="1" locator="3:1-3:26" localIdentifier="FHIR" uri="http://hl7.org/fhir" version="4.0.0"/>
+   </usings>
+   <includes>
+      <def localId="2" locator="5:1-5:54" localIdentifier="FHIRHelpers" path="FHIRHelpers" version="4.0.0"/>
+   </includes>
+   <valueSets>
+      <def localId="3" locator="7:1-7:98" name="ONC Administrative Sex" id="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1" accessLevel="Public"/>
+      <def localId="4" locator="8:1-8:83" name="Race" id="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.836" accessLevel="Public"/>
+      <def localId="5" locator="9:1-9:88" name="Ethnicity" id="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.837" accessLevel="Public"/>
+      <def localId="6" locator="10:1-10:85" name="Payer" id="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591" accessLevel="Public"/>
+   </valueSets>
+   <statements>
+      <def locator="12:1-12:15" name="Patient" context="Patient">
+         <expression xsi:type="SingletonFrom">
+            <operand locator="12:1-12:15" dataType="fhir:Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def localId="34" locator="14:1-22:28" name="SDE Ethnicity" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="34">
+               <a:s>define &quot;SDE Ethnicity&quot;:&#xd;
+  </a:s>
+               <a:s r="33">
+                  <a:s>
+                     <a:s r="18">
+                        <a:s r="17">
+                           <a:s>(</a:s>
+                           <a:s r="17">
+                              <a:s>flatten </a:s>
+                              <a:s r="16">
+                                 <a:s>(&#xd;
+    </a:s>
+                                 <a:s r="16">
+                                    <a:s>
+                                       <a:s r="8">
+                                          <a:s r="7">
+                                             <a:s>
+                                                <a:s>Patient.extension</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s> Extension</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>&#xd;
+      </a:s>
+                                    <a:s r="12">
+                                       <a:s>where </a:s>
+                                       <a:s r="12">
+                                          <a:s r="10">
+                                             <a:s r="9">
+                                                <a:s>Extension</a:s>
+                                             </a:s>
+                                             <a:s>.</a:s>
+                                             <a:s r="10">
+                                                <a:s>url</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s> = </a:s>
+                                          <a:s r="11">
+                                             <a:s>'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'</a:s>
+                                          </a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>&#xd;
+        </a:s>
+                                    <a:s r="15">
+                                       <a:s>return </a:s>
+                                       <a:s r="14">
+                                          <a:s r="13">
+                                             <a:s>Extension</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="14">
+                                             <a:s>extension</a:s>
+                                          </a:s>
+                                       </a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>&#xd;
+  )</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>)</a:s>
+                        </a:s>
+                        <a:s> E</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+    </a:s>
+                  <a:s r="27">
+                     <a:s>where </a:s>
+                     <a:s r="27">
+                        <a:s r="22">
+                           <a:s r="20">
+                              <a:s r="19">
+                                 <a:s>E</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="20">
+                                 <a:s>url</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> = </a:s>
+                           <a:s r="21">
+                              <a:s>'ombCategory'</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>&#xd;
+      or </a:s>
+                        <a:s r="26">
+                           <a:s r="24">
+                              <a:s r="23">
+                                 <a:s>E</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="24">
+                                 <a:s>url</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> = </a:s>
+                           <a:s r="25">
+                              <a:s>'detailed'</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+    </a:s>
+                  <a:s r="32">
+                     <a:s>return </a:s>
+                     <a:s r="31">
+                        <a:s r="29">
+                           <a:s r="28">
+                              <a:s>E</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="29">
+                              <a:s>value</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> as </a:s>
+                        <a:s r="30">
+                           <a:s>Coding</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="33" locator="15:3-22:28" xsi:type="Query">
+            <source localId="18" locator="15:3-19:6" alias="E">
+               <expression localId="17" locator="15:3-19:4" xsi:type="Flatten">
+                  <operand localId="16" locator="15:12-19:3" xsi:type="Query">
+                     <source localId="8" locator="16:5-16:31" alias="Extension">
+                        <expression localId="7" locator="16:5-16:21" path="extension" xsi:type="Property">
+                           <source name="Patient" xsi:type="ExpressionRef"/>
+                        </expression>
+                     </source>
+                     <where localId="12" locator="17:7-17:95" xsi:type="Equal">
+                        <operand localId="10" locator="17:13-17:25" path="url" scope="Extension" xsi:type="Property"/>
+                        <operand localId="11" locator="17:29-17:95" valueType="t:String" value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity" xsi:type="Literal"/>
+                     </where>
+                     <return localId="15" locator="18:9-18:34">
+                        <expression localId="14" locator="18:16-18:34" path="extension" scope="Extension" xsi:type="Property"/>
+                     </return>
+                  </operand>
+               </expression>
+            </source>
+            <where localId="27" locator="20:5-21:27" xsi:type="Or">
+               <operand localId="22" locator="20:11-20:31" xsi:type="Equal">
+                  <operand localId="20" locator="20:11-20:15" path="url" scope="E" xsi:type="Property"/>
+                  <operand localId="21" locator="20:19-20:31" valueType="t:String" value="ombCategory" xsi:type="Literal"/>
+               </operand>
+               <operand localId="26" locator="21:10-21:27" xsi:type="Equal">
+                  <operand localId="24" locator="21:10-21:14" path="url" scope="E" xsi:type="Property"/>
+                  <operand localId="25" locator="21:18-21:27" valueType="t:String" value="detailed" xsi:type="Literal"/>
+               </operand>
+            </where>
+            <return localId="32" locator="22:5-22:28">
+               <expression localId="31" locator="22:12-22:28" strict="false" xsi:type="As">
+                  <operand localId="29" locator="22:12-22:18" path="value" scope="E" xsi:type="Property"/>
+                  <asTypeSpecifier localId="30" locator="22:23-22:28" name="fhir:Coding" xsi:type="NamedTypeSpecifier"/>
+               </expression>
+            </return>
+         </expression>
+      </def>
+      <def localId="44" locator="24:1-29:7" name="SDE Payer" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="44">
+               <a:s>define &quot;SDE Payer&quot;:&#xd;
+    </a:s>
+               <a:s r="43">
+                  <a:s>
+                     <a:s r="36">
+                        <a:s r="35">
+                           <a:s r="35">
+                              <a:s>[Coverage: type in </a:s>
+                              <a:s>
+                                 <a:s>&quot;Payer&quot;</a:s>
+                              </a:s>
+                              <a:s>]</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> Payer</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+      </a:s>
+                  <a:s r="42">
+                     <a:s>return </a:s>
+                     <a:s r="41">
+                        <a:s>{&#xd;
+        </a:s>
+                        <a:s>
+                           <a:s>code: </a:s>
+                           <a:s r="38">
+                              <a:s r="37">
+                                 <a:s>Payer</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="38">
+                                 <a:s>type</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>,&#xd;
+        </a:s>
+                        <a:s>
+                           <a:s>period: </a:s>
+                           <a:s r="40">
+                              <a:s r="39">
+                                 <a:s>Payer</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="40">
+                                 <a:s>period</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>&#xd;
+      }</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="43" locator="25:5-29:7" xsi:type="Query">
+            <source localId="36" locator="25:5-25:37" alias="Payer">
+               <expression localId="35" locator="25:5-25:31" dataType="fhir:Coverage" codeProperty="type" xsi:type="Retrieve">
+                  <codes locator="25:24-25:30" name="Payer" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <return localId="42" locator="26:7-29:7">
+               <expression localId="41" locator="26:14-29:7" xsi:type="Tuple">
+                  <element name="code">
+                     <value localId="38" locator="27:15-27:24" path="type" scope="Payer" xsi:type="Property"/>
+                  </element>
+                  <element name="period">
+                     <value localId="40" locator="28:17-28:28" path="period" scope="Payer" xsi:type="Property"/>
+                  </element>
+               </expression>
+            </return>
+         </expression>
+      </def>
+      <def localId="72" locator="31:1-39:28" name="SDE Race" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="72">
+               <a:s>define &quot;SDE Race&quot;:&#xd;
+  </a:s>
+               <a:s r="71">
+                  <a:s>
+                     <a:s r="56">
+                        <a:s r="55">
+                           <a:s>(</a:s>
+                           <a:s r="55">
+                              <a:s>flatten </a:s>
+                              <a:s r="54">
+                                 <a:s>(&#xd;
+    </a:s>
+                                 <a:s r="54">
+                                    <a:s>
+                                       <a:s r="46">
+                                          <a:s r="45">
+                                             <a:s>
+                                                <a:s>Patient.extension</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s> Extension</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>&#xd;
+      </a:s>
+                                    <a:s r="50">
+                                       <a:s>where </a:s>
+                                       <a:s r="50">
+                                          <a:s r="48">
+                                             <a:s r="47">
+                                                <a:s>Extension</a:s>
+                                             </a:s>
+                                             <a:s>.</a:s>
+                                             <a:s r="48">
+                                                <a:s>url</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s> = </a:s>
+                                          <a:s r="49">
+                                             <a:s>'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'</a:s>
+                                          </a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>&#xd;
+        </a:s>
+                                    <a:s r="53">
+                                       <a:s>return </a:s>
+                                       <a:s r="52">
+                                          <a:s r="51">
+                                             <a:s>Extension</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="52">
+                                             <a:s>extension</a:s>
+                                          </a:s>
+                                       </a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>&#xd;
+  )</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>)</a:s>
+                        </a:s>
+                        <a:s> E</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+    </a:s>
+                  <a:s r="65">
+                     <a:s>where </a:s>
+                     <a:s r="65">
+                        <a:s r="60">
+                           <a:s r="58">
+                              <a:s r="57">
+                                 <a:s>E</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="58">
+                                 <a:s>url</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> = </a:s>
+                           <a:s r="59">
+                              <a:s>'ombCategory'</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>&#xd;
+      or </a:s>
+                        <a:s r="64">
+                           <a:s r="62">
+                              <a:s r="61">
+                                 <a:s>E</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="62">
+                                 <a:s>url</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> = </a:s>
+                           <a:s r="63">
+                              <a:s>'detailed'</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+    </a:s>
+                  <a:s r="70">
+                     <a:s>return </a:s>
+                     <a:s r="69">
+                        <a:s r="67">
+                           <a:s r="66">
+                              <a:s>E</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="67">
+                              <a:s>value</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> as </a:s>
+                        <a:s r="68">
+                           <a:s>Coding</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="71" locator="32:3-39:28" xsi:type="Query">
+            <source localId="56" locator="32:3-36:6" alias="E">
+               <expression localId="55" locator="32:3-36:4" xsi:type="Flatten">
+                  <operand localId="54" locator="32:12-36:3" xsi:type="Query">
+                     <source localId="46" locator="33:5-33:31" alias="Extension">
+                        <expression localId="45" locator="33:5-33:21" path="extension" xsi:type="Property">
+                           <source name="Patient" xsi:type="ExpressionRef"/>
+                        </expression>
+                     </source>
+                     <where localId="50" locator="34:7-34:90" xsi:type="Equal">
+                        <operand localId="48" locator="34:13-34:25" path="url" scope="Extension" xsi:type="Property"/>
+                        <operand localId="49" locator="34:29-34:90" valueType="t:String" value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-race" xsi:type="Literal"/>
+                     </where>
+                     <return localId="53" locator="35:9-35:34">
+                        <expression localId="52" locator="35:16-35:34" path="extension" scope="Extension" xsi:type="Property"/>
+                     </return>
+                  </operand>
+               </expression>
+            </source>
+            <where localId="65" locator="37:5-38:27" xsi:type="Or">
+               <operand localId="60" locator="37:11-37:31" xsi:type="Equal">
+                  <operand localId="58" locator="37:11-37:15" path="url" scope="E" xsi:type="Property"/>
+                  <operand localId="59" locator="37:19-37:31" valueType="t:String" value="ombCategory" xsi:type="Literal"/>
+               </operand>
+               <operand localId="64" locator="38:10-38:27" xsi:type="Equal">
+                  <operand localId="62" locator="38:10-38:14" path="url" scope="E" xsi:type="Property"/>
+                  <operand localId="63" locator="38:18-38:27" valueType="t:String" value="detailed" xsi:type="Literal"/>
+               </operand>
+            </where>
+            <return localId="70" locator="39:5-39:28">
+               <expression localId="69" locator="39:12-39:28" strict="false" xsi:type="As">
+                  <operand localId="67" locator="39:12-39:18" path="value" scope="E" xsi:type="Property"/>
+                  <asTypeSpecifier localId="68" locator="39:23-39:28" name="fhir:Coding" xsi:type="NamedTypeSpecifier"/>
+               </expression>
+            </return>
+         </expression>
+      </def>
+      <def localId="93" locator="41:1-46:5" name="SDE Sex" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="93">
+               <a:s>define &quot;SDE Sex&quot;:&#xd;
+  </a:s>
+               <a:s r="92">
+                  <a:s>case &#xd;
+    </a:s>
+                  <a:s r="81">
+                     <a:s>when </a:s>
+                     <a:s r="76">
+                        <a:s r="74">
+                           <a:s r="73">
+                              <a:s>Patient</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="74">
+                              <a:s>gender</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> = </a:s>
+                        <a:s r="75">
+                           <a:s>'male'</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> then </a:s>
+                     <a:s r="80">
+                        <a:s>Code { </a:s>
+                        <a:s>
+                           <a:s>code: </a:s>
+                           <a:s r="77">
+                              <a:s>'M'</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>, </a:s>
+                        <a:s>
+                           <a:s>system: </a:s>
+                           <a:s r="78">
+                              <a:s>'http://hl7.org/fhir/v3/AdministrativeGender'</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>, </a:s>
+                        <a:s>
+                           <a:s>display: </a:s>
+                           <a:s r="79">
+                              <a:s>'Male'</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> }</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+    </a:s>
+                  <a:s r="90">
+                     <a:s>when </a:s>
+                     <a:s r="85">
+                        <a:s r="83">
+                           <a:s r="82">
+                              <a:s>Patient</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="83">
+                              <a:s>gender</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> = </a:s>
+                        <a:s r="84">
+                           <a:s>'female'</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> then </a:s>
+                     <a:s r="89">
+                        <a:s>Code { </a:s>
+                        <a:s>
+                           <a:s>code: </a:s>
+                           <a:s r="86">
+                              <a:s>'F'</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>, </a:s>
+                        <a:s>
+                           <a:s>system: </a:s>
+                           <a:s r="87">
+                              <a:s>'http://hl7.org/fhir/v3/AdministrativeGender'</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>, </a:s>
+                        <a:s>
+                           <a:s>display: </a:s>
+                           <a:s r="88">
+                              <a:s>'Female'</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> }</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s r="91">&#xd;
+    else null&#xd;
+  end</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="92" locator="42:3-46:5" xsi:type="Case">
+            <caseItem localId="81" locator="43:5-43:128">
+               <when localId="76" locator="43:10-43:32" xsi:type="Equal">
+                  <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand localId="74" locator="43:10-43:23" path="gender" xsi:type="Property">
+                        <source localId="73" locator="43:10-43:16" name="Patient" xsi:type="ExpressionRef"/>
+                     </operand>
+                  </operand>
+                  <operand localId="75" locator="43:27-43:32" valueType="t:String" value="male" xsi:type="Literal"/>
+               </when>
+               <then localId="80" locator="43:39-43:128" classType="t:Code" xsi:type="Instance">
+                  <element name="code">
+                     <value localId="77" locator="43:52-43:54" valueType="t:String" value="M" xsi:type="Literal"/>
+                  </element>
+                  <element name="system">
+                     <value localId="78" locator="43:65-43:109" valueType="t:String" value="http://hl7.org/fhir/v3/AdministrativeGender" xsi:type="Literal"/>
+                  </element>
+                  <element name="display">
+                     <value localId="79" locator="43:121-43:126" valueType="t:String" value="Male" xsi:type="Literal"/>
+                  </element>
+               </then>
+            </caseItem>
+            <caseItem localId="90" locator="44:5-44:132">
+               <when localId="85" locator="44:10-44:34" xsi:type="Equal">
+                  <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand localId="83" locator="44:10-44:23" path="gender" xsi:type="Property">
+                        <source localId="82" locator="44:10-44:16" name="Patient" xsi:type="ExpressionRef"/>
+                     </operand>
+                  </operand>
+                  <operand localId="84" locator="44:27-44:34" valueType="t:String" value="female" xsi:type="Literal"/>
+               </when>
+               <then localId="89" locator="44:41-44:132" classType="t:Code" xsi:type="Instance">
+                  <element name="code">
+                     <value localId="86" locator="44:54-44:56" valueType="t:String" value="F" xsi:type="Literal"/>
+                  </element>
+                  <element name="system">
+                     <value localId="87" locator="44:67-44:111" valueType="t:String" value="http://hl7.org/fhir/v3/AdministrativeGender" xsi:type="Literal"/>
+                  </element>
+                  <element name="display">
+                     <value localId="88" locator="44:123-44:130" valueType="t:String" value="Female" xsi:type="Literal"/>
+                  </element>
+               </then>
+            </caseItem>
+            <else asType="t:Code" xsi:type="As">
+               <operand localId="91" locator="45:10-45:13" xsi:type="Null"/>
+            </else>
+         </expression>
+      </def>
+   </statements>
+</library>
+
+

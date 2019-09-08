@@ -1,0 +1,1454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1">
+   <identifier id="EXM125_FHIR4" version="7.2.000"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localId="1" locator="14:1-14:26" localIdentifier="FHIR" uri="http://hl7.org/fhir" version="4.0.0"/>
+   </usings>
+   <includes>
+      <def localId="2" locator="16:1-16:54" localIdentifier="FHIRHelpers" path="FHIRHelpers" version="4.0.0"/>
+      <def localId="3" locator="17:1-17:54" localIdentifier="Hospice" path="Hospice_FHIR4" version="1.0.000"/>
+      <def localId="4" locator="18:1-18:90" localIdentifier="AdultOutpatientEncounters" path="AdultOutpatientEncounters_FHIR4" version="1.1.000"/>
+      <def localId="5" locator="19:1-19:70" localIdentifier="Global" path="MATGlobalCommonFunctions_FHIR4" version="4.0.000"/>
+      <def localId="6" locator="20:1-20:65" localIdentifier="SDE" path="SupplementalDataElements_FHIR4" version="1.0.0"/>
+   </includes>
+   <parameters>
+      <def localId="23" locator="37:1-37:49" name="Measurement Period" accessLevel="Public">
+         <parameterTypeSpecifier localId="22" locator="37:32-37:49" xsi:type="IntervalTypeSpecifier">
+            <pointType localId="21" locator="37:41-37:48" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+         </parameterTypeSpecifier>
+      </def>
+   </parameters>
+   <valueSets>
+      <def localId="7" locator="22:1-22:98" name="ONC Administrative Sex" id="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1" accessLevel="Public"/>
+      <def localId="8" locator="23:1-23:83" name="Race" id="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.836" accessLevel="Public"/>
+      <def localId="9" locator="24:1-24:88" name="Ethnicity" id="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.837" accessLevel="Public"/>
+      <def localId="10" locator="25:1-25:85" name="Payer" id="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591" accessLevel="Public"/>
+      <def localId="11" locator="26:1-26:113" name="Bilateral Mastectomy" id="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1005" accessLevel="Public"/>
+      <def localId="12" locator="27:1-27:88" name="Female" id="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.560.100.2" accessLevel="Public"/>
+      <def localId="13" locator="28:1-28:104" name="Mammography" id="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1018" accessLevel="Public"/>
+      <def localId="14" locator="29:1-29:114" name="Unilateral Mastectomy" id="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1020" accessLevel="Public"/>
+      <def localId="15" locator="30:1-30:124" name="History of bilateral mastectomy" id="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1068" accessLevel="Public"/>
+      <def localId="16" locator="31:1-31:120" name="Status Post Left Mastectomy" id="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1069" accessLevel="Public"/>
+      <def localId="17" locator="32:1-32:121" name="Status Post Right Mastectomy" id="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1070" accessLevel="Public"/>
+      <def localId="18" locator="33:1-33:97" name="Left" id="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.122.12.1036" accessLevel="Public"/>
+      <def localId="19" locator="34:1-34:98" name="Right" id="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.122.12.1035" accessLevel="Public"/>
+      <def localId="20" locator="35:1-35:138" name="Unilateral Mastectomy, Unspecified Laterality" id="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1071" accessLevel="Public"/>
+   </valueSets>
+   <statements>
+      <def locator="39:1-39:15" name="Patient" context="Patient">
+         <expression xsi:type="SingletonFrom">
+            <operand locator="39:1-39:15" dataType="fhir:Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def localId="26" locator="41:1-42:21" name="SDE Ethnicity" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="26">
+               <a:s>define &quot;SDE Ethnicity&quot;:&#xd;
+  </a:s>
+               <a:s r="25">
+                  <a:s r="24">
+                     <a:s>SDE</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="25">
+                     <a:s>&quot;SDE Ethnicity&quot;</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="25" locator="42:3-42:21" name="SDE Ethnicity" libraryName="SDE" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="29" locator="44:1-45:17" name="SDE Payer" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="29">
+               <a:s>define &quot;SDE Payer&quot;:&#xd;
+  </a:s>
+               <a:s r="28">
+                  <a:s r="27">
+                     <a:s>SDE</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="28">
+                     <a:s>&quot;SDE Payer&quot;</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="28" locator="45:3-45:17" name="SDE Payer" libraryName="SDE" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="32" locator="47:1-48:16" name="SDE Race" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="32">
+               <a:s>define &quot;SDE Race&quot;:&#xd;
+  </a:s>
+               <a:s r="31">
+                  <a:s r="30">
+                     <a:s>SDE</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="31">
+                     <a:s>&quot;SDE Race&quot;</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="31" locator="48:3-48:16" name="SDE Race" libraryName="SDE" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="35" locator="50:1-51:15" name="SDE Sex" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="35">
+               <a:s>define &quot;SDE Sex&quot;:&#xd;
+  </a:s>
+               <a:s r="34">
+                  <a:s r="33">
+                     <a:s>SDE</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="34">
+                     <a:s>&quot;SDE Sex&quot;</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="34" locator="51:3-51:15" name="SDE Sex" libraryName="SDE" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="58" locator="122:1-125:86" name="Initial Population" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="58">
+               <a:s>define &quot;Initial Population&quot;:&#xd;
+		</a:s>
+               <a:s r="57">
+                  <a:s r="52">
+                     <a:s r="39">
+                        <a:s r="37">
+                           <a:s r="36">
+                              <a:s>Patient</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="37">
+                              <a:s>gender</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> = </a:s>
+                        <a:s r="38">
+                           <a:s>'female'</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>&#xd;
+				and </a:s>
+                     <a:s r="51">
+                        <a:s r="47">
+                           <a:s r="40">
+                              <a:s>Global</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="47">
+                              <a:s>&quot;CalendarAgeInYearsAt&quot;(</a:s>
+                              <a:s r="44">
+                                 <a:s r="41">
+                                    <a:s>FHIRHelpers</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="44">
+                                    <a:s>ToDate(</a:s>
+                                    <a:s r="43">
+                                       <a:s r="42">
+                                          <a:s>Patient</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="43">
+                                          <a:s>birthDate</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>)</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>, </a:s>
+                              <a:s r="46">
+                                 <a:s>start of </a:s>
+                                 <a:s r="45">
+                                    <a:s>&quot;Measurement Period&quot;</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>)</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> in </a:s>
+                        <a:s r="50">
+                           <a:s r="48">Interval[51, 74]</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+				and </a:s>
+                  <a:s r="56">
+                     <a:s>exists </a:s>
+                     <a:s r="55">
+                        <a:s r="53">
+                           <a:s>AdultOutpatientEncounters</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="55">
+                           <a:s>&quot;Qualifying Encounters&quot;(</a:s>
+                           <a:s r="54">
+                              <a:s>&quot;Measurement Period&quot;</a:s>
+                           </a:s>
+                           <a:s>)</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="57" locator="123:3-125:86" xsi:type="And">
+            <operand localId="52" locator="123:3-124:127" xsi:type="And">
+               <operand localId="39" locator="123:3-123:27" xsi:type="Equal">
+                  <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand localId="37" locator="123:3-123:16" path="gender" xsi:type="Property">
+                        <source localId="36" locator="123:3-123:9" name="Patient" xsi:type="ExpressionRef"/>
+                     </operand>
+                  </operand>
+                  <operand localId="38" locator="123:20-123:27" valueType="t:String" value="female" xsi:type="Literal"/>
+               </operand>
+               <operand localId="51" locator="124:9-124:127" xsi:type="In">
+                  <operand localId="47" locator="124:9-124:107" name="CalendarAgeInYearsAt" libraryName="Global" xsi:type="FunctionRef">
+                     <operand xsi:type="ToDateTime">
+                        <operand localId="44" locator="124:39-124:75" name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand localId="43" locator="124:58-124:74" path="birthDate" xsi:type="Property">
+                              <source localId="42" locator="124:58-124:64" name="Patient" xsi:type="ExpressionRef"/>
+                           </operand>
+                        </operand>
+                     </operand>
+                     <operand localId="46" locator="124:78-124:106" xsi:type="Start">
+                        <operand localId="45" locator="124:87-124:106" name="Measurement Period" xsi:type="ParameterRef"/>
+                     </operand>
+                  </operand>
+                  <operand localId="50" locator="124:112-124:127" lowClosed="true" highClosed="true" xsi:type="Interval">
+                     <low localId="48" locator="124:121-124:122" valueType="t:Integer" value="51" xsi:type="Literal"/>
+                     <high localId="49" locator="124:125-124:126" valueType="t:Integer" value="74" xsi:type="Literal"/>
+                  </operand>
+               </operand>
+            </operand>
+            <operand localId="56" locator="125:9-125:86" xsi:type="Exists">
+               <operand localId="55" locator="125:16-125:86" name="Qualifying Encounters" libraryName="AdultOutpatientEncounters" xsi:type="FunctionRef">
+                  <operand localId="54" locator="125:66-125:85" name="Measurement Period" xsi:type="ParameterRef"/>
+               </operand>
+            </operand>
+         </expression>
+      </def>
+      <def localId="60" locator="53:1-54:22" name="Denominator" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="60">
+               <a:s>define &quot;Denominator&quot;:&#xd;
+		</a:s>
+               <a:s r="59">
+                  <a:s>&quot;Initial Population&quot;</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="59" locator="54:3-54:22" name="Initial Population" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="76" locator="56:1-59:60" name="Unilateral Mastectomy Procedure" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="76">
+               <a:s>define &quot;Unilateral Mastectomy Procedure&quot;:&#xd;
+		</a:s>
+               <a:s r="75">
+                  <a:s>
+                     <a:s r="62">
+                        <a:s r="61">
+                           <a:s r="61">
+                              <a:s>[Procedure: </a:s>
+                              <a:s>
+                                 <a:s>&quot;Unilateral Mastectomy&quot;</a:s>
+                              </a:s>
+                              <a:s>]</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> UnilateralMastectomyProcedure</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+				</a:s>
+                  <a:s r="74">
+                     <a:s>where </a:s>
+                     <a:s r="74">
+                        <a:s r="69">
+                           <a:s r="66">
+                              <a:s r="63">
+                                 <a:s>Global</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="66">
+                                 <a:s>&quot;Normalize Onset&quot;(</a:s>
+                                 <a:s r="65">
+                                    <a:s r="64">
+                                       <a:s>UnilateralMastectomyProcedure</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="65">
+                                       <a:s>performed</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>)</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s r="69"> ends before day of </a:s>
+                           <a:s r="68">
+                              <a:s>end of </a:s>
+                              <a:s r="67">
+                                 <a:s>&quot;Measurement Period&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>&#xd;
+						and </a:s>
+                        <a:s r="73">
+                           <a:s r="71">
+                              <a:s r="70">
+                                 <a:s>UnilateralMastectomyProcedure</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="71">
+                                 <a:s>status</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> = </a:s>
+                           <a:s r="72">
+                              <a:s>'completed'</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="75" locator="57:3-59:60" xsi:type="Query">
+            <source localId="62" locator="57:3-57:68" alias="UnilateralMastectomyProcedure">
+               <expression localId="61" locator="57:3-57:38" dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                  <codes locator="57:15-57:37" name="Unilateral Mastectomy" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where localId="74" locator="58:5-59:60" xsi:type="And">
+               <operand localId="69" locator="58:11-58:122" precision="Day" xsi:type="Before">
+                  <operand asType="t:DateTime" xsi:type="As">
+                     <operand locator="58:77-58:80" xsi:type="End">
+                        <operand localId="66" locator="58:11-58:75" name="Normalize Onset" libraryName="Global" xsi:type="FunctionRef">
+                           <operand asType="fhir:dateTime" xsi:type="As">
+                              <operand xsi:type="As">
+                                 <operand localId="65" locator="58:36-58:74" path="performed" scope="UnilateralMastectomyProcedure" xsi:type="Property"/>
+                                 <asTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                                    <choice name="fhir:dateTime" xsi:type="NamedTypeSpecifier"/>
+                                    <choice name="fhir:Period" xsi:type="NamedTypeSpecifier"/>
+                                    <choice name="fhir:string" xsi:type="NamedTypeSpecifier"/>
+                                    <choice name="fhir:Age" xsi:type="NamedTypeSpecifier"/>
+                                    <choice name="fhir:Range" xsi:type="NamedTypeSpecifier"/>
+                                 </asTypeSpecifier>
+                              </operand>
+                           </operand>
+                        </operand>
+                     </operand>
+                  </operand>
+                  <operand localId="68" locator="58:96-58:122" xsi:type="End">
+                     <operand localId="67" locator="58:103-58:122" name="Measurement Period" xsi:type="ParameterRef"/>
+                  </operand>
+               </operand>
+               <operand localId="73" locator="59:11-59:60" xsi:type="Equal">
+                  <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand localId="71" locator="59:11-59:46" path="status" scope="UnilateralMastectomyProcedure" xsi:type="Property"/>
+                  </operand>
+                  <operand localId="72" locator="59:50-59:60" valueType="t:String" value="completed" xsi:type="Literal"/>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="114" locator="61:1-77:106" name="Right Mastectomy" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="114">
+               <a:s>define &quot;Right Mastectomy&quot;:&#xd;
+		</a:s>
+               <a:s r="113">
+                  <a:s>
+                     <a:s r="105">
+                        <a:s r="104">
+                           <a:s>(&#xd;
+				</a:s>
+                           <a:s r="104">
+                              <a:s r="87">
+                                 <a:s>( </a:s>
+                                 <a:s r="87">
+                                    <a:s>
+                                       <a:s r="78">
+                                          <a:s r="77">
+                                             <a:s r="77">
+                                                <a:s>[Condition: </a:s>
+                                                <a:s>
+                                                   <a:s>&quot;Status Post Right Mastectomy&quot;</a:s>
+                                                </a:s>
+                                                <a:s>]</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s> C</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>&#xd;
+          </a:s>
+                                    <a:s r="86">
+                                       <a:s>where </a:s>
+                                       <a:s r="86">
+                                          <a:s>exists </a:s>
+                                          <a:s r="85">
+                                             <a:s>( </a:s>
+                                             <a:s r="85">
+                                                <a:s>
+                                                   <a:s r="80">
+                                                      <a:s r="79">
+                                                         <a:s>
+                                                            <a:s>C.clinicalStatus.coding</a:s>
+                                                         </a:s>
+                                                      </a:s>
+                                                      <a:s> Coding</a:s>
+                                                   </a:s>
+                                                </a:s>
+                                                <a:s>&#xd;
+            </a:s>
+                                                <a:s r="84">
+                                                   <a:s>where </a:s>
+                                                   <a:s r="84">
+                                                      <a:s r="82">
+                                                         <a:s r="81">
+                                                            <a:s>Coding</a:s>
+                                                         </a:s>
+                                                         <a:s>.</a:s>
+                                                         <a:s r="82">
+                                                            <a:s>code</a:s>
+                                                         </a:s>
+                                                      </a:s>
+                                                      <a:s> = </a:s>
+                                                      <a:s r="83">
+                                                         <a:s>'active'</a:s>
+                                                      </a:s>
+                                                   </a:s>
+                                                </a:s>
+                                             </a:s>
+                                             <a:s>&#xd;
+          )</a:s>
+                                          </a:s>
+                                       </a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>&#xd;
+&#xd;
+        )</a:s>
+                              </a:s>
+                              <a:s>&#xd;
+				union </a:s>
+                              <a:s r="103">
+                                 <a:s>(&#xd;
+						</a:s>
+                                 <a:s r="103">
+                                    <a:s>
+                                       <a:s r="89">
+                                          <a:s r="88">
+                                             <a:s r="88">
+                                                <a:s>[Condition: </a:s>
+                                                <a:s>
+                                                   <a:s>&quot;Unilateral Mastectomy, Unspecified Laterality&quot;</a:s>
+                                                </a:s>
+                                                <a:s>]</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s> UnilateralMastectomyDiagnosis</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>&#xd;
+								</a:s>
+                                    <a:s r="102">
+                                       <a:s>where </a:s>
+                                       <a:s r="102">
+                                          <a:s r="93">
+                                             <a:s r="91">
+                                                <a:s r="90">
+                                                   <a:s>UnilateralMastectomyDiagnosis</a:s>
+                                                </a:s>
+                                                <a:s>.</a:s>
+                                                <a:s r="91">
+                                                   <a:s>bodySite</a:s>
+                                                </a:s>
+                                             </a:s>
+                                             <a:s> in </a:s>
+                                             <a:s r="92">
+                                                <a:s>&quot;Right&quot;</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s>&#xd;
+										and </a:s>
+                                          <a:s r="101">
+                                             <a:s>exists </a:s>
+                                             <a:s r="100">
+                                                <a:s>( </a:s>
+                                                <a:s r="100">
+                                                   <a:s>
+                                                      <a:s r="95">
+                                                         <a:s r="94">
+                                                            <a:s>
+                                                               <a:s>UnilateralMastectomyDiagnosis.clinicalStatus.coding</a:s>
+                                                            </a:s>
+                                                         </a:s>
+                                                         <a:s> Coding</a:s>
+                                                      </a:s>
+                                                   </a:s>
+                                                   <a:s>&#xd;
+                      </a:s>
+                                                   <a:s r="99">
+                                                      <a:s>where </a:s>
+                                                      <a:s r="99">
+                                                         <a:s r="97">
+                                                            <a:s r="96">
+                                                               <a:s>Coding</a:s>
+                                                            </a:s>
+                                                            <a:s>.</a:s>
+                                                            <a:s r="97">
+                                                               <a:s>code</a:s>
+                                                            </a:s>
+                                                         </a:s>
+                                                         <a:s> = </a:s>
+                                                         <a:s r="98">
+                                                            <a:s>'active'</a:s>
+                                                         </a:s>
+                                                      </a:s>
+                                                   </a:s>
+                                                </a:s>
+                                                <a:s>&#xd;
+                    )</a:s>
+                                             </a:s>
+                                          </a:s>
+                                       </a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>&#xd;
+				)</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>&#xd;
+		)</a:s>
+                        </a:s>
+                        <a:s> RightMastectomy</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+				</a:s>
+                  <a:s r="112">
+                     <a:s>where </a:s>
+                     <a:s r="112">
+                        <a:s r="109">
+                           <a:s r="106">
+                              <a:s>Global</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="109">
+                              <a:s>&quot;Normalize Onset&quot;(</a:s>
+                              <a:s r="108">
+                                 <a:s r="107">
+                                    <a:s>RightMastectomy</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="108">
+                                    <a:s>onset</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>)</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s r="112"> starts before day of </a:s>
+                        <a:s r="111">
+                           <a:s>end of </a:s>
+                           <a:s r="110">
+                              <a:s>&quot;Measurement Period&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="113" locator="62:3-77:106" xsi:type="Query">
+            <source localId="105" locator="62:3-76:19" alias="RightMastectomy">
+               <expression localId="104" locator="62:3-76:3" xsi:type="Union">
+                  <operand localId="87" locator="63:5-68:9" xsi:type="Query">
+                     <source localId="78" locator="63:7-63:51" alias="C">
+                        <expression localId="77" locator="63:7-63:49" dataType="fhir:Condition" codeProperty="code" xsi:type="Retrieve">
+                           <codes locator="63:19-63:48" name="Status Post Right Mastectomy" xsi:type="ValueSetRef"/>
+                        </expression>
+                     </source>
+                     <where localId="86" locator="64:11-66:11" xsi:type="Exists">
+                        <operand localId="85" locator="64:24-66:11" xsi:type="Query">
+                           <source localId="80" locator="64:26-64:55" alias="Coding">
+                              <expression localId="79" locator="64:26-64:48" path="coding" xsi:type="Property">
+                                 <source path="clinicalStatus" scope="C" xsi:type="Property"/>
+                              </expression>
+                           </source>
+                           <where localId="84" locator="65:13-65:40" xsi:type="Equal">
+                              <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand localId="82" locator="65:19-65:29" path="code" scope="Coding" xsi:type="Property"/>
+                              </operand>
+                              <operand localId="83" locator="65:33-65:40" valueType="t:String" value="active" xsi:type="Literal"/>
+                           </where>
+                        </operand>
+                     </where>
+                  </operand>
+                  <operand localId="103" locator="69:11-75:5" xsi:type="Query">
+                     <source localId="89" locator="70:7-70:96" alias="UnilateralMastectomyDiagnosis">
+                        <expression localId="88" locator="70:7-70:66" dataType="fhir:Condition" codeProperty="code" xsi:type="Retrieve">
+                           <codes locator="70:19-70:65" name="Unilateral Mastectomy, Unspecified Laterality" xsi:type="ValueSetRef"/>
+                        </expression>
+                     </source>
+                     <where localId="102" locator="71:9-74:21" xsi:type="And">
+                        <operand localId="93" locator="71:15-71:63" xsi:type="AnyInValueSet">
+                           <codes xsi:type="Query">
+                              <source alias="X">
+                                 <expression localId="91" locator="71:15-71:52" path="bodySite" scope="UnilateralMastectomyDiagnosis" xsi:type="Property"/>
+                              </source>
+                              <return distinct="false">
+                                 <expression name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                    <operand name="X" xsi:type="AliasRef"/>
+                                 </expression>
+                              </return>
+                           </codes>
+                           <valueset localId="92" locator="71:57-71:63" name="Right"/>
+                        </operand>
+                        <operand localId="101" locator="72:15-74:21" xsi:type="Exists">
+                           <operand localId="100" locator="72:22-74:21" xsi:type="Query">
+                              <source localId="95" locator="72:24-72:81" alias="Coding">
+                                 <expression localId="94" locator="72:24-72:74" path="coding" xsi:type="Property">
+                                    <source path="clinicalStatus" scope="UnilateralMastectomyDiagnosis" xsi:type="Property"/>
+                                 </expression>
+                              </source>
+                              <where localId="99" locator="73:23-73:50" xsi:type="Equal">
+                                 <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                    <operand localId="97" locator="73:29-73:39" path="code" scope="Coding" xsi:type="Property"/>
+                                 </operand>
+                                 <operand localId="98" locator="73:43-73:50" valueType="t:String" value="active" xsi:type="Literal"/>
+                              </where>
+                           </operand>
+                        </operand>
+                     </where>
+                  </operand>
+               </expression>
+            </source>
+            <where localId="112" locator="77:5-77:106" precision="Day" xsi:type="Before">
+               <operand asType="t:DateTime" xsi:type="As">
+                  <operand locator="77:59-77:64" xsi:type="Start">
+                     <operand localId="109" locator="77:11-77:57" name="Normalize Onset" libraryName="Global" xsi:type="FunctionRef">
+                        <operand localId="108" locator="77:36-77:56" path="onset" scope="RightMastectomy" xsi:type="Property"/>
+                     </operand>
+                  </operand>
+               </operand>
+               <operand localId="111" locator="77:80-77:106" xsi:type="End">
+                  <operand localId="110" locator="77:87-77:106" name="Measurement Period" xsi:type="ParameterRef"/>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="152" locator="79:1-94:105" name="Left Mastectomy" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="152">
+               <a:s>define &quot;Left Mastectomy&quot;:&#xd;
+		</a:s>
+               <a:s r="151">
+                  <a:s>
+                     <a:s r="143">
+                        <a:s r="142">
+                           <a:s>(&#xd;
+		    </a:s>
+                           <a:s r="142">
+                              <a:s r="125">
+                                 <a:s>( </a:s>
+                                 <a:s r="125">
+                                    <a:s>
+                                       <a:s r="116">
+                                          <a:s r="115">
+                                             <a:s r="115">
+                                                <a:s>[Condition: </a:s>
+                                                <a:s>
+                                                   <a:s>&quot;Status Post Left Mastectomy&quot;</a:s>
+                                                </a:s>
+                                                <a:s>]</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s> C</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>&#xd;
+          </a:s>
+                                    <a:s r="124">
+                                       <a:s>where </a:s>
+                                       <a:s r="124">
+                                          <a:s>exists </a:s>
+                                          <a:s r="123">
+                                             <a:s>( </a:s>
+                                             <a:s r="123">
+                                                <a:s>
+                                                   <a:s r="118">
+                                                      <a:s r="117">
+                                                         <a:s>
+                                                            <a:s>C.clinicalStatus.coding</a:s>
+                                                         </a:s>
+                                                      </a:s>
+                                                      <a:s> Coding</a:s>
+                                                   </a:s>
+                                                </a:s>
+                                                <a:s>&#xd;
+            </a:s>
+                                                <a:s r="122">
+                                                   <a:s>where </a:s>
+                                                   <a:s r="122">
+                                                      <a:s r="120">
+                                                         <a:s r="119">
+                                                            <a:s>Coding</a:s>
+                                                         </a:s>
+                                                         <a:s>.</a:s>
+                                                         <a:s r="120">
+                                                            <a:s>code</a:s>
+                                                         </a:s>
+                                                      </a:s>
+                                                      <a:s> = </a:s>
+                                                      <a:s r="121">
+                                                         <a:s>'active'</a:s>
+                                                      </a:s>
+                                                   </a:s>
+                                                </a:s>
+                                             </a:s>
+                                             <a:s>&#xd;
+          )</a:s>
+                                          </a:s>
+                                       </a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>&#xd;
+        )</a:s>
+                              </a:s>
+                              <a:s>&#xd;
+				union </a:s>
+                              <a:s r="141">
+                                 <a:s>(&#xd;
+						</a:s>
+                                 <a:s r="141">
+                                    <a:s>
+                                       <a:s r="127">
+                                          <a:s r="126">
+                                             <a:s r="126">
+                                                <a:s>[Condition: </a:s>
+                                                <a:s>
+                                                   <a:s>&quot;Unilateral Mastectomy, Unspecified Laterality&quot;</a:s>
+                                                </a:s>
+                                                <a:s>]</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s> UnilateralMastectomyDiagnosis</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>&#xd;
+								</a:s>
+                                    <a:s r="140">
+                                       <a:s>where </a:s>
+                                       <a:s r="140">
+                                          <a:s r="131">
+                                             <a:s r="129">
+                                                <a:s r="128">
+                                                   <a:s>UnilateralMastectomyDiagnosis</a:s>
+                                                </a:s>
+                                                <a:s>.</a:s>
+                                                <a:s r="129">
+                                                   <a:s>bodySite</a:s>
+                                                </a:s>
+                                             </a:s>
+                                             <a:s> in </a:s>
+                                             <a:s r="130">
+                                                <a:s>&quot;Left&quot;</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s>&#xd;
+										and </a:s>
+                                          <a:s r="139">
+                                             <a:s>exists </a:s>
+                                             <a:s r="138">
+                                                <a:s>( </a:s>
+                                                <a:s r="138">
+                                                   <a:s>
+                                                      <a:s r="133">
+                                                         <a:s r="132">
+                                                            <a:s>
+                                                               <a:s>UnilateralMastectomyDiagnosis.clinicalStatus.coding</a:s>
+                                                            </a:s>
+                                                         </a:s>
+                                                         <a:s> Coding</a:s>
+                                                      </a:s>
+                                                   </a:s>
+                                                   <a:s>&#xd;
+                      </a:s>
+                                                   <a:s r="137">
+                                                      <a:s>where </a:s>
+                                                      <a:s r="137">
+                                                         <a:s r="135">
+                                                            <a:s r="134">
+                                                               <a:s>Coding</a:s>
+                                                            </a:s>
+                                                            <a:s>.</a:s>
+                                                            <a:s r="135">
+                                                               <a:s>code</a:s>
+                                                            </a:s>
+                                                         </a:s>
+                                                         <a:s> = </a:s>
+                                                         <a:s r="136">
+                                                            <a:s>'active'</a:s>
+                                                         </a:s>
+                                                      </a:s>
+                                                   </a:s>
+                                                </a:s>
+                                                <a:s>&#xd;
+                    )</a:s>
+                                             </a:s>
+                                          </a:s>
+                                       </a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>&#xd;
+				)</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>&#xd;
+		)</a:s>
+                        </a:s>
+                        <a:s> LeftMastectomy</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+				</a:s>
+                  <a:s r="150">
+                     <a:s>where </a:s>
+                     <a:s r="150">
+                        <a:s r="147">
+                           <a:s r="144">
+                              <a:s>Global</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="147">
+                              <a:s>&quot;Normalize Onset&quot;(</a:s>
+                              <a:s r="146">
+                                 <a:s r="145">
+                                    <a:s>LeftMastectomy</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="146">
+                                    <a:s>onset</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>)</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s r="150"> starts before day of </a:s>
+                        <a:s r="149">
+                           <a:s>end of </a:s>
+                           <a:s r="148">
+                              <a:s>&quot;Measurement Period&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="151" locator="80:3-94:105" xsi:type="Query">
+            <source localId="143" locator="80:3-93:18" alias="LeftMastectomy">
+               <expression localId="142" locator="80:3-93:3" xsi:type="Union">
+                  <operand localId="125" locator="81:7-85:9" xsi:type="Query">
+                     <source localId="116" locator="81:9-81:52" alias="C">
+                        <expression localId="115" locator="81:9-81:50" dataType="fhir:Condition" codeProperty="code" xsi:type="Retrieve">
+                           <codes locator="81:21-81:49" name="Status Post Left Mastectomy" xsi:type="ValueSetRef"/>
+                        </expression>
+                     </source>
+                     <where localId="124" locator="82:11-84:11" xsi:type="Exists">
+                        <operand localId="123" locator="82:24-84:11" xsi:type="Query">
+                           <source localId="118" locator="82:26-82:55" alias="Coding">
+                              <expression localId="117" locator="82:26-82:48" path="coding" xsi:type="Property">
+                                 <source path="clinicalStatus" scope="C" xsi:type="Property"/>
+                              </expression>
+                           </source>
+                           <where localId="122" locator="83:13-83:40" xsi:type="Equal">
+                              <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand localId="120" locator="83:19-83:29" path="code" scope="Coding" xsi:type="Property"/>
+                              </operand>
+                              <operand localId="121" locator="83:33-83:40" valueType="t:String" value="active" xsi:type="Literal"/>
+                           </where>
+                        </operand>
+                     </where>
+                  </operand>
+                  <operand localId="141" locator="86:11-92:5" xsi:type="Query">
+                     <source localId="127" locator="87:7-87:96" alias="UnilateralMastectomyDiagnosis">
+                        <expression localId="126" locator="87:7-87:66" dataType="fhir:Condition" codeProperty="code" xsi:type="Retrieve">
+                           <codes locator="87:19-87:65" name="Unilateral Mastectomy, Unspecified Laterality" xsi:type="ValueSetRef"/>
+                        </expression>
+                     </source>
+                     <where localId="140" locator="88:9-91:21" xsi:type="And">
+                        <operand localId="131" locator="88:15-88:62" xsi:type="AnyInValueSet">
+                           <codes xsi:type="Query">
+                              <source alias="X">
+                                 <expression localId="129" locator="88:15-88:52" path="bodySite" scope="UnilateralMastectomyDiagnosis" xsi:type="Property"/>
+                              </source>
+                              <return distinct="false">
+                                 <expression name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                    <operand name="X" xsi:type="AliasRef"/>
+                                 </expression>
+                              </return>
+                           </codes>
+                           <valueset localId="130" locator="88:57-88:62" name="Left"/>
+                        </operand>
+                        <operand localId="139" locator="89:15-91:21" xsi:type="Exists">
+                           <operand localId="138" locator="89:22-91:21" xsi:type="Query">
+                              <source localId="133" locator="89:24-89:81" alias="Coding">
+                                 <expression localId="132" locator="89:24-89:74" path="coding" xsi:type="Property">
+                                    <source path="clinicalStatus" scope="UnilateralMastectomyDiagnosis" xsi:type="Property"/>
+                                 </expression>
+                              </source>
+                              <where localId="137" locator="90:23-90:50" xsi:type="Equal">
+                                 <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                    <operand localId="135" locator="90:29-90:39" path="code" scope="Coding" xsi:type="Property"/>
+                                 </operand>
+                                 <operand localId="136" locator="90:43-90:50" valueType="t:String" value="active" xsi:type="Literal"/>
+                              </where>
+                           </operand>
+                        </operand>
+                     </where>
+                  </operand>
+               </expression>
+            </source>
+            <where localId="150" locator="94:5-94:105" precision="Day" xsi:type="Before">
+               <operand asType="t:DateTime" xsi:type="As">
+                  <operand locator="94:58-94:63" xsi:type="Start">
+                     <operand localId="147" locator="94:11-94:56" name="Normalize Onset" libraryName="Global" xsi:type="FunctionRef">
+                        <operand localId="146" locator="94:36-94:55" path="onset" scope="LeftMastectomy" xsi:type="Property"/>
+                     </operand>
+                  </operand>
+               </operand>
+               <operand localId="149" locator="94:79-94:105" xsi:type="End">
+                  <operand localId="148" locator="94:86-94:105" name="Measurement Period" xsi:type="ParameterRef"/>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="172" locator="96:1-101:13" name="History Bilateral Mastectomy" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="172">
+               <a:s>define &quot;History Bilateral Mastectomy&quot;:&#xd;
+		</a:s>
+               <a:s r="171">
+                  <a:s>
+                     <a:s r="154">
+                        <a:s r="153">
+                           <a:s r="153">
+                              <a:s>[Condition: </a:s>
+                              <a:s>
+                                 <a:s>&quot;History of bilateral mastectomy&quot;</a:s>
+                              </a:s>
+                              <a:s>]</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> BilateralMastectomyHistory</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+				</a:s>
+                  <a:s r="170">
+                     <a:s>where </a:s>
+                     <a:s r="170">
+                        <a:s r="161">
+                           <a:s r="158">
+                              <a:s r="155">
+                                 <a:s>Global</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="158">
+                                 <a:s>&quot;Normalize Onset&quot;(</a:s>
+                                 <a:s r="157">
+                                    <a:s r="156">
+                                       <a:s>BilateralMastectomyHistory</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="157">
+                                       <a:s>onset</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>)</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s r="161"> starts before day of </a:s>
+                           <a:s r="160">
+                              <a:s>end of </a:s>
+                              <a:s r="159">
+                                 <a:s>&quot;Measurement Period&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>&#xd;
+						and </a:s>
+                        <a:s r="169">
+                           <a:s>exists </a:s>
+                           <a:s r="168">
+                              <a:s>( </a:s>
+                              <a:s r="168">
+                                 <a:s>
+                                    <a:s r="163">
+                                       <a:s r="162">
+                                          <a:s>
+                                             <a:s>BilateralMastectomyHistory.clinicalStatus.coding</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s> Coding</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>&#xd;
+              </a:s>
+                                 <a:s r="167">
+                                    <a:s>where </a:s>
+                                    <a:s r="167">
+                                       <a:s r="165">
+                                          <a:s r="164">
+                                             <a:s>Coding</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="165">
+                                             <a:s>code</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s> = </a:s>
+                                       <a:s r="166">
+                                          <a:s>'active'</a:s>
+                                       </a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>&#xd;
+            )</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="171" locator="97:3-101:13" xsi:type="Query">
+            <source localId="154" locator="97:3-97:75" alias="BilateralMastectomyHistory">
+               <expression localId="153" locator="97:3-97:48" dataType="fhir:Condition" codeProperty="code" xsi:type="Retrieve">
+                  <codes locator="97:15-97:47" name="History of bilateral mastectomy" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where localId="170" locator="98:5-101:13" xsi:type="And">
+               <operand localId="161" locator="98:11-98:117" precision="Day" xsi:type="Before">
+                  <operand asType="t:DateTime" xsi:type="As">
+                     <operand locator="98:70-98:75" xsi:type="Start">
+                        <operand localId="158" locator="98:11-98:68" name="Normalize Onset" libraryName="Global" xsi:type="FunctionRef">
+                           <operand localId="157" locator="98:36-98:67" path="onset" scope="BilateralMastectomyHistory" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                  </operand>
+                  <operand localId="160" locator="98:91-98:117" xsi:type="End">
+                     <operand localId="159" locator="98:98-98:117" name="Measurement Period" xsi:type="ParameterRef"/>
+                  </operand>
+               </operand>
+               <operand localId="169" locator="99:11-101:13" xsi:type="Exists">
+                  <operand localId="168" locator="99:18-101:13" xsi:type="Query">
+                     <source localId="163" locator="99:20-99:74" alias="Coding">
+                        <expression localId="162" locator="99:20-99:67" path="coding" xsi:type="Property">
+                           <source path="clinicalStatus" scope="BilateralMastectomyHistory" xsi:type="Property"/>
+                        </expression>
+                     </source>
+                     <where localId="167" locator="100:15-100:42" xsi:type="Equal">
+                        <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand localId="165" locator="100:21-100:31" path="code" scope="Coding" xsi:type="Property"/>
+                        </operand>
+                        <operand localId="166" locator="100:35-100:42" valueType="t:String" value="active" xsi:type="Literal"/>
+                     </where>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="188" locator="103:1-106:59" name="Bilateral Mastectomy Procedure" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="188">
+               <a:s>define &quot;Bilateral Mastectomy Procedure&quot;:&#xd;
+		</a:s>
+               <a:s r="187">
+                  <a:s>
+                     <a:s r="174">
+                        <a:s r="173">
+                           <a:s r="173">
+                              <a:s>[Procedure: </a:s>
+                              <a:s>
+                                 <a:s>&quot;Bilateral Mastectomy&quot;</a:s>
+                              </a:s>
+                              <a:s>]</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> BilateralMastectomyPerformed</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+				</a:s>
+                  <a:s r="186">
+                     <a:s>where </a:s>
+                     <a:s r="186">
+                        <a:s r="181">
+                           <a:s r="178">
+                              <a:s r="175">
+                                 <a:s>Global</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="178">
+                                 <a:s>&quot;Normalize Onset&quot;(</a:s>
+                                 <a:s r="177">
+                                    <a:s r="176">
+                                       <a:s>BilateralMastectomyPerformed</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="177">
+                                       <a:s>performed</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>)</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s r="181"> ends before day of </a:s>
+                           <a:s r="180">
+                              <a:s>end of </a:s>
+                              <a:s r="179">
+                                 <a:s>&quot;Measurement Period&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>&#xd;
+						and </a:s>
+                        <a:s r="185">
+                           <a:s r="183">
+                              <a:s r="182">
+                                 <a:s>BilateralMastectomyPerformed</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="183">
+                                 <a:s>status</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> = </a:s>
+                           <a:s r="184">
+                              <a:s>'completed'</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="187" locator="104:3-106:59" xsi:type="Query">
+            <source localId="174" locator="104:3-104:66" alias="BilateralMastectomyPerformed">
+               <expression localId="173" locator="104:3-104:37" dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                  <codes locator="104:15-104:36" name="Bilateral Mastectomy" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where localId="186" locator="105:5-106:59" xsi:type="And">
+               <operand localId="181" locator="105:11-105:121" precision="Day" xsi:type="Before">
+                  <operand asType="t:DateTime" xsi:type="As">
+                     <operand locator="105:76-105:79" xsi:type="End">
+                        <operand localId="178" locator="105:11-105:74" name="Normalize Onset" libraryName="Global" xsi:type="FunctionRef">
+                           <operand asType="fhir:dateTime" xsi:type="As">
+                              <operand xsi:type="As">
+                                 <operand localId="177" locator="105:36-105:73" path="performed" scope="BilateralMastectomyPerformed" xsi:type="Property"/>
+                                 <asTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                                    <choice name="fhir:dateTime" xsi:type="NamedTypeSpecifier"/>
+                                    <choice name="fhir:Period" xsi:type="NamedTypeSpecifier"/>
+                                    <choice name="fhir:string" xsi:type="NamedTypeSpecifier"/>
+                                    <choice name="fhir:Age" xsi:type="NamedTypeSpecifier"/>
+                                    <choice name="fhir:Range" xsi:type="NamedTypeSpecifier"/>
+                                 </asTypeSpecifier>
+                              </operand>
+                           </operand>
+                        </operand>
+                     </operand>
+                  </operand>
+                  <operand localId="180" locator="105:95-105:121" xsi:type="End">
+                     <operand localId="179" locator="105:102-105:121" name="Measurement Period" xsi:type="ParameterRef"/>
+                  </operand>
+               </operand>
+               <operand localId="185" locator="106:11-106:59" xsi:type="Equal">
+                  <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand localId="183" locator="106:11-106:45" path="status" scope="BilateralMastectomyPerformed" xsi:type="Property"/>
+                  </operand>
+                  <operand localId="184" locator="106:49-106:59" valueType="t:String" value="completed" xsi:type="Literal"/>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="208" locator="108:1-113:3" name="Numerator" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="208">
+               <a:s>define &quot;Numerator&quot;:&#xd;
+		</a:s>
+               <a:s r="207">
+                  <a:s>exists </a:s>
+                  <a:s r="206">
+                     <a:s>(&#xd;
+				</a:s>
+                     <a:s r="206">
+                        <a:s>
+                           <a:s r="190">
+                              <a:s r="189">
+                                 <a:s r="189">
+                                    <a:s>[DiagnosticReport: </a:s>
+                                    <a:s>
+                                       <a:s>&quot;Mammography&quot;</a:s>
+                                    </a:s>
+                                    <a:s>]</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> Mammogram</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>&#xd;
+						</a:s>
+                        <a:s r="205">
+                           <a:s>where </a:s>
+                           <a:s r="205">
+                              <a:s r="196">
+                                 <a:s>( </a:s>
+                                 <a:s r="196">
+                                    <a:s r="192">
+                                       <a:s r="191">
+                                          <a:s>Mammogram</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="192">
+                                          <a:s>effective</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s> </a:s>
+                                    <a:s r="196">
+                                       <a:s>ends </a:s>
+                                       <a:s r="195">
+                                          <a:s>27 months</a:s>
+                                       </a:s>
+                                       <a:s> or less before day of</a:s>
+                                    </a:s>
+                                    <a:s> </a:s>
+                                    <a:s r="194">
+                                       <a:s>end of </a:s>
+                                       <a:s r="193">
+                                          <a:s>&quot;Measurement Period&quot;</a:s>
+                                       </a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> )</a:s>
+                              </a:s>
+                              <a:s>&#xd;
+								and </a:s>
+                              <a:s r="204">
+                                 <a:s r="198">
+                                    <a:s r="197">
+                                       <a:s>Mammogram</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="198">
+                                       <a:s>status</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> in </a:s>
+                                 <a:s r="203">
+                                    <a:s>{ </a:s>
+                                    <a:s r="199">
+                                       <a:s>'final'</a:s>
+                                    </a:s>
+                                    <a:s>, </a:s>
+                                    <a:s r="200">
+                                       <a:s>'amended'</a:s>
+                                    </a:s>
+                                    <a:s>, </a:s>
+                                    <a:s r="201">
+                                       <a:s>'corrected'</a:s>
+                                    </a:s>
+                                    <a:s>, </a:s>
+                                    <a:s r="202">
+                                       <a:s>'appended'</a:s>
+                                    </a:s>
+                                    <a:s> }</a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>&#xd;
+		)</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="207" locator="109:3-113:3" xsi:type="Exists">
+            <operand localId="206" locator="109:10-113:3" xsi:type="Query">
+               <source localId="190" locator="110:5-110:47" alias="Mammogram">
+                  <expression localId="189" locator="110:5-110:37" dataType="fhir:DiagnosticReport" codeProperty="code" xsi:type="Retrieve">
+                     <codes locator="110:24-110:36" name="Mammography" xsi:type="ValueSetRef"/>
+                  </expression>
+               </source>
+               <where localId="205" locator="111:7-112:79" xsi:type="And">
+                  <operand localId="196" locator="111:13-111:100" precision="Day" xsi:type="In">
+                     <operand locator="111:35-111:38" xsi:type="End">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand asType="fhir:Period" xsi:type="As">
+                              <operand localId="192" locator="111:15-111:33" path="effective" scope="Mammogram" xsi:type="Property"/>
+                           </operand>
+                        </operand>
+                     </operand>
+                     <operand locator="111:40-111:56" lowClosed="true" highClosed="false" xsi:type="Interval">
+                        <low locator="111:72-111:98" xsi:type="Subtract">
+                           <operand localId="194" locator="111:72-111:98" xsi:type="End">
+                              <operand localId="193" locator="111:79-111:98" name="Measurement Period" xsi:type="ParameterRef"/>
+                           </operand>
+                           <operand localId="195" locator="111:40-111:48" value="27" unit="months" xsi:type="Quantity"/>
+                        </low>
+                        <high localId="194" locator="111:72-111:98" xsi:type="End">
+                           <operand localId="193" locator="111:79-111:98" name="Measurement Period" xsi:type="ParameterRef"/>
+                        </high>
+                     </operand>
+                  </operand>
+                  <operand localId="204" locator="112:13-112:79" xsi:type="In">
+                     <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand localId="198" locator="112:13-112:28" path="status" scope="Mammogram" xsi:type="Property"/>
+                     </operand>
+                     <operand localId="203" locator="112:33-112:79" xsi:type="List">
+                        <element localId="199" locator="112:35-112:41" valueType="t:String" value="final" xsi:type="Literal"/>
+                        <element localId="200" locator="112:44-112:52" valueType="t:String" value="amended" xsi:type="Literal"/>
+                        <element localId="201" locator="112:55-112:65" valueType="t:String" value="corrected" xsi:type="Literal"/>
+                        <element localId="202" locator="112:68-112:77" valueType="t:String" value="appended" xsi:type="Literal"/>
+                     </operand>
+                  </operand>
+               </where>
+            </operand>
+         </expression>
+      </def>
+      <def localId="229" locator="115:1-120:46" name="Denominator Exclusion" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="229">
+               <a:s>define &quot;Denominator Exclusion&quot;:&#xd;
+		</a:s>
+               <a:s r="228">
+                  <a:s r="225">
+                     <a:s r="222">
+                        <a:s r="216">
+                           <a:s r="211">
+                              <a:s r="209">
+                                 <a:s>Hospice</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="211">
+                                 <a:s>&quot;Has Hospice&quot;(</a:s>
+                                 <a:s r="210">
+                                    <a:s>&quot;Measurement Period&quot;</a:s>
+                                 </a:s>
+                                 <a:s>)</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>&#xd;
+				or </a:s>
+                           <a:s r="215">
+                              <a:s>( </a:s>
+                              <a:s r="215">
+                                 <a:s r="213">
+                                    <a:s>Count(</a:s>
+                                    <a:s r="212">
+                                       <a:s>&quot;Unilateral Mastectomy Procedure&quot;</a:s>
+                                    </a:s>
+                                    <a:s>)</a:s>
+                                 </a:s>
+                                 <a:s r="214"> = 2</a:s>
+                              </a:s>
+                              <a:s> )</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>&#xd;
+				or </a:s>
+                        <a:s r="221">
+                           <a:s>( </a:s>
+                           <a:s r="221">
+                              <a:s r="218">
+                                 <a:s>exists </a:s>
+                                 <a:s r="217">
+                                    <a:s>&quot;Right Mastectomy&quot;</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> and </a:s>
+                              <a:s r="220">
+                                 <a:s>exists </a:s>
+                                 <a:s r="219">
+                                    <a:s>&quot;Left Mastectomy&quot;</a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> )</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>&#xd;
+				or </a:s>
+                     <a:s r="224">
+                        <a:s>exists </a:s>
+                        <a:s r="223">
+                           <a:s>&quot;History Bilateral Mastectomy&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+				or </a:s>
+                  <a:s r="227">
+                     <a:s>exists </a:s>
+                     <a:s r="226">
+                        <a:s>&quot;Bilateral Mastectomy Procedure&quot;</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="228" locator="116:3-120:46" xsi:type="Or">
+            <operand localId="225" locator="116:3-119:44" xsi:type="Or">
+               <operand localId="222" locator="116:3-118:65" xsi:type="Or">
+                  <operand localId="216" locator="116:3-117:55" xsi:type="Or">
+                     <operand localId="211" locator="116:3-116:45" name="Has Hospice" libraryName="Hospice" xsi:type="FunctionRef">
+                        <operand localId="210" locator="116:25-116:44" name="Measurement Period" xsi:type="ParameterRef"/>
+                     </operand>
+                     <operand localId="215" locator="117:8-117:55" xsi:type="Equal">
+                        <operand localId="213" locator="117:10-117:49" xsi:type="Count">
+                           <source localId="212" locator="117:16-117:48" name="Unilateral Mastectomy Procedure" xsi:type="ExpressionRef"/>
+                        </operand>
+                        <operand localId="214" locator="117:53" valueType="t:Integer" value="2" xsi:type="Literal"/>
+                     </operand>
+                  </operand>
+                  <operand localId="221" locator="118:8-118:65" xsi:type="And">
+                     <operand localId="218" locator="118:10-118:34" xsi:type="Exists">
+                        <operand localId="217" locator="118:17-118:34" name="Right Mastectomy" xsi:type="ExpressionRef"/>
+                     </operand>
+                     <operand localId="220" locator="118:40-118:63" xsi:type="Exists">
+                        <operand localId="219" locator="118:47-118:63" name="Left Mastectomy" xsi:type="ExpressionRef"/>
+                     </operand>
+                  </operand>
+               </operand>
+               <operand localId="224" locator="119:8-119:44" xsi:type="Exists">
+                  <operand localId="223" locator="119:15-119:44" name="History Bilateral Mastectomy" xsi:type="ExpressionRef"/>
+               </operand>
+            </operand>
+            <operand localId="227" locator="120:8-120:46" xsi:type="Exists">
+               <operand localId="226" locator="120:15-120:46" name="Bilateral Mastectomy Procedure" xsi:type="ExpressionRef"/>
+            </operand>
+         </expression>
+      </def>
+   </statements>
+</library>
+
+

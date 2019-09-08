@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1">
+   <identifier id="AdultOutpatientEncounters_FHIR4" version="1.1.000"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localId="1" locator="10:1-10:26" localIdentifier="FHIR" uri="http://hl7.org/fhir" version="4.0.0"/>
+   </usings>
+   <includes>
+      <def localId="2" locator="12:1-12:54" localIdentifier="FHIRHelpers" path="FHIRHelpers" version="4.0.0"/>
+   </includes>
+   <valueSets>
+      <def localId="3" locator="14:1-14:105" name="Office Visit" id="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001" accessLevel="Public"/>
+      <def localId="4" locator="15:1-15:104" name="Annual Wellness Visit" id="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1240" accessLevel="Public"/>
+      <def localId="5" locator="16:1-16:155" name="Preventive Care Services - Established Office Visit, 18 and Up" id="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1025" accessLevel="Public"/>
+      <def localId="6" locator="17:1-17:149" name="Preventive Care Services-Initial Office Visit, 18 and Up" id="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1023" accessLevel="Public"/>
+      <def localId="7" locator="18:1-18:117" name="Home Healthcare Services" id="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1016" accessLevel="Public"/>
+   </valueSets>
+   <statements>
+      <def locator="20:1-20:15" name="Patient" context="Patient">
+         <expression xsi:type="SingletonFrom">
+            <operand locator="20:1-20:15" dataType="fhir:Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def localId="30" locator="22:1-31:41" name="Qualifying Encounters" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="30">
+               <a:s>define function &quot;Qualifying Encounters&quot;(MeasurementPeriod </a:s>
+               <a:s r="9">
+                  <a:s>Interval&lt;</a:s>
+                  <a:s r="8">
+                     <a:s>DateTime</a:s>
+                  </a:s>
+                  <a:s>></a:s>
+               </a:s>
+               <a:s>):&#xd;
+	</a:s>
+               <a:s r="29">
+                  <a:s r="29">
+                     <a:s>
+                        <a:s r="19">
+                           <a:s r="18">
+                              <a:s>(&#xd;
+	    </a:s>
+                              <a:s r="18">
+                                 <a:s r="16">
+                                    <a:s r="14">
+                                       <a:s r="12">
+                                          <a:s r="10">
+                                             <a:s>[Encounter: </a:s>
+                                             <a:s>
+                                                <a:s>&quot;Office Visit&quot;</a:s>
+                                             </a:s>
+                                             <a:s>]</a:s>
+                                          </a:s>
+                                          <a:s>&#xd;
+		union </a:s>
+                                          <a:s r="11">
+                                             <a:s>[Encounter: </a:s>
+                                             <a:s>
+                                                <a:s>&quot;Annual Wellness Visit&quot;</a:s>
+                                             </a:s>
+                                             <a:s>]</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s> &#xd;
+		union </a:s>
+                                       <a:s r="13">
+                                          <a:s>[Encounter: </a:s>
+                                          <a:s>
+                                             <a:s>&quot;Preventive Care Services - Established Office Visit, 18 and Up&quot;</a:s>
+                                          </a:s>
+                                          <a:s>]</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s> &#xd;
+		union </a:s>
+                                    <a:s r="15">
+                                       <a:s>[Encounter: </a:s>
+                                       <a:s>
+                                          <a:s>&quot;Preventive Care Services-Initial Office Visit, 18 and Up&quot;</a:s>
+                                       </a:s>
+                                       <a:s>]</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> &#xd;
+		union </a:s>
+                                 <a:s r="17">
+                                    <a:s>[Encounter: </a:s>
+                                    <a:s>
+                                       <a:s>&quot;Home Healthcare Services&quot;</a:s>
+                                    </a:s>
+                                    <a:s>]</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>&#xd;
+    )</a:s>
+                           </a:s>
+                           <a:s> ValidEncounter</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>&#xd;
+		</a:s>
+                     <a:s r="28">
+                        <a:s>where </a:s>
+                        <a:s r="28">
+                           <a:s r="23">
+                              <a:s r="21">
+                                 <a:s r="20">
+                                    <a:s>ValidEncounter</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="21">
+                                    <a:s>period</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s r="23"> during day of </a:s>
+                              <a:s r="22">
+                                 <a:s>MeasurementPeriod</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>&#xd;
+		and </a:s>
+                           <a:s r="27">
+                              <a:s r="25">
+                                 <a:s r="24">
+                                    <a:s>ValidEncounter</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="25">
+                                    <a:s>status</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>  = </a:s>
+                              <a:s r="26">
+                                 <a:s>'finished'</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="29" locator="23:2-31:41" xsi:type="Query">
+            <source localId="19" locator="23:2-29:20" alias="ValidEncounter">
+               <expression localId="18" locator="23:2-29:5" xsi:type="Union">
+                  <operand localId="16" locator="24:6-27:79" xsi:type="Union">
+                     <operand localId="12" locator="24:6-25:44" xsi:type="Union">
+                        <operand localId="10" locator="24:6-24:32" dataType="fhir:Encounter" codeProperty="type" xsi:type="Retrieve">
+                           <codes locator="24:18-24:31" name="Office Visit" xsi:type="ValueSetRef"/>
+                        </operand>
+                        <operand localId="11" locator="25:9-25:44" dataType="fhir:Encounter" codeProperty="type" xsi:type="Retrieve">
+                           <codes locator="25:21-25:43" name="Annual Wellness Visit" xsi:type="ValueSetRef"/>
+                        </operand>
+                     </operand>
+                     <operand xsi:type="Union">
+                        <operand localId="13" locator="26:9-26:85" dataType="fhir:Encounter" codeProperty="type" xsi:type="Retrieve">
+                           <codes locator="26:21-26:84" name="Preventive Care Services - Established Office Visit, 18 and Up" xsi:type="ValueSetRef"/>
+                        </operand>
+                        <operand localId="15" locator="27:9-27:79" dataType="fhir:Encounter" codeProperty="type" xsi:type="Retrieve">
+                           <codes locator="27:21-27:78" name="Preventive Care Services-Initial Office Visit, 18 and Up" xsi:type="ValueSetRef"/>
+                        </operand>
+                     </operand>
+                  </operand>
+                  <operand localId="17" locator="28:9-28:47" dataType="fhir:Encounter" codeProperty="type" xsi:type="Retrieve">
+                     <codes locator="28:21-28:46" name="Home Healthcare Services" xsi:type="ValueSetRef"/>
+                  </operand>
+               </expression>
+            </source>
+            <where localId="28" locator="30:3-31:41" xsi:type="And">
+               <operand localId="23" locator="30:9-30:61" precision="Day" xsi:type="IncludedIn">
+                  <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand localId="21" locator="30:9-30:29" path="period" scope="ValidEncounter" xsi:type="Property"/>
+                  </operand>
+                  <operand localId="22" locator="30:45-30:61" name="MeasurementPeriod" xsi:type="OperandRef"/>
+               </operand>
+               <operand localId="27" locator="31:7-31:41" xsi:type="Equal">
+                  <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand localId="25" locator="31:7-31:27" path="status" scope="ValidEncounter" xsi:type="Property"/>
+                  </operand>
+                  <operand localId="26" locator="31:32-31:41" valueType="t:String" value="finished" xsi:type="Literal"/>
+               </operand>
+            </where>
+         </expression>
+         <operand name="MeasurementPeriod">
+            <operandTypeSpecifier localId="9" locator="22:59-22:76" xsi:type="IntervalTypeSpecifier">
+               <pointType localId="8" locator="22:68-22:75" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+            </operandTypeSpecifier>
+         </operand>
+      </def>
+   </statements>
+</library>
+
+

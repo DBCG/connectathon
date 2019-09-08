@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1">
+   <identifier id="Hospice_FHIR4" version="1.0.000"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localId="1" locator="10:1-10:26" localIdentifier="FHIR" uri="http://hl7.org/fhir" version="4.0.0"/>
+   </usings>
+   <includes>
+      <def localId="2" locator="12:1-12:70" localIdentifier="Global" path="MATGlobalCommonFunctions_FHIR4" version="4.0.000"/>
+      <def localId="3" locator="13:1-13:54" localIdentifier="FHIRHelpers" path="FHIRHelpers" version="4.0.0"/>
+   </includes>
+   <codeSystems>
+      <def localId="4" locator="15:1-15:129" name="SNOMEDCT:2017-09" id="http://snomed.info/sct/731000124108" version="http://snomed.info/sct/731000124108/version/201709" accessLevel="Public"/>
+   </codeSystems>
+   <valueSets>
+      <def localId="5" locator="17:1-17:101" name="Encounter Inpatient" id="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307" accessLevel="Public"/>
+      <def localId="6" locator="18:1-18:105" name="Hospice care ambulatory" id="https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15" accessLevel="Public"/>
+   </valueSets>
+   <codes>
+      <def localId="8" locator="20:1-20:183" name="Discharge to healthcare facility for hospice care (procedure)" id="428371000124100" display="Discharge to healthcare facility for hospice care (procedure)" accessLevel="Public">
+         <codeSystem localId="7" locator="20:94-20:111" name="SNOMEDCT:2017-09"/>
+      </def>
+      <def localId="10" locator="21:1-21:153" name="Discharge to home for hospice care (procedure)" id="428361000124107" display="Discharge to home for hospice care (procedure)" accessLevel="Public">
+         <codeSystem localId="9" locator="21:79-21:96" name="SNOMEDCT:2017-09"/>
+      </def>
+   </codes>
+   <statements>
+      <def locator="23:1-23:15" name="Patient" context="Patient">
+         <expression xsi:type="SingletonFrom">
+            <operand locator="23:1-23:15" dataType="fhir:Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def localId="80" locator="25:1-44:5" name="Has Hospice" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="80">
+               <a:s>define function &quot;Has Hospice&quot;(MeasurementPeriod </a:s>
+               <a:s r="12">
+                  <a:s>Interval&lt;</a:s>
+                  <a:s r="11">
+                     <a:s>DateTime</a:s>
+                  </a:s>
+                  <a:s>></a:s>
+               </a:s>
+               <a:s>):&#xd;
+	</a:s>
+               <a:s r="79">
+                  <a:s r="79">
+                     <a:s r="63">
+                        <a:s r="47">
+                           <a:s>exists </a:s>
+                           <a:s r="46">
+                              <a:s>(&#xd;
+	    </a:s>
+                              <a:s r="46">
+                                 <a:s>
+                                    <a:s r="14">
+                                       <a:s r="13">
+                                          <a:s r="13">
+                                             <a:s>[Encounter: </a:s>
+                                             <a:s>
+                                                <a:s>&quot;Encounter Inpatient&quot;</a:s>
+                                             </a:s>
+                                             <a:s>]</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s> DischargeHospice</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>&#xd;
+			</a:s>
+                                 <a:s r="45">
+                                    <a:s>where </a:s>
+                                    <a:s r="45">
+                                       <a:s r="40">
+                                          <a:s r="18">
+                                             <a:s r="16">
+                                                <a:s r="15">
+                                                   <a:s>DischargeHospice</a:s>
+                                                </a:s>
+                                                <a:s>.</a:s>
+                                                <a:s r="16">
+                                                   <a:s>status</a:s>
+                                                </a:s>
+                                             </a:s>
+                                             <a:s> = </a:s>
+                                             <a:s r="17">
+                                                <a:s>'finished'</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s>&#xd;
+			    and </a:s>
+                                          <a:s r="39">
+                                             <a:s>(&#xd;
+			        </a:s>
+                                             <a:s r="39">
+                                                <a:s r="28">
+                                                   <a:s r="26">
+                                                      <a:s r="24">
+                                                         <a:s r="23">
+                                                            <a:s r="19">
+                                                               <a:s>FHIRHelpers</a:s>
+                                                            </a:s>
+                                                            <a:s>.</a:s>
+                                                            <a:s r="23">
+                                                               <a:s>ToConcept(</a:s>
+                                                               <a:s r="22">
+                                                                  <a:s r="21">
+                                                                     <a:s r="20">
+                                                                        <a:s>DischargeHospice</a:s>
+                                                                     </a:s>
+                                                                     <a:s>.</a:s>
+                                                                     <a:s r="21">
+                                                                        <a:s>hospitalization</a:s>
+                                                                     </a:s>
+                                                                  </a:s>
+                                                                  <a:s>.</a:s>
+                                                                  <a:s r="22">
+                                                                     <a:s>dischargeDisposition</a:s>
+                                                                  </a:s>
+                                                               </a:s>
+                                                               <a:s>)</a:s>
+                                                            </a:s>
+                                                         </a:s>
+                                                         <a:s>.</a:s>
+                                                         <a:s r="24">
+                                                            <a:s>codes</a:s>
+                                                         </a:s>
+                                                      </a:s>
+                                                      <a:s r="25">[0]</a:s>
+                                                   </a:s>
+                                                   <a:s> ~ </a:s>
+                                                   <a:s r="27">
+                                                      <a:s>&quot;Discharge to home for hospice care (procedure)&quot;</a:s>
+                                                   </a:s>
+                                                </a:s>
+                                                <a:s>&#xd;
+					    or </a:s>
+                                                <a:s r="38">
+                                                   <a:s r="36">
+                                                      <a:s r="34">
+                                                         <a:s r="33">
+                                                            <a:s r="29">
+                                                               <a:s>FHIRHelpers</a:s>
+                                                            </a:s>
+                                                            <a:s>.</a:s>
+                                                            <a:s r="33">
+                                                               <a:s>ToConcept(</a:s>
+                                                               <a:s r="32">
+                                                                  <a:s r="31">
+                                                                     <a:s r="30">
+                                                                        <a:s>DischargeHospice</a:s>
+                                                                     </a:s>
+                                                                     <a:s>.</a:s>
+                                                                     <a:s r="31">
+                                                                        <a:s>hospitalization</a:s>
+                                                                     </a:s>
+                                                                  </a:s>
+                                                                  <a:s>.</a:s>
+                                                                  <a:s r="32">
+                                                                     <a:s>dischargeDisposition</a:s>
+                                                                  </a:s>
+                                                               </a:s>
+                                                               <a:s>)</a:s>
+                                                            </a:s>
+                                                         </a:s>
+                                                         <a:s>.</a:s>
+                                                         <a:s r="34">
+                                                            <a:s>codes</a:s>
+                                                         </a:s>
+                                                      </a:s>
+                                                      <a:s r="35">[0]</a:s>
+                                                   </a:s>
+                                                   <a:s> ~ </a:s>
+                                                   <a:s r="37">
+                                                      <a:s>&quot;Discharge to healthcare facility for hospice care (procedure)&quot;</a:s>
+                                                   </a:s>
+                                                </a:s>
+                                             </a:s>
+                                             <a:s>&#xd;
+			    )</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>&#xd;
+				and </a:s>
+                                       <a:s r="44">
+                                          <a:s r="42">
+                                             <a:s r="41">
+                                                <a:s>DischargeHospice</a:s>
+                                             </a:s>
+                                             <a:s>.</a:s>
+                                             <a:s r="42">
+                                                <a:s>period</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s r="44"> ends during day of </a:s>
+                                          <a:s r="43">
+                                             <a:s>MeasurementPeriod</a:s>
+                                          </a:s>
+                                       </a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>&#xd;
+	)</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>&#xd;
+    or </a:s>
+                        <a:s r="62">
+                           <a:s>exists </a:s>
+                           <a:s r="61">
+                              <a:s>(&#xd;
+        </a:s>
+                              <a:s r="61">
+                                 <a:s>
+                                    <a:s r="49">
+                                       <a:s r="48">
+                                          <a:s r="48">
+                                             <a:s>[ServiceRequest: </a:s>
+                                             <a:s>
+                                                <a:s>&quot;Hospice care ambulatory&quot;</a:s>
+                                             </a:s>
+                                             <a:s>]</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s> HospiceOrder</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>&#xd;
+            </a:s>
+                                 <a:s r="60">
+                                    <a:s>where </a:s>
+                                    <a:s r="60">
+                                       <a:s r="53">
+                                          <a:s r="51">
+                                             <a:s r="50">
+                                                <a:s>HospiceOrder</a:s>
+                                             </a:s>
+                                             <a:s>.</a:s>
+                                             <a:s r="51">
+                                                <a:s>intent</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s> = </a:s>
+                                          <a:s r="52">
+                                             <a:s>'order'</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>&#xd;
+                and </a:s>
+                                       <a:s r="59">
+                                          <a:s r="57">
+                                             <a:s r="54">
+                                                <a:s>FHIRHelpers</a:s>
+                                             </a:s>
+                                             <a:s>.</a:s>
+                                             <a:s r="57">
+                                                <a:s>ToDateTime(</a:s>
+                                                <a:s r="56">
+                                                   <a:s r="55">
+                                                      <a:s>HospiceOrder</a:s>
+                                                   </a:s>
+                                                   <a:s>.</a:s>
+                                                   <a:s r="56">
+                                                      <a:s>authoredOn</a:s>
+                                                   </a:s>
+                                                </a:s>
+                                                <a:s>)</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s> in day of </a:s>
+                                          <a:s r="58">
+                                             <a:s>MeasurementPeriod</a:s>
+                                          </a:s>
+                                       </a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>&#xd;
+    )</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>&#xd;
+    or </a:s>
+                     <a:s r="78">
+                        <a:s>exists </a:s>
+                        <a:s r="77">
+                           <a:s>(&#xd;
+        </a:s>
+                           <a:s r="77">
+                              <a:s>
+                                 <a:s r="65">
+                                    <a:s r="64">
+                                       <a:s r="64">
+                                          <a:s>[Procedure: </a:s>
+                                          <a:s>
+                                             <a:s>&quot;Hospice care ambulatory&quot;</a:s>
+                                          </a:s>
+                                          <a:s>]</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s> HospicePerformed</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>&#xd;
+            </a:s>
+                              <a:s r="76">
+                                 <a:s>where </a:s>
+                                 <a:s r="76">
+                                    <a:s r="69">
+                                       <a:s r="67">
+                                          <a:s r="66">
+                                             <a:s>HospicePerformed</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="67">
+                                             <a:s>status</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s> = </a:s>
+                                       <a:s r="68">
+                                          <a:s>'completed'</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>&#xd;
+                and </a:s>
+                                    <a:s r="75">
+                                       <a:s r="73">
+                                          <a:s r="70">
+                                             <a:s>Global</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="73">
+                                             <a:s>&quot;Get Choice Interval - dateTime or Period&quot;(</a:s>
+                                             <a:s r="72">
+                                                <a:s r="71">
+                                                   <a:s>HospicePerformed</a:s>
+                                                </a:s>
+                                                <a:s>.</a:s>
+                                                <a:s r="72">
+                                                   <a:s>performed</a:s>
+                                                </a:s>
+                                             </a:s>
+                                             <a:s>)</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s r="75"> overlaps </a:s>
+                                       <a:s r="74">
+                                          <a:s>MeasurementPeriod</a:s>
+                                       </a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>&#xd;
+    )</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="79" locator="26:2-44:5" xsi:type="Or">
+            <operand localId="63" locator="26:2-39:5" xsi:type="Or">
+               <operand localId="47" locator="26:2-34:2" xsi:type="Exists">
+                  <operand localId="46" locator="26:9-34:2" xsi:type="Query">
+                     <source localId="14" locator="27:6-27:56" alias="DischargeHospice">
+                        <expression localId="13" locator="27:6-27:39" dataType="fhir:Encounter" codeProperty="type" xsi:type="Retrieve">
+                           <codes locator="27:18-27:38" name="Encounter Inpatient" xsi:type="ValueSetRef"/>
+                        </expression>
+                     </source>
+                     <where localId="45" locator="28:4-33:68" xsi:type="And">
+                        <operand localId="40" locator="28:10-32:8" xsi:type="And">
+                           <operand localId="18" locator="28:10-28:45" xsi:type="Equal">
+                              <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand localId="16" locator="28:10-28:32" path="status" scope="DischargeHospice" xsi:type="Property"/>
+                              </operand>
+                              <operand localId="17" locator="28:36-28:45" valueType="t:String" value="finished" xsi:type="Literal"/>
+                           </operand>
+                           <operand localId="39" locator="29:12-32:8" xsi:type="Or">
+                              <operand localId="28" locator="30:12-30:147" xsi:type="Equivalent">
+                                 <operand localId="26" locator="30:12-30:96" xsi:type="Indexer">
+                                    <operand localId="24" locator="30:12-30:93" path="codes" xsi:type="Property">
+                                       <source localId="23" locator="30:12-30:87" name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                          <operand localId="22" locator="30:34-30:86" path="dischargeDisposition" xsi:type="Property">
+                                             <source localId="21" locator="30:34-30:65" path="hospitalization" scope="DischargeHospice" xsi:type="Property"/>
+                                          </operand>
+                                       </source>
+                                    </operand>
+                                    <operand localId="25" locator="30:95" valueType="t:Integer" value="0" xsi:type="Literal"/>
+                                 </operand>
+                                 <operand localId="27" locator="30:100-30:147" name="Discharge to home for hospice care (procedure)" xsi:type="CodeRef"/>
+                              </operand>
+                              <operand localId="38" locator="31:13-31:163" xsi:type="Equivalent">
+                                 <operand localId="36" locator="31:13-31:97" xsi:type="Indexer">
+                                    <operand localId="34" locator="31:13-31:94" path="codes" xsi:type="Property">
+                                       <source localId="33" locator="31:13-31:88" name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                          <operand localId="32" locator="31:35-31:87" path="dischargeDisposition" xsi:type="Property">
+                                             <source localId="31" locator="31:35-31:66" path="hospitalization" scope="DischargeHospice" xsi:type="Property"/>
+                                          </operand>
+                                       </source>
+                                    </operand>
+                                    <operand localId="35" locator="31:96" valueType="t:Integer" value="0" xsi:type="Literal"/>
+                                 </operand>
+                                 <operand localId="37" locator="31:101-31:163" name="Discharge to healthcare facility for hospice care (procedure)" xsi:type="CodeRef"/>
+                              </operand>
+                           </operand>
+                        </operand>
+                        <operand localId="44" locator="33:9-33:68" precision="Day" xsi:type="In">
+                           <operand locator="33:33-33:36" xsi:type="End">
+                              <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand localId="42" locator="33:9-33:31" path="period" scope="DischargeHospice" xsi:type="Property"/>
+                              </operand>
+                           </operand>
+                           <operand localId="43" locator="33:52-33:68" name="MeasurementPeriod" xsi:type="OperandRef"/>
+                        </operand>
+                     </where>
+                  </operand>
+               </operand>
+               <operand localId="62" locator="35:8-39:5" xsi:type="Exists">
+                  <operand localId="61" locator="35:15-39:5" xsi:type="Query">
+                     <source localId="49" locator="36:9-36:64" alias="HospiceOrder">
+                        <expression localId="48" locator="36:9-36:51" dataType="fhir:ServiceRequest" codeProperty="code" xsi:type="Retrieve">
+                           <codes locator="36:26-36:50" name="Hospice care ambulatory" xsi:type="ValueSetRef"/>
+                        </expression>
+                     </source>
+                     <where localId="60" locator="37:13-38:95" xsi:type="And">
+                        <operand localId="53" locator="37:19-37:47" xsi:type="Equal">
+                           <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand localId="51" locator="37:19-37:37" path="intent" scope="HospiceOrder" xsi:type="Property"/>
+                           </operand>
+                           <operand localId="52" locator="37:41-37:47" valueType="t:String" value="order" xsi:type="Literal"/>
+                        </operand>
+                        <operand localId="59" locator="38:21-38:95" precision="Day" xsi:type="In">
+                           <operand localId="57" locator="38:21-38:67" name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand localId="56" locator="38:44-38:66" path="authoredOn" scope="HospiceOrder" xsi:type="Property"/>
+                           </operand>
+                           <operand localId="58" locator="38:79-38:95" name="MeasurementPeriod" xsi:type="OperandRef"/>
+                        </operand>
+                     </where>
+                  </operand>
+               </operand>
+            </operand>
+            <operand localId="78" locator="40:8-44:5" xsi:type="Exists">
+               <operand localId="77" locator="40:15-44:5" xsi:type="Query">
+                  <source localId="65" locator="41:9-41:63" alias="HospicePerformed">
+                     <expression localId="64" locator="41:9-41:46" dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                        <codes locator="41:21-41:45" name="Hospice care ambulatory" xsi:type="ValueSetRef"/>
+                     </expression>
+                  </source>
+                  <where localId="76" locator="42:13-43:124" xsi:type="And">
+                     <operand localId="69" locator="42:19-42:55" xsi:type="Equal">
+                        <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand localId="67" locator="42:19-42:41" path="status" scope="HospicePerformed" xsi:type="Property"/>
+                        </operand>
+                        <operand localId="68" locator="42:45-42:55" valueType="t:String" value="completed" xsi:type="Literal"/>
+                     </operand>
+                     <operand localId="75" locator="43:21-43:124" xsi:type="Overlaps">
+                        <operand localId="73" locator="43:21-43:97" name="Get Choice Interval - dateTime or Period" libraryName="Global" xsi:type="FunctionRef">
+                           <operand asType="fhir:dateTime" xsi:type="As">
+                              <operand xsi:type="As">
+                                 <operand localId="72" locator="43:71-43:96" path="performed" scope="HospicePerformed" xsi:type="Property"/>
+                                 <asTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                                    <choice name="fhir:dateTime" xsi:type="NamedTypeSpecifier"/>
+                                    <choice name="fhir:Period" xsi:type="NamedTypeSpecifier"/>
+                                    <choice name="fhir:string" xsi:type="NamedTypeSpecifier"/>
+                                    <choice name="fhir:Age" xsi:type="NamedTypeSpecifier"/>
+                                    <choice name="fhir:Range" xsi:type="NamedTypeSpecifier"/>
+                                 </asTypeSpecifier>
+                              </operand>
+                           </operand>
+                        </operand>
+                        <operand localId="74" locator="43:108-43:124" name="MeasurementPeriod" xsi:type="OperandRef"/>
+                     </operand>
+                  </where>
+               </operand>
+            </operand>
+         </expression>
+         <operand name="MeasurementPeriod">
+            <operandTypeSpecifier localId="12" locator="25:49-25:66" xsi:type="IntervalTypeSpecifier">
+               <pointType localId="11" locator="25:58-25:65" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+            </operandTypeSpecifier>
+         </operand>
+      </def>
+   </statements>
+</library>
+
+
