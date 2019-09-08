@@ -1,0 +1,2224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1">
+   <annotation startLine="100" startChar="2" endLine="100" endChar="34" message="Could not resolve membership operator for terminology target of the retrieve." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
+   <annotation startLine="117" startChar="2" endLine="117" endChar="34" message="Could not resolve membership operator for terminology target of the retrieve." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
+   <identifier id="EXM165_FHIR4" version="8.5.000"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localId="1" locator="7:1-7:26" localIdentifier="FHIR" uri="http://hl7.org/fhir" version="4.0.0"/>
+   </usings>
+   <includes>
+      <def localId="2" locator="9:1-9:35" localIdentifier="FHIRHelpers" path="FHIRHelpers" version="4.0.0"/>
+      <def localId="3" locator="10:1-10:70" localIdentifier="Common" path="MATGlobalCommonFunctions_FHIR4" version="4.0.000"/>
+      <def localId="4" locator="11:1-11:90" localIdentifier="AdultOutpatientEncounters" path="AdultOutpatientEncounters_FHIR4" version="1.1.000"/>
+      <def localId="5" locator="12:1-12:65" localIdentifier="SDE" path="SupplementalDataElements_FHIR4" version="1.0.0"/>
+      <def localId="6" locator="13:1-13:84" localIdentifier="FrailtyLTI" path="AdvancedIllnessandFrailtyExclusion_FHIR4" version="4.0.000"/>
+      <def localId="7" locator="14:1-14:54" localIdentifier="Hospice" path="Hospice_FHIR4" version="1.0.000"/>
+   </includes>
+   <parameters>
+      <def localId="34" locator="41:1-41:49" name="Measurement Period" accessLevel="Public">
+         <parameterTypeSpecifier localId="33" locator="41:32-41:49" xsi:type="IntervalTypeSpecifier">
+            <pointType localId="32" locator="41:41-41:48" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+         </parameterTypeSpecifier>
+      </def>
+   </parameters>
+   <codeSystems>
+      <def localId="8" locator="18:1-18:51" name="LOINC" id="urn:oid:2.16.840.1.113883.6.1" accessLevel="Public"/>
+   </codeSystems>
+   <valueSets>
+      <def localId="9" locator="20:1-20:84" name="Chronic Kidney Disease, Stage 5" id="urn:oid:2.16.840.1.113883.3.526.3.1002" accessLevel="Public"/>
+      <def localId="10" locator="21:1-21:80" name="Dialysis Services" id="urn:oid:2.16.840.1.113883.3.464.1003.109.12.1013" accessLevel="Public"/>
+      <def localId="11" locator="22:1-22:65" name="ED" id="urn:oid:2.16.840.1.113883.3.464.1003.101.12.1085" accessLevel="Public"/>
+      <def localId="12" locator="23:1-23:71" name="Encounter Inpatient" id="urn:oid:2.16.840.1.113883.3.666.5.307" accessLevel="Public"/>
+      <def localId="13" locator="24:1-24:75" name="End Stage Renal Disease" id="urn:oid:2.16.840.1.113883.3.526.3.353" accessLevel="Public"/>
+      <def localId="14" locator="25:1-25:95" name="ESRD Monthly Outpatient Services" id="urn:oid:2.16.840.1.113883.3.464.1003.109.12.1014" accessLevel="Public"/>
+      <def localId="15" locator="26:1-26:85" name="Essential Hypertension" id="urn:oid:2.16.840.1.113883.3.464.1003.104.12.1011" accessLevel="Public"/>
+      <def localId="16" locator="27:1-27:58" name="Ethnicity" id="urn:oid:2.16.840.1.114222.4.11.837" accessLevel="Public"/>
+      <def localId="17" locator="28:1-28:80" name="Kidney Transplant" id="urn:oid:2.16.840.1.113883.3.464.1003.109.12.1012" accessLevel="Public"/>
+      <def localId="18" locator="29:1-29:90" name="Kidney Transplant Recipient" id="urn:oid:2.16.840.1.113883.3.464.1003.109.12.1029" accessLevel="Public"/>
+      <def localId="19" locator="30:1-30:68" name="ONC Administrative Sex" id="urn:oid:2.16.840.1.113762.1.4.1" accessLevel="Public"/>
+      <def localId="20" locator="31:1-31:55" name="Payer" id="urn:oid:2.16.840.1.114222.4.11.3591" accessLevel="Public"/>
+      <def localId="21" locator="32:1-32:61" name="Pregnancy" id="urn:oid:2.16.840.1.113883.3.526.3.378" accessLevel="Public"/>
+      <def localId="22" locator="33:1-33:53" name="Race" id="urn:oid:2.16.840.1.114222.4.11.836" accessLevel="Public"/>
+      <def localId="23" locator="34:1-34:91" name="Vascular Access for Dialysis" id="urn:oid:2.16.840.1.113883.3.464.1003.109.12.1011" accessLevel="Public"/>
+   </valueSets>
+   <codes>
+      <def localId="25" locator="36:1-36:62" name="Birth date" id="21112-8" display="Birth date" accessLevel="Public">
+         <codeSystem localId="24" locator="36:35-36:41" name="LOINC"/>
+      </def>
+      <def localId="27" locator="37:1-37:70" name="Blood pressure" id="85354-9" display="blood pressure" accessLevel="Public">
+         <codeSystem localId="26" locator="37:39-37:45" name="LOINC"/>
+      </def>
+      <def localId="29" locator="38:1-38:89" name="Diastolic blood pressure" id="8462-4" display="Diastolic blood pressure" accessLevel="Public">
+         <codeSystem localId="28" locator="38:48-38:54" name="LOINC"/>
+      </def>
+      <def localId="31" locator="39:1-39:87" name="Systolic blood pressure" id="8480-6" display="Systolic blood pressure" accessLevel="Public">
+         <codeSystem localId="30" locator="39:47-39:53" name="LOINC"/>
+      </def>
+   </codes>
+   <statements>
+      <def locator="43:1-43:15" name="Patient" context="Patient">
+         <expression xsi:type="SingletonFrom">
+            <operand locator="43:1-43:15" dataType="fhir:Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def localId="37" locator="45:1-46:21" name="SDE Ethnicity" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="37">
+               <a:s>define &quot;SDE Ethnicity&quot;:&#xd;
+  </a:s>
+               <a:s r="36">
+                  <a:s r="35">
+                     <a:s>SDE</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="36">
+                     <a:s>&quot;SDE Ethnicity&quot;</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="36" locator="46:3-46:21" name="SDE Ethnicity" libraryName="SDE" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="40" locator="48:1-49:17" name="SDE Payer" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="40">
+               <a:s>define &quot;SDE Payer&quot;:&#xd;
+  </a:s>
+               <a:s r="39">
+                  <a:s r="38">
+                     <a:s>SDE</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="39">
+                     <a:s>&quot;SDE Payer&quot;</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="39" locator="49:3-49:17" name="SDE Payer" libraryName="SDE" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="43" locator="51:1-52:16" name="SDE Race" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="43">
+               <a:s>define &quot;SDE Race&quot;:&#xd;
+  </a:s>
+               <a:s r="42">
+                  <a:s r="41">
+                     <a:s>SDE</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="42">
+                     <a:s>&quot;SDE Race&quot;</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="42" locator="52:3-52:16" name="SDE Race" libraryName="SDE" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="46" locator="54:1-55:15" name="SDE Sex" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="46">
+               <a:s>define &quot;SDE Sex&quot;:&#xd;
+  </a:s>
+               <a:s r="45">
+                  <a:s r="44">
+                     <a:s>SDE</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="45">
+                     <a:s>&quot;SDE Sex&quot;</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="45" locator="55:3-55:15" name="SDE Sex" libraryName="SDE" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="78" locator="99:1-109:7" name="Qualifying Diastolic Blood Pressure Reading" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="78">
+               <a:s>define &quot;Qualifying Diastolic Blood Pressure Reading&quot;:&#xd;
+	</a:s>
+               <a:s r="77">
+                  <a:s>
+                     <a:s r="48">
+                        <a:s r="47">
+                           <a:s r="47">
+                              <a:s>[&quot;Observation&quot;: </a:s>
+                              <a:s>
+                                 <a:s>&quot;Blood pressure&quot;</a:s>
+                              </a:s>
+                              <a:s>]</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> BloodPressure</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+	  </a:s>
+                  <a:s r="76">
+                     <a:s>where </a:s>
+                     <a:s r="76">
+                        <a:s r="59">
+                           <a:s r="54">
+                              <a:s r="50">
+                                 <a:s r="49">
+                                    <a:s>BloodPressure</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="50">
+                                    <a:s>status</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> in </a:s>
+                              <a:s r="53">
+                                 <a:s>{</a:s>
+                                 <a:s r="51">
+                                    <a:s>'final'</a:s>
+                                 </a:s>
+                                 <a:s>, </a:s>
+                                 <a:s r="52">
+                                    <a:s>'amended'</a:s>
+                                 </a:s>
+                                 <a:s>}</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>&#xd;
+      and </a:s>
+                           <a:s r="58">
+                              <a:s r="56">
+                                 <a:s r="55">
+                                    <a:s>BloodPressure</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="56">
+                                    <a:s>effective</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s r="58"> during </a:s>
+                              <a:s r="57">
+                                 <a:s>&quot;Measurement Period&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>&#xd;
+      // TODO: Turn this into a value set&#xd;
+	    //and not (GetEncounter(BloodPressure.&quot;context&quot;).class.code in { 'EMER', 'IMP', 'ACUTE', 'NONAC', 'PRENC', 'SS' })&#xd;
+      and </a:s>
+                        <a:s r="75">
+                           <a:s>exists </a:s>
+                           <a:s r="74">
+                              <a:s>(&#xd;
+        </a:s>
+                              <a:s r="74">
+                                 <a:s>
+                                    <a:s r="61">
+                                       <a:s r="60">
+                                          <a:s>
+                                             <a:s>BloodPressure.component</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s> DiastolicBP</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>&#xd;
+          </a:s>
+                                 <a:s r="73">
+                                    <a:s>where </a:s>
+                                    <a:s r="73">
+                                       <a:s r="67">
+                                          <a:s r="65">
+                                             <a:s r="62">
+                                                <a:s>FHIRHelpers</a:s>
+                                             </a:s>
+                                             <a:s>.</a:s>
+                                             <a:s r="65">
+                                                <a:s>ToConcept(</a:s>
+                                                <a:s r="64">
+                                                   <a:s r="63">
+                                                      <a:s>DiastolicBP</a:s>
+                                                   </a:s>
+                                                   <a:s>.</a:s>
+                                                   <a:s r="64">
+                                                      <a:s>code</a:s>
+                                                   </a:s>
+                                                </a:s>
+                                                <a:s>)</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s> ~ </a:s>
+                                          <a:s r="66">
+                                             <a:s>&quot;Diastolic blood pressure&quot;</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>&#xd;
+            and </a:s>
+                                       <a:s r="72">
+                                          <a:s r="70">
+                                             <a:s r="69">
+                                                <a:s r="68">
+                                                   <a:s>DiastolicBP</a:s>
+                                                </a:s>
+                                                <a:s>.</a:s>
+                                                <a:s r="69">
+                                                   <a:s>value</a:s>
+                                                </a:s>
+                                             </a:s>
+                                             <a:s>.</a:s>
+                                             <a:s r="70">
+                                                <a:s>unit</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s> = </a:s>
+                                          <a:s r="71">
+                                             <a:s>'mm[Hg]'</a:s>
+                                          </a:s>
+                                       </a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>&#xd;
+      )</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="77" locator="100:2-109:7" xsi:type="Query">
+            <source localId="48" locator="100:2-100:48" alias="BloodPressure">
+               <expression localId="47" locator="100:2-100:34" dataType="fhir:Observation" codeProperty="code" xsi:type="Retrieve">
+                  <codes xsi:type="ToList">
+                     <operand locator="100:18-100:33" name="Blood pressure" xsi:type="CodeRef"/>
+                  </codes>
+               </expression>
+            </source>
+            <where localId="76" locator="101:4-109:7" xsi:type="And">
+               <operand localId="59" locator="101:10-102:61" xsi:type="And">
+                  <operand localId="54" locator="101:10-101:53" xsi:type="In">
+                     <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand localId="50" locator="101:10-101:29" path="status" scope="BloodPressure" xsi:type="Property"/>
+                     </operand>
+                     <operand localId="53" locator="101:34-101:53" xsi:type="List">
+                        <element localId="51" locator="101:35-101:41" valueType="t:String" value="final" xsi:type="Literal"/>
+                        <element localId="52" locator="101:44-101:52" valueType="t:String" value="amended" xsi:type="Literal"/>
+                     </operand>
+                  </operand>
+                  <operand localId="58" locator="102:11-102:61" xsi:type="IncludedIn">
+                     <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand asType="fhir:Period" xsi:type="As">
+                           <operand localId="56" locator="102:11-102:33" path="effective" scope="BloodPressure" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                     <operand localId="57" locator="102:42-102:61" name="Measurement Period" xsi:type="ParameterRef"/>
+                  </operand>
+               </operand>
+               <operand localId="75" locator="105:11-109:7" xsi:type="Exists">
+                  <operand localId="74" locator="105:18-109:7" xsi:type="Query">
+                     <source localId="61" locator="106:9-106:43" alias="DiastolicBP">
+                        <expression localId="60" locator="106:9-106:31" path="component" scope="BloodPressure" xsi:type="Property"/>
+                     </source>
+                     <where localId="73" locator="107:11-108:49" xsi:type="And">
+                        <operand localId="67" locator="107:17-107:84" xsi:type="Equivalent">
+                           <operand localId="65" locator="107:17-107:55" name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand localId="64" locator="107:39-107:54" path="code" scope="DiastolicBP" xsi:type="Property"/>
+                           </operand>
+                           <operand xsi:type="ToConcept">
+                              <operand localId="66" locator="107:59-107:84" name="Diastolic blood pressure" xsi:type="CodeRef"/>
+                           </operand>
+                        </operand>
+                        <operand localId="72" locator="108:17-108:49" xsi:type="Equal">
+                           <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand localId="70" locator="108:17-108:38" path="unit" xsi:type="Property">
+                                 <source localId="69" locator="108:17-108:33" path="value" scope="DiastolicBP" xsi:type="Property"/>
+                              </operand>
+                           </operand>
+                           <operand localId="71" locator="108:42-108:49" valueType="t:String" value="mm[Hg]" xsi:type="Literal"/>
+                        </operand>
+                     </where>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="112" locator="113:1-114:73" name="GetEncounter" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="112">
+               <a:s>define function GetEncounter(reference </a:s>
+               <a:s r="105">
+                  <a:s>Reference</a:s>
+               </a:s>
+               <a:s>):&#xd;
+  </a:s>
+               <a:s r="111">
+                  <a:s r="111">
+                     <a:s>singleton from </a:s>
+                     <a:s r="110">
+                        <a:s>( </a:s>
+                        <a:s r="110">
+                           <a:s>[Encounter: id in </a:s>
+                           <a:s r="109">
+                              <a:s r="106">
+                                 <a:s>Common</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="109">
+                                 <a:s>GetId(</a:s>
+                                 <a:s r="108">
+                                    <a:s r="107">
+                                       <a:s>reference</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="108">
+                                       <a:s>reference</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>)</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>]</a:s>
+                        </a:s>
+                        <a:s> )</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="111" locator="114:3-114:73" xsi:type="SingletonFrom">
+            <operand localId="110" locator="114:18-114:73" dataType="fhir:Encounter" codeProperty="id" xsi:type="Retrieve">
+               <codes xsi:type="ToList">
+                  <operand localId="109" locator="114:38-114:70" name="GetId" libraryName="Common" xsi:type="FunctionRef">
+                     <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand localId="108" locator="114:51-114:69" path="reference" xsi:type="Property">
+                           <source localId="107" locator="114:51-114:59" name="reference" xsi:type="OperandRef"/>
+                        </operand>
+                     </operand>
+                  </operand>
+               </codes>
+            </operand>
+         </expression>
+         <operand name="reference">
+            <operandTypeSpecifier localId="105" locator="113:40-113:48" name="fhir:Reference" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+      </def>
+      <def localId="144" locator="116:1-126:7" name="Qualifying Systolic Blood Pressure Reading" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="144">
+               <a:s>define &quot;Qualifying Systolic Blood Pressure Reading&quot;:&#xd;
+	</a:s>
+               <a:s r="143">
+                  <a:s>
+                     <a:s r="91">
+                        <a:s r="90">
+                           <a:s r="90">
+                              <a:s>[&quot;Observation&quot;: </a:s>
+                              <a:s>
+                                 <a:s>&quot;Blood pressure&quot;</a:s>
+                              </a:s>
+                              <a:s>]</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> BloodPressure</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+	  </a:s>
+                  <a:s r="142">
+                     <a:s>where </a:s>
+                     <a:s r="142">
+                        <a:s r="125">
+                           <a:s r="102">
+                              <a:s r="97">
+                                 <a:s r="93">
+                                    <a:s r="92">
+                                       <a:s>BloodPressure</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="93">
+                                       <a:s>status</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> in </a:s>
+                                 <a:s r="96">
+                                    <a:s>{</a:s>
+                                    <a:s r="94">
+                                       <a:s>'final'</a:s>
+                                    </a:s>
+                                    <a:s>, </a:s>
+                                    <a:s r="95">
+                                       <a:s>'amended'</a:s>
+                                    </a:s>
+                                    <a:s>}</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>&#xd;
+      and </a:s>
+                              <a:s r="101">
+                                 <a:s r="99">
+                                    <a:s r="98">
+                                       <a:s>BloodPressure</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="99">
+                                       <a:s>effective</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s r="101"> during </a:s>
+                                 <a:s r="100">
+                                    <a:s>&quot;Measurement Period&quot;</a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>&#xd;
+      // TODO: Turn this into a value set&#xd;
+	    and </a:s>
+                           <a:s r="124">
+                              <a:s>not </a:s>
+                              <a:s r="123">
+                                 <a:s>(</a:s>
+                                 <a:s r="123">
+                                    <a:s r="115">
+                                       <a:s r="114">
+                                          <a:s r="113">
+                                             <a:s>GetEncounter(</a:s>
+                                             <a:s r="104">
+                                                <a:s r="103">
+                                                   <a:s>BloodPressure</a:s>
+                                                </a:s>
+                                                <a:s>.</a:s>
+                                                <a:s r="104">
+                                                   <a:s>encounter</a:s>
+                                                </a:s>
+                                             </a:s>
+                                             <a:s>)</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="114">
+                                             <a:s>class</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="115">
+                                          <a:s>code</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s> in </a:s>
+                                    <a:s r="122">
+                                       <a:s>{ </a:s>
+                                       <a:s r="116">
+                                          <a:s>'EMER'</a:s>
+                                       </a:s>
+                                       <a:s>, </a:s>
+                                       <a:s r="117">
+                                          <a:s>'IMP'</a:s>
+                                       </a:s>
+                                       <a:s>, </a:s>
+                                       <a:s r="118">
+                                          <a:s>'ACUTE'</a:s>
+                                       </a:s>
+                                       <a:s>, </a:s>
+                                       <a:s r="119">
+                                          <a:s>'NONAC'</a:s>
+                                       </a:s>
+                                       <a:s>, </a:s>
+                                       <a:s r="120">
+                                          <a:s>'PRENC'</a:s>
+                                       </a:s>
+                                       <a:s>, </a:s>
+                                       <a:s r="121">
+                                          <a:s>'SS'</a:s>
+                                       </a:s>
+                                       <a:s>}</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>)</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>&#xd;
+      and </a:s>
+                        <a:s r="141">
+                           <a:s>exists </a:s>
+                           <a:s r="140">
+                              <a:s>(&#xd;
+        </a:s>
+                              <a:s r="140">
+                                 <a:s>
+                                    <a:s r="127">
+                                       <a:s r="126">
+                                          <a:s>
+                                             <a:s>BloodPressure.component</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s> SystolicBP</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>&#xd;
+          </a:s>
+                                 <a:s r="139">
+                                    <a:s>where </a:s>
+                                    <a:s r="139">
+                                       <a:s r="133">
+                                          <a:s r="131">
+                                             <a:s r="128">
+                                                <a:s>FHIRHelpers</a:s>
+                                             </a:s>
+                                             <a:s>.</a:s>
+                                             <a:s r="131">
+                                                <a:s>ToConcept(</a:s>
+                                                <a:s r="130">
+                                                   <a:s r="129">
+                                                      <a:s>SystolicBP</a:s>
+                                                   </a:s>
+                                                   <a:s>.</a:s>
+                                                   <a:s r="130">
+                                                      <a:s>code</a:s>
+                                                   </a:s>
+                                                </a:s>
+                                                <a:s>)</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s> ~ </a:s>
+                                          <a:s r="132">
+                                             <a:s>&quot;Systolic blood pressure&quot;</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>&#xd;
+            and </a:s>
+                                       <a:s r="138">
+                                          <a:s r="136">
+                                             <a:s r="135">
+                                                <a:s r="134">
+                                                   <a:s>SystolicBP</a:s>
+                                                </a:s>
+                                                <a:s>.</a:s>
+                                                <a:s r="135">
+                                                   <a:s>value</a:s>
+                                                </a:s>
+                                             </a:s>
+                                             <a:s>.</a:s>
+                                             <a:s r="136">
+                                                <a:s>unit</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s> = </a:s>
+                                          <a:s r="137">
+                                             <a:s>'mm[Hg]'</a:s>
+                                          </a:s>
+                                       </a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>&#xd;
+      )</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="143" locator="117:2-126:7" xsi:type="Query">
+            <source localId="91" locator="117:2-117:48" alias="BloodPressure">
+               <expression localId="90" locator="117:2-117:34" dataType="fhir:Observation" codeProperty="code" xsi:type="Retrieve">
+                  <codes xsi:type="ToList">
+                     <operand locator="117:18-117:33" name="Blood pressure" xsi:type="CodeRef"/>
+                  </codes>
+               </expression>
+            </source>
+            <where localId="142" locator="118:4-126:7" xsi:type="And">
+               <operand localId="125" locator="118:10-121:116" xsi:type="And">
+                  <operand localId="102" locator="118:10-119:61" xsi:type="And">
+                     <operand localId="97" locator="118:10-118:53" xsi:type="In">
+                        <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand localId="93" locator="118:10-118:29" path="status" scope="BloodPressure" xsi:type="Property"/>
+                        </operand>
+                        <operand localId="96" locator="118:34-118:53" xsi:type="List">
+                           <element localId="94" locator="118:35-118:41" valueType="t:String" value="final" xsi:type="Literal"/>
+                           <element localId="95" locator="118:44-118:52" valueType="t:String" value="amended" xsi:type="Literal"/>
+                        </operand>
+                     </operand>
+                     <operand localId="101" locator="119:11-119:61" xsi:type="IncludedIn">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand asType="fhir:Period" xsi:type="As">
+                              <operand localId="99" locator="119:11-119:33" path="effective" scope="BloodPressure" xsi:type="Property"/>
+                           </operand>
+                        </operand>
+                        <operand localId="100" locator="119:42-119:61" name="Measurement Period" xsi:type="ParameterRef"/>
+                     </operand>
+                  </operand>
+                  <operand localId="124" locator="121:10-121:116" xsi:type="Not">
+                     <operand localId="123" locator="121:14-121:116" xsi:type="In">
+                        <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand localId="115" locator="121:15-121:62" path="code" xsi:type="Property">
+                              <source localId="114" locator="121:15-121:57" path="class" xsi:type="Property">
+                                 <source localId="113" locator="121:15-121:51" name="GetEncounter" xsi:type="FunctionRef">
+                                    <operand localId="104" locator="121:28-121:50" path="encounter" scope="BloodPressure" xsi:type="Property"/>
+                                 </source>
+                              </source>
+                           </operand>
+                        </operand>
+                        <operand localId="122" locator="121:67-121:115" xsi:type="List">
+                           <element localId="116" locator="121:69-121:74" valueType="t:String" value="EMER" xsi:type="Literal"/>
+                           <element localId="117" locator="121:77-121:81" valueType="t:String" value="IMP" xsi:type="Literal"/>
+                           <element localId="118" locator="121:84-121:90" valueType="t:String" value="ACUTE" xsi:type="Literal"/>
+                           <element localId="119" locator="121:93-121:99" valueType="t:String" value="NONAC" xsi:type="Literal"/>
+                           <element localId="120" locator="121:102-121:108" valueType="t:String" value="PRENC" xsi:type="Literal"/>
+                           <element localId="121" locator="121:111-121:114" valueType="t:String" value="SS" xsi:type="Literal"/>
+                        </operand>
+                     </operand>
+                  </operand>
+               </operand>
+               <operand localId="141" locator="122:11-126:7" xsi:type="Exists">
+                  <operand localId="140" locator="122:18-126:7" xsi:type="Query">
+                     <source localId="127" locator="123:9-123:42" alias="SystolicBP">
+                        <expression localId="126" locator="123:9-123:31" path="component" scope="BloodPressure" xsi:type="Property"/>
+                     </source>
+                     <where localId="139" locator="124:11-125:48" xsi:type="And">
+                        <operand localId="133" locator="124:17-124:82" xsi:type="Equivalent">
+                           <operand localId="131" locator="124:17-124:54" name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand localId="130" locator="124:39-124:53" path="code" scope="SystolicBP" xsi:type="Property"/>
+                           </operand>
+                           <operand xsi:type="ToConcept">
+                              <operand localId="132" locator="124:58-124:82" name="Systolic blood pressure" xsi:type="CodeRef"/>
+                           </operand>
+                        </operand>
+                        <operand localId="138" locator="125:17-125:48" xsi:type="Equal">
+                           <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand localId="136" locator="125:17-125:37" path="unit" xsi:type="Property">
+                                 <source localId="135" locator="125:17-125:32" path="value" scope="SystolicBP" xsi:type="Property"/>
+                              </operand>
+                           </operand>
+                           <operand localId="137" locator="125:41-125:48" valueType="t:String" value="mm[Hg]" xsi:type="Literal"/>
+                        </operand>
+                     </where>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="153" locator="87:1-94:2" name="Blood Pressure Days" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="153">
+               <a:s>define &quot;Blood Pressure Days&quot;:&#xd;
+	</a:s>
+               <a:s r="152">
+                  <a:s>( </a:s>
+                  <a:s r="152">
+                     <a:s r="89">
+                        <a:s>( </a:s>
+                        <a:s r="89">
+                           <a:s>
+                              <a:s r="84">
+                                 <a:s r="83">
+                                    <a:s>
+                                       <a:s>&quot;Qualifying Diastolic Blood Pressure Reading&quot;</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> DBPExam</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>&#xd;
+				</a:s>
+                           <a:s r="88">
+                              <a:s>return </a:s>
+                              <a:s r="87">
+                                 <a:s>date from </a:s>
+                                 <a:s r="86">
+                                    <a:s r="85">
+                                       <a:s>DBPExam</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="86">
+                                       <a:s>effective</a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>&#xd;
+		)</a:s>
+                     </a:s>
+                     <a:s>&#xd;
+			intersect </a:s>
+                     <a:s r="151">
+                        <a:s>( </a:s>
+                        <a:s r="151">
+                           <a:s>
+                              <a:s r="146">
+                                 <a:s r="145">
+                                    <a:s>
+                                       <a:s>&quot;Qualifying Systolic Blood Pressure Reading&quot;</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> SBPExam</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>&#xd;
+					</a:s>
+                           <a:s r="150">
+                              <a:s>return </a:s>
+                              <a:s r="149">
+                                 <a:s>date from </a:s>
+                                 <a:s r="148">
+                                    <a:s r="147">
+                                       <a:s>SBPExam</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="148">
+                                       <a:s>effective</a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>&#xd;
+			)</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+	)</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="152" locator="88:2-94:2" xsi:type="Intersect">
+            <operand localId="89" locator="88:4-90:3" xsi:type="Query">
+               <source localId="84" locator="88:6-88:58" alias="DBPExam">
+                  <expression localId="83" locator="88:6-88:50" name="Qualifying Diastolic Blood Pressure Reading" xsi:type="ExpressionRef"/>
+               </source>
+               <return localId="88" locator="89:5-89:38">
+                  <expression localId="87" locator="89:12-89:38" xsi:type="DateFrom">
+                     <operand xsi:type="Case">
+                        <caseItem>
+                           <when isType="fhir:dateTime" xsi:type="Is">
+                              <operand localId="86" locator="89:22-89:38" path="effective" scope="DBPExam" xsi:type="Property"/>
+                           </when>
+                           <then name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand asType="fhir:dateTime" xsi:type="As">
+                                 <operand localId="86" locator="89:22-89:38" path="effective" scope="DBPExam" xsi:type="Property"/>
+                              </operand>
+                           </then>
+                        </caseItem>
+                        <caseItem>
+                           <when isType="fhir:instant" xsi:type="Is">
+                              <operand localId="86" locator="89:22-89:38" path="effective" scope="DBPExam" xsi:type="Property"/>
+                           </when>
+                           <then name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand asType="fhir:instant" xsi:type="As">
+                                 <operand localId="86" locator="89:22-89:38" path="effective" scope="DBPExam" xsi:type="Property"/>
+                              </operand>
+                           </then>
+                        </caseItem>
+                        <else resultTypeName="t:DateTime" xsi:type="Null"/>
+                     </operand>
+                  </expression>
+               </return>
+            </operand>
+            <operand localId="151" locator="91:14-93:4" xsi:type="Query">
+               <source localId="146" locator="91:16-91:67" alias="SBPExam">
+                  <expression localId="145" locator="91:16-91:59" name="Qualifying Systolic Blood Pressure Reading" xsi:type="ExpressionRef"/>
+               </source>
+               <return localId="150" locator="92:6-92:39">
+                  <expression localId="149" locator="92:13-92:39" xsi:type="DateFrom">
+                     <operand xsi:type="Case">
+                        <caseItem>
+                           <when isType="fhir:dateTime" xsi:type="Is">
+                              <operand localId="148" locator="92:23-92:39" path="effective" scope="SBPExam" xsi:type="Property"/>
+                           </when>
+                           <then name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand asType="fhir:dateTime" xsi:type="As">
+                                 <operand localId="148" locator="92:23-92:39" path="effective" scope="SBPExam" xsi:type="Property"/>
+                              </operand>
+                           </then>
+                        </caseItem>
+                        <caseItem>
+                           <when isType="fhir:instant" xsi:type="Is">
+                              <operand localId="148" locator="92:23-92:39" path="effective" scope="SBPExam" xsi:type="Property"/>
+                           </when>
+                           <then name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand asType="fhir:instant" xsi:type="As">
+                                 <operand localId="148" locator="92:23-92:39" path="effective" scope="SBPExam" xsi:type="Property"/>
+                              </operand>
+                           </then>
+                        </caseItem>
+                        <else resultTypeName="t:DateTime" xsi:type="Null"/>
+                     </operand>
+                  </expression>
+               </return>
+            </operand>
+         </expression>
+      </def>
+      <def localId="156" locator="96:1-97:27" name="Most Recent Blood Pressure Day" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="156">
+               <a:s>define &quot;Most Recent Blood Pressure Day&quot;:&#xd;
+	</a:s>
+               <a:s r="155">
+                  <a:s>Max(</a:s>
+                  <a:s r="154">
+                     <a:s>&quot;Blood Pressure Days&quot;</a:s>
+                  </a:s>
+                  <a:s>)</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="155" locator="97:2-97:27" xsi:type="Max">
+            <source localId="154" locator="97:6-97:26" name="Blood Pressure Days" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="176" locator="63:1-73:2" name="Lowest Diastolic Reading on Most Recent Blood Pressure Day" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="176">
+               <a:s>define &quot;Lowest Diastolic Reading on Most Recent Blood Pressure Day&quot;:&#xd;
+	</a:s>
+               <a:s r="175">
+                  <a:s>First(&#xd;
+    </a:s>
+                  <a:s r="174">
+                     <a:s>
+                        <a:s r="80">
+                           <a:s r="79">
+                              <a:s>
+                                 <a:s>&quot;Qualifying Diastolic Blood Pressure Reading&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> DBPReading</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>&#xd;
+		  </a:s>
+                     <a:s r="158">
+                        <a:s>where </a:s>
+                        <a:s r="158">
+                           <a:s r="82">
+                              <a:s r="81">
+                                 <a:s>DBPReading</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="82">
+                                 <a:s>effective</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s r="158"> same day as </a:s>
+                           <a:s r="157">
+                              <a:s>&quot;Most Recent Blood Pressure Day&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>&#xd;
+      </a:s>
+                     <a:s r="172">
+                        <a:s>return </a:s>
+                        <a:s r="171">
+                           <a:s>singleton from </a:s>
+                           <a:s r="170">
+                              <a:s>(&#xd;
+        </a:s>
+                              <a:s r="170">
+                                 <a:s>
+                                    <a:s r="160">
+                                       <a:s r="159">
+                                          <a:s>
+                                             <a:s>DBPReading.component</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s> C</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>&#xd;
+          </a:s>
+                                 <a:s r="164">
+                                    <a:s>where </a:s>
+                                    <a:s r="164">
+                                       <a:s r="162">
+                                          <a:s r="161">
+                                             <a:s>C</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="162">
+                                             <a:s>code</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s> ~ </a:s>
+                                       <a:s r="163">
+                                          <a:s>&quot;Diastolic blood pressure&quot;</a:s>
+                                       </a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>&#xd;
+          </a:s>
+                                 <a:s r="169">
+                                    <a:s>return </a:s>
+                                    <a:s r="168">
+                                       <a:s r="166">
+                                          <a:s r="165">
+                                             <a:s>C</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="166">
+                                             <a:s>value</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s> as </a:s>
+                                       <a:s r="167">
+                                          <a:s>Quantity</a:s>
+                                       </a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>&#xd;
+      )</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s r="173">&#xd;
+			sort ascending</a:s>
+                  </a:s>
+                  <a:s>&#xd;
+	)</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="175" locator="64:2-73:2" xsi:type="First">
+            <source localId="174" locator="65:5-72:17" xsi:type="Query">
+               <source localId="80" locator="65:5-65:60" alias="DBPReading">
+                  <expression localId="79" locator="65:5-65:49" name="Qualifying Diastolic Blood Pressure Reading" xsi:type="ExpressionRef"/>
+               </source>
+               <where localId="158" locator="66:5-66:75" precision="Day" xsi:type="SameAs">
+                  <operand xsi:type="Case">
+                     <caseItem>
+                        <when isType="fhir:dateTime" xsi:type="Is">
+                           <operand localId="82" locator="66:11-66:30" path="effective" scope="DBPReading" xsi:type="Property"/>
+                        </when>
+                        <then name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand asType="fhir:dateTime" xsi:type="As">
+                              <operand localId="82" locator="66:11-66:30" path="effective" scope="DBPReading" xsi:type="Property"/>
+                           </operand>
+                        </then>
+                     </caseItem>
+                     <caseItem>
+                        <when isType="fhir:instant" xsi:type="Is">
+                           <operand localId="82" locator="66:11-66:30" path="effective" scope="DBPReading" xsi:type="Property"/>
+                        </when>
+                        <then name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand asType="fhir:instant" xsi:type="As">
+                              <operand localId="82" locator="66:11-66:30" path="effective" scope="DBPReading" xsi:type="Property"/>
+                           </operand>
+                        </then>
+                     </caseItem>
+                     <else resultTypeName="t:DateTime" xsi:type="Null"/>
+                  </operand>
+                  <operand xsi:type="ToDateTime">
+                     <operand localId="157" locator="66:44-66:75" name="Most Recent Blood Pressure Day" xsi:type="ExpressionRef"/>
+                  </operand>
+               </where>
+               <return localId="172" locator="67:7-71:7">
+                  <expression localId="171" locator="67:14-71:7" xsi:type="SingletonFrom">
+                     <operand localId="170" locator="67:29-71:7" xsi:type="Query">
+                        <source localId="160" locator="68:9-68:30" alias="C">
+                           <expression localId="159" locator="68:9-68:28" path="component" scope="DBPReading" xsi:type="Property"/>
+                        </source>
+                        <where localId="164" locator="69:11-69:51" xsi:type="Equivalent">
+                           <operand name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand localId="162" locator="69:17-69:22" path="code" scope="C" xsi:type="Property"/>
+                           </operand>
+                           <operand xsi:type="ToConcept">
+                              <operand localId="163" locator="69:26-69:51" name="Diastolic blood pressure" xsi:type="CodeRef"/>
+                           </operand>
+                        </where>
+                        <return localId="169" locator="70:11-70:36">
+                           <expression localId="168" locator="70:18-70:36" strict="false" xsi:type="As">
+                              <operand localId="166" locator="70:18-70:24" path="value" scope="C" xsi:type="Property"/>
+                              <asTypeSpecifier localId="167" locator="70:29-70:36" name="fhir:Quantity" xsi:type="NamedTypeSpecifier"/>
+                           </expression>
+                        </return>
+                     </operand>
+                  </expression>
+               </return>
+               <sort localId="173" locator="72:4-72:17">
+                  <by direction="ascending" xsi:type="ByDirection"/>
+               </sort>
+            </source>
+         </expression>
+      </def>
+      <def localId="181" locator="57:1-58:72" name="Has Diastolic Blood Pressure Less Than 90" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="181">
+               <a:s>define &quot;Has Diastolic Blood Pressure Less Than 90&quot;:&#xd;
+	</a:s>
+               <a:s r="180">
+                  <a:s r="178">
+                     <a:s r="177">
+                        <a:s>&quot;Lowest Diastolic Reading on Most Recent Blood Pressure Day&quot;</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="178">
+                        <a:s>value</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s r="179"> &lt; 90</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="180" locator="58:2-58:72" xsi:type="Less">
+            <operand name="ToDecimal" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+               <operand localId="178" locator="58:2-58:67" path="value" xsi:type="Property">
+                  <source localId="177" locator="58:2-58:61" name="Lowest Diastolic Reading on Most Recent Blood Pressure Day" xsi:type="ExpressionRef"/>
+               </operand>
+            </operand>
+            <operand xsi:type="ToDecimal">
+               <operand localId="179" locator="58:71-58:72" valueType="t:Integer" value="90" xsi:type="Literal"/>
+            </operand>
+         </expression>
+      </def>
+      <def localId="205" locator="75:1-85:2" name="Lowest Systolic Reading on Most Recent Blood Pressure Day" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="205">
+               <a:s>define &quot;Lowest Systolic Reading on Most Recent Blood Pressure Day&quot;:&#xd;
+	</a:s>
+               <a:s r="204">
+                  <a:s>First(&#xd;
+    </a:s>
+                  <a:s r="203">
+                     <a:s>
+                        <a:s r="183">
+                           <a:s r="182">
+                              <a:s>
+                                 <a:s>&quot;Qualifying Systolic Blood Pressure Reading&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> SBPReading</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>&#xd;
+		  </a:s>
+                     <a:s r="187">
+                        <a:s>where </a:s>
+                        <a:s r="187">
+                           <a:s r="185">
+                              <a:s r="184">
+                                 <a:s>SBPReading</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="185">
+                                 <a:s>effective</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s r="187"> same day as </a:s>
+                           <a:s r="186">
+                              <a:s>&quot;Most Recent Blood Pressure Day&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>&#xd;
+      </a:s>
+                     <a:s r="201">
+                        <a:s>return </a:s>
+                        <a:s r="200">
+                           <a:s>singleton from </a:s>
+                           <a:s r="199">
+                              <a:s>(&#xd;
+        </a:s>
+                              <a:s r="199">
+                                 <a:s>
+                                    <a:s r="189">
+                                       <a:s r="188">
+                                          <a:s>
+                                             <a:s>SBPReading.component</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s> C</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>&#xd;
+          </a:s>
+                                 <a:s r="193">
+                                    <a:s>where </a:s>
+                                    <a:s r="193">
+                                       <a:s r="191">
+                                          <a:s r="190">
+                                             <a:s>C</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="191">
+                                             <a:s>code</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s> ~ </a:s>
+                                       <a:s r="192">
+                                          <a:s>&quot;Systolic blood pressure&quot;</a:s>
+                                       </a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>&#xd;
+          </a:s>
+                                 <a:s r="198">
+                                    <a:s>return </a:s>
+                                    <a:s r="197">
+                                       <a:s r="195">
+                                          <a:s r="194">
+                                             <a:s>C</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="195">
+                                             <a:s>value</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s> as </a:s>
+                                       <a:s r="196">
+                                          <a:s>Quantity</a:s>
+                                       </a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>&#xd;
+      )</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s r="202">&#xd;
+      sort ascending</a:s>
+                  </a:s>
+                  <a:s>&#xd;
+	)</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="204" locator="76:2-85:2" xsi:type="First">
+            <source localId="203" locator="77:5-84:20" xsi:type="Query">
+               <source localId="183" locator="77:5-77:59" alias="SBPReading">
+                  <expression localId="182" locator="77:5-77:48" name="Qualifying Systolic Blood Pressure Reading" xsi:type="ExpressionRef"/>
+               </source>
+               <where localId="187" locator="78:5-78:75" precision="Day" xsi:type="SameAs">
+                  <operand xsi:type="Case">
+                     <caseItem>
+                        <when isType="fhir:dateTime" xsi:type="Is">
+                           <operand localId="185" locator="78:11-78:30" path="effective" scope="SBPReading" xsi:type="Property"/>
+                        </when>
+                        <then name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand asType="fhir:dateTime" xsi:type="As">
+                              <operand localId="185" locator="78:11-78:30" path="effective" scope="SBPReading" xsi:type="Property"/>
+                           </operand>
+                        </then>
+                     </caseItem>
+                     <caseItem>
+                        <when isType="fhir:instant" xsi:type="Is">
+                           <operand localId="185" locator="78:11-78:30" path="effective" scope="SBPReading" xsi:type="Property"/>
+                        </when>
+                        <then name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand asType="fhir:instant" xsi:type="As">
+                              <operand localId="185" locator="78:11-78:30" path="effective" scope="SBPReading" xsi:type="Property"/>
+                           </operand>
+                        </then>
+                     </caseItem>
+                     <else resultTypeName="t:DateTime" xsi:type="Null"/>
+                  </operand>
+                  <operand xsi:type="ToDateTime">
+                     <operand localId="186" locator="78:44-78:75" name="Most Recent Blood Pressure Day" xsi:type="ExpressionRef"/>
+                  </operand>
+               </where>
+               <return localId="201" locator="79:7-83:7">
+                  <expression localId="200" locator="79:14-83:7" xsi:type="SingletonFrom">
+                     <operand localId="199" locator="79:29-83:7" xsi:type="Query">
+                        <source localId="189" locator="80:9-80:30" alias="C">
+                           <expression localId="188" locator="80:9-80:28" path="component" scope="SBPReading" xsi:type="Property"/>
+                        </source>
+                        <where localId="193" locator="81:11-81:50" xsi:type="Equivalent">
+                           <operand name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand localId="191" locator="81:17-81:22" path="code" scope="C" xsi:type="Property"/>
+                           </operand>
+                           <operand xsi:type="ToConcept">
+                              <operand localId="192" locator="81:26-81:50" name="Systolic blood pressure" xsi:type="CodeRef"/>
+                           </operand>
+                        </where>
+                        <return localId="198" locator="82:11-82:36">
+                           <expression localId="197" locator="82:18-82:36" strict="false" xsi:type="As">
+                              <operand localId="195" locator="82:18-82:24" path="value" scope="C" xsi:type="Property"/>
+                              <asTypeSpecifier localId="196" locator="82:29-82:36" name="fhir:Quantity" xsi:type="NamedTypeSpecifier"/>
+                           </expression>
+                        </return>
+                     </operand>
+                  </expression>
+               </return>
+               <sort localId="202" locator="84:7-84:20">
+                  <by direction="ascending" xsi:type="ByDirection"/>
+               </sort>
+            </source>
+         </expression>
+      </def>
+      <def localId="210" locator="60:1-61:72" name="Has Systolic Blood Pressure Less Than 140" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="210">
+               <a:s>define &quot;Has Systolic Blood Pressure Less Than 140&quot;:&#xd;
+	</a:s>
+               <a:s r="209">
+                  <a:s r="207">
+                     <a:s r="206">
+                        <a:s>&quot;Lowest Systolic Reading on Most Recent Blood Pressure Day&quot;</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="207">
+                        <a:s>value</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s r="208"> &lt; 140</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="209" locator="61:2-61:72" xsi:type="Less">
+            <operand name="ToDecimal" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+               <operand localId="207" locator="61:2-61:66" path="value" xsi:type="Property">
+                  <source localId="206" locator="61:2-61:60" name="Lowest Systolic Reading on Most Recent Blood Pressure Day" xsi:type="ExpressionRef"/>
+               </operand>
+            </operand>
+            <operand xsi:type="ToDecimal">
+               <operand localId="208" locator="61:70-61:72" valueType="t:Integer" value="140" xsi:type="Literal"/>
+            </operand>
+         </expression>
+      </def>
+      <def localId="216" locator="129:1-131:49" name="Numerator" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="216">
+               <a:s>define &quot;Numerator&quot;:&#xd;
+	</a:s>
+               <a:s r="215">
+                  <a:s r="213">
+                     <a:s>&quot;Has Diastolic Blood Pressure Less Than 90&quot;</a:s>
+                  </a:s>
+                  <a:s>&#xd;
+		and </a:s>
+                  <a:s r="214">
+                     <a:s>&quot;Has Systolic Blood Pressure Less Than 140&quot;</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="215" locator="130:2-131:49" xsi:type="And">
+            <operand localId="213" locator="130:2-130:44" name="Has Diastolic Blood Pressure Less Than 90" xsi:type="ExpressionRef"/>
+            <operand localId="214" locator="131:7-131:49" name="Has Systolic Blood Pressure Less Than 140" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def localId="250" locator="161:1-166:5" name="Essential Hypertension Diagnosis" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="250">
+               <a:s>define &quot;Essential Hypertension Diagnosis&quot;:&#xd;
+	</a:s>
+               <a:s r="249">
+                  <a:s>
+                     <a:s r="229">
+                        <a:s r="228">
+                           <a:s r="228">
+                              <a:s>[&quot;Condition&quot;: </a:s>
+                              <a:s>
+                                 <a:s>&quot;Essential Hypertension&quot;</a:s>
+                              </a:s>
+                              <a:s>]</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> Hypertension</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+    </a:s>
+                  <a:s r="248">
+                     <a:s>where </a:s>
+                     <a:s r="248">
+                        <a:s r="235">
+                           <a:s r="233">
+                              <a:s r="232">
+                                 <a:s r="231">
+                                    <a:s r="230">
+                                       <a:s>Hypertension</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="231">
+                                       <a:s>verificationStatus</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="232">
+                                    <a:s>coding</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="233">
+                                 <a:s>code</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> contains </a:s>
+                           <a:s r="234">
+                              <a:s>'confirmed'</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>&#xd;
+     and </a:s>
+                        <a:s r="247">
+                           <a:s>(</a:s>
+                           <a:s r="247">
+                              <a:s r="241">
+                                 <a:s r="237">
+                                    <a:s r="236">
+                                       <a:s>Hypertension</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="237">
+                                       <a:s>recordedDate</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> </a:s>
+                                 <a:s r="241">
+                                    <a:s r="240">
+                                       <a:s>6 months</a:s>
+                                    </a:s>
+                                    <a:s> or less on or after</a:s>
+                                 </a:s>
+                                 <a:s> </a:s>
+                                 <a:s r="239">
+                                    <a:s>start of </a:s>
+                                    <a:s r="238">
+                                       <a:s>&quot;Measurement Period&quot;</a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>&#xd;
+      or </a:s>
+                              <a:s r="246">
+                                 <a:s r="243">
+                                    <a:s r="242">
+                                       <a:s>Hypertension</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="243">
+                                       <a:s>recordedDate</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s r="246"> before </a:s>
+                                 <a:s r="245">
+                                    <a:s>end of </a:s>
+                                    <a:s r="244">
+                                       <a:s>&quot;Measurement Period&quot;</a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>&#xd;
+    )</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="249" locator="162:2-166:5" xsi:type="Query">
+            <source localId="229" locator="162:2-162:53" alias="Hypertension">
+               <expression localId="228" locator="162:2-162:40" dataType="fhir:Condition" codeProperty="code" xsi:type="Retrieve">
+                  <codes locator="162:16-162:39" name="Essential Hypertension" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where localId="248" locator="163:5-166:5" xsi:type="And">
+               <operand localId="235" locator="163:11-163:74" xsi:type="Contains">
+                  <operand xsi:type="Query">
+                     <source alias="X">
+                        <expression localId="233" locator="163:11-163:53" xsi:type="Query">
+                           <source alias="$this">
+                              <expression localId="232" locator="163:11-163:48" path="coding" xsi:type="Property">
+                                 <source localId="231" locator="163:11-163:41" path="verificationStatus" scope="Hypertension" xsi:type="Property"/>
+                              </expression>
+                           </source>
+                           <where xsi:type="Not">
+                              <operand xsi:type="IsNull">
+                                 <operand path="code" xsi:type="Property">
+                                    <source name="$this" xsi:type="AliasRef"/>
+                                 </operand>
+                              </operand>
+                           </where>
+                           <return>
+                              <expression path="code" xsi:type="Property">
+                                 <source name="$this" xsi:type="AliasRef"/>
+                              </expression>
+                           </return>
+                        </expression>
+                     </source>
+                     <return distinct="false">
+                        <expression name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand name="X" xsi:type="AliasRef"/>
+                        </expression>
+                     </return>
+                  </operand>
+                  <operand localId="234" locator="163:64-163:74" valueType="t:String" value="confirmed" xsi:type="Literal"/>
+               </operand>
+               <operand localId="247" locator="164:10-166:5" xsi:type="Or">
+                  <operand localId="241" locator="164:11-164:94" xsi:type="In">
+                     <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand localId="237" locator="164:11-164:35" path="recordedDate" scope="Hypertension" xsi:type="Property"/>
+                     </operand>
+                     <operand locator="164:37-164:52" lowClosed="true" highClosed="true" xsi:type="Interval">
+                        <low localId="239" locator="164:66-164:94" xsi:type="Start">
+                           <operand localId="238" locator="164:75-164:94" name="Measurement Period" xsi:type="ParameterRef"/>
+                        </low>
+                        <high locator="164:66-164:94" xsi:type="Add">
+                           <operand localId="239" locator="164:66-164:94" xsi:type="Start">
+                              <operand localId="238" locator="164:75-164:94" name="Measurement Period" xsi:type="ParameterRef"/>
+                           </operand>
+                           <operand localId="240" locator="164:37-164:44" value="6" unit="months" xsi:type="Quantity"/>
+                        </high>
+                     </operand>
+                  </operand>
+                  <operand localId="246" locator="165:10-165:69" xsi:type="Before">
+                     <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand localId="243" locator="165:10-165:34" path="recordedDate" scope="Hypertension" xsi:type="Property"/>
+                     </operand>
+                     <operand localId="245" locator="165:43-165:69" xsi:type="End">
+                        <operand localId="244" locator="165:50-165:69" name="Measurement Period" xsi:type="ParameterRef"/>
+                     </operand>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="259" locator="133:1-136:84" name="Initial Population" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="259">
+               <a:s>define &quot;Initial Population&quot;:&#xd;
+	</a:s>
+               <a:s r="258">
+                  <a:s r="253">
+                     <a:s r="227">
+                        <a:s r="224">
+                           <a:s r="217">
+                              <a:s>Common</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="224">
+                              <a:s>CalendarAgeInYearsAt(</a:s>
+                              <a:s r="221">
+                                 <a:s r="218">
+                                    <a:s>FHIRHelpers</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="221">
+                                    <a:s>ToDate(</a:s>
+                                    <a:s r="220">
+                                       <a:s r="219">
+                                          <a:s>Patient</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="220">
+                                          <a:s>birthDate</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>)</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>, </a:s>
+                              <a:s r="223">
+                                 <a:s>end of </a:s>
+                                 <a:s r="222">
+                                    <a:s>&quot;Measurement Period&quot;</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>)</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s r="225"> between 18 and 85</a:s>
+                     </a:s>
+                     <a:s>&#xd;
+		and </a:s>
+                     <a:s r="252">
+                        <a:s>exists </a:s>
+                        <a:s r="251">
+                           <a:s>&quot;Essential Hypertension Diagnosis&quot;</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+		and </a:s>
+                  <a:s r="257">
+                     <a:s>exists </a:s>
+                     <a:s r="256">
+                        <a:s r="254">
+                           <a:s>AdultOutpatientEncounters</a:s>
+                        </a:s>
+                        <a:s>.</a:s>
+                        <a:s r="256">
+                           <a:s>&quot;Qualifying Encounters&quot;(</a:s>
+                           <a:s r="255">
+                              <a:s>&quot;Measurement Period&quot;</a:s>
+                           </a:s>
+                           <a:s>)</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="258" locator="134:2-136:84" xsi:type="And">
+            <operand localId="253" locator="134:2-135:47" xsi:type="And">
+               <operand localId="227" locator="134:2-134:114" xsi:type="And">
+                  <operand xsi:type="GreaterOrEqual">
+                     <operand localId="224" locator="134:2-134:96" name="CalendarAgeInYearsAt" libraryName="Common" xsi:type="FunctionRef">
+                        <operand xsi:type="ToDateTime">
+                           <operand localId="221" locator="134:30-134:66" name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand localId="220" locator="134:49-134:65" path="birthDate" xsi:type="Property">
+                                 <source localId="219" locator="134:49-134:55" name="Patient" xsi:type="ExpressionRef"/>
+                              </operand>
+                           </operand>
+                        </operand>
+                        <operand localId="223" locator="134:69-134:95" xsi:type="End">
+                           <operand localId="222" locator="134:76-134:95" name="Measurement Period" xsi:type="ParameterRef"/>
+                        </operand>
+                     </operand>
+                     <operand localId="225" locator="134:106-134:107" valueType="t:Integer" value="18" xsi:type="Literal"/>
+                  </operand>
+                  <operand xsi:type="LessOrEqual">
+                     <operand localId="224" locator="134:2-134:96" name="CalendarAgeInYearsAt" libraryName="Common" xsi:type="FunctionRef">
+                        <operand xsi:type="ToDateTime">
+                           <operand localId="221" locator="134:30-134:66" name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand localId="220" locator="134:49-134:65" path="birthDate" xsi:type="Property">
+                                 <source localId="219" locator="134:49-134:55" name="Patient" xsi:type="ExpressionRef"/>
+                              </operand>
+                           </operand>
+                        </operand>
+                        <operand localId="223" locator="134:69-134:95" xsi:type="End">
+                           <operand localId="222" locator="134:76-134:95" name="Measurement Period" xsi:type="ParameterRef"/>
+                        </operand>
+                     </operand>
+                     <operand localId="226" locator="134:113-134:114" valueType="t:Integer" value="85" xsi:type="Literal"/>
+                  </operand>
+               </operand>
+               <operand localId="252" locator="135:7-135:47" xsi:type="Exists">
+                  <operand localId="251" locator="135:14-135:47" name="Essential Hypertension Diagnosis" xsi:type="ExpressionRef"/>
+               </operand>
+            </operand>
+            <operand localId="257" locator="136:7-136:84" xsi:type="Exists">
+               <operand localId="256" locator="136:14-136:84" name="Qualifying Encounters" libraryName="AdultOutpatientEncounters" xsi:type="FunctionRef">
+                  <operand localId="255" locator="136:64-136:83" name="Measurement Period" xsi:type="ParameterRef"/>
+               </operand>
+            </operand>
+         </expression>
+      </def>
+      <def localId="281" locator="138:1-144:82" name="Pregnancy Or Renal Diagnosis Exclusions" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="281">
+               <a:s>define &quot;Pregnancy Or Renal Diagnosis Exclusions&quot;:&#xd;
+	</a:s>
+               <a:s r="280">
+                  <a:s>
+                     <a:s r="267">
+                        <a:s r="266">
+                           <a:s>( </a:s>
+                           <a:s r="266">
+                              <a:s r="264">
+                                 <a:s r="262">
+                                    <a:s r="260">
+                                       <a:s>[&quot;Condition&quot;: </a:s>
+                                       <a:s>
+                                          <a:s>&quot;Pregnancy&quot;</a:s>
+                                       </a:s>
+                                       <a:s>]</a:s>
+                                    </a:s>
+                                    <a:s>&#xd;
+		union </a:s>
+                                    <a:s r="261">
+                                       <a:s>[&quot;Condition&quot;: </a:s>
+                                       <a:s>
+                                          <a:s>&quot;End Stage Renal Disease&quot;</a:s>
+                                       </a:s>
+                                       <a:s>]</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>&#xd;
+		union </a:s>
+                                 <a:s r="263">
+                                    <a:s>[&quot;Condition&quot;: </a:s>
+                                    <a:s>
+                                       <a:s>&quot;Kidney Transplant Recipient&quot;</a:s>
+                                    </a:s>
+                                    <a:s>]</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>&#xd;
+		union </a:s>
+                              <a:s r="265">
+                                 <a:s>[&quot;Condition&quot;: </a:s>
+                                 <a:s>
+                                    <a:s>&quot;Chronic Kidney Disease, Stage 5&quot;</a:s>
+                                 </a:s>
+                                 <a:s>]</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> )</a:s>
+                        </a:s>
+                        <a:s> PregnancyESRDDiagnosis</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+      </a:s>
+                  <a:s r="279">
+                     <a:s>where </a:s>
+                     <a:s r="279">
+                        <a:s r="273">
+                           <a:s r="271">
+                              <a:s r="270">
+                                 <a:s r="269">
+                                    <a:s r="268">
+                                       <a:s>PregnancyESRDDiagnosis</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="269">
+                                       <a:s>verificationStatus</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="270">
+                                    <a:s>coding</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="271">
+                                 <a:s>code</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> contains </a:s>
+                           <a:s r="272">
+                              <a:s>'confirmed'</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>&#xd;
+        and </a:s>
+                        <a:s r="278">
+                           <a:s r="275">
+                              <a:s r="274">
+                                 <a:s>PregnancyESRDDiagnosis</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="275">
+                                 <a:s>recordedDate</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s r="278"> before </a:s>
+                           <a:s r="277">
+                              <a:s>end of </a:s>
+                              <a:s r="276">
+                                 <a:s>&quot;Measurement Period&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="280" locator="139:2-144:82" xsi:type="Query">
+            <source localId="267" locator="139:2-142:81" alias="PregnancyESRDDiagnosis">
+               <expression localId="266" locator="139:2-142:58" xsi:type="Union">
+                  <operand localId="262" locator="139:4-140:48" xsi:type="Union">
+                     <operand localId="260" locator="139:4-139:29" dataType="fhir:Condition" codeProperty="code" xsi:type="Retrieve">
+                        <codes locator="139:18-139:28" name="Pregnancy" xsi:type="ValueSetRef"/>
+                     </operand>
+                     <operand localId="261" locator="140:9-140:48" dataType="fhir:Condition" codeProperty="code" xsi:type="Retrieve">
+                        <codes locator="140:23-140:47" name="End Stage Renal Disease" xsi:type="ValueSetRef"/>
+                     </operand>
+                  </operand>
+                  <operand xsi:type="Union">
+                     <operand localId="263" locator="141:9-141:52" dataType="fhir:Condition" codeProperty="code" xsi:type="Retrieve">
+                        <codes locator="141:23-141:51" name="Kidney Transplant Recipient" xsi:type="ValueSetRef"/>
+                     </operand>
+                     <operand localId="265" locator="142:9-142:56" dataType="fhir:Condition" codeProperty="code" xsi:type="Retrieve">
+                        <codes locator="142:23-142:55" name="Chronic Kidney Disease, Stage 5" xsi:type="ValueSetRef"/>
+                     </operand>
+                  </operand>
+               </expression>
+            </source>
+            <where localId="279" locator="143:7-144:82" xsi:type="And">
+               <operand localId="273" locator="143:13-143:86" xsi:type="Contains">
+                  <operand xsi:type="Query">
+                     <source alias="X">
+                        <expression localId="271" locator="143:13-143:65" xsi:type="Query">
+                           <source alias="$this">
+                              <expression localId="270" locator="143:13-143:60" path="coding" xsi:type="Property">
+                                 <source localId="269" locator="143:13-143:53" path="verificationStatus" scope="PregnancyESRDDiagnosis" xsi:type="Property"/>
+                              </expression>
+                           </source>
+                           <where xsi:type="Not">
+                              <operand xsi:type="IsNull">
+                                 <operand path="code" xsi:type="Property">
+                                    <source name="$this" xsi:type="AliasRef"/>
+                                 </operand>
+                              </operand>
+                           </where>
+                           <return>
+                              <expression path="code" xsi:type="Property">
+                                 <source name="$this" xsi:type="AliasRef"/>
+                              </expression>
+                           </return>
+                        </expression>
+                     </source>
+                     <return distinct="false">
+                        <expression name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand name="X" xsi:type="AliasRef"/>
+                        </expression>
+                     </return>
+                  </operand>
+                  <operand localId="272" locator="143:76-143:86" valueType="t:String" value="confirmed" xsi:type="Literal"/>
+               </operand>
+               <operand localId="278" locator="144:13-144:82" xsi:type="Before">
+                  <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand localId="275" locator="144:13-144:47" path="recordedDate" scope="PregnancyESRDDiagnosis" xsi:type="Property"/>
+                  </operand>
+                  <operand localId="277" locator="144:56-144:82" xsi:type="End">
+                     <operand localId="276" locator="144:63-144:82" name="Measurement Period" xsi:type="ParameterRef"/>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="283" locator="146:1-147:21" name="Denominator" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="283">
+               <a:s>define &quot;Denominator&quot;:&#xd;
+	</a:s>
+               <a:s r="282">
+                  <a:s>&quot;Initial Population&quot;</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="282" locator="147:2-147:21" name="Initial Population" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="303" locator="149:1-152:70" name="End Stage Renal Disease Encounter" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="303">
+               <a:s>define &quot;End Stage Renal Disease Encounter&quot;:&#xd;
+	</a:s>
+               <a:s r="302">
+                  <a:s>
+                     <a:s r="285">
+                        <a:s r="284">
+                           <a:s r="284">
+                              <a:s>[&quot;Encounter&quot;: </a:s>
+                              <a:s>
+                                 <a:s>&quot;ESRD Monthly Outpatient Services&quot;</a:s>
+                              </a:s>
+                              <a:s>]</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> ESRDEncounter</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+		</a:s>
+                  <a:s r="301">
+                     <a:s>where </a:s>
+                     <a:s r="301">
+                        <a:s r="295">
+                           <a:s r="288">
+                              <a:s r="287">
+                                 <a:s r="286">
+                                    <a:s>ESRDEncounter</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="287">
+                                    <a:s>status</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="288">
+                                 <a:s>value</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> in </a:s>
+                           <a:s r="294">
+                              <a:s>{ </a:s>
+                              <a:s r="289">
+                                 <a:s>'arrived'</a:s>
+                              </a:s>
+                              <a:s>, </a:s>
+                              <a:s r="290">
+                                 <a:s>'triaged'</a:s>
+                              </a:s>
+                              <a:s>, </a:s>
+                              <a:s r="291">
+                                 <a:s>'in-progress'</a:s>
+                              </a:s>
+                              <a:s>, </a:s>
+                              <a:s r="292">
+                                 <a:s>'onleave'</a:s>
+                              </a:s>
+                              <a:s>, </a:s>
+                              <a:s r="293">
+                                 <a:s>'finished'</a:s>
+                              </a:s>
+                              <a:s> }</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>&#xd;
+		  and </a:s>
+                        <a:s r="300">
+                           <a:s r="297">
+                              <a:s r="296">
+                                 <a:s>ESRDEncounter</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="297">
+                                 <a:s>period</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s r="300"> starts before </a:s>
+                           <a:s r="299">
+                              <a:s>end of </a:s>
+                              <a:s r="298">
+                                 <a:s>&quot;Measurement Period&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="302" locator="150:2-152:70" xsi:type="Query">
+            <source localId="285" locator="150:2-150:64" alias="ESRDEncounter">
+               <expression localId="284" locator="150:2-150:50" dataType="fhir:Encounter" codeProperty="type" xsi:type="Retrieve">
+                  <codes locator="150:16-150:49" name="ESRD Monthly Outpatient Services" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where localId="301" locator="151:3-152:70" xsi:type="And">
+               <operand localId="295" locator="151:9-151:100" xsi:type="In">
+                  <operand localId="288" locator="151:9-151:34" path="value" xsi:type="Property">
+                     <source localId="287" locator="151:9-151:28" path="status" scope="ESRDEncounter" xsi:type="Property"/>
+                  </operand>
+                  <operand localId="294" locator="151:39-151:100" xsi:type="List">
+                     <element localId="289" locator="151:41-151:49" valueType="t:String" value="arrived" xsi:type="Literal"/>
+                     <element localId="290" locator="151:52-151:60" valueType="t:String" value="triaged" xsi:type="Literal"/>
+                     <element localId="291" locator="151:63-151:75" valueType="t:String" value="in-progress" xsi:type="Literal"/>
+                     <element localId="292" locator="151:78-151:86" valueType="t:String" value="onleave" xsi:type="Literal"/>
+                     <element localId="293" locator="151:89-151:98" valueType="t:String" value="finished" xsi:type="Literal"/>
+                  </operand>
+               </operand>
+               <operand localId="300" locator="152:9-152:70" xsi:type="Before">
+                  <operand locator="152:30-152:35" xsi:type="Start">
+                     <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand localId="297" locator="152:9-152:28" path="period" scope="ESRDEncounter" xsi:type="Property"/>
+                     </operand>
+                  </operand>
+                  <operand localId="299" locator="152:44-152:70" xsi:type="End">
+                     <operand localId="298" locator="152:51-152:70" name="Measurement Period" xsi:type="ParameterRef"/>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="325" locator="154:1-159:109" name="End Stage Renal Disease Procedures" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="325">
+               <a:s>define &quot;End Stage Renal Disease Procedures&quot;:&#xd;
+	</a:s>
+               <a:s r="324">
+                  <a:s>
+                     <a:s r="309">
+                        <a:s r="308">
+                           <a:s>( </a:s>
+                           <a:s r="308">
+                              <a:s r="306">
+                                 <a:s r="304">
+                                    <a:s>[&quot;Procedure&quot;: </a:s>
+                                    <a:s>
+                                       <a:s>&quot;Vascular Access for Dialysis&quot;</a:s>
+                                    </a:s>
+                                    <a:s>]</a:s>
+                                 </a:s>
+                                 <a:s>&#xd;
+		union </a:s>
+                                 <a:s r="305">
+                                    <a:s>[&quot;Procedure&quot;: </a:s>
+                                    <a:s>
+                                       <a:s>&quot;Kidney Transplant&quot;</a:s>
+                                    </a:s>
+                                    <a:s>]</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>&#xd;
+		union </a:s>
+                              <a:s r="307">
+                                 <a:s>[&quot;Procedure&quot;: </a:s>
+                                 <a:s>
+                                    <a:s>&quot;Dialysis Services&quot;</a:s>
+                                 </a:s>
+                                 <a:s>]</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> )</a:s>
+                        </a:s>
+                        <a:s> ESRDProcedure</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+		</a:s>
+                  <a:s r="323">
+                     <a:s>where </a:s>
+                     <a:s r="323">
+                        <a:s r="313">
+                           <a:s r="311">
+                              <a:s r="310">
+                                 <a:s>ESRDProcedure</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="311">
+                                 <a:s>status</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> = </a:s>
+                           <a:s r="312">
+                              <a:s>'completed'</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>&#xd;
+      and </a:s>
+                        <a:s r="322">
+                           <a:s r="319">
+                              <a:s r="314">
+                                 <a:s>FHIRHelpers</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="319">
+                                 <a:s>ToInterval(</a:s>
+                                 <a:s r="318">
+                                    <a:s r="316">
+                                       <a:s r="315">
+                                          <a:s>ESRDProcedure</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="316">
+                                          <a:s>performed</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s> as </a:s>
+                                    <a:s r="317">
+                                       <a:s>Period</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>)</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s r="322"> starts before </a:s>
+                           <a:s r="321">
+                              <a:s>end of </a:s>
+                              <a:s r="320">
+                                 <a:s>&quot;Measurement Period&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="324" locator="155:2-159:109" xsi:type="Query">
+            <source localId="309" locator="155:2-157:58" alias="ESRDProcedure">
+               <expression localId="308" locator="155:2-157:44" xsi:type="Union">
+                  <operand localId="306" locator="155:4-156:42" xsi:type="Union">
+                     <operand localId="304" locator="155:4-155:48" dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                        <codes locator="155:18-155:47" name="Vascular Access for Dialysis" xsi:type="ValueSetRef"/>
+                     </operand>
+                     <operand localId="305" locator="156:9-156:42" dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                        <codes locator="156:23-156:41" name="Kidney Transplant" xsi:type="ValueSetRef"/>
+                     </operand>
+                  </operand>
+                  <operand localId="307" locator="157:9-157:42" dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                     <codes locator="157:23-157:41" name="Dialysis Services" xsi:type="ValueSetRef"/>
+                  </operand>
+               </expression>
+            </source>
+            <where localId="323" locator="158:3-159:109" xsi:type="And">
+               <operand localId="313" locator="158:9-158:42" xsi:type="Equal">
+                  <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand localId="311" locator="158:9-158:28" path="status" scope="ESRDProcedure" xsi:type="Property"/>
+                  </operand>
+                  <operand localId="312" locator="158:32-158:42" valueType="t:String" value="completed" xsi:type="Literal"/>
+               </operand>
+               <operand localId="322" locator="159:11-159:109" xsi:type="Before">
+                  <operand locator="159:69-159:74" xsi:type="Start">
+                     <operand localId="319" locator="159:11-159:67" name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand localId="318" locator="159:34-159:66" strict="false" xsi:type="As">
+                           <operand localId="316" locator="159:34-159:56" path="performed" scope="ESRDProcedure" xsi:type="Property"/>
+                           <asTypeSpecifier localId="317" locator="159:61-159:66" name="fhir:Period" xsi:type="NamedTypeSpecifier"/>
+                        </operand>
+                     </operand>
+                  </operand>
+                  <operand localId="321" locator="159:83-159:109" xsi:type="End">
+                     <operand localId="320" locator="159:90-159:109" name="Measurement Period" xsi:type="ParameterRef"/>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="354" locator="170:1-178:82" name="Denominator Exclusions" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="354">
+               <a:s>define &quot;Denominator Exclusions&quot;:&#xd;
+    </a:s>
+               <a:s r="353">
+                  <a:s r="350">
+                     <a:s r="337">
+                        <a:s r="331">
+                           <a:s r="328">
+                              <a:s r="326">
+                                 <a:s>Hospice</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="328">
+                                 <a:s>&quot;Has Hospice&quot;(</a:s>
+                                 <a:s r="327">
+                                    <a:s>&quot;Measurement Period&quot;</a:s>
+                                 </a:s>
+                                 <a:s>)</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>&#xd;
+        or </a:s>
+                           <a:s r="330">
+                              <a:s>exists </a:s>
+                              <a:s r="329">
+                                 <a:s>&quot;Pregnancy Or Renal Diagnosis Exclusions&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>&#xd;
+        or </a:s>
+                        <a:s r="336">
+                           <a:s>( </a:s>
+                           <a:s r="336">
+                              <a:s r="333">
+                                 <a:s>exists </a:s>
+                                 <a:s r="332">
+                                    <a:s>&quot;End Stage Renal Disease Procedures&quot;</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>&#xd;
+                or </a:s>
+                              <a:s r="335">
+                                 <a:s>exists </a:s>
+                                 <a:s r="334">
+                                    <a:s>&quot;End Stage Renal Disease Encounter&quot;</a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>&#xd;
+        )</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>&#xd;
+   or </a:s>
+                     <a:s r="349">
+                        <a:s r="346">
+                           <a:s>(</a:s>
+                           <a:s r="346">
+                              <a:s r="344">
+                                 <a:s r="338">
+                                    <a:s>Common</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="344">
+                                    <a:s>&quot;CalendarAgeInYearsAt&quot;(</a:s>
+                                    <a:s r="341">
+                                       <a:s>ToDateTime(</a:s>
+                                       <a:s r="340">
+                                          <a:s r="339">
+                                             <a:s>Patient</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="340">
+                                             <a:s>birthDate</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>)</a:s>
+                                    </a:s>
+                                    <a:s>, </a:s>
+                                    <a:s r="343">
+                                       <a:s>start of </a:s>
+                                       <a:s r="342">
+                                          <a:s>&quot;Measurement Period&quot;</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>)</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s r="345">>= 65</a:s>
+                           </a:s>
+                           <a:s> )</a:s>
+                        </a:s>
+                        <a:s>&#xd;
+                and </a:s>
+                        <a:s r="348">
+                           <a:s r="347">
+                              <a:s>FrailtyLTI</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="348">
+                              <a:s>&quot;Has Spent More Than 90 Days in Long Term Care&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+      or </a:s>
+                  <a:s r="352">
+                     <a:s r="351">
+                        <a:s>FrailtyLTI</a:s>
+                     </a:s>
+                     <a:s>.</a:s>
+                     <a:s r="352">
+                        <a:s>&quot;Advanced Illness and Frailty Exclusion Including Over Age 80&quot;</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="353" locator="171:5-178:82" xsi:type="Or">
+            <operand localId="350" locator="171:5-177:78" xsi:type="Or">
+               <operand localId="337" locator="171:5-175:9" xsi:type="Or">
+                  <operand localId="331" locator="171:5-172:59" xsi:type="Or">
+                     <operand localId="328" locator="171:5-171:47" name="Has Hospice" libraryName="Hospice" xsi:type="FunctionRef">
+                        <operand localId="327" locator="171:27-171:46" name="Measurement Period" xsi:type="ParameterRef"/>
+                     </operand>
+                     <operand localId="330" locator="172:12-172:59" xsi:type="Exists">
+                        <operand localId="329" locator="172:19-172:59" name="Pregnancy Or Renal Diagnosis Exclusions" xsi:type="ExpressionRef"/>
+                     </operand>
+                  </operand>
+                  <operand localId="336" locator="173:12-175:9" xsi:type="Or">
+                     <operand localId="333" locator="173:14-173:56" xsi:type="Exists">
+                        <operand localId="332" locator="173:21-173:56" name="End Stage Renal Disease Procedures" xsi:type="ExpressionRef"/>
+                     </operand>
+                     <operand localId="335" locator="174:20-174:61" xsi:type="Exists">
+                        <operand localId="334" locator="174:27-174:61" name="End Stage Renal Disease Encounter" xsi:type="ExpressionRef"/>
+                     </operand>
+                  </operand>
+               </operand>
+               <operand localId="349" locator="176:7-177:78" xsi:type="And">
+                  <operand localId="346" locator="176:7-176:105" xsi:type="GreaterOrEqual">
+                     <operand localId="344" locator="176:8-176:98" name="CalendarAgeInYearsAt" libraryName="Common" xsi:type="FunctionRef">
+                        <operand localId="341" locator="176:38-176:66" xsi:type="ToDateTime">
+                           <operand name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand localId="340" locator="176:49-176:65" path="birthDate" xsi:type="Property">
+                                 <source localId="339" locator="176:49-176:55" name="Patient" xsi:type="ExpressionRef"/>
+                              </operand>
+                           </operand>
+                        </operand>
+                        <operand localId="343" locator="176:69-176:97" xsi:type="Start">
+                           <operand localId="342" locator="176:78-176:97" name="Measurement Period" xsi:type="ParameterRef"/>
+                        </operand>
+                     </operand>
+                     <operand localId="345" locator="176:102-176:103" valueType="t:Integer" value="65" xsi:type="Literal"/>
+                  </operand>
+                  <operand localId="348" locator="177:21-177:78" name="Has Spent More Than 90 Days in Long Term Care" libraryName="FrailtyLTI" xsi:type="ExpressionRef"/>
+               </operand>
+            </operand>
+            <operand localId="352" locator="178:10-178:82" name="Advanced Illness and Frailty Exclusion Including Over Age 80" libraryName="FrailtyLTI" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+   </statements>
+</library>
+
+
