@@ -1,4 +1,4 @@
-library EXM165_FHIR version '8.5.000'
+library EXM165_FHIR3 version '8.5.000'
 
 /*
 Controlling High Blood Pressure (CBP)
@@ -97,11 +97,12 @@ define "Most Recent Blood Pressure Day":
 	Max("Blood Pressure Days")
 
 define "Qualifying Diastolic Blood Pressure Reading":
-	["Observation": "Blood pressure"] BloodPressure
-	  where BloodPressure.status in {'final', 'amended'}
+	[Observation] BloodPressure
+      where BloodPressure.code ~ ToConcept("Blood pressure")
+	  and BloodPressure.status in {'final', 'amended'}
       and BloodPressure.effective during "Measurement Period"
       // TODO: Turn this into a value set
-	    //and not (GetEncounter(BloodPressure."context").class.code in { 'EMER', 'IMP', 'ACUTE', 'NONAC', 'PRENC', 'SS' })
+	  and not (GetEncounter(BloodPressure."context").class.code in { 'EMER', 'IMP', 'ACUTE', 'NONAC', 'PRENC', 'SS' })
       and exists (
         BloodPressure.component DiastolicBP
           where FHIRHelpers.ToConcept(DiastolicBP.code) ~ "Diastolic blood pressure"
@@ -114,8 +115,9 @@ define function GetEncounter(reference Reference):
   singleton from ( [Encounter: id in Common.GetId(reference.reference)] )
 
 define "Qualifying Systolic Blood Pressure Reading":
-	["Observation": "Blood pressure"] BloodPressure
-	  where BloodPressure.status in {'final', 'amended'}
+	[Observation] BloodPressure
+      where BloodPressure.code ~ ToConcept("Blood pressure")
+	  and BloodPressure.status in {'final', 'amended'}
       and BloodPressure.effective during "Measurement Period"
       // TODO: Turn this into a value set
 	    and not (GetEncounter(BloodPressure."context").class.code in { 'EMER', 'IMP', 'ACUTE', 'NONAC', 'PRENC', 'SS'})
