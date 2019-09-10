@@ -6,7 +6,7 @@
     {
       "resource": {
         "resourceType": "Patient",
-        "id": "bc4159a4-6ff2-4a5b-be3a-d9c4778642c2",
+        "id": "bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-1",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
@@ -69,13 +69,13 @@
       },
       "request": {
         "method": "PUT",
-        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Patient/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2"
+        "url": "Patient/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-1"
       }
     },
     {
       "resource": {
         "resourceType": "Condition",
-        "id": "22450289-1954-45ec-958e-d66173f269e8",
+        "id": "bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-2",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
@@ -103,19 +103,19 @@
           ]
         },
         "subject": {
-          "reference": "Patient/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2"
+          "reference": "Patient/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-1"
         },
         "assertedDate": "2019-01-12T13:51:21-07:00"
       },
       "request": {
         "method": "PUT",
-        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Condition/22450289-1954-45ec-958e-d66173f269e8"
+        "url": "Condition/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-2"
       }
     },
     {
       "resource": {
         "resourceType": "Encounter",
-        "id": "Encounter-2",
+        "id": "bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-3",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
@@ -138,7 +138,7 @@
           }
         ],
         "subject": {
-          "reference": "Patient/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2"
+          "reference": "Patient/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-1"
         },
         "period": {
           "start": "2019-07-17T13:51:21-06:00"
@@ -146,13 +146,13 @@
       },
       "request": {
         "method": "PUT",
-        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-2"
+        "url": "Encounter/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-3"
       }
     },
     {
       "resource": {
         "resourceType": "Observation",
-        "id": "d14b02d5-7f2c-4169-9c5c-a2466ea34a6a",
+        "id": "bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-4",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/StructureDefinition/vitalsigns"
@@ -180,10 +180,10 @@
           ]
         },
         "subject": {
-          "reference": "Patient/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2"
+          "reference": "Patient/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-1"
         },
         "context": {
-          "reference": "Encounter/Encounter-2"
+          "reference": "Encounter/068070c7-cb88-4624-995a-e6c4b797264c"
         },
         "effectiveDateTime": "2019-02-03T13:51:21-07:00",
         "component": [
@@ -225,7 +225,7 @@
       },
       "request": {
         "method": "PUT",
-        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/d14b02d5-7f2c-4169-9c5c-a2466ea34a6a"
+        "url": "Observation/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-4"
       }
     }
   ]

@@ -6,7 +6,7 @@
     {
       "resource": {
         "resourceType": "Patient",
-        "id": "f4bd2b01-bf58-494b-85be-842e4961a3a5",
+        "id": "f4bd2b01-bf58-494b-85be-842e4961a3a5-1",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
@@ -69,13 +69,13 @@
       },
       "request": {
         "method": "PUT",
-        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Patient/f4bd2b01-bf58-494b-85be-842e4961a3a5"
+        "url": "Patient/f4bd2b01-bf58-494b-85be-842e4961a3a5-1"
       }
     },
     {
       "resource": {
         "resourceType": "Condition",
-        "id": "ba32aa89-9328-4a2d-9c65-ee247aa4ef3a",
+        "id": "f4bd2b01-bf58-494b-85be-842e4961a3a5-2",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
@@ -103,19 +103,19 @@
           ]
         },
         "subject": {
-          "reference": "Patient/f4bd2b01-bf58-494b-85be-842e4961a3a5"
+          "reference": "Patient/f4bd2b01-bf58-494b-85be-842e4961a3a5-1"
         },
         "assertedDate": "2019-04-16T13:51:21-06:00"
       },
       "request": {
         "method": "PUT",
-        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Condition/ba32aa89-9328-4a2d-9c65-ee247aa4ef3a"
+        "url": "Condition/f4bd2b01-bf58-494b-85be-842e4961a3a5-2"
       }
     },
     {
       "resource": {
         "resourceType": "Encounter",
-        "id": "Encounter-1",
+        "id": "f4bd2b01-bf58-494b-85be-842e4961a3a5-3",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
@@ -138,7 +138,7 @@
           }
         ],
         "subject": {
-          "reference": "Patient/f4bd2b01-bf58-494b-85be-842e4961a3a5"
+          "reference": "Patient/f4bd2b01-bf58-494b-85be-842e4961a3a5-1"
         },
         "period": {
           "start": "2019-09-11T13:51:21-06:00"
@@ -146,7 +146,7 @@
       },
       "request": {
         "method": "PUT",
-        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-1"
+        "url": "Encounter/f4bd2b01-bf58-494b-85be-842e4961a3a5-3"
       }
     }
   ]
