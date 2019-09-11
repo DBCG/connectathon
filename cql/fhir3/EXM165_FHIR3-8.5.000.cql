@@ -15,7 +15,8 @@ include AdvancedIllnessandFrailtyExclusion_FHIR3 version '4.0.000' called Frailt
 //include NCQACommon_FHIR version '3.10.000' called Common
 //include Participation_FHIR version '1.0.0'
 
-codesystem "LOINC": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.6.1'
+// codesystem "LOINC": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.6.1'
+codesystem "LOINC": 'http://loinc.org'
 
 valueset "Chronic Kidney Disease, Stage 5": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1002'
 valueset "Dialysis Services": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.109.12.1013'
@@ -66,7 +67,7 @@ define "Lowest Diastolic Reading on Most Recent Blood Pressure Day":
 		  where DBPReading.effective same day as "Most Recent Blood Pressure Day"
       return singleton from (
         DBPReading.component C
-          where C.code ~ "Diastolic blood pressure"
+          where FHIRHelpers.ToConcept(C.code) ~ "Diastolic blood pressure"
           return C.value as Quantity
       )
 			sort ascending
@@ -78,7 +79,7 @@ define "Lowest Systolic Reading on Most Recent Blood Pressure Day":
 		  where SBPReading.effective same day as "Most Recent Blood Pressure Day"
       return singleton from (
         SBPReading.component C
-          where C.code ~ "Systolic blood pressure"
+          where FHIRHelpers.ToConcept(C.code) ~ "Systolic blood pressure"
           return C.value as Quantity
       )
       sort ascending
@@ -99,30 +100,32 @@ define "Most Recent Blood Pressure Day":
 define "Qualifying Diastolic Blood Pressure Reading":
 	["Observation": "Blood pressure"] BloodPressure
 	  where BloodPressure.status in {'final', 'amended'}
-      and BloodPressure.effective during "Measurement Period"
+      and (BloodPressure.effective as FHIR.dateTime).value during "Measurement Period"
       // TODO: Turn this into a value set
-	    //and not (GetEncounter(BloodPressure."context").class.code in { 'EMER', 'IMP', 'ACUTE', 'NONAC', 'PRENC', 'SS' })
+	    // and not (GetEncounter(BloodPressure."context").class.code in { 'EMER', 'IMP', 'ACUTE', 'NONAC', 'PRENC', 'SS' })
       and exists (
         BloodPressure.component DiastolicBP
           where FHIRHelpers.ToConcept(DiastolicBP.code) ~ "Diastolic blood pressure"
-            and DiastolicBP.value.unit = 'mm[Hg]'
+            and DiastolicBP.value.code = 'mm[Hg]'
       )
+
 //Note: Once we can specify that the FHIR BP Profile must be used, then status, code, and unit will not be required
 
 // TODO: Move to Common Functions
 define function GetEncounter(reference Reference):
-  singleton from ( [Encounter: id in Common.GetId(reference.reference)] )
+  singleton from ( [Encounter] e where e.id = Common.GetId(reference.reference) )
+  // singleton from ( [Encounter: id in Common.GetId(reference.reference)] )
 
 define "Qualifying Systolic Blood Pressure Reading":
 	["Observation": "Blood pressure"] BloodPressure
 	  where BloodPressure.status in {'final', 'amended'}
-      and BloodPressure.effective during "Measurement Period"
+      and (BloodPressure.effective as FHIR.dateTime).value during "Measurement Period"
       // TODO: Turn this into a value set
-	    and not (GetEncounter(BloodPressure."context").class.code in { 'EMER', 'IMP', 'ACUTE', 'NONAC', 'PRENC', 'SS'})
+	    // and not (GetEncounter(BloodPressure."context").class.code in { 'EMER', 'IMP', 'ACUTE', 'NONAC', 'PRENC', 'SS'})
       and exists (
         BloodPressure.component SystolicBP
           where FHIRHelpers.ToConcept(SystolicBP.code) ~ "Systolic blood pressure"
-            and SystolicBP.value.unit = 'mm[Hg]'
+            and SystolicBP.value.code = 'mm[Hg]'
       )
 //Note: Once we can specify that the FHIR BP Profile must be used, then status, code, and unit will not be required
 
@@ -166,12 +169,13 @@ define "Essential Hypertension Diagnosis":
     )
 
 // TODO: Translate exclusions
-define "Denominator Exclusions":
-    Hospice."Has Hospice"("Measurement Period")
-        or exists "Pregnancy Or Renal Diagnosis Exclusions"
-        or ( exists "End Stage Renal Disease Procedures"
-                or exists "End Stage Renal Disease Encounter"
-        )
-   or (Common."CalendarAgeInYearsAt"(ToDateTime(Patient.birthDate), start of "Measurement Period")>= 65 )
-                and FrailtyLTI."Has Spent More Than 90 Days in Long Term Care"
-      or FrailtyLTI."Advanced Illness and Frailty Exclusion Including Over Age 80"
+define "Denominator Exclusion":
+  false
+  //   Hospice."Has Hospice"("Measurement Period")
+  //       or exists "Pregnancy Or Renal Diagnosis Exclusions"
+  //       or ( exists "End Stage Renal Disease Procedures"
+  //               or exists "End Stage Renal Disease Encounter"
+  //       )
+  //  or (Common."CalendarAgeInYearsAt"(ToDateTime(Patient.birthDate), start of "Measurement Period")>= 65 )
+  //               and FrailtyLTI."Has Spent More Than 90 Days in Long Term Care"
+  //     or FrailtyLTI."Advanced Illness and Frailty Exclusion Including Over Age 80"
