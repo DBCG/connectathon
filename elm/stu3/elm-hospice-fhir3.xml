@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1">
+   <identifier id="Hospice_FHIR3" version="1.0.000"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localIdentifier="FHIR" uri="http://hl7.org/fhir" version="3.0.0"/>
+   </usings>
+   <includes>
+      <def localIdentifier="Global" path="MATGlobalCommonFunctions_FHIR3" version="2.0.000"/>
+      <def localIdentifier="FHIRHelpers" path="FHIRHelpers" version="3.0.0"/>
+   </includes>
+   <codeSystems>
+      <def name="SNOMEDCT:2017-09" id="http://snomed.info/sct/731000124108" version="http://snomed.info/sct/731000124108/version/201709" accessLevel="Public"/>
+   </codeSystems>
+   <valueSets>
+      <def name="Encounter Inpatient" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307" accessLevel="Public"/>
+      <def name="Hospice care ambulatory" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15" accessLevel="Public"/>
+   </valueSets>
+   <codes>
+      <def name="Discharge to healthcare facility for hospice care (procedure)" id="428371000124100" display="Discharge to healthcare facility for hospice care (procedure)" accessLevel="Public">
+         <codeSystem name="SNOMEDCT:2017-09"/>
+      </def>
+      <def name="Discharge to home for hospice care (procedure)" id="428361000124107" display="Discharge to home for hospice care (procedure)" accessLevel="Public">
+         <codeSystem name="SNOMEDCT:2017-09"/>
+      </def>
+   </codes>
+   <statements>
+      <def name="Patient" context="Patient">
+         <expression xsi:type="SingletonFrom">
+            <operand dataType="fhir:Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def name="Has Hospice" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <expression xsi:type="Or">
+            <operand xsi:type="Or">
+               <operand xsi:type="Exists">
+                  <operand xsi:type="Query">
+                     <source alias="DischargeHospice">
+                        <expression dataType="fhir:Encounter" codeProperty="type" xsi:type="Retrieve">
+                           <codes name="Encounter Inpatient" xsi:type="ValueSetRef"/>
+                        </expression>
+                     </source>
+                     <where xsi:type="And">
+                        <operand xsi:type="And">
+                           <operand xsi:type="Equal">
+                              <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand path="status" scope="DischargeHospice" xsi:type="Property"/>
+                              </operand>
+                              <operand valueType="t:String" value="final" xsi:type="Literal"/>
+                           </operand>
+                           <operand xsi:type="Or">
+                              <operand xsi:type="Equivalent">
+                                 <operand xsi:type="Indexer">
+                                    <operand path="codes" xsi:type="Property">
+                                       <source name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                          <operand path="dischargeDisposition" xsi:type="Property">
+                                             <source path="hospitalization" scope="DischargeHospice" xsi:type="Property"/>
+                                          </operand>
+                                       </source>
+                                    </operand>
+                                    <operand valueType="t:Integer" value="0" xsi:type="Literal"/>
+                                 </operand>
+                                 <operand name="Discharge to home for hospice care (procedure)" xsi:type="CodeRef"/>
+                              </operand>
+                              <operand xsi:type="Equivalent">
+                                 <operand xsi:type="Indexer">
+                                    <operand path="codes" xsi:type="Property">
+                                       <source name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                          <operand path="dischargeDisposition" xsi:type="Property">
+                                             <source path="hospitalization" scope="DischargeHospice" xsi:type="Property"/>
+                                          </operand>
+                                       </source>
+                                    </operand>
+                                    <operand valueType="t:Integer" value="0" xsi:type="Literal"/>
+                                 </operand>
+                                 <operand name="Discharge to healthcare facility for hospice care (procedure)" xsi:type="CodeRef"/>
+                              </operand>
+                           </operand>
+                        </operand>
+                        <operand precision="Day" xsi:type="In">
+                           <operand xsi:type="End">
+                              <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand path="period" scope="DischargeHospice" xsi:type="Property"/>
+                              </operand>
+                           </operand>
+                           <operand name="MeasurementPeriod" xsi:type="OperandRef"/>
+                        </operand>
+                     </where>
+                  </operand>
+               </operand>
+               <operand xsi:type="Exists">
+                  <operand xsi:type="Query">
+                     <source alias="HospiceOrder">
+                        <expression dataType="fhir:ProcedureRequest" codeProperty="code" xsi:type="Retrieve">
+                           <codes name="Hospice care ambulatory" xsi:type="ValueSetRef"/>
+                        </expression>
+                     </source>
+                     <where xsi:type="And">
+                        <operand xsi:type="Equal">
+                           <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="intent" scope="HospiceOrder" xsi:type="Property"/>
+                           </operand>
+                           <operand valueType="t:String" value="order" xsi:type="Literal"/>
+                        </operand>
+                        <operand precision="Day" xsi:type="In">
+                           <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="authoredOn" scope="HospiceOrder" xsi:type="Property"/>
+                           </operand>
+                           <operand name="MeasurementPeriod" xsi:type="OperandRef"/>
+                        </operand>
+                     </where>
+                  </operand>
+               </operand>
+            </operand>
+            <operand xsi:type="Exists">
+               <operand xsi:type="Query">
+                  <source alias="HospicePerformed">
+                     <expression dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                        <codes name="Hospice care ambulatory" xsi:type="ValueSetRef"/>
+                     </expression>
+                  </source>
+                  <where xsi:type="And">
+                     <operand xsi:type="Equal">
+                        <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand path="status" scope="HospicePerformed" xsi:type="Property"/>
+                        </operand>
+                        <operand valueType="t:String" value="completed" xsi:type="Literal"/>
+                     </operand>
+                     <operand xsi:type="Overlaps">
+                        <operand name="Get Choice Interval - dateTime or Period" libraryName="Global" xsi:type="FunctionRef">
+                           <operand path="performed" scope="HospicePerformed" xsi:type="Property"/>
+                        </operand>
+                        <operand name="MeasurementPeriod" xsi:type="OperandRef"/>
+                     </operand>
+                  </where>
+               </operand>
+            </operand>
+         </expression>
+         <operand name="MeasurementPeriod">
+            <operandTypeSpecifier xsi:type="IntervalTypeSpecifier">
+               <pointType name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+            </operandTypeSpecifier>
+         </operand>
+      </def>
+   </statements>
+</library>

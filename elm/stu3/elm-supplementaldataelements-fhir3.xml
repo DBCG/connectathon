@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1">
+   <identifier id="SupplementalDataElements_FHIR3" version="1.0.0"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localIdentifier="FHIR" uri="http://hl7.org/fhir" version="3.0.0"/>
+   </usings>
+   <includes>
+      <def localIdentifier="FHIRHelpers" path="FHIRHelpers" version="3.0.0"/>
+   </includes>
+   <valueSets>
+      <def name="ONC Administrative Sex" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1" accessLevel="Public"/>
+      <def name="Race" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.836" accessLevel="Public"/>
+      <def name="Ethnicity" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.837" accessLevel="Public"/>
+      <def name="Payer" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591" accessLevel="Public"/>
+   </valueSets>
+   <statements>
+      <def name="Patient" context="Patient">
+         <expression xsi:type="SingletonFrom">
+            <operand dataType="fhir:Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def name="SDE Ethnicity" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="E">
+               <expression xsi:type="Flatten">
+                  <operand xsi:type="Query">
+                     <source alias="Extension">
+                        <expression path="extension" xsi:type="Property">
+                           <source name="Patient" xsi:type="ExpressionRef"/>
+                        </expression>
+                     </source>
+                     <where xsi:type="Equal">
+                        <operand path="url" scope="Extension" xsi:type="Property"/>
+                        <operand valueType="t:String" value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity" xsi:type="Literal"/>
+                     </where>
+                     <return>
+                        <expression path="extension" scope="Extension" xsi:type="Property"/>
+                     </return>
+                  </operand>
+               </expression>
+            </source>
+            <where xsi:type="Or">
+               <operand xsi:type="Equal">
+                  <operand path="url" scope="E" xsi:type="Property"/>
+                  <operand valueType="t:String" value="ombCategory" xsi:type="Literal"/>
+               </operand>
+               <operand xsi:type="Equal">
+                  <operand path="url" scope="E" xsi:type="Property"/>
+                  <operand valueType="t:String" value="detailed" xsi:type="Literal"/>
+               </operand>
+            </where>
+            <return>
+               <expression strict="false" xsi:type="As">
+                  <operand path="value" scope="E" xsi:type="Property"/>
+                  <asTypeSpecifier name="fhir:Coding" xsi:type="NamedTypeSpecifier"/>
+               </expression>
+            </return>
+         </expression>
+      </def>
+      <def name="SDE Payer" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="Payer">
+               <expression dataType="fhir:Coverage" codeProperty="type" xsi:type="Retrieve">
+                  <codes name="Payer" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <return>
+               <expression xsi:type="Tuple">
+                  <element name="code">
+                     <value path="type" scope="Payer" xsi:type="Property"/>
+                  </element>
+                  <element name="period">
+                     <value path="period" scope="Payer" xsi:type="Property"/>
+                  </element>
+               </expression>
+            </return>
+         </expression>
+      </def>
+      <def name="SDE Race" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="E">
+               <expression xsi:type="Flatten">
+                  <operand xsi:type="Query">
+                     <source alias="Extension">
+                        <expression path="extension" xsi:type="Property">
+                           <source name="Patient" xsi:type="ExpressionRef"/>
+                        </expression>
+                     </source>
+                     <where xsi:type="Equal">
+                        <operand path="url" scope="Extension" xsi:type="Property"/>
+                        <operand valueType="t:String" value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-race" xsi:type="Literal"/>
+                     </where>
+                     <return>
+                        <expression path="extension" scope="Extension" xsi:type="Property"/>
+                     </return>
+                  </operand>
+               </expression>
+            </source>
+            <where xsi:type="Or">
+               <operand xsi:type="Equal">
+                  <operand path="url" scope="E" xsi:type="Property"/>
+                  <operand valueType="t:String" value="ombCategory" xsi:type="Literal"/>
+               </operand>
+               <operand xsi:type="Equal">
+                  <operand path="url" scope="E" xsi:type="Property"/>
+                  <operand valueType="t:String" value="detailed" xsi:type="Literal"/>
+               </operand>
+            </where>
+            <return>
+               <expression strict="false" xsi:type="As">
+                  <operand path="value" scope="E" xsi:type="Property"/>
+                  <asTypeSpecifier name="fhir:Coding" xsi:type="NamedTypeSpecifier"/>
+               </expression>
+            </return>
+         </expression>
+      </def>
+      <def name="SDE Sex" context="Patient" accessLevel="Public">
+         <expression xsi:type="Case">
+            <caseItem>
+               <when xsi:type="Equal">
+                  <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand path="gender" xsi:type="Property">
+                        <source name="Patient" xsi:type="ExpressionRef"/>
+                     </operand>
+                  </operand>
+                  <operand valueType="t:String" value="male" xsi:type="Literal"/>
+               </when>
+               <then classType="t:Code" xsi:type="Instance">
+                  <element name="code">
+                     <value valueType="t:String" value="M" xsi:type="Literal"/>
+                  </element>
+                  <element name="system">
+                     <value valueType="t:String" value="http://hl7.org/fhir/v3/AdministrativeGender" xsi:type="Literal"/>
+                  </element>
+                  <element name="display">
+                     <value valueType="t:String" value="Male" xsi:type="Literal"/>
+                  </element>
+               </then>
+            </caseItem>
+            <caseItem>
+               <when xsi:type="Equal">
+                  <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand path="gender" xsi:type="Property">
+                        <source name="Patient" xsi:type="ExpressionRef"/>
+                     </operand>
+                  </operand>
+                  <operand valueType="t:String" value="female" xsi:type="Literal"/>
+               </when>
+               <then classType="t:Code" xsi:type="Instance">
+                  <element name="code">
+                     <value valueType="t:String" value="F" xsi:type="Literal"/>
+                  </element>
+                  <element name="system">
+                     <value valueType="t:String" value="http://hl7.org/fhir/v3/AdministrativeGender" xsi:type="Literal"/>
+                  </element>
+                  <element name="display">
+                     <value valueType="t:String" value="Female" xsi:type="Literal"/>
+                  </element>
+               </then>
+            </caseItem>
+            <else asType="t:Code" xsi:type="As">
+               <operand xsi:type="Null"/>
+            </else>
+         </expression>
+      </def>
+   </statements>
+</library>
