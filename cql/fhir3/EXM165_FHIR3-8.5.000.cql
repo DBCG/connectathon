@@ -166,12 +166,13 @@ define "Essential Hypertension Diagnosis":
     )
 
 // TODO: Translate exclusions
-define "Denominator Exclusions":
-    Hospice."Has Hospice"("Measurement Period")
-        or exists "Pregnancy Or Renal Diagnosis Exclusions"
-        or ( exists "End Stage Renal Disease Procedures"
-                or exists "End Stage Renal Disease Encounter"
-        )
-   or (Common."CalendarAgeInYearsAt"(ToDateTime(Patient.birthDate), start of "Measurement Period")>= 65 )
-                and FrailtyLTI."Has Spent More Than 90 Days in Long Term Care"
-      or FrailtyLTI."Advanced Illness and Frailty Exclusion Including Over Age 80"
+define "Denominator Exclusion":
+    false
+//     Hospice."Has Hospice"("Measurement Period")
+//         or exists "Pregnancy Or Renal Diagnosis Exclusions"
+//         or ( exists "End Stage Renal Disease Procedures"
+//                 or exists "End Stage Renal Disease Encounter"
+//         )
+//    or (Common."CalendarAgeInYearsAt"(ToDateTime(Patient.birthDate), start of "Measurement Period")>= 65 )
+//                 and FrailtyLTI."Has Spent More Than 90 Days in Long Term Care"
+//       or FrailtyLTI."Advanced Illness and Frailty Exclusion Including Over Age 80"
