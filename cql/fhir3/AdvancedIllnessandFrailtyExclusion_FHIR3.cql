@@ -70,8 +70,14 @@ define "Has Criteria Indicating Frailty":
 	exists ( [DeviceRequest: "Frailty Device"] FrailtyDeviceOrder
 			where FrailtyDeviceOrder.authoredOn during day of "Measurement Period"
 	)
-		or exists ( [DeviceUseStatement: "Frailty Device"] FrailtyDeviceUse
-				where FrailtyDeviceUse.timing as Period overlaps "Measurement Period"
+		or exists ( 
+           (
+               [DeviceUseStatement] DeviceUseStatement
+                    with [Device] Device 
+                        such that Last(Split(DeviceUseStatement.device.reference, '/')) = Device.id 
+                            and Device.type in "Frailty Device"
+            ) FrailtyDeviceUse
+                where FrailtyDeviceUse.timing as Period overlaps "Measurement Period"
                     or FrailtyDeviceUse.timing as dateTime during day of "Measurement Period"
 		)
 		or exists ( [Condition: "Frailty Diagnosis"] FrailtyDiagnosis
