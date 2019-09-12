@@ -36,6 +36,7 @@ valueset "Vascular Access for Dialysis": 'http://cts.nlm.nih.gov/fhir/ValueSet/2
 
 code "Birth date": '21112-8' from "LOINC" display 'Birth date'
 code "Blood pressure": '85354-9' from "LOINC" display 'blood pressure'
+// code "Blood pressure": '55284-4' from "LOINC" display 'blood pressure'
 code "Diastolic blood pressure": '8462-4' from "LOINC" display 'Diastolic blood pressure'
 code "Systolic blood pressure": '8480-6' from "LOINC" display 'Systolic blood pressure'
 
@@ -106,7 +107,7 @@ define "Qualifying Diastolic Blood Pressure Reading":
       and exists (
         BloodPressure.component DiastolicBP
           where FHIRHelpers.ToConcept(DiastolicBP.code) ~ "Diastolic blood pressure"
-            and DiastolicBP.value.code = 'mm[Hg]'
+            and DiastolicBP.value.unit = 'mm[Hg]'
       )
 
 //Note: Once we can specify that the FHIR BP Profile must be used, then status, code, and unit will not be required
@@ -125,7 +126,7 @@ define "Qualifying Systolic Blood Pressure Reading":
       and exists (
         BloodPressure.component SystolicBP
           where FHIRHelpers.ToConcept(SystolicBP.code) ~ "Systolic blood pressure"
-            and SystolicBP.value.code = 'mm[Hg]'
+            and SystolicBP.value.unit = 'mm[Hg]'
       )
 //Note: Once we can specify that the FHIR BP Profile must be used, then status, code, and unit will not be required
 
