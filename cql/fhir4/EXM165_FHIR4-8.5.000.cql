@@ -15,7 +15,7 @@ include Hospice_FHIR4 version '1.0.000' called Hospice
 //include NCQACommon_FHIR version '3.10.000' called Common
 //include Participation_FHIR version '1.0.0'
 
-codesystem "LOINC": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.6.1'
+codesystem "LOINC": 'http://loinc.org'
 
 valueset "Chronic Kidney Disease, Stage 5": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1002'
 valueset "Dialysis Services": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.109.12.1013'

@@ -15,7 +15,6 @@ include AdvancedIllnessandFrailtyExclusion_FHIR3 version '4.0.000' called Frailt
 //include NCQACommon_FHIR version '3.10.000' called Common
 //include Participation_FHIR version '1.0.0'
 
-// codesystem "LOINC": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.6.1'
 codesystem "LOINC": 'http://loinc.org'
 
 valueset "Chronic Kidney Disease, Stage 5": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1002'
