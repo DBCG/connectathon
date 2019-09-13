@@ -68,9 +68,9 @@ define "Lowest Diastolic Reading on Most Recent Blood Pressure Day":
       return singleton from (
         DBPReading.component C
           where FHIRHelpers.ToConcept(C.code) ~ "Diastolic blood pressure"
-          return C.value as Quantity
+          return Tuple { value: C.value as Quantity }
       )
-			sort ascending
+			sort by value.value ascending
 	)
 
 define "Lowest Systolic Reading on Most Recent Blood Pressure Day":
@@ -80,9 +80,9 @@ define "Lowest Systolic Reading on Most Recent Blood Pressure Day":
       return singleton from (
         SBPReading.component C
           where FHIRHelpers.ToConcept(C.code) ~ "Systolic blood pressure"
-          return C.value as Quantity
+          return Tuple { value: C.value as Quantity }
       )
-      sort ascending
+      sort by value.value ascending
 	)
 
 define "Blood Pressure Days":
