@@ -1,4 +1,6 @@
-library EXM108_FHIR3 version '7.4.000'
+library EXM108_FHIR3 version '7.4.000' 
+
+using FHIR version '3.0.0'
 
 /*
 Based on CMS108v7 - Venous Thromboembolism Prophylaxis
@@ -27,7 +29,7 @@ Condition
 /*
 Development Notes:
 
-    Need to define “doNotPerfom” QICore extension to support “NotDone is true” expression. Suggest to the base Resource for the following profiles – 
+    Need to define doNotPerfom QICore extension to support NotDone is true expression. Suggest to the base Resource for the following profiles  
 
         DeviceUseStatement
         DeviceRequest
@@ -38,7 +40,7 @@ Development Notes:
         Promote profiles to QI-Core:
         [#20610](https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&tracker_item_id=20610)
 
-    Need to define an “ordinality” extension for Procedure profile to support “Procedure.ordinality ~ "Principal" expression. 
+    Need to define an ordinality extension for Procedure profile to support Procedure.ordinality ~ "Principal" expression. 
     
       [#20527](https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&tracker_item_id=20527)
 
@@ -50,7 +52,7 @@ Development Notes:
         Defined as DEQM profiles currently, promote to QI-Core
         [#20611](https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&tracker_item_id=20611)
 
-    Suggest defining “recordedOn“ to support the timings for “MedicationAdministration.notGiven” and “Procedure.notDone”. see the highlighted fields below.
+    Suggest defining recordedOn to support the timings for MedicationAdministration.notGiven and Procedure.notDone. see the highlighted fields below.
     
       [#20602](https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&tracker_item_id=20602)
 
@@ -149,20 +151,28 @@ define "Initial Population":
 //Done
 define "No VTE Prophylaxis Device Applied or Ordered":
   // NOTE: Should be using device.code, but that requires CQL 1.4
-  ((["DeviceUseStatement": code in "Venous foot pumps (VFP)"]
-    union ["DeviceUseStatement": code in "Intermittent pneumatic compression devices (IPC)"]
-    union ["DeviceUseStatement": code in "Graduated compression stockings (GCS)"]
+  (
+    (
+        ["DeviceUseStatement"] DeviceUseStatement
+            where DeviceUseStatement.status = 'completed'
+    )ValidDeviceUseStatement
+        with [Device] Device 
+            such that Last(Split(ValidDeviceUseStatement.device.reference, '/')) = Device.id 
+                and ( 
+                    Device.type in "Venous foot pumps (VFP)"
+                        or Device.type in "Intermittent pneumatic compression devices (IPC)"
+                        or Device.type in "Graduated compression stockings (GCS)"
+                )
   ) D
-    where GetExtension(D.extension, 'http://example.org/fhir/extensions/notDone').value is true
+    // where GetExtension(D.extension, 'http://example.org/fhir/extensions/notDone').value is true
     //where D.notDone is true // Needs a QI-Core extension to support
-  )
   union ((
     ["DeviceRequest": code in "Venous foot pumps (VFP)"]
       union ["DeviceRequest": code in "Intermittent pneumatic compression devices (IPC)"]
       union ["DeviceRequest": code in "Graduated compression stockings (GCS)"]
   ) D
     where D.intent ~ ToConcept("Order")
-      and GetExtension(D.extension, 'http://example.org/fhir/extensions/doNotPerform').value is true
+      //and GetExtension(D.extension, 'http://example.org/fhir/extensions/doNotPerform').value is true
     //where D.doNotPerform is true // Needs a QI-Core extension to support
   )
     
@@ -210,7 +220,7 @@ define "No VTE Prophylaxis Medication Administered or Ordered":
 	["MedicationRequest": medication in "Warfarin"]
 	) MedicationOrder
 	where	MedicationOrder.intent = 'order'
-		and GetExtension(MedicationOrder.extension, 'http://example.org/fhir/extensions/doNotPerform').value is true
+		//and GetExtension(MedicationOrder.extension, 'http://example.org/fhir/extensions/doNotPerform').value is true
 		//MedicationOrder.doNotPerform is true // Needs a QI-Core extension to support
 	)
 
@@ -332,13 +342,21 @@ define "VTE Prophylaxis by Medication Administered or Device Applied":
 		union ["MedicationAdministration": medication in "Low Molecular Weight Heparin for VTE Prophylaxis"]
 		union ["MedicationAdministration": medication in "Injectable Factor Xa Inhibitor for VTE Prophylaxis"]
 		union ["MedicationAdministration": medication in "Warfarin"]
-		union ((
-				["DeviceUseStatement": code in "Intermittent pneumatic compression devices (IPC)"]
-				union ["DeviceUseStatement": code in "Venous foot pumps (VFP)"]
-				union ["DeviceUseStatement": code in "Graduated compression stockings (GCS)"]
-      ) DeviceApplied
-				where DeviceApplied.status = 'completed'
-    )
+		union (((
+            ["DeviceUseStatement"] DeviceUseStatement
+                where DeviceUseStatement.status = 'completed'
+            )ValidDeviceUseStatement
+                with [Device] Device 
+                    such that Last(Split(ValidDeviceUseStatement.device.reference, '/')) = Device.id 
+                        and ( 
+                            Device.type in "Venous foot pumps (VFP)"
+                                or Device.type in "Intermittent pneumatic compression devices (IPC)"
+                                or Device.type in "Graduated compression stockings (GCS)"
+                        )
+                
+                ) DeviceApplied
+				    where DeviceApplied.status = 'completed'
+        )
 
 //Done
 define "VTE Prophylaxis Received on Day of or Day After Admission or Procedure":
@@ -416,8 +434,8 @@ define "Encounter With Principal Diagnosis of Mental Disorder or Stroke":
 // TODO: Define an ordinality extension to a Procedure profile and ask Patient Administration and/or Patient Care to review
 define "Encounter With Principal Procedure of SCIP VTE Selected Surgery":
 	"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" QualifyingEncounter
-		with ( "SCIP VTE Selected Surgery" Procedure
-			where GetExtension(Procedure.extension, 'http://example.org/StructureDefinition/ordinality').value ~ "Principal" ) SelectedProcedure
+		with ( "SCIP VTE Selected Surgery" Procedure ) SelectedProcedure
+			//where GetExtension(Procedure.extension, 'http://example.org/StructureDefinition/ordinality').value ~ "Principal" ) SelectedProcedure
 			such that SelectedProcedure.performed during FHIRHelpers.ToInterval( QualifyingEncounter.period)
 
 //Done
@@ -497,7 +515,7 @@ define "No VTE Prophylaxis Due to Patient Refusal on Day of or Day After Procedu
 define "No VTE Prophylaxis Medication or Device Due to Patient Refusal":
 	( "No VTE Prophylaxis Medication Administered or Ordered"
 		union "No VTE Prophylaxis Device Applied or Ordered" ) NoVTEProphylaxis
-		where GetExtension(NoVTEProphylaxis.extension, 'http://example.org/StructureDefinition/notDoneReason').value in "Patient Refusal"
+		//where GetExtension(NoVTEProphylaxis.extension, 'http://example.org/StructureDefinition/notDoneReason').value in "Patient Refusal"
 
 //Done
 define "No VTE Prophylaxis Due to Patient Refusal":
@@ -517,11 +535,11 @@ define "Numerator":
 		union "No VTE Prophylaxis Due to Medical Reason"
 		union "No VTE Prophylaxis Due to Patient Refusal"
 
-//Done
+// //Done
 define "Is In Low Risk for VTE or On Anticoagulant":
-	( ["Observation": "Risk for venous thromboembolism"] VTERiskAssessment
-			where VTERiskAssessment.value in "Low Risk"
-	)
+    ["Observation"] VTERiskAssessment
+            where VTERiskAssessment.code ~ "Risk for venous thromboembolism"
+			    and VTERiskAssessment.value in "Low Risk"
 /*
 // TODO: Issues with constructing the FHIR types here...
 		union ( ["Observation": "INR"] INRLabTest
@@ -562,3 +580,4 @@ define "Low Risk for VTE or Anticoagulant Administered on Day of or Day After Pr
 		where AnesthesiaProcedure.performed ends 1 day after day of start of FHIRHelpers.ToInterval(QualifyingEncounter.period)
 			and VTERiskAssessment.issued during VTEICU."CalendarDayOfOrDayAfter"(end of FHIRHelpers.ToInterval(AnesthesiaProcedure.performed))
 		return QualifyingEncounter
+
