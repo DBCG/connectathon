@@ -6,76 +6,7 @@
     {
       "resource": {
         "resourceType": "Patient",
-        "id": "7c897218-9ee1-4c51-a1f8-ecfb1e22677c",
-        "meta": {
-          "profile": [
-            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
-          ]
-        },
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
-            "extension": [
-              {
-                "url": "ombCategory",
-                "valueCoding": {
-                  "system": "urn:oid:2.16.840.1.113883.6.238",
-                  "code": "2106-3",
-                  "display": "White"
-                }
-              }
-            ]
-          },
-          {
-            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
-            "extension": [
-              {
-                "url": "ombCategory",
-                "valueCoding": {
-                  "system": "urn:oid:2.16.840.1.113883.6.238",
-                  "code": "2135-2",
-                  "display": "Hispanic or Latino"
-                }
-              }
-            ]
-          }
-        ],
-        "identifier": [
-          {
-            "use": "usual",
-            "type": {
-              "coding": [
-                {
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                  "code": "MR",
-                  "display": "Medical Record Number"
-                }
-              ]
-            },
-            "system": "http://hospital.smarthealthit.org",
-            "value": "999999994"
-          }
-        ],
-        "name": [
-          {
-            "family": "Adams",
-            "given": [
-              "John"
-            ]
-          }
-        ],
-        "gender": "male",
-        "birthDate": "1963-06-13"
-      },
-      "request": {
-        "method": "PUT",
-        "url": "http://localhost:8080/cqf-ruler/baseR4/Patient/7c897218-9ee1-4c51-a1f8-ecfb1e22677c"
-      }
-    },
-    {
-      "resource": {
-        "resourceType": "Patient",
-        "id": "50952b5c-3ed6-4fb4-802a-a72d55deebdb",
+        "id": "f4bd2b01-bf58-494b-85be-842e4961a3a5-1",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
@@ -122,43 +53,182 @@
               ]
             },
             "system": "http://hospital.smarthealthit.org",
-            "value": "999999995"
+            "value": "999999992"
           }
         ],
         "name": [
           {
-            "family": "Johnson",
+            "family": "Jones",
             "given": [
-              "Louise"
+              "Rick"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1976-04-26"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Patient/f4bd2b01-bf58-494b-85be-842e4961a3a5-1"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "f4bd2b01-bf58-494b-85be-842e4961a3a5-2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+          ]
+        },
+        "verificationStatus": "confirmed",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "59621000",
+              "display": "Essential hypertension (disorder)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/f4bd2b01-bf58-494b-85be-842e4961a3a5-1"
+        },
+        "assertedDate": "2019-04-16T13:51:21-06:00"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/f4bd2b01-bf58-494b-85be-842e4961a3a5-2"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "f4bd2b01-bf58-494b-85be-842e4961a3a5-3",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://www.ama-assn.org/go/cpt",
+                "code": "99201"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/f4bd2b01-bf58-494b-85be-842e4961a3a5-1"
+        },
+        "period": {
+          "start": "2019-09-11T13:51:21-06:00",
+          "end": "2019-09-11T14:51:21-06:00"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Encounter/f4bd2b01-bf58-494b-85be-842e4961a3a5-3"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2054-5",
+                  "display": "Black or African American"
+                }
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2186-5",
+                  "display": "Not Hispanic or Latino"
+                }
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR",
+                  "display": "Medical Record Number"
+                }
+              ]
+            },
+            "system": "http://hospital.smarthealthit.org",
+            "value": "999999993"
+          }
+        ],
+        "name": [
+          {
+            "family": "Doe",
+            "given": [
+              "Jill"
             ]
           }
         ],
         "gender": "female",
-        "birthDate": "1976-11-26"
+        "birthDate": "1975-08-25"
       },
       "request": {
         "method": "PUT",
-        "url": "http://localhost:8080/cqf-ruler/baseR4/Patient/50952b5c-3ed6-4fb4-802a-a72d55deebdb"
+        "url": "Patient/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-1"
       }
     },
     {
       "resource": {
         "resourceType": "Condition",
-        "id": "38a59e34-3d28-4fa8-8949-4e18c2fab834",
+        "id": "bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-2",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
           ]
         },
-        "verificationStatus": {
-          "coding": [
-            {
-              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
-              "code": "confirmed",
-              "display": "Confirmed"
-            }
-          ]
-        },
+        "verificationStatus": "confirmed",
         "category": [
           {
             "coding": [
@@ -174,73 +244,25 @@
           "coding": [
             {
               "system": "http://snomed.info/sct",
-              "code": "78975002",
-              "display": "Malignant essential hypertension (disorder)"
+              "code": "65518004",
+              "display": "Labile diastolic hypertension (disorder)"
             }
           ]
         },
         "subject": {
-          "reference": "Patient/7c897218-9ee1-4c51-a1f8-ecfb1e22677c"
+          "reference": "Patient/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-1"
         },
-        "recordedDate": "2019-03-23T11:01:33-06:00"
+        "assertedDate": "2019-01-12T13:51:21-07:00"
       },
       "request": {
         "method": "PUT",
-        "url": "http://localhost:8080/cqf-ruler/baseR4/Condition/38a59e34-3d28-4fa8-8949-4e18c2fab834"
-      }
-    },
-    {
-      "resource": {
-        "resourceType": "Condition",
-        "id": "3e23a1ec-3a1f-48e5-9849-cb0ad695ad07",
-        "meta": {
-          "profile": [
-            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
-          ]
-        },
-        "verificationStatus": {
-          "coding": [
-            {
-              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
-              "code": "confirmed",
-              "display": "Confirmed"
-            }
-          ]
-        },
-        "category": [
-          {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
-                "code": "encounter-diagnosis",
-                "display": "Encounter Diagnosis"
-              }
-            ]
-          }
-        ],
-        "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "59720008",
-              "display": "Sustained diastolic hypertension (disorder)"
-            }
-          ]
-        },
-        "subject": {
-          "reference": "Patient/50952b5c-3ed6-4fb4-802a-a72d55deebdb"
-        },
-        "recordedDate": "2019-05-02T11:01:33-06:00"
-      },
-      "request": {
-        "method": "PUT",
-        "url": "http://localhost:8080/cqf-ruler/baseR4/Condition/3e23a1ec-3a1f-48e5-9849-cb0ad695ad07"
+        "url": "Condition/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-2"
       }
     },
     {
       "resource": {
         "resourceType": "Encounter",
-        "id": "Encounter-3",
+        "id": "bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-3",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
@@ -257,64 +279,28 @@
             "coding": [
               {
                 "system": "http://www.ama-assn.org/go/cpt",
-                "code": "99205"
+                "code": "99202"
               }
             ]
           }
         ],
         "subject": {
-          "reference": "Patient/7c897218-9ee1-4c51-a1f8-ecfb1e22677c"
+          "reference": "Patient/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-1"
         },
         "period": {
-          "start": "2019-06-07T11:01:33-06:00"
+          "start": "2019-05-01T12:51:21-06:00",
+          "end": "2019-05-01T17:51:21-06:00"
         }
       },
       "request": {
         "method": "PUT",
-        "url": "http://localhost:8080/cqf-ruler/baseR4/Encounter/Encounter-3"
-      }
-    },
-    {
-      "resource": {
-        "resourceType": "Encounter",
-        "id": "Encounter-4",
-        "meta": {
-          "profile": [
-            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
-          ]
-        },
-        "status": "finished",
-        "class": {
-          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-          "code": "IMP",
-          "display": "inpatient encounter"
-        },
-        "type": [
-          {
-            "coding": [
-              {
-                "system": "http://www.ama-assn.org/go/cpt",
-                "code": "99205"
-              }
-            ]
-          }
-        ],
-        "subject": {
-          "reference": "Patient/50952b5c-3ed6-4fb4-802a-a72d55deebdb"
-        },
-        "period": {
-          "start": "2019-10-16T11:01:33-06:00"
-        }
-      },
-      "request": {
-        "method": "PUT",
-        "url": "http://localhost:8080/cqf-ruler/baseR4/Encounter/Encounter-4"
+        "url": "Encounter/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-3"
       }
     },
     {
       "resource": {
         "resourceType": "Observation",
-        "id": "22018bec-6233-42a9-ae2d-ae268320ad95",
+        "id": "bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-4",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/StructureDefinition/vitalsigns"
@@ -342,12 +328,12 @@
           ]
         },
         "subject": {
-          "reference": "Patient/50952b5c-3ed6-4fb4-802a-a72d55deebdb"
+          "reference": "Patient/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-1"
         },
-        "encounter": {
-          "reference": "Encounter/Encounter-4"
+        "context": {
+          "reference": "Encounter/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-3"
         },
-        "effectiveDateTime": "2019-10-04T11:01:33-06:00",
+        "effectiveDateTime": "2019-05-01T13:51:21-07:00",
         "component": [
           {
             "code": {
@@ -360,8 +346,8 @@
               ]
             },
             "valueQuantity": {
-              "value": 130,
-              "unit": "mmHg",
+              "value": 147,
+              "unit": "mm[Hg]",
               "system": "http://unitsofmeasure.org",
               "code": "mm[Hg]"
             }
@@ -377,8 +363,8 @@
               ]
             },
             "valueQuantity": {
-              "value": 84,
-              "unit": "mmHg",
+              "value": 92,
+              "unit": "mm[Hg]",
               "system": "http://unitsofmeasure.org",
               "code": "mm[Hg]"
             }
@@ -387,7 +373,482 @@
       },
       "request": {
         "method": "PUT",
-        "url": "http://localhost:8080/cqf-ruler/baseR4/Observation/22018bec-6233-42a9-ae2d-ae268320ad95"
+        "url": "Observation/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-4"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-5",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Blood pressure panel with all children optional"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-1"
+        },
+        "context": {
+          "reference": "Encounter/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-3"
+        },
+        "effectiveDateTime": "2019-05-01T13:55:21-07:00",
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8480-6",
+                  "display": "Systolic blood pressure"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 150,
+              "unit": "mm[Hg]",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8462-4",
+                  "display": "Diastolic blood pressure"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 100,
+              "unit": "mm[Hg]",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-5"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-11",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://www.ama-assn.org/go/cpt",
+                "code": "99202"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-1"
+        },
+        "period": {
+          "start": "2019-12-01T12:51:21-06:00",
+          "end": "2019-12-01T17:51:21-06:00"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Encounter/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-11"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-6",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Blood pressure panel with all children optional"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-1"
+        },
+        "context": {
+          "reference": "Encounter/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-11"
+        },
+        "effectiveDateTime": "2019-12-01T13:51:21-07:00",
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8480-6",
+                  "display": "Systolic blood pressure"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 145,
+              "unit": "mm[Hg]",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8462-4",
+                  "display": "Diastolic blood pressure"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 72,
+              "unit": "mm[Hg]",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-6"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-7",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Blood pressure panel with all children optional"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-1"
+        },
+        "context": {
+          "reference": "Encounter/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-11"
+        },
+        "effectiveDateTime": "2019-12-01T13:53:21-07:00",
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8480-6",
+                  "display": "Systolic blood pressure"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 132,
+              "unit": "mm[Hg]",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8462-4",
+                  "display": "Diastolic blood pressure"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 94,
+              "unit": "mm[Hg]",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-7"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-12",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://www.ama-assn.org/go/cpt",
+                "code": "99202"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-1"
+        },
+        "period": {
+          "start": "2019-12-15T12:51:21-06:00",
+          "end": "2019-12-15T17:51:21-06:00"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Encounter/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-12"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-8",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Blood pressure panel with all children optional"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-1"
+        },
+        "context": {
+          "reference": "Encounter/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-12"
+        },
+        "effectiveDateTime": "2019-12-15T13:51:21-07:00",
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8480-6",
+                  "display": "Systolic blood pressure"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 145,
+              "unit": "mm[Hg]",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-8"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-13",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://www.ama-assn.org/go/cpt",
+                "code": "99202"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-1"
+        },
+        "period": {
+          "start": "2019-12-17T12:51:21-06:00",
+          "end": "2019-12-17T17:51:21-06:00"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Encounter/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-13"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-9",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/StructureDefinition/vitalsigns"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Blood pressure panel with all children optional"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-1"
+        },
+        "context": {
+          "reference": "Encounter/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-13"
+        },
+        "effectiveDateTime": "2019-12-17T13:51:21-07:00",
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8462-4",
+                  "display": "Diastolic blood pressure"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 98,
+              "unit": "mm[Hg]",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-9"
       }
     }
   ]
