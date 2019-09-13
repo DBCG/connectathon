@@ -4,7 +4,7 @@ library TJC_Overall_FHIR3 version '3.6.000'
 using FHIR version '3.0.0'
 include FHIRHelpers version '3.0.0' called FHIRHelpers
 //TODO: MATGlobalCommonFunctions_FHIR version '2.0.000' need to be updated to 4.0
-include MATGlobalCommonFunctions_FHIR3 version '4.0.000' called Global
+include MATGlobalCommonFunctions_FHIR3 version '2.0.000' called Global
 include SupplementalDataElements_FHIR3 version '1.0.0' called SDE
 
 codesystem "SNOMEDCT": 'http://snomed.info/sct/731000124108'
