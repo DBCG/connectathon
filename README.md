@@ -121,37 +121,3 @@ docker run -p 8080:8080 contentgroup/cqf-ruler
 * [Denominator Patient (ID: d2083276-0074-4015-9cd8-cfd669bd3a41)](tests/fhir4/EXM104/cms104-r4-denom.json)
 * [Numerator Patient (ID: 5d066aba-f26b-48c5-8c2c-689267cb6cc8)](tests/fhir4/EXM104/cms104-r4-numer.json)
 
-## CDC Opioid Prescribing Support Guideline
-
-### Recommendation 10
-
-#### FHIR3
-
-* [Recommendation CQL](cql/fhir3/OpioidCDS_R10_FHIR3-0.1.0.cql)
-* [Recommendation Bundle](bundles/fhir3/opioidcds-r10-fhir3-bundle.json)
-* [No Recommendation (ID: XXXX)](tests/fhir3/OpioidCDSR10/opioidcds-r10-fhir3-out-test-bundle.json)
-* [Recommendation (ID: XXXX)](tests/fhir3/OpioidCDSR10/opioidcds-r10-fhir3-in-test-bundle.json)
-
-#### FHIR4
-
-* [Recommendation CQL](cql/fhir4/OpioidCDS_R10_FHIR4-0.1.0.cql)
-* [Recommendation Bundle](bundles/fhir4/opioidcds-r10-fhir4-bundle.json)
-* [No Recommendation (ID: XXXX)](tests/fhir4/OpioidCDSR10/opioidcds-r10-fhir4-out-test-bundle.json)
-* [Recommendation (ID: XXXX)](tests/fhir4/OpioidCDSR10/opioidcds-r10-fhir4-in-test-bundle.json)
-
-### Recommendation 11
-
-#### FHIR3
-
-* [Recommendation CQL](cql/fhir3/OpioidCDS_R11_FHIR3-0.1.0.cql)
-* [Recommendation Bundle](bundles/fhir3/opioidcds-r11-fhir3-bundle.json)
-* [No Recommendation (ID: XXXX)](tests/fhir3/OpioidCDSR11/opioidcds-r11-fhir3-out-test-bundle.json)
-* [Recommendation (ID: XXXX)](tests/fhir3/OpioidCDSR11/opioidcds-r11-fhir3-in-test-bundle.json)
-
-#### FHIR4
-
-* [Recommendation CQL](cql/fhir4/OpioidCDS_R11_FHIR4-0.1.0.cql)
-* [Recommendation Bundle](bundles/fhir4/opioidcds-r11-fhir4-bundle.json)
-* [No Recommendation (ID: XXXX)](tests/fhir4/OpioidCDSR11/opioidcds-r11-fhir4-out-test-bundle.json)
-* [Recommendation (ID: XXXX)](tests/fhir4/OpioidCDSR11/opioidcds-r11-fhir4-in-test-bundle.json)
-
