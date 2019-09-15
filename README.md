@@ -121,3 +121,31 @@ docker run -p 8080:8080 contentgroup/cqf-ruler
 * [Denominator Patient (ID: d2083276-0074-4015-9cd8-cfd669bd3a41)](tests/fhir4/EXM104/cms104-r4-denom.json)
 * [Numerator Patient (ID: 5d066aba-f26b-48c5-8c2c-689267cb6cc8)](tests/fhir4/EXM104/cms104-r4-numer.json)
 
+### Bulk Data Example
+
+````
+curl -X POST \
+'http://3.90.39.179:5000/$import' \
+-H 'Accept: application/fhir+json' \
+-H 'Content-Type: application/json' \
+-H 'Prefer: respond-async' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Cache-Control: no-cache' \
+-H 'Connection: keep-alive' \
+-d '{
+"inputFormat": "application/fhir+ndjson",
+"inputSource": "https://sample.s3.amazonaws.com/",
+"storageDetail":
+{
+"type": "https"
+},
+"input": [
+{
+"type": "Patient",
+"url": "https://sample.s3.amazonaws.com/Patient.ndjson"
+}
+]
+}'
+````
+
+Example POST for a bulk data import pass-through. The expectation is that the passthrough proxy will post each line in the input file as a POST to the base if the resource type is Bundle, and as a POST to the resource type endpoint if the resource is any other type.
