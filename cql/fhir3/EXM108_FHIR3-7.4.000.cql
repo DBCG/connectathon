@@ -127,8 +127,9 @@ context Patient
 define "SDE Ethnicity":
   SDE."SDE Ethnicity"
 
-define "SDE Payer":
-	SDE."SDE Payer"
+//Temporary remove for Connectathon debugging
+// define "SDE Payer":
+// 	SDE."SDE Payer"
 
 define "SDE Race":
   SDE."SDE Race"
@@ -199,25 +200,51 @@ define "No VTE Prophylaxis Device Due to Medical Reason on Day of or Day After A
 
 //Done
 define "No VTE Prophylaxis Medication Administered or Ordered":
-	((	["MedicationAdministration": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxis"]
+//Temporary change for Connecathon.  CQL is valid, but it's erroring."
+//	((	["MedicationAdministration": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxis"]
+//	union
+//	["MedicationAdministration": medication in "Low Molecular Weight Heparin for VTE Prophylaxis"]
+//	union
+//	["MedicationAdministration": medication in "Injectable Factor Xa Inhibitor for VTE Prophylaxis"]
+//	union
+//	["MedicationAdministration": medication in "Warfarin"]
+//	) MedicationAdm
+//		where MedicationAdm.notGiven is true
+//	)
+//	union
+	 // TODO: Tracker for QI-core to add doNotPerform extension for MedicationRequest and suggest to the base Resource
+//	((	["MedicationRequest": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxis"]
+//	union
+//	["MedicationRequest": medication in "Low Molecular Weight Heparin for VTE Prophylaxis"]
+//	union
+//	["MedicationRequest": medication in "Injectable Factor Xa Inhibitor for VTE Prophylaxis"]
+//	union
+//	["MedicationRequest": medication in "Warfarin"]
+//	) MedicationOrder
+//	where	MedicationOrder.intent = 'order'
+		//and GetExtension(MedicationOrder.extension, 'http://example.org/fhir/extensions/doNotPerform').value is true
+		//MedicationOrder.doNotPerform is true // Needs a QI-Core extension to support
+//	)
+
+	((	["MedicationAdministration": "Low Dose Unfractionated Heparin for VTE Prophylaxis"]
 	union
-	["MedicationAdministration": medication in "Low Molecular Weight Heparin for VTE Prophylaxis"]
+	["MedicationAdministration": "Low Molecular Weight Heparin for VTE Prophylaxis"]
 	union
-	["MedicationAdministration": medication in "Injectable Factor Xa Inhibitor for VTE Prophylaxis"]
+	["MedicationAdministration": "Injectable Factor Xa Inhibitor for VTE Prophylaxis"]
 	union
-	["MedicationAdministration": medication in "Warfarin"]
+	["MedicationAdministration": "Warfarin"]
 	) MedicationAdm
 		where MedicationAdm.notGiven is true
 	)
 	union
 	 // TODO: Tracker for QI-core to add doNotPerform extension for MedicationRequest and suggest to the base Resource
-	((	["MedicationRequest": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxis"]
+	((	["MedicationRequest": "Low Dose Unfractionated Heparin for VTE Prophylaxis"]
 	union
-	["MedicationRequest": medication in "Low Molecular Weight Heparin for VTE Prophylaxis"]
+	["MedicationRequest": "Low Molecular Weight Heparin for VTE Prophylaxis"]
 	union
-	["MedicationRequest": medication in "Injectable Factor Xa Inhibitor for VTE Prophylaxis"]
+	["MedicationRequest": "Injectable Factor Xa Inhibitor for VTE Prophylaxis"]
 	union
-	["MedicationRequest": medication in "Warfarin"]
+	["MedicationRequest": "Warfarin"]
 	) MedicationOrder
 	where	MedicationOrder.intent = 'order'
 		//and GetExtension(MedicationOrder.extension, 'http://example.org/fhir/extensions/doNotPerform').value is true
@@ -298,8 +325,11 @@ define "Encounter Less Than 2 Days":
 
 //Done
 define "SCIP VTE Selected Surgery":
-	(	["Procedure": "General Surgery"]
-		union ["Procedure": "Gynecological Surgery"]
+	(	
+        //Error:
+        //["Procedure": "General Surgery"]
+		//union 
+        ["Procedure": "Gynecological Surgery"]
 		union ["Procedure": "Hip Fracture Surgery"]
 		union ["Procedure": "Hip Replacement Surgery"]
 		union ["Procedure": "Intracranial Neurosurgery"]
@@ -335,13 +365,37 @@ define "Intervention Comfort Measures on Day of or Day After Procedure":
 
 //Done
 define "VTE Prophylaxis by Medication Administered or Device Applied":
-	( ["MedicationAdministration": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
+	//Temporary change for Connecathon.  CQL is valid, but it's erroring."
+//	( ["MedicationAdministration": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
+//			where VTEMedication.status = 'completed'
+//						and VTEMedication.dosage.route in "Subcutaneous route"
+//	)
+//		union ["MedicationAdministration": medication in "Low Molecular Weight Heparin for VTE Prophylaxis"]
+//		union ["MedicationAdministration": medication in "Injectable Factor Xa Inhibitor for VTE Prophylaxis"]
+//		union ["MedicationAdministration": medication in "Warfarin"]
+//		union (((
+//            ["DeviceUseStatement"] DeviceUseStatement
+//                where DeviceUseStatement.status = 'completed'
+//            )ValidDeviceUseStatement
+//                with [Device] Device 
+//                    such that Last(Split(ValidDeviceUseStatement.device.reference, '/')) = Device.id 
+//                        and ( 
+//                            Device.type in "Venous foot pumps (VFP)"
+//                                or Device.type in "Intermittent pneumatic compression devices (IPC)"
+//                                or Device.type in "Graduated compression stockings (GCS)"
+//                        )
+//                
+//                ) DeviceApplied
+//				    where DeviceApplied.status = 'completed'
+//        )
+
+	( ["MedicationAdministration": "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
 			where VTEMedication.status = 'completed'
 						and VTEMedication.dosage.route in "Subcutaneous route"
 	)
-		union ["MedicationAdministration": medication in "Low Molecular Weight Heparin for VTE Prophylaxis"]
-		union ["MedicationAdministration": medication in "Injectable Factor Xa Inhibitor for VTE Prophylaxis"]
-		union ["MedicationAdministration": medication in "Warfarin"]
+		union ["MedicationAdministration": "Low Molecular Weight Heparin for VTE Prophylaxis"]
+		union ["MedicationAdministration": "Injectable Factor Xa Inhibitor for VTE Prophylaxis"]
+		union ["MedicationAdministration": "Warfarin"]
 		union (((
             ["DeviceUseStatement"] DeviceUseStatement
                 where DeviceUseStatement.status = 'completed'
@@ -379,16 +433,33 @@ define "VTE Prophylaxis Received on Day of or Day After Admission or Procedure":
 
 //Done
 define "Medication Oral Factor Xa Inhibitor Administered on Day of or Day After Admission or Procedure":
+//Temporary change for Connecathon.  CQL is valid, but it's erroring."
+//	( from
+//			"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" QualifyingEncounter,
+//			["MedicationAdministration": medication in "Oral Factor Xa Inhibitor for VTE Prophylaxis or VTE Treatment"] FactorXaMedication
+//			where FactorXaMedication.effective starts during VTEICU."CalendarDayOfOrDayAfter"(start of FHIRHelpers.ToInterval(QualifyingEncounter.period))
+//			return QualifyingEncounter
+//	)
+//		union ( from
+//				"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" QualifyingEncounter,
+//				["Procedure": "General or Neuraxial Anesthesia"] AnesthesiaProcedure,
+//				["MedicationAdministration": medication in "Oral Factor Xa Inhibitor for VTE Prophylaxis or VTE Treatment"] FactorXaMedication
+//				where AnesthesiaProcedure.status = 'completed'
+//				and AnesthesiaProcedure.performed ends 1 day after day of start of FHIRHelpers.ToInterval(QualifyingEncounter.period)
+//					and FactorXaMedication.effective starts during VTEICU."CalendarDayOfOrDayAfter"(end of AnesthesiaProcedure.performed)
+//				return QualifyingEncounter
+//		)
+
 	( from
 			"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" QualifyingEncounter,
-			["MedicationAdministration": medication in "Oral Factor Xa Inhibitor for VTE Prophylaxis or VTE Treatment"] FactorXaMedication
+			["MedicationAdministration": "Oral Factor Xa Inhibitor for VTE Prophylaxis or VTE Treatment"] FactorXaMedication
 			where FactorXaMedication.effective starts during VTEICU."CalendarDayOfOrDayAfter"(start of FHIRHelpers.ToInterval(QualifyingEncounter.period))
 			return QualifyingEncounter
 	)
 		union ( from
 				"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" QualifyingEncounter,
 				["Procedure": "General or Neuraxial Anesthesia"] AnesthesiaProcedure,
-				["MedicationAdministration": medication in "Oral Factor Xa Inhibitor for VTE Prophylaxis or VTE Treatment"] FactorXaMedication
+				["MedicationAdministration": "Oral Factor Xa Inhibitor for VTE Prophylaxis or VTE Treatment"] FactorXaMedication
 				where AnesthesiaProcedure.status = 'completed'
 				and AnesthesiaProcedure.performed ends 1 day after day of start of FHIRHelpers.ToInterval(QualifyingEncounter.period)
 					and FactorXaMedication.effective starts during VTEICU."CalendarDayOfOrDayAfter"(end of AnesthesiaProcedure.performed)
