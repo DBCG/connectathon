@@ -1,0 +1,22 @@
+version: '3'
+services:
+  fhir-bulk-proxy:
+    ports: 
+      - "5000:5000"
+    # Attach a volume so that the container will have access to AWS credentials from the host ~/.aws folder
+    # Alternatively you can pass AWS_ACCESS_KEY and AWS_SECRET_KEY environment variables
+    # If you will run container on AWS ec-2 instance you don't need this. 
+    # Ec-2 instance should have IAM Role which grants Read/Write access to S3 bucket
+    volumes:
+      - ~/.aws:/root/.aws:ro
+    environment:
+      PORT: 5000
+      BUCKET: fhir-bulk-out-bucket
+      SUBMISSIONURL: http://54.208.172.145:8080/cqf-ruler/baseDstu3
+      EXTERNALURL: http://34.227.73.197:5000
+      RESOURCEBASEURL: s3location
+      # Region doesn't make a difference. S3 is region free but it's still required
+      REGION: us-east-1 
+    restart: unless-stopped
+    build:
+      context: .
