@@ -22,6 +22,8 @@ docker run -p 8080:8080 contentgroup/cqf-ruler
 * [Terminology Bundle](resources/fhir3/valuesets/valuesets-bundle-exm165-FHIR.json)
 * [Denominator Patient (ID: f4bd2b01-bf58-494b-85be-842e4961a3a5)](tests/fhir3/EXM165/cms165-stu3-denom.json)
 * [Numerator Patient (ID: bc4159a4-6ff2-4a5b-be3a-d9c4778642c2)](tests/fhir3/EXM165/cms165-stu3-numer.json)
+* [Denominator Measure Report (ID: f4bd2b01-bf58-494b-85be-842e4961a3a5)](output/mrp/fhir3/EXM165/cms165-stu3-denom.json)
+* [Numerator Measure Report (ID: bc4159a4-6ff2-4a5b-be3a-d9c4778642c2)](output/mrp/fhir3/EXM165/cms165-stu3-numer.json)
 
 #### FHIR4
 
@@ -40,6 +42,8 @@ docker run -p 8080:8080 contentgroup/cqf-ruler
 * [Terminology Bundle](resources/fhir3/valuesets/valuesets-bundle-exm124-FHIR.json)
 * [Denominator Patient (ID: 5649e34d-df03-498f-9c82-4087bb5a2a46-1)](tests/fhir3/EXM124/cms124-STU3-denom.json)
 * [Numerator Patient (ID: 98ce13ee-450b-43ca-9fbe-08b05999532b-1)](tests/fhir3/EXM124/cms124-STU3-numer.json)
+* [Denominator Measure Report (ID: 5649e34d-df03-498f-9c82-4087bb5a2a46-1)](output/mrp/fhir3/EXM124/cms124-STU3-denom.json)
+* [Numerator Measure Report (ID: 98ce13ee-450b-43ca-9fbe-08b05999532b-1)](output/mrp/fhir3/EXM124/cms124-STU3-numer.json)
 
 #### FHIR4
 
@@ -58,6 +62,8 @@ docker run -p 8080:8080 contentgroup/cqf-ruler
 * [Terminology Bundle](resources/fhir3/valuesets/valuesets-bundle-exm125-FHIR.json)
 * [Denominator Patient (ID: cbb3375f-0962-4f31-8681-c7e6f29968dd-1)](tests/fhir3/EXM125/cms125-STU3-denom.json)
 * [Numerator Patient (ID: e57e9bae-ee0e-4374-9453-d185a74800ab-1)](tests/fhir3/EXM125/cms125-STU3-numer.json)
+* [Denominator Measure Report (ID: cbb3375f-0962-4f31-8681-c7e6f29968dd-1)](output/mrp/fhir3/EXM125/cms125-STU3-denom.json)
+* [Numerator Measure Report (ID: e57e9bae-ee0e-4374-9453-d185a74800ab-1)](output/mrp/fhir3/EXM125/cms125-STU3-numer.json)
 
 #### FHIR4
 
@@ -76,6 +82,8 @@ docker run -p 8080:8080 contentgroup/cqf-ruler
 * [Terminology Bundle](resources/fhir3/valuesets/valuesets-bundle-exm130-FHIR.json)
 * [Denominator Patient (ID: 18019e78-0582-464d-8584-335dc7ba4f95-1)](tests/fhir3/EXM130/cms130-STU3-denom.json)
 * [Numerator Patient (ID: a7720bd3-49ab-4b22-aa05-1ed0f8a16d29-1)](tests/fhir3/EXM130/cms130-STU3-numer.json)
+* [Denominator Measure Report (ID: 18019e78-0582-464d-8584-335dc7ba4f95-1)](output/mrp/fhir3/EXM130/cms130-STU3-denom.json)
+* [Numerator Measure Report (ID: a7720bd3-49ab-4b22-aa05-1ed0f8a16d29-1)](output/mrp/fhir3/EXM130/cms130-STU3-numer.json)
 
 #### FHIR4
 
