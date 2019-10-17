@@ -17,11 +17,11 @@ docker run -p 8080:8080 contentgroup/cqf-ruler
 
 #### FHIR3
 
-* [Measure CQL](resources/fhir3/library/EXM165_FHIR3.json)
-* [Measure Bundle](resources/fhir3/measure/measure-exm165-FHIR.json)
-* [Terminology Bundle](resources/fhir3/valuesets/valuesets-bundle-exm165-FHIR.json)
-* [Denominator Patient (ID: f4bd2b01-bf58-494b-85be-842e4961a3a5)](tests/fhir3/EXM165/cms165-stu3-denom.json)
-* [Numerator Patient (ID: bc4159a4-6ff2-4a5b-be3a-d9c4778642c2)](tests/fhir3/EXM165/cms165-stu3-numer.json)
+* [Measure CQL](cql\fhir3\EXM165_FHIR3-8.5.000.cql)
+* [Measure Bundle](resources\fhir3\measure/measure-exm165-FHIR.json)
+* [Terminology Bundle](resources\fhir3\valuesets\valuesets-bundle-exm165-FHIR.json)
+* [Denominator Patient (ID: f4bd2b01-bf58-494b-85be-842e4961a3a5)](tests\fhir3\EXM165\cms165-stu3-denom.json)
+* [Numerator Patient (ID: bc4159a4-6ff2-4a5b-be3a-d9c4778642c2)](tests\fhir3\EXM165\cms165-stu3-numer.json)
 
 #### FHIR4
 
@@ -53,7 +53,7 @@ docker run -p 8080:8080 contentgroup/cqf-ruler
 
 #### FHIR3
 
-* [Measure CQL](cql/fhir3/EXM125_FHIR3-7.2.000.cql)
+* [Measure CQL](resources/fhir3/library/EXM125_FHIR3.json)
 * [Measure Bundle](bundles/fhir3/exm125-fhir3-bundle.json)
 * [Terminology Bundle](resources/fhir3/valuesets/valuesets-bundle-exm125-FHIR.json)
 * [Denominator Patient (ID: cbb3375f-0962-4f31-8681-c7e6f29968dd-1)](tests/fhir3/EXM125/cms125-stu3-denom.json)
@@ -62,8 +62,8 @@ docker run -p 8080:8080 contentgroup/cqf-ruler
 #### FHIR4
 
 * [Measure CQL](cql/fhir4/EXM125_FHIR4-7.2.000.cql)
-* [Measure Bundle](bundles/fhir4/exm125-fhir4-bundle.json)
-* [Terminology Bundle](resources/fhir4/valuesets/valuesets-bundle-exm125-FHIR.json)
+* [Measure Bundle](resources/fhir3/measure/measure-exm125-FHIR.json)
+* [Terminology Bundle](resources/fhir3/valuesets/valuesets-bundle-exm125-FHIR.json)
 * [Denominator Patient (ID: f88fb40d-f95c-4ce0-87c2-bbda26bf184f-1)](tests/fhir4/EXM125/cms125-r4-denom.json)
 * [Numerator Patient (ID: 6b296a65-31b6-4feb-99e2-3f5ecab670a3-1)](tests/fhir4/EXM125/cms125-r4-numer.json)
 
