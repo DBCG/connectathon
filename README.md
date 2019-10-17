@@ -35,8 +35,8 @@ docker run -p 8080:8080 contentgroup/cqf-ruler
 
 #### FHIR3
 
-* [Measure CQL](cql/fhir3/EXM124_FHIR3-7.2.000.cql)
-* [Measure Bundle](bundles/fhir3/exm124-fhir3-bundle.json)
+* [Measure CQL](resources/fhir3/library/EXM124_FHIR3.json)
+* [Measure Bundle](resources/fhir3/measure/measure-exm124-FHIR.json)
 * [Terminology Bundle](resources/fhir3/valuesets/valuesets-bundle-exm124-FHIR.json)
 * [Denominator Patient (ID: 5649e34d-df03-498f-9c82-4087bb5a2a46-1)](tests/fhir3/EXM124/cms124-stu3-denom.json)
 * [Numerator Patient (ID: 98ce13ee-450b-43ca-9fbe-08b05999532b-1)](tests/fhir3/EXM124/cms124-stu3-numer.json)
