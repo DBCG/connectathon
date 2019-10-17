@@ -17,11 +17,11 @@ docker run -p 8080:8080 contentgroup/cqf-ruler
 
 #### FHIR3
 
-* [Measure CQL](cql\fhir3\EXM165_FHIR3-8.5.000.cql)
-* [Measure Bundle](resources\fhir3\measure/measure-exm165-FHIR.json)
-* [Terminology Bundle](resources\fhir3\valuesets\valuesets-bundle-exm165-FHIR.json)
-* [Denominator Patient (ID: f4bd2b01-bf58-494b-85be-842e4961a3a5)](tests\fhir3\EXM165\cms165-stu3-denom.json)
-* [Numerator Patient (ID: bc4159a4-6ff2-4a5b-be3a-d9c4778642c2)](tests\fhir3\EXM165\cms165-stu3-numer.json)
+* [Measure CQL](cql/fhir3/EXM165_FHIR3-8.5.000.cql)
+* [Measure Bundle](resources/fhir3/measure/measure-exm165-FHIR.json)
+* [Terminology Bundle](resources/fhir3/valuesets/valuesets-bundle-exm165-FHIR.json)
+* [Denominator Patient (ID: f4bd2b01-bf58-494b-85be-842e4961a3a5)](tests/fhir3/EXM165/cms165-stu3-denom.json)
+* [Numerator Patient (ID: bc4159a4-6ff2-4a5b-be3a-d9c4778642c2)](tests/fhir3/EXM165/cms165-stu3-numer.json)
 
 #### FHIR4
 
