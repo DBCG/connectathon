@@ -35,7 +35,7 @@ docker run -p 8080:8080 contentgroup/cqf-ruler
 
 #### FHIR3
 
-* [Measure CQL](resources/fhir3/library/EXM124_FHIR3.json)
+* [Measure CQL](cql/fhir3/EXM124_FHIR3-7.2.000.cql)
 * [Measure Bundle](resources/fhir3/measure/measure-exm124-FHIR.json)
 * [Terminology Bundle](resources/fhir3/valuesets/valuesets-bundle-exm124-FHIR.json)
 * [Denominator Patient (ID: 5649e34d-df03-498f-9c82-4087bb5a2a46-1)](tests/fhir3/EXM124/cms124-stu3-denom.json)
@@ -53,8 +53,8 @@ docker run -p 8080:8080 contentgroup/cqf-ruler
 
 #### FHIR3
 
-* [Measure CQL](resources/fhir3/library/EXM125_FHIR3.json)
-* [Measure Bundle](bundles/fhir3/exm125-fhir3-bundle.json)
+* [Measure CQL](cql/fhir3/EXM125_FHIR3-7.2.000.cql)
+* [Measure Bundle](resources/fhir3/measure/measure-exm125-FHIR.json)
 * [Terminology Bundle](resources/fhir3/valuesets/valuesets-bundle-exm125-FHIR.json)
 * [Denominator Patient (ID: cbb3375f-0962-4f31-8681-c7e6f29968dd-1)](tests/fhir3/EXM125/cms125-stu3-denom.json)
 * [Numerator Patient (ID: e57e9bae-ee0e-4374-9453-d185a74800ab-1)](tests/fhir3/EXM125/cms125-stu3-numer.json)
@@ -72,7 +72,7 @@ docker run -p 8080:8080 contentgroup/cqf-ruler
 #### FHIR3
 
 * [Measure CQL](cql/fhir3/EXM130_FHIR3-7.2.000.cql)
-* [Measure Bundle](bundles/fhir3/exm130-fhir3-bundle.json)
+* [Measure Bundle](resources/fhir3/measure/measure-exm130-FHIR.json)
 * [Terminology Bundle](resources/fhir3/valuesets/valuesets-bundle-exm130-FHIR.json)
 * [Denominator Patient (ID: 18019e78-0582-464d-8584-335dc7ba4f95-1)](tests/fhir3/EXM130/cms130-stu3-denom.json)
 * [Numerator Patient (ID: a7720bd3-49ab-4b22-aa05-1ed0f8a16d29-1)](tests/fhir3/EXM130/cms130-stu3-numer.json)
