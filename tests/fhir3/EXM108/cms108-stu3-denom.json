@@ -1,0 +1,231 @@
+{
+  "resourceType": "Bundle",
+  "id": "cms108-stu3-denom",
+  "type": "transaction",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "ba6f00b1-9006-41ae-8a98-87e3d1c76bc4",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2106-3",
+                  "display": "White"
+                }
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2186-5",
+                  "display": "Not Hispanic or Latino"
+                }
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR",
+                  "display": "Medical Record Number"
+                }
+              ]
+            },
+            "system": "http://hospital.smarthealthit.org",
+            "value": "999999996"
+          }
+        ],
+        "name": [
+          {
+            "family": "Jones",
+            "given": [
+              "Frank"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1951-05-01"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Patient/ba6f00b1-9006-41ae-8a98-87e3d1c76bc4"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "dd91551b-a877-46f8-94df-1c47b22cf9c9",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+          ]
+        },
+        "verificationStatus": "confirmed",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "10327003",
+              "display": "Cocaine-induced mood disorder (disorder)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/ba6f00b1-9006-41ae-8a98-87e3d1c76bc4"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/dd91551b-a877-46f8-94df-1c47b22cf9c9"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "724426d5-9710-43d6-9f74-48a186a79618",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "32485007",
+                "display": "Hospital admission (procedure)"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/ba6f00b1-9006-41ae-8a98-87e3d1c76bc4"
+        },
+        "period": {
+          "start": "2019-01-16T08:30:00-07:00",
+          "end": "2019-01-20T08:30:00-07:00"
+        },
+        "diagnosis": [
+          {
+            "condition": {
+              "reference": "Condition/dd91551b-a877-46f8-94df-1c47b22cf9c9"
+            }
+          }
+        ],
+        "hospitalization": {
+          "dischargeDisposition": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "306701001",
+                "display": "Discharge to community hospital (procedure)"
+              }
+            ]
+          }
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Encounter/724426d5-9710-43d6-9f74-48a186a79618"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "59a7eed0-4e0a-4839-b632-2bc88a1f5964",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "112943005",
+              "display": "Epidural injection of anesthetic substance"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/ba6f00b1-9006-41ae-8a98-87e3d1c76bc4"
+        },
+        "performedPeriod": {
+          "start": "2019-01-17T08:30:00-07:00",
+          "end": "2019-01-17T10:30:00-07:00"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Procedure/59a7eed0-4e0a-4839-b632-2bc88a1f5964"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationAdministration",
+        "id": "6be22238-e9db-4a6b-a538-4e0e57d6507e",
+        "status": "completed",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "854228",
+              "display": "0.3 ML Enoxaparin sodium 100 MG/ML Prefilled Syringe"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/ba6f00b1-9006-41ae-8a98-87e3d1c76bc4"
+        },
+        "effectivePeriod": {
+          "start": "2019-01-19T12:30:00-07:00",
+          "end": "2019-01-19T13:00:00-07:00"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationAdministration/6be22238-e9db-4a6b-a538-4e0e57d6507e"
+      }
+    }
+  ]
+}
