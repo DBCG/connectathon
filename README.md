@@ -13,6 +13,10 @@ docker run -p 8080:8080 contentgroup/cqf-ruler
 
 ## Measure Reporting Scenarios
 
+****
+NOTE: file and folder names are under maintenance causing most of the links below to be temporarily broken.
+****
+
 ### Controlling Blood Pressure - EXM165
 
 #### FHIR3
@@ -157,3 +161,64 @@ curl -X POST \
 ````
 
 Example POST for a bulk data import pass-through. The expectation is that the passthrough proxy will post each line in the input file as a POST to the base if the resource type is Bundle, and as a POST to the resource type endpoint if the resource is any other type.
+
+## Maintenance Conventions
+
+* IDs
+  * Context ID (Patient ID): [test name]-[id]-[1]
+    * ex: Denom-98ce13ee-450b-43ca-9fbe-08b05999532b-1
+  * Child ID: [context id]-[number]
+    * ex: Denom-98ce13ee-450b-43ca-9fbe-08b05999532b-2
+
+
+* CQL files
+  * Child folder names: [model]-[model version]
+    * ex: FHIR-3.0.0
+  * File names: [library name]-[library version]
+    * ex: EXM124_FHIR3-7.2.000.cql
+    * note: this must match the "library" and "version" in the CQL content
+
+```
+  |-- cql
+      |-- FHIR-3.0.0
+      |   |-- EXM124_FHIR3-7.2.000.cql
+      |   |-- EXM125_FHIR3-7.2.000.cql
+      |-- FHIR-4.0.0
+          |-- EXM124_FHIR4-7.2.000.cql
+          |-- EXM125_FHIR4-7.2.000.cql
+```
+
+* Test files
+  * Root name: tests
+  * Child folder names: [model]-[model version]
+    * ex: FHIR-3.0.0
+    * Must match the cql child structure
+  * Library test folder names: [cql library name]
+    * ex: EXM124_FHIR3
+  * CQL test folder names: [context id]
+    * ex: Denom-98ce13ee-450b-43ca-9fbe-08b05999532b-1
+    * note: this must match the Context ID for the CQL Library (usually the ID of the Patient resource)
+  * Resource folder names: [resource name]
+    * ex: Encounter
+  * Test file names: [id]
+    * ex: Denom-98ce13ee-450b-43ca-9fbe-08b05999532b-1.json
+    * note: this must match the id of the resource file
+
+```
+  |-- tests
+      |-- FHIR-3.0.0
+      |   |-- EXM124_FHIR3
+      |   |   |-- Denom-5649e34d-df03-498f-9c82-4087bb5a2a46-1
+      |   |   |   |-- Patient
+      |   |   |   |   |-- Denom-5649e34d-df03-498f-9c82-4087bb5a2a46-1.json
+      |   |   |   |-- Encounter
+      |   |   |       |-- Denom-5649e34d-df03-498f-9c82-4087bb5a2a46-2.json
+      |   |   |-- Numer-98ce13ee-450b-43ca-9fbe-08b05999532b-1
+      |   |       |-- Patient
+      |   |       |   |-- Denom-98ce13ee-450b-43ca-9fbe-08b05999532b-1.json
+      |   |       |-- Encounter
+      |   |           |-- Denom-98ce13ee-450b-43ca-9fbe-08b05999532b-2.json
+      |   |-- EXM125_FHIR3
+      |-- FHIR-4.0.0
+
+```          
