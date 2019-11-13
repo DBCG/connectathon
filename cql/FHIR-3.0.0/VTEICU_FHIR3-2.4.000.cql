@@ -40,4 +40,3 @@ define function "First Intensive Care Unit"(Encounter "Encounter"):
 				and L.period during Encounter.period
 			sort by start of period
 	)
-

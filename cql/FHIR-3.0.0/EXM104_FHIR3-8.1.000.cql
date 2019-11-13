@@ -1,3 +1,4 @@
+// for 2020 Reporting Year
 library EXM104_FHIR3 version '8.1.000'
 
 /*
@@ -9,7 +10,7 @@ STK 2
 using FHIR version '3.0.0'
 
 include FHIRHelpers version '3.0.0'
-include MATGlobalCommonFunctions_FHIR3 version '2.0.000' called Global
+include MATGlobalCommonFunctions_FHIR3 version '4.0.000' called Global
 include TJC_Overall_FHIR3 version '3.6.000' called TJC
 include SupplementalDataElements_FHIR3 version '1.0.0' called SDE
 
@@ -45,10 +46,7 @@ code "Birth date": '21112-8' from "LOINC" display 'Birth date'
 // NOTE: This is an R4 code
 code "Discharge": 'discharge' from "MedicationRequestCategory" display 'Discharge'
 
-parameter "Measurement Period" Interval<DateTime> default Interval[@2019-01-01T00:00:00.0, @2020-01-01T00:00:00.0)
-
-// define "Return Measurement Period":
-//     "Measurement Period"
+parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
@@ -65,7 +63,7 @@ define "SDE Sex":
 	SDE."SDE Sex"
 
 define "Initial Population":
-	"Encounter with Principal Diagnosis and Age"
+	TJC."Encounter with Principal Diagnosis and Age"
 
   define "Encounter with Principal Diagnosis and Age":
   	"All Stroke Encounter" AllStrokeEncounter
@@ -79,24 +77,19 @@ define "Initial Population":
 
             define "Non Elective Inpatient Encounter":
             	["Encounter": "Non-Elective Inpatient Encounter"] NonElectiveEncounter
-            		 where Global."LengthInDays"(NonElectiveEncounter.period)<= 120
-            		 	and NonElectiveEncounter.period ends during "Measurement Period"
-
-define "Non Elective Inpatient Encounter Period":
-            	["Encounter": "Non-Elective Inpatient Encounter"] NonElectiveEncounter
-            		 where Global."LengthInDays"(NonElectiveEncounter.period)<= 120
-            		 return "Measurement Period"
+            		where Global."LengthInDays"(NonElectiveEncounter.period)<= 120
+            			and NonElectiveEncounter.period ends during "Measurement Period"
 
 define "Denominator":
-    "Ischemic Stroke Encounter"
+	TJC."Ischemic Stroke Encounter"
 
   define "Ischemic Stroke Encounter":
   	"Encounter with Principal Diagnosis and Age" EncounterWithAge
   		where Global.PrincipalDiagnosis(EncounterWithAge).code in "Ischemic Stroke"
 
 define "Denominator Exclusions":
-	"Ischemic Stroke Encounters with Discharge Disposition"
-		union "Comfort Measures during Hospitalization"
+	TJC."Ischemic Stroke Encounters with Discharge Disposition"
+		union TJC."Comfort Measures during Hospitalization"
 
     define "Ischemic Stroke Encounters with Discharge Disposition":
     	( ( "Ischemic Stroke Encounter" IschemicStrokeEncounter
@@ -121,7 +114,7 @@ define "Denominator Exclusions":
           		where IntervetionPerformed.status = 'completed')
 
 define "Numerator":
-	"Ischemic Stroke Encounter" IschemicStrokeEncounter
+	TJC."Ischemic Stroke Encounter" IschemicStrokeEncounter
 		with "Antithrombotic Therapy at Discharge" DischargeAntithrombotic
 			such that DischargeAntithrombotic.authoredOn during IschemicStrokeEncounter.period
 
@@ -130,15 +123,12 @@ define "Numerator":
       	  where (Antithrombotic.medication as CodeableConcept) in "Antithrombotic Therapy"
       	    and Antithrombotic.intent = 'order'
 
-define "Denominator Exclusion":
-false
-
 define "Denominator Exceptions":
 	"Encounter With No Antithrombotic At Discharge"
 		union "Encounter With Ticagrelor at Discharge"
 
     define "Encounter With No Antithrombotic At Discharge":
-    	"Ischemic Stroke Encounter" IschemicStrokeEncounter
+    	TJC."Ischemic Stroke Encounter" IschemicStrokeEncounter
     		with "Antithrombotic Not Given at Discharge" NoDischargeAntithrombotic
     			such that NoDischargeAntithrombotic.authoredOn during IschemicStrokeEncounter.period
 
@@ -166,17 +156,17 @@ define "Denominator Exceptions":
 
       /*
       define "Encounter With Ticagrelor During Hospitalization":
-      	"Ischemic Stroke Encounter" IschemicStrokeEncounter
-      		with ["MedicationAdministration": medication in "Ticagrelor Therapy"] Ticagrelor
+      	TJC."Ischemic Stroke Encounter" IschemicStrokeEncounter
+      		with ["MedicationAdministration": medication in TJC."Ticagrelor Therapy"] Ticagrelor
       			such that Ticagrelor.effective starts during Global."HospitalizationWithObservation"(IschemicStrokeEncounter)
       */
       //Looking for Ticagrelor as discharge medication, include a corrected defintion in 2021 CQL based measure
       define "Encounter With Ticagrelor at Discharge":
-        "Ischemic Stroke Encounter" IschemicStrokeEncounter
+        TJC."Ischemic Stroke Encounter" IschemicStrokeEncounter
           with "Ticagrelor Therapy at Discharge" DischargeTicagrelor
             such that DischargeTicagrelor.authoredOn during IschemicStrokeEncounter.period
 
             define "Ticagrelor Therapy at Discharge":
-              ["MedicationRequest": medication in "Ticagrelor Therapy"] Ticagrelor
-                where (Ticagrelor.medication as CodeableConcept) in "Ticagrelor Therapy"
+              ["MedicationRequest": medication in TJC."Ticagrelor Therapy"] Ticagrelor
+                where (Ticagrelor.medication as CodeableConcept) in TJC."Ticagrelor Therapy"
                   and Ticagrelor.intent = 'order'

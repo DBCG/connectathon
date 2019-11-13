@@ -1,4 +1,4 @@
-library MATGlobalCommonFunctions_FHIR3 version '2.0.000'
+library MATGlobalCommonFunctions_FHIR3 version '4.0.000'
 
 using FHIR version '3.0.0'
 
@@ -11,6 +11,7 @@ codesystem "Diagnosis Role": 'http://hl7.org/fhir/diagnosis-role'
 
 valueset "Encounter Inpatient": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307'
 valueset "Emergency Department Visit": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292'
+valueset "Observation Services": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.143'
 
 code "Birthdate": '21112-8' from "LOINC" display 'Birth date'
 code "Dead": '419099009' from "SNOMEDCT" display 'Dead'
@@ -132,16 +133,31 @@ define function "GetId"(uri String):
 
 define function "EncounterDiagnosis"(Encounter Encounter):
   Encounter.diagnosis D
-    return singleton from ([Condition] Condition where Condition.id.value = "GetId"(D.condition.reference))
+    return singleton from ([Condition: id in "GetId"(D.condition.reference)])
 
 // Returns the condition that is specified as the principal diagnosis for the encounter
 define function "PrincipalDiagnosis"(Encounter Encounter):
 	(singleton from (Encounter.diagnosis D where D.role ~ ToConcept("Billing") and D.rank = 1)) PD
-	//"GetId"(uri String): returns the last String of a Split by / List therefor cannot use in
-		return singleton from ([Condition] Condition where Condition.id.value = "GetId"(PD.condition.reference))
+		return singleton from ([Condition: id in "GetId"(PD.condition.reference)])
 
 // Returns the location for the given location reference
 define function GetLocation(reference Reference):
   singleton from (
-    [Location] Location where Location.id.value = GetId(reference.reference)
+    [Location: id in GetId(reference.reference)]
   )
+
+define function "HospitalizationWithObservation"(TheEncounter FHIR.Encounter):
+	TheEncounter Visit
+			let ObsVisit: Last([Encounter: "Observation Services"] LastObs
+										where LastObs.period ends 1 hour or less on or before start of Visit.period
+										sort by end of period
+										),
+					VisitStart: Coalesce(start of ObsVisit.period, start of Visit.period),
+					EDVisit: Last([Encounter: "Emergency Department Visit"] LastED
+									 where LastED.period ends 1 hour or less on or before VisitStart
+									 sort by end of period
+										)
+		return Interval[Coalesce(start of EDVisit.period, VisitStart), end of Visit.period]
+
+define function "HospitalizationWithObservationLengthofStay"(Encounter FHIR.Encounter):
+	"LengthInDays"("HospitalizationWithObservation"(Encounter))
