@@ -46,7 +46,7 @@ code "Birth date": '21112-8' from "LOINC" display 'Birth date'
 // NOTE: This is an R4 code
 code "Discharge": 'discharge' from "MedicationRequestCategory" display 'Discharge'
 
-parameter "Measurement Period" Interval<DateTime>
+parameter "Measurement Period" Interval<DateTime> default Interval[@2019-01-01T00:00:00.0, @2020-01-01T00:00:00.0)
 
 context Patient
 
