@@ -45,7 +45,7 @@ code "Dead": '419099009' from "SNOMEDCT" display 'Dead'
 code "Billing": 'billing' from "Diagnosis Role" display 'Billing'
 code "Order": 'order' from "RequestIntent" display 'Order'
 
-parameter "Measurement Period" Interval<DateTime>
+parameter "Measurement Period" Interval<DateTime> default Interval[@2019-01-01T00:00:00.0, @2020-01-01T00:00:00.0)
 
 context Patient
 
@@ -59,27 +59,28 @@ define "Encounter with Principal Diagnosis and Age":
 
 define "All Stroke Encounter":
 	"Non Elective Inpatient Encounter" NonElectiveEncounter
-		where "PrincipalDiagnosis"(NonElectiveEncounter).code in "Hemorrhagic Stroke"
-		or "PrincipalDiagnosis"(NonElectiveEncounter).code in "Ischemic Stroke"
+		/* where "PrincipalDiagnosis"(NonElectiveEncounter).code in "Hemorrhagic Stroke"
+		or "PrincipalDiagnosis"(NonElectiveEncounter).code in "Ischemic Stroke" */
 
 define "Non Elective Inpatient Encounter":
 	["Encounter": "Non-Elective Inpatient Encounter"] NonElectiveEncounter
-		where "LengthInDays"(NonElectiveEncounter.period)<= 120
+		//where "LengthInDays"(NonElectiveEncounter.period)<= 120
+		where days between NonElectiveEncounter.period."start" and NonElectiveEncounter.period."end" <= 120
 			and NonElectiveEncounter.period ends during "Measurement Period"
 
-define function "EncounterDiagnosis"(Encounter Encounter):
+/* define function "EncounterDiagnosis"(Encounter Encounter):
   Encounter.diagnosis D
-    return singleton from ([Condition: id in "GetId"(D.condition.reference)])
+    return singleton from ([Condition: id in "GetId"(D.condition.reference)]) */
 
-define function "PrincipalDiagnosis"(Encounter Encounter):
+/* define function "PrincipalDiagnosis"(Encounter Encounter):
 	(singleton from (Encounter.diagnosis D where D.role ~ ToConcept("Billing") and D.rank = 1)) PD
-		return singleton from ([Condition: id in "GetId"(PD.condition.reference)])
+		return singleton from ([Condition: id in "GetId"(PD.condition.reference)]) */
 
-define function "LengthInDays"(Value Interval<DateTime>):
+/* define function "LengthInDays"(Value Interval<DateTime>):
 	difference in days between start of Value and end of Value
 
 define function "GetId"(uri String):
-	Last(Split(uri, '/'))
+	Last(Split(uri, '/')) */
 
 define "Denominator":
 	TJC."Ischemic Stroke Encounter"
@@ -95,7 +96,7 @@ define "Numerator":
 
 define "Ischemic Stroke Encounter":
 	"Encounter with Principal Diagnosis and Age" EncounterWithAge
-		where PrincipalDiagnosis(EncounterWithAge).code in "Ischemic Stroke"
+		//where PrincipalDiagnosis(EncounterWithAge).code in "Ischemic Stroke"
 
 //QA
 define "Statin at Discharge":
@@ -111,10 +112,10 @@ define "Statin Not Given at Discharge":
 				or singleton from NoStatin.reasonCode in "Patient Refusal")
 
 //Folling function copied from MATGlobalCommonFunctions 2.0 in cqf-measures github repo
-define function "Normalize Onset"(onset Choice<FHIR.dateTime, FHIR.Age, FHIR.Period, FHIR.Range, FHIR.string>):
+/* define function "Normalize Onset"(onset Choice<FHIR.dateTime, FHIR.Age, FHIR.Period, FHIR.Range, FHIR.string>):
 	if onset is FHIR.dateTime then Interval[onset.value, onset.value]
 	else if onset is FHIR.Period then FHIRHelpers.ToInterval(onset as FHIR.Period)
-	else null
+	else null */
 
 define "Encounter with Max LDL less than 70 mg per dL":
 	"Ischemic Stroke Encounter" IschemicStrokeEncounter
@@ -129,9 +130,9 @@ define "Denominator Exception":
 			such that NoDischargeStatin.authoredOn during IschemicStrokeEncounter.period
 	)
 	union
-	("Ischemic Stroke Encounter" IschemicStrokeEncounter
-		with "Statin Allergy" StatinAllergy
-			such that "Normalize Onset"(StatinAllergy.onset) on or before end of FHIRHelpers.ToInterval(IschemicStrokeEncounter.period))
+	("Ischemic Stroke Encounter" IschemicStrokeEncounter )
+		//with "Statin Allergy" StatinAllergy
+		//	such that "Normalize Onset"(StatinAllergy.onset) on or before end of FHIRHelpers.ToInterval(IschemicStrokeEncounter.period))
 
 define "Denominator Exclusion":
 	"Ischemic Stroke Encounters with Discharge Status"

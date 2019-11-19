@@ -26,9 +26,9 @@ valueset "Telehealth Services": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1
 
 code "Suicide risk assessment (procedure)": '225337009' from "SNOMEDCT" display 'Suicide risk assessment (procedure)'
 
-parameter "Measurement Period" Interval<DateTime>
-context Patient
+parameter "Measurement Period" Interval<DateTime> default Interval[@2019-01-01T00:00:00.0, @2020-01-01T00:00:00.0)
 
+context Patient
 
 define "Denominator":
 "Initial Population"
