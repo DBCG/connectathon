@@ -32,7 +32,8 @@ valueset "FIT DNA": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.46
 valueset "CT Colonography": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1038'
 
 parameter "Measurement Period" Interval<DateTime>
-
+    default Interval[@2019-01-01T00:00:00.0, @2020-01-01T00:00:00.0)
+    
 context Patient
 
 define "SDE Ethnicity":
