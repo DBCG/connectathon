@@ -1,4 +1,4 @@
-library EXM108_FHIR3 version '7.4.000' 
+library EXM108_FHIR3 version '7.4.000'
 
 /*
 Based on CMS108v7 - Venous Thromboembolism Prophylaxis
@@ -27,22 +27,22 @@ Condition
 /*
 Development Notes:
 
-    Need to define "doNotPerfom" QICore extension to support "NotDone is true" expression. Suggest to the base Resource for the following profiles  
+    Need to define “doNotPerfom” QICore extension to support “NotDone is true” expression. Suggest to the base Resource for the following profiles –
 
         DeviceUseStatement
         DeviceRequest
         MedicationRequest
-        
+
         Add doNotPerform to DeviceUseRequest and notDone to DeviceUseStatement:
         [#20601](https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&tracker_item_id=20601)
         Promote profiles to QI-Core:
         [#20610](https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&tracker_item_id=20610)
 
-    Need to define an "ordinality" extension for Procedure profile to support "Procedure.ordinality ~ "Principal" expression. 
-    
+    Need to define an “ordinality” extension for Procedure profile to support “Procedure.ordinality ~ "Principal" expression.
+
       [#20527](https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&tracker_item_id=20527)
 
-    Need to confirm the following profiles and ensure Period is a default type - 
+    Need to confirm the following profiles and ensure Period is a default type -
 
         MedicationAdministration.effective
         Procedure.performed
@@ -50,8 +50,8 @@ Development Notes:
         Defined as DEQM profiles currently, promote to QI-Core
         [#20611](https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&tracker_item_id=20611)
 
-    Suggest defining "recordedOn" to support the timings for "MedicationAdministration.notGiven" and "Procedure.notDone". see the highlighted fields below.
-    
+    Suggest defining “recordedOn“ to support the timings for “MedicationAdministration.notGiven” and “Procedure.notDone”. see the highlighted fields below.
+
       [#20602](https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&tracker_item_id=20602)
 
 |Profile                   |Timing used for Done |Timing used for doNotPerform |TJC comments          |
@@ -61,7 +61,7 @@ Development Notes:
 |MedicationAdministration  |effective            |effective                    | Suggest adding recordedOn for notGiven timing |
 |MedicationRequest         |authoredOn           |authoredOn                   |   |
 |Procedure                 |performed            |performed                    | Suggest adding recordedOn for notDone timing |
-|ProcedureRequest          |authoredOn           |authoredOn                   |   |	
+|ProcedureRequest          |authoredOn           |authoredOn                   |   |
 */
 
 using FHIR version '3.0.0'
@@ -155,9 +155,9 @@ define "No VTE Prophylaxis Device Applied or Ordered":
            ["DeviceUseStatement"] DeviceUseStatement
                where DeviceUseStatement.status = 'completed'
        ) ValidDeviceUseStatement
-           with [Device] Device 
-               such that Last(Split(ValidDeviceUseStatement.device.reference, '/')) = Device.id 
-                   and ( 
+           with [Device] Device
+               such that Last(Split(ValidDeviceUseStatement.device.reference, '/')) = Device.id
+                   and (
                        Device.type in "Venous foot pumps (VFP)"
                            or Device.type in "Intermittent pneumatic compression devices (IPC)"
                            or Device.type in "Graduated compression stockings (GCS)"
@@ -198,13 +198,13 @@ define "No VTE Prophylaxis Device Due to Medical Reason on Day of or Day After A
 
 //Done
 define "No VTE Prophylaxis Medication Administered or Ordered":
-	((	["MedicationAdministration": code in "Low Dose Unfractionated Heparin for VTE Prophylaxis"]
+	((	["MedicationAdministration": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxis"]
 	union
-	["MedicationAdministration": code in "Low Molecular Weight Heparin for VTE Prophylaxis"]
+	["MedicationAdministration": medication in "Low Molecular Weight Heparin for VTE Prophylaxis"]
 	union
-	["MedicationAdministration": code in "Injectable Factor Xa Inhibitor for VTE Prophylaxis"]
+	["MedicationAdministration": medication in "Injectable Factor Xa Inhibitor for VTE Prophylaxis"]
 	union
-	["MedicationAdministration": code in "Warfarin"]
+	["MedicationAdministration": medication in "Warfarin"]
 	) MedicationAdm
 		where MedicationAdm.notGiven is true
 	)
@@ -269,7 +269,7 @@ define "Admission Without VTE or Obstetrical Conditions":
 							)
     )
 		intersect (Global."Inpatient Encounter" InpatientEncounter
-				without ( 
+				without (
 		            //Connectathon: still broken: temporarily removed pending HAPI FHIR server fix for maxClauseCount > 1024
                     //["Condition": code in "Obstetrics"] union
 									["Condition": code in "Venous Thromboembolism"]
@@ -301,10 +301,10 @@ define "Encounter Less Than 2 Days":
 
 //Done
 define "SCIP VTE Selected Surgery":
-	(	
+	(
 		//Connectathon: still broken: temporarily removed pending HAPI FHIR server fix for maxClauseCount > 1024
 		// ["Procedure": "General Surgery"]
-		// union 
+		// union
         ["Procedure": "Gynecological Surgery"]
 		union ["Procedure": "Hip Fracture Surgery"]
 		union ["Procedure": "Hip Replacement Surgery"]
@@ -341,7 +341,7 @@ define "Intervention Comfort Measures on Day of or Day After Procedure":
 
 //Done
 define "VTE Prophylaxis by Medication Administered or Device Applied":
-	( ["MedicationAdministration": code in "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
+	( ["MedicationAdministration": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
 			where VTEMedication.status = 'completed'
 						and VTEMedication.dosage.route in "Subcutaneous route"
             return start of VTEMedication.effective
@@ -349,15 +349,15 @@ define "VTE Prophylaxis by Medication Administered or Device Applied":
 		union (["MedicationAdministration": code in "Low Molecular Weight Heparin for VTE Prophylaxis"] VTEMedication return start of VTEMedication.effective)
 		union (["MedicationAdministration": code in "Injectable Factor Xa Inhibitor for VTE Prophylaxis"] VTEMedication return start of VTEMedication.effective)
 		union (["MedicationAdministration": code in "Warfarin"] VTEMedication return start of VTEMedication.effective)
-		union 
+		union
             (
                 (
                     ["DeviceUseStatement"] DeviceUseStatement
                         where DeviceUseStatement.status = 'completed'
                 ) ValidDeviceUseStatement
-                with [Device] Device 
-                such that Last(Split(ValidDeviceUseStatement.device.reference, '/')) = Device.id 
-                    and ( 
+                with [Device] Device
+                such that Last(Split(ValidDeviceUseStatement.device.reference, '/')) = Device.id
+                    and (
                         Device.type in "Venous foot pumps (VFP)"
                             or Device.type in "Intermittent pneumatic compression devices (IPC)"
                             or Device.type in "Graduated compression stockings (GCS)"
@@ -389,14 +389,14 @@ define "VTE Prophylaxis Received on Day of or Day After Admission or Procedure":
 define "Medication Oral Factor Xa Inhibitor Administered on Day of or Day After Admission or Procedure":
 	( from
 			"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" QualifyingEncounter,
-			["MedicationAdministration": code in "Oral Factor Xa Inhibitor for VTE Prophylaxis or VTE Treatment"] FactorXaMedication
+			["MedicationAdministration": medication in "Oral Factor Xa Inhibitor for VTE Prophylaxis or VTE Treatment"] FactorXaMedication
 			where FactorXaMedication.effective starts during VTEICU."CalendarDayOfOrDayAfter"(start of FHIRHelpers.ToInterval(QualifyingEncounter.period))
 			return QualifyingEncounter
 	)
 		union ( from
 				"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" QualifyingEncounter,
 				["Procedure": "General or Neuraxial Anesthesia"] AnesthesiaProcedure,
-				["MedicationAdministration": code in "Oral Factor Xa Inhibitor for VTE Prophylaxis or VTE Treatment"] FactorXaMedication
+				["MedicationAdministration": medication in "Oral Factor Xa Inhibitor for VTE Prophylaxis or VTE Treatment"] FactorXaMedication
 				where AnesthesiaProcedure.status = 'completed'
 				and AnesthesiaProcedure.performed ends 1 day after day of start of FHIRHelpers.ToInterval(QualifyingEncounter.period)
 					and FactorXaMedication.effective starts during VTEICU."CalendarDayOfOrDayAfter"(end of AnesthesiaProcedure.performed)
@@ -434,10 +434,10 @@ define "Encounter With ICU Location Stay 1 Day or More":
 //Done
 define "Encounter With Principal Diagnosis of Mental Disorder or Stroke":
 	"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" QualifyingEncounter
-		where 
+		where
             //Connectathon: still broken: temporarily removed pending HAPI FHIR server fix for maxClauseCount > 1024
             //Global.PrincipalDiagnosis(QualifyingEncounter).code in "Mental Health Diagnoses"
-			//or 
+			//or
             Global.PrincipalDiagnosis(QualifyingEncounter).code in "Hemorrhagic Stroke"
 			or Global.PrincipalDiagnosis(QualifyingEncounter).code in "Ischemic Stroke"
 
@@ -547,7 +547,7 @@ define "Numerator":
 		union "No VTE Prophylaxis Due to Medical Reason"
 		union "No VTE Prophylaxis Due to Patient Refusal"
 
-// //Done
+//Done
 define "Is In Low Risk for VTE or On Anticoagulant":
     //Connectathon: verified that this is corrected
 	( ["Observation": "Risk for venous thromboembolism"] VTERiskAssessment

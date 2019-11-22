@@ -1,0 +1,29 @@
+{
+    "resourceType": "MedicationRequest",
+    "id": "denom-cms506-stu3-6",
+    "status": "completed",
+    "intent": "order",
+    "category": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+          "code": "discharge",
+          "display": "Discharge"
+        }
+      ]
+    },
+    "medicationCodeableConcept": {
+      "coding": [
+        {
+          //need to change code to be in ValueSet "Schedule IV Benzodiazepines"
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "1037045",
+          "display": "dabigatran etexilate 150 MG Oral Capsule"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/numer-cms506-stu3"
+    },
+    "authoredOn": "2019-12-18T08:14:00-07:00"
+}
