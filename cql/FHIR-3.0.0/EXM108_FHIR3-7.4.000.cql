@@ -149,11 +149,21 @@ define "Initial Population":
 //Done
 define "No VTE Prophylaxis Device Applied or Ordered":
   // NOTE: Should be using device.code, but that requires CQL 1.4
-  ((["DeviceUseStatement": code in "Venous foot pumps (VFP)"]
-    union ["DeviceUseStatement": code in "Intermittent pneumatic compression devices (IPC)"]
-    union ["DeviceUseStatement": code in "Graduated compression stockings (GCS)"]
-  ) D
-    where GetExtension(D.extension, 'http://example.org/fhir/extensions/notDone').value is true
+  (
+     (
+       (
+           ["DeviceUseStatement"] DeviceUseStatement
+               where DeviceUseStatement.status = 'completed'
+       ) ValidDeviceUseStatement
+           with [Device] Device
+               such that Last(Split(ValidDeviceUseStatement.device.reference, '/')) = Device.id
+                   and (
+                       Device.type in "Venous foot pumps (VFP)"
+                           or Device.type in "Intermittent pneumatic compression devices (IPC)"
+                           or Device.type in "Graduated compression stockings (GCS)"
+                   )
+     ) D
+	where GetExtension(D.extension, 'http://example.org/fhir/extensions/notDone').value is true //Connectathon: pending cql_engine fix #262 (FHIR 3.0.0 model info issue with Extension.url)
     //where D.notDone is true // Needs a QI-Core extension to support
   )
   union ((
@@ -162,10 +172,9 @@ define "No VTE Prophylaxis Device Applied or Ordered":
       union ["DeviceRequest": code in "Graduated compression stockings (GCS)"]
   ) D
     where D.intent ~ ToConcept("Order")
-      and GetExtension(D.extension, 'http://example.org/fhir/extensions/doNotPerform').value is true
+	and GetExtension(D.extension, 'http://example.org/fhir/extensions/doNotPerform').value is true //Connectathon: pending cql_engine fix #262 (FHIR 3.0.0 model info issue with Extension.url)
     //where D.doNotPerform is true // Needs a QI-Core extension to support
   )
-
 define function GetExtension(Extensions List<Extension>, URL String):
   singleton from (Extensions E where E.url = URL return E)
 
@@ -201,16 +210,16 @@ define "No VTE Prophylaxis Medication Administered or Ordered":
 	)
 	union
 	 // TODO: Tracker for QI-core to add doNotPerform extension for MedicationRequest and suggest to the base Resource
-	((	["MedicationRequest": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxis"]
+	((	["MedicationRequest": code in "Low Dose Unfractionated Heparin for VTE Prophylaxis"]
 	union
-	["MedicationRequest": medication in "Low Molecular Weight Heparin for VTE Prophylaxis"]
+	["MedicationRequest": code in "Low Molecular Weight Heparin for VTE Prophylaxis"]
 	union
-	["MedicationRequest": medication in "Injectable Factor Xa Inhibitor for VTE Prophylaxis"]
+	["MedicationRequest": code in "Injectable Factor Xa Inhibitor for VTE Prophylaxis"]
 	union
-	["MedicationRequest": medication in "Warfarin"]
+	["MedicationRequest": code in "Warfarin"]
 	) MedicationOrder
 	where	MedicationOrder.intent = 'order'
-		and GetExtension(MedicationOrder.extension, 'http://example.org/fhir/extensions/doNotPerform').value is true
+		and GetExtension(MedicationOrder.extension, 'http://example.org/fhir/extensions/doNotPerform').value is true //Connectathon: pending cql_engine fix #262 (FHIR 3.0.0 model info issue with Extension.url)
 		//MedicationOrder.doNotPerform is true // Needs a QI-Core extension to support
 	)
 
@@ -252,14 +261,18 @@ define "No VTE Prophylaxis Device Due to Medical Reason on Day of or Day After P
 //Done
 define "Admission Without VTE or Obstetrical Conditions":
 		(Global."Inpatient Encounter" InpatientEncounter
-		where not (Global.EncounterDiagnosis(InpatientEncounter).code in "Obstetrics"
-								or Global.EncounterDiagnosis(InpatientEncounter).code in "Venous Thromboembolism"
+		where not (
+		    //Connectathon: still broken: temporarily removed pending HAPI FHIR server fix for maxClauseCount > 1024
+            //Global.EncounterDiagnosis(InpatientEncounter).code in "Obstetrics" or
+								Global.EncounterDiagnosis(InpatientEncounter).code in "Venous Thromboembolism"
 								or Global.EncounterDiagnosis(InpatientEncounter).code in "Obstetrics VTE"
 							)
     )
 		intersect (Global."Inpatient Encounter" InpatientEncounter
-				without ( ["Condition": code in "Obstetrics"]
-									union ["Condition": code in "Venous Thromboembolism"]
+				without (
+		            //Connectathon: still broken: temporarily removed pending HAPI FHIR server fix for maxClauseCount > 1024
+                    //["Condition": code in "Obstetrics"] union
+									["Condition": code in "Venous Thromboembolism"]
 									union ["Condition": code in "Obstetrics VTE"])	Diagnosis
 				such that Diagnosis.clinicalStatus = 'active'
         		and Diagnosis.verificationStatus = 'confirmed'
@@ -288,8 +301,11 @@ define "Encounter Less Than 2 Days":
 
 //Done
 define "SCIP VTE Selected Surgery":
-	(	["Procedure": "General Surgery"]
-		union ["Procedure": "Gynecological Surgery"]
+	(
+		//Connectathon: still broken: temporarily removed pending HAPI FHIR server fix for maxClauseCount > 1024
+		// ["Procedure": "General Surgery"]
+		// union
+        ["Procedure": "Gynecological Surgery"]
 		union ["Procedure": "Hip Fracture Surgery"]
 		union ["Procedure": "Hip Replacement Surgery"]
 		union ["Procedure": "Intracranial Neurosurgery"]
@@ -328,34 +344,44 @@ define "VTE Prophylaxis by Medication Administered or Device Applied":
 	( ["MedicationAdministration": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
 			where VTEMedication.status = 'completed'
 						and VTEMedication.dosage.route in "Subcutaneous route"
+            return start of VTEMedication.effective
 	)
-		union ["MedicationAdministration": medication in "Low Molecular Weight Heparin for VTE Prophylaxis"]
-		union ["MedicationAdministration": medication in "Injectable Factor Xa Inhibitor for VTE Prophylaxis"]
-		union ["MedicationAdministration": medication in "Warfarin"]
-		union ((
-				["DeviceUseStatement": code in "Intermittent pneumatic compression devices (IPC)"]
-				union ["DeviceUseStatement": code in "Venous foot pumps (VFP)"]
-				union ["DeviceUseStatement": code in "Graduated compression stockings (GCS)"]
-      ) DeviceApplied
-				where DeviceApplied.status = 'completed'
-    )
+		union (["MedicationAdministration": code in "Low Molecular Weight Heparin for VTE Prophylaxis"] VTEMedication return start of VTEMedication.effective)
+		union (["MedicationAdministration": code in "Injectable Factor Xa Inhibitor for VTE Prophylaxis"] VTEMedication return start of VTEMedication.effective)
+		union (["MedicationAdministration": code in "Warfarin"] VTEMedication return start of VTEMedication.effective)
+		union
+            (
+                (
+                    ["DeviceUseStatement"] DeviceUseStatement
+                        where DeviceUseStatement.status = 'completed'
+                ) ValidDeviceUseStatement
+                with [Device] Device
+                such that Last(Split(ValidDeviceUseStatement.device.reference, '/')) = Device.id
+                    and (
+                        Device.type in "Venous foot pumps (VFP)"
+                            or Device.type in "Intermittent pneumatic compression devices (IPC)"
+                            or Device.type in "Graduated compression stockings (GCS)"
+                    )
+            ) DeviceApplied
+        where DeviceApplied.status = 'completed'
+        return Coalesce(DeviceApplied.recordedOn, start of DeviceApplied.whenUsed)
 
 //Done
 define "VTE Prophylaxis Received on Day of or Day After Admission or Procedure":
 	( from
 			"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" QualifyingEncounter,
-			"VTE Prophylaxis by Medication Administered or Device Applied" HasVTEProphylaxis
+			"VTE Prophylaxis by Medication Administered or Device Applied" VTEProphylaxisDate
 			// TODO: Profile of MedicationAdministration to ensure effective is a Period
-			where Coalesce(HasVTEProphylaxis.recordedOn, start of HasVTEProphylaxis.effective) during VTEICU."CalendarDayOfOrDayAfter"(start of FHIRHelpers.ToInterval(QualifyingEncounter.period))
-			return QualifyingEncounter
+        where VTEProphylaxisDate during VTEICU."CalendarDayOfOrDayAfter"(start of FHIRHelpers.ToInterval(QualifyingEncounter.period))
+        return QualifyingEncounter
 	)
 		union ( from
 				"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" QualifyingEncounter,
 				["Procedure": "General or Neuraxial Anesthesia"] AnesthesiaProcedure,
-				"VTE Prophylaxis by Medication Administered or Device Applied" HasVTEProphylaxis
-				where AnesthesiaProcedure.performed ends 1 day after day of start of FHIRHelpers.ToInterval(QualifyingEncounter.period)
-					and Coalesce(HasVTEProphylaxis.recordedOn, start of HasVTEProphylaxis.effective) during VTEICU."CalendarDayOfOrDayAfter"(end of AnesthesiaProcedure.performed)
-				return QualifyingEncounter
+				"VTE Prophylaxis by Medication Administered or Device Applied" VTEProphylaxisDate
+            where AnesthesiaProcedure.performed ends 1 day after day of start of FHIRHelpers.ToInterval(QualifyingEncounter.period)
+                and VTEProphylaxisDate during VTEICU."CalendarDayOfOrDayAfter"(end of AnesthesiaProcedure.performed)
+            return QualifyingEncounter
 		)
 
 
@@ -408,14 +434,18 @@ define "Encounter With ICU Location Stay 1 Day or More":
 //Done
 define "Encounter With Principal Diagnosis of Mental Disorder or Stroke":
 	"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" QualifyingEncounter
-		where Global."PrincipalDiagnosis"(QualifyingEncounter).code in "Mental Health Diagnoses"
-			or Global."PrincipalDiagnosis"(QualifyingEncounter).code in "Hemorrhagic Stroke"
-			or Global."PrincipalDiagnosis"(QualifyingEncounter).code in "Ischemic Stroke"
+		where
+            //Connectathon: still broken: temporarily removed pending HAPI FHIR server fix for maxClauseCount > 1024
+            //Global.PrincipalDiagnosis(QualifyingEncounter).code in "Mental Health Diagnoses"
+			//or
+            Global.PrincipalDiagnosis(QualifyingEncounter).code in "Hemorrhagic Stroke"
+			or Global.PrincipalDiagnosis(QualifyingEncounter).code in "Ischemic Stroke"
 
 //Done
 // TODO: Define an ordinality extension to a Procedure profile and ask Patient Administration and/or Patient Care to review
 define "Encounter With Principal Procedure of SCIP VTE Selected Surgery":
 	"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" QualifyingEncounter
+		//Connectathon: pending cql_engine fix #262 (FHIR 3.0.0 model info issue with Extension.url)
 		with ( "SCIP VTE Selected Surgery" Procedure
 			where GetExtension(Procedure.extension, 'http://example.org/StructureDefinition/ordinality').value ~ "Principal" ) SelectedProcedure
 			such that SelectedProcedure.performed during FHIRHelpers.ToInterval( QualifyingEncounter.period)
@@ -497,7 +527,7 @@ define "No VTE Prophylaxis Due to Patient Refusal on Day of or Day After Procedu
 define "No VTE Prophylaxis Medication or Device Due to Patient Refusal":
 	( "No VTE Prophylaxis Medication Administered or Ordered"
 		union "No VTE Prophylaxis Device Applied or Ordered" ) NoVTEProphylaxis
-		where GetExtension(NoVTEProphylaxis.extension, 'http://example.org/StructureDefinition/notDoneReason').value in "Patient Refusal"
+		where GetExtension(NoVTEProphylaxis.extension, 'http://example.org/StructureDefinition/notDoneReason').value in "Patient Refusal" //Connectathon: pending cql_engine fix #262 (FHIR 3.0.0 model info issue with Extension.url)
 
 //Done
 define "No VTE Prophylaxis Due to Patient Refusal":
@@ -519,9 +549,11 @@ define "Numerator":
 
 //Done
 define "Is In Low Risk for VTE or On Anticoagulant":
+    //Connectathon: verified that this is corrected
 	( ["Observation": "Risk for venous thromboembolism"] VTERiskAssessment
 			where VTERiskAssessment.value in "Low Risk"
 	)
+
 /*
 // TODO: Issues with constructing the FHIR types here...
 		union ( ["Observation": "INR"] INRLabTest
