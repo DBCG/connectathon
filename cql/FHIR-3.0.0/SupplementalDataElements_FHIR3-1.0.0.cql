@@ -20,14 +20,14 @@ define "SDE Ethnicity":
     where E.url = 'ombCategory'
       or E.url = 'detailed'
     return E.value as Coding
-    
+
 define "SDE Payer":
     [Coverage: type in "Payer"] Payer
       return {
         code: Payer.type,
         period: Payer.period
       }
-      
+
 define "SDE Race":
   (flatten (
     Patient.extension Extension
@@ -39,9 +39,8 @@ define "SDE Race":
     return E.value as Coding
 
 define "SDE Sex":
-  case 
+  case
     when Patient.gender = 'male' then Code { code: 'M', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Male' }
     when Patient.gender = 'female' then Code { code: 'F', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Female' }
     else null
   end
-

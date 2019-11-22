@@ -1,5 +1,5 @@
 // for 2020 Reporting Year
-library EXM104_FHIR3 version '8.1.000' 
+library EXM104_FHIR3 version '8.1.000'
 
 /*
 Based on CMS104v8 - Discharged on Antithrombotic Therapy
@@ -10,7 +10,7 @@ STK 2
 using FHIR version '3.0.0'
 
 include FHIRHelpers version '3.0.0'
-include MATGlobalCommonFunctions_FHIR3 version '2.0.000' called Global
+include MATGlobalCommonFunctions_FHIR3 version '4.0.000' called Global
 include TJC_Overall_FHIR3 version '3.6.000' called TJC
 include SupplementalDataElements_FHIR3 version '1.0.0' called SDE
 
@@ -47,6 +47,7 @@ code "Birth date": '21112-8' from "LOINC" display 'Birth date'
 code "Discharge": 'discharge' from "MedicationRequestCategory" display 'Discharge'
 
 parameter "Measurement Period" Interval<DateTime>
+  default Interval[@2019-01-01T00:00:00.0, @2020-01-01T00:00:00.0)
 
 context Patient
 
@@ -122,9 +123,6 @@ define "Numerator":
       	["MedicationRequest": "Antithrombotic Therapy"] Antithrombotic
       	  where (Antithrombotic.medication as CodeableConcept) in "Antithrombotic Therapy"
       	    and Antithrombotic.intent = 'order'
-
-define "Denominator Exclusion":
-false
 
 define "Denominator Exceptions":
 	"Encounter With No Antithrombotic At Discharge"
