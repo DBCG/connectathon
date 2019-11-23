@@ -1,4 +1,3 @@
-// for 2020 Reporting Year
 library EXM104_FHIR3 version '8.1.000'
 
 /*
@@ -88,7 +87,7 @@ define "Denominator":
   	"Encounter with Principal Diagnosis and Age" EncounterWithAge
   		where Global.PrincipalDiagnosis(EncounterWithAge).code in "Ischemic Stroke"
 
-define "Denominator Exclusions":
+define "Denominator Exclusion":
 	TJC."Ischemic Stroke Encounters with Discharge Disposition"
 		union TJC."Comfort Measures during Hospitalization"
 

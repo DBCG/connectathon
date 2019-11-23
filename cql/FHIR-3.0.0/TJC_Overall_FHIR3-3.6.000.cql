@@ -1,4 +1,3 @@
-//For 2020 Reporting Year
 library TJC_Overall_FHIR3 version '3.6.000'
 
 using FHIR version '3.0.0'

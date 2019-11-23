@@ -1,0 +1,302 @@
+{
+  "resourceType": "MeasureReport",
+  "contained": [
+    {
+      "resourceType": "Bundle",
+      "id": "091fe0f3-709c-4ed2-97e0-6b228d030c47",
+      "type": "collection",
+      "entry": [
+        {
+          "fullUrl": "Encounter/denom-cms104-stu3-2/_history/2",
+          "resource": {
+            "resourceType": "Encounter",
+            "id": "denom-cms104-stu3-2",
+            "meta": {
+              "versionId": "2",
+              "lastUpdated": "2019-11-23T06:39:26.823+00:00",
+              "profile": [
+                "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+              ]
+            },
+            "status": "finished",
+            "class": {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+              "code": "IMP",
+              "display": "inpatient encounter"
+            },
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "32485007",
+                    "display": "Hospital admission (procedure)"
+                  }
+                ]
+              }
+            ],
+            "subject": {
+              "reference": "Patient/denom-cms104-stu3"
+            },
+            "period": {
+              "start": "2019-08-21T00:00:00-06:00",
+              "end": "2019-12-19T08:15:00-07:00"
+            },
+            "diagnosis": [
+              {
+                "condition": {
+                  "reference": "Condition/denom-cms104-stu3-1"
+                },
+                "role": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/diagnosis-role",
+                      "code": "billing",
+                      "display": "Billing"
+                    }
+                  ]
+                },
+                "rank": 1
+              }
+            ]
+          }
+        },
+        {
+          "fullUrl": "Condition/denom-cms104-stu3-1/_history/2",
+          "resource": {
+            "resourceType": "Condition",
+            "id": "denom-cms104-stu3-1",
+            "meta": {
+              "versionId": "2",
+              "lastUpdated": "2019-11-12T23:08:14.239+00:00",
+              "profile": [
+                "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+              ]
+            },
+            "verificationStatus": "confirmed",
+            "category": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                    "code": "encounter-diagnosis",
+                    "display": "Encounter Diagnosis"
+                  }
+                ]
+              }
+            ],
+            "code": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "116288000",
+                  "display": "Paralytic stroke (disorder)"
+                }
+              ]
+            },
+            "subject": {
+              "reference": "Patient/denom-cms104-stu3"
+            }
+          }
+        },
+        {
+          "fullUrl": "Patient/denom-cms104-stu3/_history/2",
+          "resource": {
+            "resourceType": "Patient",
+            "id": "denom-cms104-stu3",
+            "meta": {
+              "versionId": "2",
+              "lastUpdated": "2019-11-12T23:07:39.462+00:00",
+              "profile": [
+                "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">Rick <b>JONES </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>9999999910</td></tr><tr><td>Date of birth</td><td><span>05 November 1955</span></td></tr></tbody></table></div>"
+            },
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+                "extension": [
+                  {
+                    "url": "ombCategory",
+                    "valueCoding": {
+                      "system": "urn:oid:2.16.840.1.113883.6.238",
+                      "code": "2054-5",
+                      "display": "Black or African American"
+                    }
+                  }
+                ]
+              },
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+                "extension": [
+                  {
+                    "url": "ombCategory",
+                    "valueCoding": {
+                      "system": "urn:oid:2.16.840.1.113883.6.238",
+                      "code": "2135-2",
+                      "display": "Hispanic or Latino"
+                    }
+                  }
+                ]
+              }
+            ],
+            "identifier": [
+              {
+                "use": "usual",
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                      "code": "MR",
+                      "display": "Medical Record Number"
+                    }
+                  ]
+                },
+                "system": "http://hospital.smarthealthit.org",
+                "value": "9999999910"
+              }
+            ],
+            "name": [
+              {
+                "family": "Jones",
+                "given": [
+                  "Rick"
+                ]
+              }
+            ],
+            "gender": "male",
+            "birthDate": "1955-11-05"
+          }
+        },
+        {
+          "fullUrl": "55e2775a-294a-4c9a-b7a6-8b0e969138f2",
+          "resource": {
+            "resourceType": "List",
+            "id": "55e2775a-294a-4c9a-b7a6-8b0e969138f2",
+            "title": "denominator",
+            "entry": [
+              {
+                "item": {
+                  "reference": "#Condition/denom-cms104-stu3-1/_history/2"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "fullUrl": "e1ecdd2e-1cc1-45b8-bb21-f31538097178",
+          "resource": {
+            "resourceType": "List",
+            "id": "e1ecdd2e-1cc1-45b8-bb21-f31538097178",
+            "title": "initial-population",
+            "entry": [
+              {
+                "item": {
+                  "reference": "#Encounter/denom-cms104-stu3-2/_history/2"
+                }
+              },
+              {
+                "item": {
+                  "reference": "#Condition/denom-cms104-stu3-1/_history/2"
+                }
+              },
+              {
+                "item": {
+                  "reference": "#Patient/denom-cms104-stu3/_history/2"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "status": "complete",
+  "type": "individual",
+  "measure": {
+    "reference": "Measure/measure-exm104-FHIR3"
+  },
+  "patient": {
+    "reference": "Patient/denom-cms104-stu3"
+  },
+  "period": {
+    "start": "2018-12-01T00:00:00+00:00",
+    "end": "2020-01-01T00:00:00+00:00"
+  },
+  "group": [
+    {
+      "identifier": {
+        "value": "group-1"
+      },
+      "population": [
+        {
+          "identifier": {
+            "value": "initial-population-identifier"
+          },
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "initial-population",
+                "display": "Initial Population"
+              }
+            ]
+          },
+          "count": 1
+        },
+        {
+          "identifier": {
+            "value": "numerator-identifier"
+          },
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "numerator",
+                "display": "Numerator"
+              }
+            ]
+          },
+          "count": 0
+        },
+        {
+          "identifier": {
+            "value": "denominator-identifier"
+          },
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator",
+                "display": "Denominator"
+              }
+            ]
+          },
+          "count": 1
+        },
+        {
+          "identifier": {
+            "value": "denominator-exclusions-identifier"
+          },
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator-exclusion",
+                "display": "Denominator Exclusion"
+              }
+            ]
+          },
+          "count": 0
+        }
+      ],
+      "measureScore": 0.0
+    }
+  ],
+  "evaluatedResources": {
+    "reference": "#091fe0f3-709c-4ed2-97e0-6b228d030c47"
+  }
+}
