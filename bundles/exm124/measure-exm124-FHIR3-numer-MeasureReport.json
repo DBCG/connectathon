@@ -3,17 +3,55 @@
   "contained": [
     {
       "resourceType": "Bundle",
-      "id": "55a8e447-61dd-4c8e-b75c-5c71ec2bbfcb",
+      "id": "fe0fa442-09f9-452d-9e3d-53a664322346",
       "type": "collection",
       "entry": [
         {
-          "fullUrl": "Observation/98ce13ee-450b-43ca-9fbe-08b05999532b-3/_history/1",
+          "fullUrl": "Encounter/numer-cms124-stu3-1/_history/1",
           "resource": {
-            "resourceType": "Observation",
-            "id": "98ce13ee-450b-43ca-9fbe-08b05999532b-3",
+            "resourceType": "Encounter",
+            "id": "numer-cms124-stu3-1",
             "meta": {
               "versionId": "1",
-              "lastUpdated": "2019-11-27T23:20:53.781+00:00"
+              "lastUpdated": "2019-11-29T16:56:59.832-07:00",
+              "profile": [
+                "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+              ]
+            },
+            "status": "finished",
+            "class": {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+              "code": "AMB",
+              "display": "ambulatory"
+            },
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": "http://www.ama-assn.org/go/cpt",
+                    "code": "99201",
+                    "display": "Office or other outpatient visit for the evaluation and management of a new patient, which requires these 3 key components: A problem focused history; A problem focused examination; Straightforward medical decision making. Counseling and/or coordination of care with other physicians, other qualified health care professionals, or agencies are provided consistent with the nature of the problem(s) and the patient's and/or family's needs. Usually, the presenting problem(s) are self limited or minor. Typically, 10 minutes are spent face-to-face with the patient and/or family."
+                  }
+                ]
+              }
+            ],
+            "subject": {
+              "reference": "Patient/numer-cms124-stu3"
+            },
+            "period": {
+              "start": "2019-01-02T00:00:00-00:00",
+              "end": "2019-01-03T00:00:00-00:00"
+            }
+          }
+        },
+        {
+          "fullUrl": "Observation/numer-cms124-stu3-2/_history/1",
+          "resource": {
+            "resourceType": "Observation",
+            "id": "numer-cms124-stu3-2",
+            "meta": {
+              "versionId": "1",
+              "lastUpdated": "2019-11-29T16:56:59.832-07:00"
             },
             "status": "final",
             "code": {
@@ -26,20 +64,35 @@
               ]
             },
             "subject": {
-              "reference": "Patient/98ce13ee-450b-43ca-9fbe-08b05999532b-1"
+              "reference": "Patient/numer-cms124-stu3"
             },
             "effectiveDateTime": "2019-11-01T00:00:00",
             "valueBoolean": true
           }
         },
         {
-          "fullUrl": "Patient/98ce13ee-450b-43ca-9fbe-08b05999532b-1/_history/1",
+          "fullUrl": "b1fafa01-d531-48ab-8a85-107c604a9db3",
+          "resource": {
+            "resourceType": "List",
+            "id": "b1fafa01-d531-48ab-8a85-107c604a9db3",
+            "title": "numerator",
+            "entry": [
+              {
+                "item": {
+                  "reference": "#Observation/numer-cms124-stu3-2/_history/1"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "fullUrl": "Patient/numer-cms124-stu3/_history/1",
           "resource": {
             "resourceType": "Patient",
-            "id": "98ce13ee-450b-43ca-9fbe-08b05999532b-1",
+            "id": "numer-cms124-stu3",
             "meta": {
               "versionId": "1",
-              "lastUpdated": "2019-11-27T23:20:53.781+00:00",
+              "lastUpdated": "2019-11-29T16:56:59.832-07:00",
               "profile": [
                 "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
               ]
@@ -105,76 +158,23 @@
           }
         },
         {
-          "fullUrl": "acd7ad03-8d35-48f6-a939-3f6046737564",
+          "fullUrl": "0eef945d-5e76-4437-97a5-724a4c15e8bd",
           "resource": {
             "resourceType": "List",
-            "id": "acd7ad03-8d35-48f6-a939-3f6046737564",
-            "title": "numerator",
-            "entry": [
-              {
-                "item": {
-                  "reference": "#Observation/98ce13ee-450b-43ca-9fbe-08b05999532b-3/_history/1"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "fullUrl": "de8135b7-2a1c-4182-9c82-d26699ef8b81",
-          "resource": {
-            "resourceType": "List",
-            "id": "de8135b7-2a1c-4182-9c82-d26699ef8b81",
+            "id": "0eef945d-5e76-4437-97a5-724a4c15e8bd",
             "title": "initial-population",
             "entry": [
               {
                 "item": {
-                  "reference": "#Patient/98ce13ee-450b-43ca-9fbe-08b05999532b-1/_history/1"
+                  "reference": "#Encounter/numer-cms124-stu3-1/_history/1"
                 }
               },
               {
                 "item": {
-                  "reference": "#Encounter/98ce13ee-450b-43ca-9fbe-08b05999532b-2/_history/1"
+                  "reference": "#Patient/numer-cms124-stu3/_history/1"
                 }
               }
             ]
-          }
-        },
-        {
-          "fullUrl": "Encounter/98ce13ee-450b-43ca-9fbe-08b05999532b-2/_history/1",
-          "resource": {
-            "resourceType": "Encounter",
-            "id": "98ce13ee-450b-43ca-9fbe-08b05999532b-2",
-            "meta": {
-              "versionId": "1",
-              "lastUpdated": "2019-11-27T23:20:53.781+00:00",
-              "profile": [
-                "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
-              ]
-            },
-            "status": "finished",
-            "class": {
-              "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-              "code": "AMB",
-              "display": "ambulatory"
-            },
-            "type": [
-              {
-                "coding": [
-                  {
-                    "system": "http://www.ama-assn.org/go/cpt",
-                    "code": "99201",
-                    "display": "Office or other outpatient visit for the evaluation and management of a new patient, which requires these 3 key components: A problem focused history; A problem focused examination; Straightforward medical decision making. Counseling and/or coordination of care with other physicians, other qualified health care professionals, or agencies are provided consistent with the nature of the problem(s) and the patient's and/or family's needs. Usually, the presenting problem(s) are self limited or minor. Typically, 10 minutes are spent face-to-face with the patient and/or family."
-                  }
-                ]
-              }
-            ],
-            "subject": {
-              "reference": "Patient/98ce13ee-450b-43ca-9fbe-08b05999532b-1"
-            },
-            "period": {
-              "start": "2019-01-01T00:00:00-00:00",
-              "end": "2019-01-02T00:00:00-00:00"
-            }
           }
         }
       ]
@@ -186,11 +186,11 @@
     "reference": "Measure/measure-exm124-FHIR3"
   },
   "patient": {
-    "reference": "Patient/98ce13ee-450b-43ca-9fbe-08b05999532b-1"
+    "reference": "Patient/numer-cms124-stu3"
   },
   "period": {
-    "start": "2019-01-01T00:00:00+00:00",
-    "end": "2019-12-31T00:00:00+00:00"
+    "start": "2019-01-01T00:00:00-07:00",
+    "end": "2019-12-31T00:00:00-07:00"
   },
   "group": [
     {
@@ -263,6 +263,6 @@
     }
   ],
   "evaluatedResources": {
-    "reference": "#55a8e447-61dd-4c8e-b75c-5c71ec2bbfcb"
+    "reference": "#fe0fa442-09f9-452d-9e3d-53a664322346"
   }
 }
