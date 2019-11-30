@@ -3375,6 +3375,101 @@
         },
         {
             "resource": {
+                "resourceType": "Condition",
+                "id": "denom-cms104-stu3-1",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+                    ]
+                },
+                "verificationStatus": "confirmed",
+                "category": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                                "code": "encounter-diagnosis",
+                                "display": "Encounter Diagnosis"
+                            }
+                        ]
+                    }
+                ],
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "116288000",
+                            "display": "Paralytic stroke (disorder)"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/denom-cms104-stu3"
+                }
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Condition/denom-cms104-stu3-1"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Encounter",
+                "id": "denom-cms104-stu3-2",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+                    ]
+                },
+                "status": "finished",
+                "class": {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                    "code": "IMP",
+                    "display": "inpatient encounter"
+                },
+                "type": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://snomed.info/sct",
+                                "code": "32485007",
+                                "display": "Hospital admission (procedure)"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/denom-cms104-stu3"
+                },
+                "period": {
+                    "start": "2019-08-21T00:00:00-06:00",
+                    "end": "2019-12-19T08:15:00-07:00"
+                },
+                "diagnosis": [
+                    {
+                        "condition": {
+                            "reference": "Condition/denom-cms104-stu3-1"
+                        },
+                        "role": {
+                            "coding": [
+                                {
+                                    "system": "http://hl7.org/fhir/diagnosis-role",
+                                    "code": "billing",
+                                    "display": "Billing"
+                                }
+                            ]
+                        },
+                        "rank": 1
+                    }
+                ]
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Encounter/denom-cms104-stu3-2"
+            }
+        },
+        {
+            "resource": {
                 "resourceType": "Patient",
                 "id": "denom-cms104-stu3",
                 "meta": {
@@ -3444,64 +3539,8 @@
         },
         {
             "resource": {
-                "resourceType": "Encounter",
-                "id": "denom-cms104-stu3-2",
-                "meta": {
-                    "profile": [
-                        "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
-                    ]
-                },
-                "status": "finished",
-                "class": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-                    "code": "IMP",
-                    "display": "inpatient encounter"
-                },
-                "type": [
-                    {
-                        "coding": [
-                            {
-                                "system": "http://snomed.info/sct",
-                                "code": "32485007",
-                                "display": "Hospital admission (procedure)"
-                            }
-                        ]
-                    }
-                ],
-                "subject": {
-                    "reference": "Patient/denom-cms104-stu3"
-                },
-                "period": {
-                    "start": "2019-08-21T00:00:00-06:00",
-                    "end": "2019-12-19T08:15:00-07:00"
-                },
-                "diagnosis": [
-                    {
-                        "condition": {
-                            "reference": "Condition/denom-cms104-stu3-1"
-                        },
-                        "role": {
-                            "coding": [
-                                {
-                                    "system": "http://hl7.org/fhir/diagnosis-role",
-                                    "code": "billing",
-                                    "display": "Billing"
-                                }
-                            ]
-                        },
-                        "rank": 1
-                    }
-                ]
-            },
-            "request": {
-                "method": "PUT",
-                "url": "Encounter/denom-cms104-stu3-2"
-            }
-        },
-        {
-            "resource": {
                 "resourceType": "Condition",
-                "id": "denom-cms104-stu3-1",
+                "id": "numer-cms104-stu3-1",
                 "meta": {
                     "profile": [
                         "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
@@ -3529,12 +3568,102 @@
                     ]
                 },
                 "subject": {
-                    "reference": "Patient/denom-cms104-stu3"
+                    "reference": "Patient/numer-cms104-stu3"
                 }
             },
             "request": {
                 "method": "PUT",
-                "url": "Condition/denom-cms104-stu3-1"
+                "url": "Condition/numer-cms104-stu3-1"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Encounter",
+                "id": "numer-cms104-stu3-2",
+                "meta": {
+                    "profile": [
+                        "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+                    ]
+                },
+                "status": "finished",
+                "class": {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                    "code": "IMP",
+                    "display": "inpatient encounter"
+                },
+                "type": [
+                    {
+                        "coding": [
+                            {
+                                "system": "http://snomed.info/sct",
+                                "code": "32485007",
+                                "display": "Hospital admission (procedure)"
+                            }
+                        ]
+                    }
+                ],
+                "subject": {
+                    "reference": "Patient/numer-cms104-stu3"
+                },
+                "period": {
+                    "start": "2019-08-21T00:00:00-06:00",
+                    "end": "2019-12-19T08:15:00-07:00"
+                },
+                "diagnosis": [
+                    {
+                        "condition": {
+                            "reference": "Condition/numer-cms104-stu3-1"
+                        },
+                        "role": {
+                            "coding": [
+                                {
+                                    "system": "http://hl7.org/fhir/diagnosis-role",
+                                    "code": "billing",
+                                    "display": "Billing"
+                                }
+                            ]
+                        },
+                        "rank": 1
+                    }
+                ]
+            },
+            "request": {
+                "method": "PUT",
+                "url": "Encounter/numer-cms104-stu3-2"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "MedicationRequest",
+                "id": "numer-cms104-stu3-5",
+                "status": "completed",
+                "intent": "order",
+                "category": {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+                            "code": "discharge",
+                            "display": "Discharge"
+                        }
+                    ]
+                },
+                "medicationCodeableConcept": {
+                    "coding": [
+                        {
+                            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                            "code": "1037045",
+                            "display": "dabigatran etexilate 150 MG Oral Capsule"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "Patient/numer-cms104-stu3"
+                },
+                "authoredOn": "2019-12-19T08:00:00-07:00"
+            },
+            "request": {
+                "method": "PUT",
+                "url": "MedicationRequest/numer-cms104-stu3-5"
             }
         },
         {
@@ -3604,135 +3733,6 @@
             "request": {
                 "method": "PUT",
                 "url": "Patient/numer-cms104-stu3"
-            }
-        },
-        {
-            "resource": {
-                "resourceType": "MedicationRequest",
-                "id": "numer-cms104-stu3-5",
-                "status": "completed",
-                "intent": "order",
-                "category": {
-                    "coding": [
-                        {
-                            "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
-                            "code": "discharge",
-                            "display": "Discharge"
-                        }
-                    ]
-                },
-                "medicationCodeableConcept": {
-                    "coding": [
-                        {
-                            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-                            "code": "1037045",
-                            "display": "dabigatran etexilate 150 MG Oral Capsule"
-                        }
-                    ]
-                },
-                "subject": {
-                    "reference": "Patient/numer-cms104-stu3"
-                },
-                "authoredOn": "2019-12-19T08:00:00-07:00"
-            },
-            "request": {
-                "method": "PUT",
-                "url": "MedicationRequest/numer-cms104-stu3-5"
-            }
-        },
-        {
-            "resource": {
-                "resourceType": "Encounter",
-                "id": "numer-cms104-stu3-2",
-                "meta": {
-                    "profile": [
-                        "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
-                    ]
-                },
-                "status": "finished",
-                "class": {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-                    "code": "IMP",
-                    "display": "inpatient encounter"
-                },
-                "type": [
-                    {
-                        "coding": [
-                            {
-                                "system": "http://snomed.info/sct",
-                                "code": "32485007",
-                                "display": "Hospital admission (procedure)"
-                            }
-                        ]
-                    }
-                ],
-                "subject": {
-                    "reference": "Patient/numer-cms104-stu3"
-                },
-                "period": {
-                    "start": "2019-08-21T00:00:00-06:00",
-                    "end": "2019-12-19T08:15:00-07:00"
-                },
-                "diagnosis": [
-                    {
-                        "condition": {
-                            "reference": "Condition/numer-cms104-stu3-1"
-                        },
-                        "role": {
-                            "coding": [
-                                {
-                                    "system": "http://hl7.org/fhir/diagnosis-role",
-                                    "code": "billing",
-                                    "display": "Billing"
-                                }
-                            ]
-                        },
-                        "rank": 1
-                    }
-                ]
-            },
-            "request": {
-                "method": "PUT",
-                "url": "Encounter/numer-cms104-stu3-2"
-            }
-        },
-        {
-            "resource": {
-                "resourceType": "Condition",
-                "id": "numer-cms104-stu3-1",
-                "meta": {
-                    "profile": [
-                        "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
-                    ]
-                },
-                "verificationStatus": "confirmed",
-                "category": [
-                    {
-                        "coding": [
-                            {
-                                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
-                                "code": "encounter-diagnosis",
-                                "display": "Encounter Diagnosis"
-                            }
-                        ]
-                    }
-                ],
-                "code": {
-                    "coding": [
-                        {
-                            "system": "http://snomed.info/sct",
-                            "code": "116288000",
-                            "display": "Paralytic stroke (disorder)"
-                        }
-                    ]
-                },
-                "subject": {
-                    "reference": "Patient/numer-cms104-stu3"
-                }
-            },
-            "request": {
-                "method": "PUT",
-                "url": "Condition/numer-cms104-stu3-1"
             }
         }
     ]
