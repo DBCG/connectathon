@@ -1,4 +1,3 @@
-// for 2020 Reporting Year
 library EXM105_FHIR3 version '8.0.000'
 
 /*
@@ -160,7 +159,7 @@ define "Intervention Comfort Measures":
 
 define "Intervention Comfort Measures":
 	(["ProcedureRequest": "Comfort Measures"] P
-		where P.intent in {'plan', 'order'}
+		where P.intent in {'plan', 'order'})
 		union
 		(["Procedure": "Comfort Measures"] IntervetionPerformed
 		where IntervetionPerformed.status in {'complete', 'in progress'})
