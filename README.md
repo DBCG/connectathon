@@ -14,7 +14,7 @@ docker run -p 8080:8080 contentgroup/cqf-ruler
 ## Measure Reporting Scenarios
 
 ****
-NOTE: file and folder names are under maintenance causing most of the links below to be temporarily broken.
+NOTE: fhir4 is undergoing maintenance.  Links may be broken.
 ****
 
 ### Controlling Blood Pressure - EXM165
@@ -22,12 +22,11 @@ NOTE: file and folder names are under maintenance causing most of the links belo
 #### FHIR3
 
 * [Measure CQL](fhir3/cql/EXM165_FHIR3-8.5.000.cql)
-* [Measure Bundle](fhir3/resources/measure/measure-exm165-FHIR.json)
-* [Terminology Bundle](fhir3/resources/valuesets/valuesets-bundle-exm165-FHIR.json)
-* [Denominator Patient (ID: f4bd2b01-bf58-494b-85be-842e4961a3a5)](fhir3/tests/EXM165/cms165-stu3-denom.json)
-* [Numerator Patient (ID: bc4159a4-6ff2-4a5b-be3a-d9c4778642c2)](fhir3/tests/EXM165/cms165-stu3-numer.json)
-* [Denominator Measure Report (ID: f4bd2b01-bf58-494b-85be-842e4961a3a5)](fhir3/output/EXM165/cms165-STU3-denom.json)
-* [Numerator Measure Report (ID: bc4159a4-6ff2-4a5b-be3a-d9c4778642c2)](fhir3/output/EXM165/cms165-STU3-numer.json)
+* [Measure Bundle](fhir3/resources/measure/measure-EXM165_FHIR3-8.5.000.json)
+* [Terminology Bundle](fhir3/resources/valuesets/valuesets-EXM165_FHIR3-8.5.000-bundle.json)
+* [Test Bundle](fhir3/tests/EXM165_FHIR3-8.5.000/tests-EXM165-FHIR3-8.5.000-bundle.json)
+    * Denominator Patient ID: f4bd2b01-bf58-494b-85be-842e4961a3a5-1
+    * Numerator Patient ID: bc4159a4-6ff2-4a5b-be3a-d9c4778642c2-1
 
 #### FHIR4
 
@@ -42,12 +41,13 @@ NOTE: file and folder names are under maintenance causing most of the links belo
 #### FHIR3
 
 * [Measure CQL](fhir3/cql/EXM124_FHIR3-7.2.000.cql)
-* [Measure Bundle](fhir3/resources/measure/measure-exm124-FHIR.json)
-* [Terminology Bundle](fhir3/resources/valuesets/valuesets-bundle-exm124-FHIR.json)
-* [Denominator Patient (ID: 5649e34d-df03-498f-9c82-4087bb5a2a46-1)](fhir3/tests/EXM124/cms124-STU3-denom.json)
-* [Numerator Patient (ID: 98ce13ee-450b-43ca-9fbe-08b05999532b-1)](fhir3/tests/EXM124/cms124-STU3-numer.json)
-* [Denominator Measure Report (ID: 5649e34d-df03-498f-9c82-4087bb5a2a46-1)](fhir3/output/EXM124/cms124-STU3-denom.json)
-* [Numerator Measure Report (ID: 98ce13ee-450b-43ca-9fbe-08b05999532b-1)](fhir3/output/EXM124/cms124-STU3-numer.json)
+* [Measure Bundle](fhir3/bundles/EXM124_FHIR3-7.2.000/full-EXM124_FHIR3-7.2.000-bundle.json)
+* [Terminology Bundle](fhir3/resources/valuesets/valuesets-EXM124_FHIR3-7.2.000-bundle.json)
+* [Test Bundle](fhir3/tests/EXM124_FHIR3-7.2.000/tests-EXM124-FHIR3-7.2.000-bundle.json)
+    * Denominator Patient ID: denom-EXM124-FHIR3
+    * Numerator Patient ID: numer-EXM124-FHIR3
+* [Denominator Measure Report (ID: denom-EXM124-FHIR3)](fhir3/output/expected-results/measurereport-EXM124-FHIR3-7.2.000-denom.json)
+* [Numerator Measure Report (ID: numer-EXM124-FHIR3)](fhir3/output/expected-results/measurereport-EXM124-FHIR3-7.2.000-numer.json)
 
 #### FHIR4
 
@@ -62,12 +62,11 @@ NOTE: file and folder names are under maintenance causing most of the links belo
 #### FHIR3
 
 * [Measure CQL](fhir3/cql/EXM125_FHIR3-7.2.000.cql)
-* [Measure Bundle](fhir3/resources/measure/measure-exm125-FHIR.json)
-* [Terminology Bundle](fhir3/resources/valuesets/valuesets-bundle-exm125-FHIR.json)
-* [Denominator Patient (ID: cbb3375f-0962-4f31-8681-c7e6f29968dd-1)](fhir3/tests/EXM125/cms125-STU3-denom.json)
-* [Numerator Patient (ID: e57e9bae-ee0e-4374-9453-d185a74800ab-1)](fhir3/tests/EXM125/cms125-STU3-numer.json)
-* [Denominator Measure Report (ID: cbb3375f-0962-4f31-8681-c7e6f29968dd-1)](fhir3/output/EXM125/cms125-STU3-denom.json)
-* [Numerator Measure Report (ID: e57e9bae-ee0e-4374-9453-d185a74800ab-1)](fhir3/output/EXM125/cms125-STU3-numer.json)
+* [Measure Bundle](fhir3/resources/measure/measure-EXM125_FHIR3-7.2.000.json)
+* [Terminology Bundle](fhir3/resources/valuesets/valuesets-EXM125_FHIR3-7.2.000-bundle.json)
+* [Test Bundle](fhir3/tests/EXM125_FHIR3-7.2.000/tests-EXM125-FHIR3-7.2.000-bundle.json)
+    * Denominator Patient ID: cbb3375f-0962-4f31-8681-c7e6f29968dd-1
+    * Numerator Patient ID: e57e9bae-ee0e-4374-9453-d185a74800ab-1
 
 #### FHIR4
 
@@ -82,12 +81,11 @@ NOTE: file and folder names are under maintenance causing most of the links belo
 #### FHIR3
 
 * [Measure CQL](fhir3/cql/EXM130_FHIR3-7.2.000.cql)
-* [Measure Bundle](fhir3/resources/measure/measure-exm130-FHIR.json)
-* [Terminology Bundle](fhir3/resources/valuesets/valuesets-bundle-exm130-FHIR.json)
-* [Denominator Patient (ID: 18019e78-0582-464d-8584-335dc7ba4f95-1)](fhir3/tests/EXM130/cms130-STU3-denom.json)
-* [Numerator Patient (ID: a7720bd3-49ab-4b22-aa05-1ed0f8a16d29-1)](fhir3/tests/EXM130/cms130-STU3-numer.json)
-* [Denominator Measure Report (ID: 18019e78-0582-464d-8584-335dc7ba4f95-1)](fhir3/output/EXM130/cms130-STU3-denom.json)
-* [Numerator Measure Report (ID: a7720bd3-49ab-4b22-aa05-1ed0f8a16d29-1)](fhir3/output/EXM130/cms130-STU3-numer.json)
+* [Measure Bundle](fhir3/resources/measure/measure-EXM130_FHIR3-7.2.000.json)
+* [Terminology Bundle](fhir3/resources/valuesets/valuesets-EXM130_FHIR3-7.2.000-bundle.json)
+* [Test Bundle](fhir3/tests/EXM130_FHIR3-7.2.000/tests-EXM130-FHIR3-7.2.000-bundle.json)
+    * Denominator Patient ID: 18019e78-0582-464d-8584-335dc7ba4f95-1
+    * Numerator Patient ID: a7720bd3-49ab-4b22-aa05-1ed0f8a16d29-1
 
 #### FHIR4
 
@@ -102,10 +100,11 @@ NOTE: file and folder names are under maintenance causing most of the links belo
 #### FHIR3
 
 * [Measure CQL](fhir3/cql/EXM108_FHIR3-7.4.000.cql)
-* [Measure Bundle](bundles/fhir3/exm108-fhir3-bundle.json)
-* [Terminology Bundle](fhir3/resources/valuesets/valuesets-bundle-exm108-FHIR.json)
-* [Denominator Patient (ID: XXba6f00b1-9006-41ae-8a98-87e3d1c76bc4X)](fhir3/tests/EXM108/cms108-stu3-denom.json)
-* [Numerator Patient (ID: d16ee9db-aa9b-46c8-a75d-47282b241b60)](fhir3/tests/EXM108/cms108-stu3-numer.json)
+* [Measure Bundle](fhir3/resources/measure/measure-EXM108_FHIR3-7.4.000.json)
+* [Terminology Bundle](fhir3/resources/valuesets/valuesets-EXM108_FHIR3-7.4.000-bundle.json)
+* [Test Bundle](fhir3/tests/EXM108_FHIR3-7.4.000/tests-EXM108-FHIR3-7.4.000-bundle.json)
+    * Denominator Patient ID: denom-EXM108-FHIR3
+    * Numerator Patient ID: numer-EXM108-FHIR3
 
 #### FHIR4
 
@@ -120,10 +119,11 @@ NOTE: file and folder names are under maintenance causing most of the links belo
 #### FHIR3
 
 * [Measure CQL](fhir3/cql/EXM104_FHIR3-8.1.000.cql)
-* [Measure Bundle](bundles/fhir3/exm104-fhir3-bundle.json)
-* [Terminology Bundle](fhir3/resources/valuesets/valuesets-bundle-exm104-FHIR.json)
-* [Denominator Patient (ID: 2019648f-97fd-42d1-9b81-7b1b71eddb8b)](fhir3/tests/EXM104/cms104-stu3-denom.json)
-* [Numerator Patient (ID: 35e045bf-080c-4bbb-9afb-4d144e17307e)](fhir3/tests/EXM104/cms104-stu3-numer.json)
+* [Measure Bundle](fhir3/resources/measure/measure-EXM104_FHIR3-8.1.000.json)
+* [Terminology Bundle](fhir3/resources/valuesets/valuesets-EXM104_FHIR3-8.1.000-bundle.json)
+* [Test Bundle](fhir3/tests/EXM104_FHIR3-8.1.000/tests-EXM104-FHIR3-8.1.000-bundle.json)
+    * Denominator Patient ID: denom-EXM104-FHIR3
+    * Numerator Patient ID: numer-EXM104-FHIR3
 
 #### FHIR4
 
