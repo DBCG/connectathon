@@ -1,6 +1,6 @@
 {
   "resourceType": "Encounter",
-  "id": "numer-EXM105-FHIR3-2",
+  "id": "denomex-EXM105-FHIR3-2",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
@@ -24,7 +24,7 @@
     }
   ],
   "subject": {
-    "reference": "Patient/numer-EXM105-FHIR3"
+    "reference": "Patient/denomex-EXM105-FHIR3"
   },
   "period": {
     "start": "2019-08-21T00:00:00-06:00",
@@ -33,7 +33,7 @@
   "diagnosis": [
     {
       "condition": {
-        "reference": "Condition/numer-EXM105-FHIR3-1"
+        "reference": "Condition/denomex-EXM105-FHIR3-1"
       },
       "role": {
         "coding": [
@@ -46,5 +46,16 @@
       },
       "rank": 1
     }
-  ]
+  ],
+  "hospitalization": {
+    "dischargeDisposition": {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "306701001",
+          "display": "Discharge to community hospital (procedure)"
+        }
+      ]
+    }
+  }
 }
