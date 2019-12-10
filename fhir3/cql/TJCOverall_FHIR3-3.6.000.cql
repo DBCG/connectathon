@@ -1,4 +1,4 @@
-library TJC_Overall_FHIR3 version '3.6.000'
+library TJCOverall_FHIR3 version '3.6.000'
 
 using FHIR version '3.0.0'
 include FHIRHelpers version '3.0.0' called FHIRHelpers
