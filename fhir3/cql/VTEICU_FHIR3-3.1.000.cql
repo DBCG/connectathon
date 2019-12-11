@@ -1,4 +1,3 @@
-//For 2020 Reporting year Using FHIR R4
 library VTEICU_FHIR3 version '3.1.000'
 
 using FHIR version '3.0.0'
