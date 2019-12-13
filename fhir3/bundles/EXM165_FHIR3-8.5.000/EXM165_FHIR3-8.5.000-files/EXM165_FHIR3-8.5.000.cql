@@ -175,9 +175,12 @@ define "Essential Hypertension Diagnosis":
       or Hypertension.assertedDate before end of "Measurement Period"
     )
 
+define "Denominator Exclusion":
+	false;
+
 /*
 // TODO: Translate exclusions
-define "Denominator Exclusions":
+define "Denominator Exclusion":
 	Hospice."Has Hospice"
 		or exists "Pregnancy Or Renal Diagnosis Exclusions"
 		or ( exists "End Stage Renal Disease Procedures"
