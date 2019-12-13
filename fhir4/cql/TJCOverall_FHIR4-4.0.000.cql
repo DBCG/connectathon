@@ -1,5 +1,3 @@
-//For 2020 Reporting Year
-// NOTE: BTR 2019-07-30: Renamed for consistency
 library TJC_Overall_FHIR4 version '4.0.000'
 
 using FHIR version '4.0.0'
