@@ -54,7 +54,7 @@ define "Qualifying Encounters":
 define "Denominator":
 	"Initial Population"
 
-define "Denominator Exclusions":
+define "Denominator Exclusion":
 	exists ( [Condition: code in "Conditions Due To Human Immunodeficiency Virus (HIV)"] HIVConditions
 			where HIVConditions.clinicalStatus = 'active'
 			and HIVConditions.verificationStatus = 'confirmed'
