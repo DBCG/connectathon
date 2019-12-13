@@ -12,17 +12,17 @@ include SupplementalDataElements_FHIR3 version '1.0.0' called SDE
 
 codesystem "LOINC": 'http://loinc.org'
 
-valueset "Conditions Due To Human Immunodeficiency Virus (HIV)": '2.16.840.1.113762.1.4.1056.54'
-valueset "Ethnicity": '2.16.840.1.114222.4.11.837'
-valueset "Human Immunodeficiency Virus (HIV) Laboratory Test Codes (Ab and Ag)": '2.16.840.1.113762.1.4.1056.50'
-valueset "Office Visit": '2.16.840.1.113883.3.464.1003.101.12.1001'
-valueset "ONC Administrative Sex": '2.16.840.1.113762.1.4.1'
-valueset "Payer": '2.16.840.1.114222.4.11.3591'
-valueset "Preventive Care Services - Established Office Visit, 18 and Up": '2.16.840.1.113883.3.464.1003.101.12.1025'
-valueset "Preventive Care Services, Initial Office Visit, 0 to 17": '2.16.840.1.113883.3.464.1003.101.12.1022'
-valueset "Preventive Care Services-Initial Office Visit, 18 and Up": '2.16.840.1.113883.3.464.1003.101.12.1023'
-valueset "Preventive Care, Established Office Visit, 0 to 17": '2.16.840.1.113883.3.464.1003.101.12.1024'
-valueset "Race": '2.16.840.1.114222.4.11.836'
+valueset "Conditions Due To Human Immunodeficiency Virus (HIV)": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1056.54'
+valueset "Ethnicity": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.837'
+valueset "Human Immunodeficiency Virus (HIV) Laboratory Test Codes (Ab and Ag)": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1056.50'
+valueset "Office Visit": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001'
+valueset "ONC Administrative Sex": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1'
+valueset "Payer": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591'
+valueset "Preventive Care Services - Established Office Visit, 18 and Up": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1025'
+valueset "Preventive Care Services, Initial Office Visit, 0 to 17": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1022'
+valueset "Preventive Care Services-Initial Office Visit, 18 and Up": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1023'
+valueset "Preventive Care, Established Office Visit, 0 to 17": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1024'
+valueset "Race": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.836'
 
 code "HIV 1 and 2 tests - Meaningful Use set": '75622-1' from "LOINC" display 'HIV 1 and 2 tests - Meaningful Use set'
 
@@ -54,7 +54,7 @@ define "Qualifying Encounters":
 define "Denominator":
 	"Initial Population"
 
-define "Denominator Exclusions":
+define "Denominator Exclusion":
 	exists ( [Condition: code in "Conditions Due To Human Immunodeficiency Virus (HIV)"] HIVConditions
 			where HIVConditions.clinicalStatus = 'active'
 			and HIVConditions.verificationStatus = 'confirmed'

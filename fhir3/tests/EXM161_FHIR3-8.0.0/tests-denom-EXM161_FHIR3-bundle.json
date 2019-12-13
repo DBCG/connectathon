@@ -1,0 +1,166 @@
+{
+  "resourceType": "Bundle",
+  "id": "tests-denom-EXM161-FHIR3-bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "denom-EXM161-FHIR3-8",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+          ]
+        },
+        "verificationStatus": "confirmed",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10",
+              "code": "F32.0",
+              "display": "Major depressive disorder, single episode, mild"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/denom-EXM161-FHIR3"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/denom-EXM161-FHIR3-8"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "denom-EXM161-FHIR3-2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+          ]
+        },
+        "status": "finished",
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://www.ama-assn.org/go/cpt",
+                "code": "90791",
+                "display": "Psychiatric diagnostic evaluation"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/denom-EXM161-FHIR3"
+        },
+        "period": {
+          "start": "2019-08-21T00:00:00-06:00",
+          "end": "2019-12-19T08:15:00-07:00"
+        },
+        "diagnosis": [
+          {
+            "condition": {
+              "reference": "Condition/denom-EXM161-FHIR3-8"
+            },
+            "role": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/diagnosis-role",
+                  "code": "billing",
+                  "display": "Billing"
+                }
+              ]
+            },
+            "rank": 1
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Encounter/denom-EXM161-FHIR3-2"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "denom-EXM161-FHIR3",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2054-5",
+                  "display": "Black or African American"
+                }
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2135-2",
+                  "display": "Hispanic or Latino"
+                }
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR",
+                  "display": "Medical Record Number"
+                }
+              ]
+            },
+            "system": "http://hospital.smarthealthit.org",
+            "value": "9999999910"
+          }
+        ],
+        "name": [
+          {
+            "family": "Jones",
+            "given": [
+              "Rick"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1955-11-05"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Patient/denom-EXM161-FHIR3"
+      }
+    }
+  ]
+}
