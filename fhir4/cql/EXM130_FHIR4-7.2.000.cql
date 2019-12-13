@@ -1,4 +1,4 @@
-library EXM130_FHIR4 version '7.2.000' 
+library EXM130_FHIR4 version '7.2.000'
 
 /*
 Based on CMS130v7 - Colorectal Cancer Screening
@@ -32,6 +32,7 @@ valueset "FIT DNA": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.46
 valueset "CT Colonography": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1038'
 
 parameter "Measurement Period" Interval<DateTime>
+  default Interval[@2019-01-01T00:00:00.0, @2020-01-01T00:00:00.0)
 
 context Patient
 
@@ -85,7 +86,8 @@ define "Fecal Immunochemical Test DNA":
 define "Colonoscopy Performed":
 	[Procedure: "Colonoscopy"] Colonoscopy
 		where Colonoscopy.status = 'completed'
-		 	and Global."Normalize Onset"(Colonoscopy.performed) ends 10 years or less on or before end of "Measurement Period"
+    and FHIRHelpers.ToInterval(Colonoscopy.performed as Period) ends 10 years or less on or before end of "Measurement Period"
+		 //	and Global."Normalize Onset"(Colonoscopy.performed) ends 10 years or less on or before end of "Measurement Period"
 
 define "Numerator":
 	exists "Colonoscopy Performed"
