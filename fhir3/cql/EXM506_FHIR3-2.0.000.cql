@@ -26,6 +26,7 @@ code "Birthdate": '21112-8' from "LOINC" display 'Birth date'
 code "Order": 'order' from "RequestIntent" display 'Order'
 
 parameter "Measurement Period" Interval<DateTime>
+default Interval[@2019-01-01T00:00:00.0, @2020-01-01T00:00:00.0)
 
 context Patient
 
@@ -36,15 +37,30 @@ define "Inpatient Encounter with Age Greater than or Equal to 18":
 			and EncounterInpatient.period ends during "Measurement Period"
       and Global.CalendarAgeInYearsAt(ToDateTime(Patient.birthDate), start of FHIRHelpers.ToInterval(EncounterInpatient.period)) >= 18
 
+define "Schedule II and Schedule III Opioids MedicationRequests":
+	[MedicationRequest] MedicationRequest
+	where MedicationRequest.medication in "Schedule II and Schedule III Opioids"
+
+	define "Schedule IV Benzodiazepines MedicationRequests":
+		[MedicationRequest] MedicationRequest
+		where MedicationRequest.medication in "Schedule IV Benzodiazepines"
+
+define "Encounter with an Opioid Discharge":
+	"Inpatient Encounter with Age Greater than or Equal to 18" InpatientEncounter
+		 with "Schedule II and Schedule III Opioids MedicationRequests" OpioidsDischarge
+		such that OpioidsDischarge.authoredOn during InpatientEncounter.period
+					and OpioidsDischarge.intent = 'order'
+
+define "Encounter with a Benzodiazepine at Discharge":
+	"Inpatient Encounter with Age Greater than or Equal to 18" InpatientEncounter
+		with "Schedule IV Benzodiazepines MedicationRequests" BenzodiazepineDischarge
+			such that BenzodiazepineDischarge.authoredOn during InpatientEncounter.period
+				and BenzodiazepineDischarge.intent = 'order'
 
 define "Encounter with an Opioid or Benzodiazepine at Discharge":
-	"Inpatient Encounter with Age Greater than or Equal to 18" InpatientEncounter
-		with [MedicationRequest: medication in "Schedule II and Schedule III Opioids"] OpioidsDischarge
-    such that OpioidsDischarge.authoredOn during InpatientEncounter.period
-          and OpioidsDischarge.intent = 'order'
-				    with [MedicationRequest: medication in "Schedule IV Benzodiazepines"] BenzodiazepineDischarge
-    such that BenzodiazepineDischarge.authoredOn during InpatientEncounter.period
-           and BenzodiazepineDischarge.intent = 'order'
+	"Encounter with an Opioid Discharge"
+		union "Encounter with a Benzodiazepine at Discharge"
+
 
 
 define "Initial Population":
@@ -69,16 +85,18 @@ define "Denominator":
     	union ["Procedure": "Hospice Care"] ) PalliativeOrHospiceCarePerformed
     					such that PalliativeOrHospiceCarePerformed.performed overlaps InpatientEncounter.period)
 
-define "Encounter with a Concurrent Opioid and Benzodiazepine at Discharge":
-	from "Inpatient Encounter with Age Greater than or Equal to 18" InpatientEncounter,
-		[MedicationRequest: "Schedule II and Schedule III Opioids"] OpioidsDischarge,
-		[MedicationRequest: "Schedule IV Benzodiazepines"] BenzodiazepineDischarge
-			where OpioidsDischarge.authoredOn during InpatientEncounter.period
-	    	and OpioidsDischarge.intent = 'order'
-				and BenzodiazepineDischarge.authoredOn during InpatientEncounter.period
-        and BenzodiazepineDischarge.intent = 'order'
-			return InpatientEncounter
 
+define "Encounter with a Concurrent Opioid and Benzodiazepine at Discharge":
+	 from "Inpatient Encounter with Age Greater than or Equal to 18" InpatientEncounter,
+		"Schedule II and Schedule III Opioids MedicationRequests" OpioidsDischarges,
+		"Schedule IV Benzodiazepines MedicationRequests" BenzodiazepinesDischarges
+			where exists("Schedule II and Schedule III Opioids MedicationRequests")
+			and exists("Schedule IV Benzodiazepines MedicationRequests")
+				and  OpioidsDischarges.authoredOn during InpatientEncounter.period
+	    	and OpioidsDischarges.intent = 'order'
+				and  BenzodiazepinesDischarges.authoredOn during InpatientEncounter.period
+		    and BenzodiazepinesDischarges.intent = 'order'
+	return InpatientEncounter
 
 define "Encounter with Two or More Concurrent Opioids at Discharge":
 	"Inpatient Encounter with Age Greater than or Equal to 18" InpatientEncounter
@@ -87,6 +105,12 @@ define "Encounter with Two or More Concurrent Opioids at Discharge":
 				where Opioids.authoredOn during InpatientEncounter.period
 		) >= 2
 
+define "Denominator Exists":
+	exists "Denominator"
+
 define "Numerator":
- "Encounter with Two or More Concurrent Opioids at Discharge"
- union "Encounter with a Concurrent Opioid and Benzodiazepine at Discharge"
+	if "Denominator Exists"
+	then
+ 		 "Encounter with Two or More Concurrent Opioids at Discharge"
+ 			union "Encounter with a Concurrent Opioid and Benzodiazepine at Discharge"
+	else null
