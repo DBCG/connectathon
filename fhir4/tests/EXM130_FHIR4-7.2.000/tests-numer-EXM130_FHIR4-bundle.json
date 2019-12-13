@@ -1,12 +1,12 @@
 {
   "resourceType": "Bundle",
-  "id": "tests-denom-EXM130-FHIR4--bundle",
+  "id": "tests-numer-EXM130-FHIR4-bundle",
   "type": "transaction",
   "entry": [
     {
       "resource": {
         "resourceType": "Encounter",
-        "id": "denom-EXM130-FHIR4-1",
+        "id": "numer-EXM130-FHIR3-4",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
@@ -30,22 +30,22 @@
           }
         ],
         "subject": {
-          "reference": "Patient/denom-EXM130-FHIR4"
+          "reference": "Patient/numer-EXM130-FHIR3"
         },
         "period": {
-          "start": "2019-05-30T00:00:00-00:00",
-          "end": "2019-05-31T00:00:00-00:00"
+          "start": "2019-05-30T00:00:00.0",
+          "end": "2019-05-31T00:00:00.0"
         }
       },
       "request": {
         "method": "PUT",
-        "url": "Encounter/denom-EXM130-FHIR4-1"
+        "url": "Encounter/numer-EXM130-FHIR3-4"
       }
     },
     {
       "resource": {
         "resourceType": "Patient",
-        "id": "denom-EXM130-FHIR4",
+        "id": "numer-EXM130-FHIR3",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
@@ -97,9 +97,9 @@
         ],
         "name": [
           {
-            "family": "Dere",
+            "family": "Blitz",
             "given": [
-              "Ben"
+              "Don"
             ]
           }
         ],
@@ -108,13 +108,13 @@
       },
       "request": {
         "method": "PUT",
-        "url": "Patient/denom-EXM130-FHIR4"
+        "url": "Patient/numer-EXM130-FHIR3"
       }
     },
     {
       "resource": {
         "resourceType": "Procedure",
-        "id": "denom-EXM130-FHIR4-2",
+        "id": "numer-EXM130-FHIR3-1",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
@@ -131,16 +131,16 @@
           ]
         },
         "subject": {
-          "reference": "Patient/denom-EXM130-FHIR4"
+          "reference": "Patient/numer-EXM130-FHIR3"
         },
         "performedPeriod": {
-          "start": "2009-12-30T12:00:00",
-          "end": "2009-12-30T13:00:00"
+          "start": "2010-01-01T00:00:00",
+          "end": "2010-01-01T01:00:00"
         }
       },
       "request": {
         "method": "PUT",
-        "url": "Procedure/denom-EXM130-FHIR4-2"
+        "url": "Procedure/numer-EXM130-FHIR3-1"
       }
     }
   ]
