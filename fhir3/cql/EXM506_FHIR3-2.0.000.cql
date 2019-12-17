@@ -26,6 +26,7 @@ code "Birthdate": '21112-8' from "LOINC" display 'Birth date'
 code "Order": 'order' from "RequestIntent" display 'Order'
 
 parameter "Measurement Period" Interval<DateTime>
+    default Interval[@2019-01-01T00:00:00.0, @2020-01-01T00:00:00.0)
 
 context Patient
 
@@ -38,13 +39,18 @@ define "Inpatient Encounter with Age Greater than or Equal to 18":
 
 
 define "Encounter with an Opioid or Benzodiazepine at Discharge":
-	"Inpatient Encounter with Age Greater than or Equal to 18" InpatientEncounter
+	(
+		"Inpatient Encounter with Age Greater than or Equal to 18" InpatientEncounter
 		with [MedicationRequest: medication in "Schedule II and Schedule III Opioids"] OpioidsDischarge
-    such that OpioidsDischarge.authoredOn during InpatientEncounter.period
-          and OpioidsDischarge.intent = 'order'
-				    with [MedicationRequest: medication in "Schedule IV Benzodiazepines"] BenzodiazepineDischarge
-    such that BenzodiazepineDischarge.authoredOn during InpatientEncounter.period
-           and BenzodiazepineDischarge.intent = 'order'
+    	such that OpioidsDischarge.authoredOn during InpatientEncounter.period
+    		and OpioidsDischarge.intent = 'order'
+	)
+		union (
+			"Inpatient Encounter with Age Greater than or Equal to 18" InpatientEncounter
+	    	with [MedicationRequest: medication in "Schedule IV Benzodiazepines"] BenzodiazepineDischarge
+			such that BenzodiazepineDischarge.authoredOn during InpatientEncounter.period
+     			and BenzodiazepineDischarge.intent = 'order'
+		 )
 
 
 define "Initial Population":
