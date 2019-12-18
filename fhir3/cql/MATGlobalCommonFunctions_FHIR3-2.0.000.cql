@@ -147,6 +147,12 @@ define function "Normalize Abatement"(condition Condition):
 define function "GetPrevalencePeriod"(condition Condition):
   Interval[start of "Normalize Onset"(condition.onset), end of "Normalize Abatement"(condition))
 
+define function "Normalize Interval"(choice Choice<FHIR.dateTime, FHIR.Period>):
+  if choice is FHIR.dateTime then
+	  Interval[FHIRHelpers.ToDateTime(choice as FHIR.dateTime), FHIRHelpers.ToDateTime(choice as FHIR.dateTime)]
+	else
+	  FHIRHelpers.ToInterval(choice as FHIR.Period)
+
 define function "GetId"(uri String):
 	Last(Split(uri, '/'))
 
@@ -177,6 +183,19 @@ define function "GetExtensions"(domainResource DomainResource, url String):
 
 define function "GetExtension"(domainResource DomainResource, url String):
   singleton from "GetExtensions"(domainResource, url)
+
+/*
+NOTE: Extensions are not the preferred approach, but are used as a way to access
+content that is defined by extensions but not yet surfaced in the
+CQL model info.
+*/
+define function "GetBaseExtensions"(domainResource DomainResource, url String):
+  domainResource.extension E
+	  where E.url = ('http://hl7.org/fhir/StructureDefinition/' + url)
+		return E
+
+define function "GetBaseExtension"(domainResource DomainResource, url String):
+  singleton from "GetBaseExtensions"(domainResource, url)
 
 /*
 NOTE: Provenance is not the preferred approach, this is provided only as an illustration

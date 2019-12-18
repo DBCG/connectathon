@@ -67,12 +67,12 @@ define "Pap Test with Results":
 
 define "Pap Test Within 3 Years":
 	"Pap Test with Results" PapTest
-		where PapTest.effective 3 years or less before end of "Measurement Period"
+		where Global."Normalize Interval"(PapTest.effective) 3 years or less before end of "Measurement Period"
 
 define "PapTest Within 5 Years":
 	( "Pap Test with Results" PapTestOver30YearsOld
-			where Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(Patient.birthDate), start of Global."Get Choice Interval - dateTime or Period"(PapTestOver30YearsOld.effective))>= 30
-				and PapTestOver30YearsOld.effective 5 years or less before end of "Measurement Period"
+			where Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(Patient.birthDate), start of Global."Normalize Interval"(PapTestOver30YearsOld.effective))>= 30
+				and Global."Normalize Interval"(PapTestOver30YearsOld.effective) 5 years or less before end of "Measurement Period"
 	)
 
 define "Pap Test With HPV Within 5 Years":
@@ -80,8 +80,8 @@ define "Pap Test With HPV Within 5 Years":
 		with [Observation: "HPV Test"] HPVTest
 			such that HPVTest.value is not null
 				and (
-					HPVTest.effective starts 1 day or less before or on day of start of Global."Get Choice Interval - dateTime or Period"(PapTestOver30YearsOld.effective)
-						or HPVTest.effective starts less than 1 day after or on day of start of Global."Get Choice Interval - dateTime or Period"(PapTestOver30YearsOld.effective)
+					Global."Normalize Interval"(HPVTest.effective) starts 1 day or less before or on day of start of Global."Normalize Interval"(PapTestOver30YearsOld.effective)
+						or Global."Normalize Interval"(HPVTest.effective) starts less than 1 day after or on day of start of Global."Normalize Interval"(PapTestOver30YearsOld.effective)
 				)
 				and HPVTest.status in { 'final', 'amended', 'corrected', 'preliminary' }
 
@@ -92,12 +92,12 @@ define "Denominator Exclusion":
 
 define "Absence of Cervix":
 	[Condition : "Congenital absence of cervix (disorder)"] NoCervixBirth
-		where NoCervixBirth.onset as FHIR.dateTime before end "Measurement Period"
+		where Global."Normalize Onset"(NoCervixBirth.onset) before end "Measurement Period"
 			and NoCervixBirth.clinicalStatus = 'active'
 
 define "Surgical Absence of Cervix":
 	[Procedure: "Hysterectomy with No Residual Cervix"] NoCervixHysterectomy
-		where NoCervixHysterectomy.performed ends before end "Measurement Period"
+		where Global."Normalize Interval"(NoCervixHysterectomy.performed) ends before end "Measurement Period"
 			and NoCervixHysterectomy.status = 'completed'
 
 define "Initial Population":

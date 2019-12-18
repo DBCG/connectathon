@@ -54,39 +54,41 @@ define "Denominator":
 define "Flexible Sigmoidoscopy Performed":
 	[Procedure: "Flexible Sigmoidoscopy"] FlexibleSigmoidoscopy
 		where FlexibleSigmoidoscopy.status = 'completed'
-			and Global."Normalize Onset"(FlexibleSigmoidoscopy.performed) ends 5 years or less on or before end of "Measurement Period"
+			and Global."Normalize Interval"(FlexibleSigmoidoscopy.performed) ends 5 years or less on or before end of "Measurement Period"
 
 define "CT Colonography Performed":
 	[Procedure: "CT Colonography"] Colonography
 		where Colonography.status = 'completed'
-			and Global."Normalize Onset"(Colonography.performed) ends 5 years or less on or before end of "Measurement Period"
+			and Global."Normalize Interval"(Colonography.performed) ends 5 years or less on or before end of "Measurement Period"
 
 define "Total Colectomy Performed":
 	[Procedure: "Total Colectomy"] Colectomy
 		where Colectomy.status = 'completed'
-			and Global."Get Choice Interval - dateTime or Period"(Colectomy.performed) starts on or before end of "Measurement Period"
+			and Global."Normalize Interval"(Colectomy.performed) starts on or before end of "Measurement Period"
 
 define "Malignant Neoplasm":
 	[Condition: "Malignant Neoplasm of Colon"] ColorectalCancer
 		where Global."Normalize Onset"(ColorectalCancer.onset) starts on or before end of "Measurement Period"
+      and ColorectalCancer.clinicalStatus ~ ToConcept(Global."active")
 
 define "Fecal Occult Blood Test Performed":
 	[Observation: "Fecal Occult Blood Test (FOBT)"] FecalOccultResult
 		where FecalOccultResult.status in {'final', 'amended', 'corrected', 'preliminary'}
 			and FecalOccultResult.value is not null
-			and FHIRHelpers.ToDateTime(FecalOccultResult.effective as dateTime) during day of "Measurement Period"
+			and Global."Normalize Interval"(FecalOccultResult.effective) during day of "Measurement Period"
 			// and FecalOccultResult.FHIR.provenance.recorded during "Measurement Period"
 
 define "Fecal Immunochemical Test DNA":
 	[Observation: "FIT DNA"] FitDNA
-		where FitDNA.value is not null
-			and FHIRHelpers.ToDateTime(FitDNA.effective as dateTime) occurs 3 years or less on or before day of end of "Measurement Period"
+		where FitDNA.status in {'final', 'amended', 'corrected', 'preliminary'}
+			and FitDNA.value is not null
+			and Global."Normalize Interval"(FitDNA.effective) occurs 3 years or less on or before day of end of "Measurement Period"
 			// and FitDNA.FHIR.provenance.recorded occurs 3 years or less on or before end of "Measurement Period"
 
 define "Colonoscopy Performed":
 	[Procedure: "Colonoscopy"] Colonoscopy
 		where Colonoscopy.status = 'completed'
-    and FHIRHelpers.ToInterval(Colonoscopy.performed as Period) ends 10 years or less on or before end of "Measurement Period"
+      and Global."Normalize Interval"(Colonoscopy.performed) ends 10 years or less on or before end of "Measurement Period"
 		 //	and Global."Normalize Onset"(Colonoscopy.performed) ends 10 years or less on or before end of "Measurement Period"
 
 define "Numerator":

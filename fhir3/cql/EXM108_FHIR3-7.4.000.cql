@@ -120,6 +120,9 @@ code "Risk for venous thromboembolism": '72136-5' from "LOINC" display 'Risk for
 code "Principal": '63161005' from "SNOMEDCT" display 'Principal (qualifier value)'
 code "Order": 'order' from "RequestIntent" display 'Order'
 
+parameter "Measurement Period" Interval<DateTime>
+    default Interval[@2019-01-01T00:00:00.0, @2020-01-01T00:00:00.0)
+
 context Patient
 
 define "SDE Ethnicity":
@@ -144,9 +147,6 @@ define "ED Visit":
 define "Initial Population":
 	"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions"
 
-// TODO: Add doNotPerform to QICore, suggest support in base Resource
-// TODO: Tracker for Device, Not Ordered, ability to represent focalDevice
-//Done
 define "No VTE Prophylaxis Device Applied or Ordered":
   // NOTE: Should be using device.code, but that requires CQL 1.4
   (
@@ -156,15 +156,14 @@ define "No VTE Prophylaxis Device Applied or Ordered":
                where DeviceUseStatement.status = 'completed'
        ) ValidDeviceUseStatement
            with [Device] Device
-               such that Last(Split(ValidDeviceUseStatement.device.reference, '/')) = Device.id
+               such that Global.GetId(ValidDeviceUseStatement.device.reference) = Device.id
                    and (
                        Device.type in "Venous foot pumps (VFP)"
                            or Device.type in "Intermittent pneumatic compression devices (IPC)"
                            or Device.type in "Graduated compression stockings (GCS)"
                    )
      ) D
-	where GetExtension(D.extension, 'http://example.org/fhir/extensions/notDone').value is true //Connectathon: pending cql_engine fix #262 (FHIR 3.0.0 model info issue with Extension.url)
-    //where D.notDone is true // Needs a QI-Core extension to support
+     where GetBaseExtension(D, 'request-doNotPerform').value is true //Connectathon: pending cql_engine fix #262 (FHIR 3.0.0 model info issue with Extension.url)
   )
   union ((
     ["DeviceRequest": code in "Venous foot pumps (VFP)"]
@@ -172,7 +171,7 @@ define "No VTE Prophylaxis Device Applied or Ordered":
       union ["DeviceRequest": code in "Graduated compression stockings (GCS)"]
   ) D
     where D.intent ~ ToConcept("Order")
-	and GetExtension(D.extension, 'http://example.org/fhir/extensions/doNotPerform').value is true //Connectathon: pending cql_engine fix #262 (FHIR 3.0.0 model info issue with Extension.url)
+	and GetExtension(D, 'doNotPerform').value is true //Connectathon: pending cql_engine fix #262 (FHIR 3.0.0 model info issue with Extension.url)
     //where D.doNotPerform is true // Needs a QI-Core extension to support
   )
 define function GetExtension(Extensions List<Extension>, URL String):

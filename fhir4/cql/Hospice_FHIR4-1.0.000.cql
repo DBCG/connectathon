@@ -40,5 +40,5 @@ define function "Has Hospice"(MeasurementPeriod Interval<DateTime>):
     or exists (
         [Procedure: "Hospice care ambulatory"] HospicePerformed
             where HospicePerformed.status = 'completed'
-                and Global."Get Choice Interval - dateTime or Period"(HospicePerformed.performed) overlaps MeasurementPeriod
+                and Global."Normalize Interval"(HospicePerformed.performed) overlaps MeasurementPeriod
     )
