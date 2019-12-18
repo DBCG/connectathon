@@ -1,5 +1,12 @@
 library MATGlobalCommonFunctions_FHIR3 version '2.0.000'
 
+/*
+This example is a work in progress and should not be considered a final specification
+or recommendation for guidance. This example will help guide and direct the process
+of finding conventions and usage patterns that meet the needs of the various stakeholders
+in the measure development community.
+*/
+
 using FHIR version '3.0.0'
 
 include FHIRHelpers version '3.0.0' called FHIRHelpers
@@ -109,9 +116,6 @@ define function "First Inpatient Intensive Care Unit"(TheEncounter FHIR.Encounte
 			sort by start of FHIRHelpers.ToInterval(period)
 	)*/
 
-
-
-
 /*
 *
 *    CQFMeasures Common Logic
@@ -119,13 +123,29 @@ define function "First Inpatient Intensive Care Unit"(TheEncounter FHIR.Encounte
 */
 
 define function "Normalize Onset"(onset Choice<FHIR.dateTime, FHIR.Age, FHIR.Period, FHIR.Range, FHIR.string>):
-  if onset is FHIR.dateTime then Interval[onset.value, onset.value]
-	else if onset is FHIR.Period then FHIRHelpers.ToInterval(onset as FHIR.Period)
+  if onset is FHIR.dateTime then
+	  Interval[FHIRHelpers.ToDateTime(onset as FHIR.dateTime), FHIRHelpers.ToDateTime(onset as FHIR.dateTime)]
+	else if onset is FHIR.Period then
+	  FHIRHelpers.ToInterval(onset as FHIR.Period)
+	else if onset is FHIR.Age then
+	  Interval[FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(onset as FHIR.Age),
+		  FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(onset as FHIR.Age) + 1 year)
 	else null
 
-define function "Get Choice Interval - dateTime or Period"(performed Choice<FHIR.dateTime,FHIR.Period>):
-	if performed is FHIR.dateTime then Interval[performed.value, performed.value]
-	else FHIRHelpers.ToInterval(performed as FHIR.Period)
+define function "Normalize Abatement"(condition Condition):
+	if condition.abatement is FHIR.dateTime then
+	  Interval[FHIRHelpers.ToDateTime(condition.abatement as FHIR.dateTime), FHIRHelpers.ToDateTime(condition.abatement as FHIR.dateTime)]
+	else if condition.abatement is FHIR.Period then
+	  FHIRHelpers.ToInterval(condition.abatement as FHIR.Period)
+	else if condition.abatement is FHIR.Age then
+		Interval[FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(condition.abatement as FHIR.Age),
+			FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(condition.abatement as FHIR.Age) + 1 year)
+	else if condition.abatement is FHIR.boolean then
+	  Interval[end of "Normalize Onset"(condition.onset), condition.assertedDate)
+	else null
+
+define function "GetPrevalencePeriod"(condition Condition):
+  Interval[start of "Normalize Onset"(condition.onset), end of "Normalize Abatement"(condition))
 
 define function "GetId"(uri String):
 	Last(Split(uri, '/'))
@@ -144,3 +164,29 @@ define function GetLocation(reference Reference):
   singleton from (
     [Location] Location where Location.id.value = GetId(reference.reference)
   )
+
+/*
+NOTE: Extensions are not the preferred approach, but are used as a way to access
+content that is defined by extensions but not yet surfaced in the
+CQL model info.
+*/
+define function "GetExtensions"(domainResource DomainResource, url String):
+  domainResource.extension E
+	  where E.url = ('http://hl7.org/fhir/us/qicore/StructureDefinition/' + url)
+		return E
+
+define function "GetExtension"(domainResource DomainResource, url String):
+  singleton from "GetExtensions"(domainResource, url)
+
+/*
+NOTE: Provenance is not the preferred approach, this is provided only as an illustration
+for what using Provenance could look like, and is not a tested pattern
+*/
+define function "GetProvenance"(resource Resource):
+  singleton from ([Provenance: target in resource.id])
+
+define function "GetMedicationCode"(request MedicationRequest):
+  if request.medication is CodeableConcept then
+	  request.medication as CodeableConcept
+	else
+	  (singleton from ([Medication: id in GetId((request.medication as Reference).reference)])).code
