@@ -56,7 +56,7 @@ define "Denominator":
 
 define "Unilateral Mastectomy Procedure":
 		[Procedure: "Unilateral Mastectomy"] UnilateralMastectomyProcedure
-				where UnilateralMastectomyProcedure.performed ends before day of end of "Measurement Period"
+				where Global."Normalize Interval"(UnilateralMastectomyProcedure.performed) ends before day of end of "Measurement Period"
 						and UnilateralMastectomyProcedure.status = 'completed'
 
 define "Right Mastectomy":
@@ -88,13 +88,13 @@ define "History Bilateral Mastectomy":
 
 define "Bilateral Mastectomy Procedure":
 		[Procedure: "Bilateral Mastectomy"] BilateralMastectomyPerformed
-				where BilateralMastectomyPerformed.performed ends before day of end of "Measurement Period"
+				where Global."Normalize Interval"(BilateralMastectomyPerformed.performed) ends before day of end of "Measurement Period"
 						and BilateralMastectomyPerformed.status = 'completed'
 
 define "Numerator":
 		exists (
 				[DiagnosticReport: "Mammography"] Mammogram
-						where ( Mammogram.effective ends 27 months or less before day of end of "Measurement Period" )
+						where ( Global."Normalize Interval"(Mammogram.effective) ends 27 months or less before day of end of "Measurement Period" )
 								and Mammogram.status in { 'final', 'amended', 'corrected', 'appended' }
 		)
 
