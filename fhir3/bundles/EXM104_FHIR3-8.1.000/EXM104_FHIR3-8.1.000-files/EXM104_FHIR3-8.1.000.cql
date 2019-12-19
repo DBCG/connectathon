@@ -119,8 +119,13 @@ define "Numerator":
 			such that DischargeAntithrombotic.authoredOn during IschemicStrokeEncounter.period
 
       define "Antithrombotic Therapy at Discharge":
-      	["MedicationRequest": "Antithrombotic Therapy"] Antithrombotic
-      	  where (Antithrombotic.medication as CodeableConcept) in "Antithrombotic Therapy"
+      	//The following should work, but it's pending a fix in the CQL Engine, ref https://github.com/DBCG/cql_engine/issues/271.
+        //["MedicationRequest": "Antithrombotic Therapy"] Antithrombotic
+        //where Antithrombotic.intent = 'order'
+        
+        //Temporarily using the following until the fix is available.
+        ["MedicationRequest"] Antithrombotic
+            where (Antithrombotic.medication as CodeableConcept) in "Antithrombotic Therapy"
       	    and Antithrombotic.intent = 'order'
 
 define "Denominator Exceptions":
