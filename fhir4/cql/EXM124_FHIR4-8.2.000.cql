@@ -37,6 +37,7 @@ valueset "HPV Test": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.4
 code "Congenital absence of cervix (disorder)": '37687000' from "SNOMEDCT:2017-09" display 'Congenital absence of cervix (disorder)'
 
 parameter "Measurement Period" Interval<DateTime>
+  default Interval[@2019-01-01T00:00:00.0, @2020-01-01T00:00:00.0)
 
 context Patient
 
@@ -66,22 +67,19 @@ define "Pap Test with Results":
 
 define "Pap Test Within 3 Years":
 	"Pap Test with Results" PapTest
-		where FHIRHelpers.ToDateTime(PapTest.effective as dateTime) 3 years or less before end of "Measurement Period"
+		where Global."Normalize Interval"(PapTest.effective) ends 3 years or less before end of "Measurement Period"
 
 define "PapTest Within 5 Years":
 	( "Pap Test with Results" PapTestOver30YearsOld
-			where Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(Patient.birthDate), start of Global."Get Choice Interval - dateTime or Period"(PapTestOver30YearsOld.effective))>= 30
-				and FHIRHelpers.ToDateTime(PapTestOver30YearsOld.effective as dateTime) 5 years or less before end of "Measurement Period"
+			where Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(Patient.birthDate), start of Global."Normalize Interval"(PapTestOver30YearsOld.effective))>= 30
+				and Global."Normalize Interval"(PapTestOver30YearsOld.effective) ends 5 years or less before end of "Measurement Period"
 	)
 
 define "Pap Test With HPV Within 5 Years":
 	"PapTest Within 5 Years" PapTestOver30YearsOld
 		with [Observation: "HPV Test"] HPVTest
 			such that HPVTest.value is not null
-				and (
-					HPVTest.effective starts 1 day or less before or on day of start of Global."Get Choice Interval - dateTime or Period"(PapTestOver30YearsOld.effective)
-						or HPVTest.effective starts less than 1 day after or on day of start of Global."Get Choice Interval - dateTime or Period"(PapTestOver30YearsOld.effective)
-				)
+        and Global."Normalize Interval"(HPVTest.effective) starts within 1 day of start of Global."Normalize Interval"(PapTestOver30YearsOld.effective)
 				and HPVTest.status in { 'final', 'amended', 'corrected', 'preliminary' }
 
 define "Denominator Exclusion":
@@ -91,14 +89,12 @@ define "Denominator Exclusion":
 
 define "Absence of Cervix":
 	[Condition : "Congenital absence of cervix (disorder)"] NoCervixBirth
-		where FHIRHelpers.ToDateTime(NoCervixBirth.onset as dateTime) before end of "Measurement Period"
-			and exists ( NoCervixBirth.clinicalStatus.coding Coding
-        where Coding.code = 'active'
-      )
+		where Global."Normalize Onset"(NoCervixBirth.onset) starts before end of "Measurement Period"
+      and NoCervixBirth.clinicalStatus ~ ToConcept(Global."active")
 
 define "Surgical Absence of Cervix":
 	[Procedure: "Hysterectomy with No Residual Cervix"] NoCervixHysterectomy
-		where Global."Normalize Onset"(NoCervixHysterectomy.performed) ends before end of "Measurement Period"
+		where Global."Normalize Interval"(NoCervixHysterectomy.performed) ends before end of "Measurement Period"
 			and NoCervixHysterectomy.status = 'completed'
 
 define "Initial Population":

@@ -98,7 +98,7 @@ define "Numerator":
 
 define "Denominator Exclusion":
 	Hospice."Has Hospice"("Measurement Period")
-		or exists "Malignant Neoplasm"
+		or exists "Malignant Neoplasm Ever"
 		or exists "Total Colectomy Performed"
 
 define "Initial Population":

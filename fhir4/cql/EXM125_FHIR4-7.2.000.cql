@@ -1,4 +1,4 @@
-library EXM125_FHIR4 version '7.2.000' 
+library EXM125_FHIR4 version '7.2.000'
 
 /*
 Based on CMS125v7 - Breast Cancer Screening
@@ -35,6 +35,7 @@ valueset "Right": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.
 valueset "Unilateral Mastectomy, Unspecified Laterality": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1071'
 
 parameter "Measurement Period" Interval<DateTime>
+  default Interval[@2019-01-01T00:00:00.0, @2020-01-01T00:00:00.0)
 
 context Patient
 
@@ -55,23 +56,18 @@ define "Denominator":
 
 define "Unilateral Mastectomy Procedure":
 		[Procedure: "Unilateral Mastectomy"] UnilateralMastectomyProcedure
-				where Global."Normalize Onset"(UnilateralMastectomyProcedure.performed) ends before day of end of "Measurement Period"
+				where Global."Normalize Interval"(UnilateralMastectomyProcedure.performed) ends before day of end of "Measurement Period"
 						and UnilateralMastectomyProcedure.status = 'completed'
 
 define "Right Mastectomy":
 		(
 				( [Condition: "Status Post Right Mastectomy"] C
-          where exists ( C.clinicalStatus.coding Coding
-            where Coding.code = 'active'
-          )
-
+          where C.clinicalStatus ~ ToConcept(Global."active")
         )
 				union (
 						[Condition: "Unilateral Mastectomy, Unspecified Laterality"] UnilateralMastectomyDiagnosis
 								where UnilateralMastectomyDiagnosis.bodySite in "Right"
-										and exists ( UnilateralMastectomyDiagnosis.clinicalStatus.coding Coding
-                      where Coding.code = 'active'
-                    )
+                  and UnilateralMastectomyDiagnosis.clinicalStatus ~ ToConcept(Global."active")
 				)
 		) RightMastectomy
 				where Global."Normalize Onset"(RightMastectomy.onset) starts before day of end of "Measurement Period"
@@ -79,16 +75,12 @@ define "Right Mastectomy":
 define "Left Mastectomy":
 		(
 		    ( [Condition: "Status Post Left Mastectomy"] C
-          where exists ( C.clinicalStatus.coding Coding
-            where Coding.code = 'active'
-          )
+          where C.clinicalStatus ~ ToConcept(Global."active")
         )
 				union (
 						[Condition: "Unilateral Mastectomy, Unspecified Laterality"] UnilateralMastectomyDiagnosis
 								where UnilateralMastectomyDiagnosis.bodySite in "Left"
-										and exists ( UnilateralMastectomyDiagnosis.clinicalStatus.coding Coding
-                      where Coding.code = 'active'
-                    )
+                  and UnilateralMastectomyDiagnosis.clinicalStatus ~ ToConcept(Global."active")
 				)
 		) LeftMastectomy
 				where Global."Normalize Onset"(LeftMastectomy.onset) starts before day of end of "Measurement Period"
@@ -96,13 +88,11 @@ define "Left Mastectomy":
 define "History Bilateral Mastectomy":
 		[Condition: "History of bilateral mastectomy"] BilateralMastectomyHistory
 				where Global."Normalize Onset"(BilateralMastectomyHistory.onset) starts before day of end of "Measurement Period"
-						and exists ( BilateralMastectomyHistory.clinicalStatus.coding Coding
-              where Coding.code = 'active'
-            )
+          and BilateralMastectomyHistory.clinicalStatus ~ ToConcept(Global."active")
 
 define "Bilateral Mastectomy Procedure":
 		[Procedure: "Bilateral Mastectomy"] BilateralMastectomyPerformed
-				where Global."Normalize Onset"(BilateralMastectomyPerformed.performed) ends before day of end of "Measurement Period"
+				where Global."Normalize Interval"(BilateralMastectomyPerformed.performed) ends before day of end of "Measurement Period"
 						and BilateralMastectomyPerformed.status = 'completed'
 
 define "Numerator":
