@@ -1,0 +1,487 @@
+{
+  "resourceType": "Bundle",
+  "id": "tests-numer-EXM124-FHIR4-bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "numer-EXM124-FHIR4-2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://www.ama-assn.org/go/cpt",
+                "code": "99201",
+                "display": "Office or other outpatient visit for the evaluation and management of a new patient, which requires these 3 key components: A problem focused history; A problem focused examination; Straightforward medical decision making. Counseling and/or coordination of care with other physicians, other qualified health care professionals, or agencies are provided consistent with the nature of the problem(s) and the patient's and/or family's needs. Usually, the presenting problem(s) are self limited or minor. Typically, 10 minutes are spent face-to-face with the patient and/or family."
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/numer-EXM124-FHIR4"
+        },
+        "period": {
+          "start": "2019-01-01T00:00:00.0",
+          "end": "2019-01-02T00:00:00.0"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Encounter/numer-EXM124-FHIR4-2"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MeasureReport",
+        "id": "measurereport-numer-EXM124-FHIR4",
+        "contained": [
+          {
+            "resourceType": "Bundle",
+            "id": "cb59a15e-7dcd-4731-8269-892ebb829b38",
+            "type": "collection",
+            "entry": [
+              {
+                "fullUrl": "Procedure/numer-EXM130-FHIR4-1/_history/2",
+                "resource": {
+                  "resourceType": "Procedure",
+                  "id": "numer-EXM130-FHIR4-1",
+                  "meta": {
+                    "versionId": "2",
+                    "lastUpdated": "2019-12-13T12:44:18.550-07:00",
+                    "profile": [
+                      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+                    ]
+                  },
+                  "status": "completed",
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://www.ama-assn.org/go/cpt",
+                        "code": "44393",
+                        "display": "Colonoscopy through stoma; with ablation of tumor(s), polyp(s), or other lesion(s) not amenable to removal by hot biopsy forceps, bipolar cautery or snare technique"
+                      }
+                    ]
+                  },
+                  "subject": {
+                    "reference": "Patient/numer-EXM130-FHIR4"
+                  },
+                  "performedPeriod": {
+                    "start": "2010-01-01T00:00:00-06:00",
+                    "end": "2010-01-01T01:00:00-07:00"
+                  }
+                }
+              },
+              {
+                "fullUrl": "5309768d-aa68-4faa-9c55-e09097017251",
+                "resource": {
+                  "resourceType": "List",
+                  "id": "5309768d-aa68-4faa-9c55-e09097017251",
+                  "title": "numerator",
+                  "entry": [
+                    {
+                      "item": {
+                        "reference": "#Procedure/numer-EXM130-FHIR4-1/_history/2"
+                      }
+                    },
+                    {
+                      "item": {
+                        "reference": "#Procedure/numer-EXM130-FHIR4/_history/1"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "fullUrl": "Procedure/numer-EXM130-FHIR4/_history/1",
+                "resource": {
+                  "resourceType": "Procedure",
+                  "id": "numer-EXM130-FHIR4",
+                  "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2019-12-12T21:10:47.637-07:00",
+                    "profile": [
+                      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+                    ]
+                  },
+                  "status": "completed",
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://www.ama-assn.org/go/cpt",
+                        "code": "44393",
+                        "display": "Colonoscopy through stoma; with ablation of tumor(s), polyp(s), or other lesion(s) not amenable to removal by hot biopsy forceps, bipolar cautery or snare technique"
+                      }
+                    ]
+                  },
+                  "subject": {
+                    "reference": "Patient/numer-EXM130-FHIR4"
+                  },
+                  "performedPeriod": {
+                    "start": "2010-01-01T00:00:00",
+                    "end": "2010-01-01T01:00:00"
+                  }
+                }
+              },
+              {
+                "fullUrl": "3943e1bc-155c-4f56-9ef4-206d5b802b31",
+                "resource": {
+                  "resourceType": "List",
+                  "id": "3943e1bc-155c-4f56-9ef4-206d5b802b31",
+                  "title": "initial-population",
+                  "entry": [
+                    {
+                      "item": {
+                        "reference": "#Encounter/numer-EXM130-FHIR4-4/_history/1"
+                      }
+                    },
+                    {
+                      "item": {
+                        "reference": "#Patient/numer-EXM130-FHIR4/_history/1"
+                      }
+                    },
+                    {
+                      "item": {
+                        "reference": "#Encounter/numer-EXM130-FHIR4/_history/1"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "fullUrl": "Encounter/numer-EXM130-FHIR4-4/_history/1",
+                "resource": {
+                  "resourceType": "Encounter",
+                  "id": "numer-EXM130-FHIR4-4",
+                  "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2019-12-13T12:33:14.317-07:00",
+                    "profile": [
+                      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+                    ]
+                  },
+                  "status": "finished",
+                  "class": {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                    "code": "AMB",
+                    "display": "ambulatory"
+                  },
+                  "type": [
+                    {
+                      "coding": [
+                        {
+                          "system": "http://www.ama-assn.org/go/cpt",
+                          "code": "99201",
+                          "display": "Office or other outpatient visit for the evaluation and management of a new patient, which requires these 3 key components: A problem focused history; A problem focused examination; Straightforward medical decision making. Counseling and/or coordination of care with other physicians, other qualified health care professionals, or agencies are provided consistent with the nature of the problem(s) and the patient's and/or family's needs. Usually, the presenting problem(s) are self limited or minor. Typically, 10 minutes are spent face-to-face with the patient and/or family."
+                        }
+                      ]
+                    }
+                  ],
+                  "subject": {
+                    "reference": "Patient/numer-EXM130-FHIR4"
+                  },
+                  "period": {
+                    "start": "2019-05-30T00:00:00.0",
+                    "end": "2019-05-31T00:00:00.0"
+                  }
+                }
+              },
+              {
+                "fullUrl": "Patient/numer-EXM130-FHIR4/_history/1",
+                "resource": {
+                  "resourceType": "Patient",
+                  "id": "numer-EXM130-FHIR4",
+                  "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2019-12-12T21:10:47.637-07:00",
+                    "profile": [
+                      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+                    ]
+                  },
+                  "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">Don <b>BLITZ </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>999999992</td></tr><tr><td>Date of birth</td><td><span>01 January 1965</span></td></tr></tbody></table></div>"
+                  },
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+                      "extension": [
+                        {
+                          "url": "ombCategory",
+                          "valueCoding": {
+                            "system": "urn:oid:2.16.840.1.113883.6.238",
+                            "code": "2028-9",
+                            "display": "Asian"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+                      "extension": [
+                        {
+                          "url": "ombCategory",
+                          "valueCoding": {
+                            "system": "urn:oid:2.16.840.1.113883.6.238",
+                            "code": "2135-2",
+                            "display": "Hispanic or Latino"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "identifier": [
+                    {
+                      "use": "usual",
+                      "type": {
+                        "coding": [
+                          {
+                            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                            "code": "MR",
+                            "display": "Medical Record Number"
+                          }
+                        ]
+                      },
+                      "system": "http://hospital.smarthealthit.org",
+                      "value": "999999992"
+                    }
+                  ],
+                  "name": [
+                    {
+                      "family": "Blitz",
+                      "given": [
+                        "Don"
+                      ]
+                    }
+                  ],
+                  "gender": "male",
+                  "birthDate": "1965-01-01"
+                }
+              },
+              {
+                "fullUrl": "Encounter/numer-EXM130-FHIR4/_history/1",
+                "resource": {
+                  "resourceType": "Encounter",
+                  "id": "numer-EXM130-FHIR4",
+                  "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2019-12-12T21:10:47.637-07:00",
+                    "profile": [
+                      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+                    ]
+                  },
+                  "status": "finished",
+                  "class": {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                    "code": "AMB",
+                    "display": "ambulatory"
+                  },
+                  "type": [
+                    {
+                      "coding": [
+                        {
+                          "system": "http://www.ama-assn.org/go/cpt",
+                          "code": "99201",
+                          "display": "Office or other outpatient visit for the evaluation and management of a new patient, which requires these 3 key components: A problem focused history; A problem focused examination; Straightforward medical decision making. Counseling and/or coordination of care with other physicians, other qualified health care professionals, or agencies are provided consistent with the nature of the problem(s) and the patient's and/or family's needs. Usually, the presenting problem(s) are self limited or minor. Typically, 10 minutes are spent face-to-face with the patient and/or family."
+                        }
+                      ]
+                    }
+                  ],
+                  "subject": {
+                    "reference": "Patient/numer-EXM130-FHIR4"
+                  },
+                  "period": {
+                    "start": "2019-05-30T00:00:00.0",
+                    "end": "2019-05-31T00:00:00.0"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "status": "complete",
+        "type": "individual",
+        "measure": "Measure/measure-EXM130-FHIR4-7.2.000",
+        "subject": {
+          "reference": "Patient/numer-EXM130-FHIR4"
+        },
+        "period": {
+          "start": "2019-01-01T00:00:00-07:00",
+          "end": "2019-12-31T00:00:00-07:00"
+        },
+        "group": [
+          {
+            "id": "group-1",
+            "population": [
+              {
+                "code": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                      "code": "initial-population",
+                      "display": "Initial Population"
+                    }
+                  ]
+                },
+                "count": 1
+              },
+              {
+                "code": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                      "code": "numerator",
+                      "display": "Numerator"
+                    }
+                  ]
+                },
+                "count": 1
+              },
+              {
+                "code": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                      "code": "denominator",
+                      "display": "Denominator"
+                    }
+                  ]
+                },
+                "count": 1
+              },
+              {
+                "code": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                      "code": "denominator-exclusion",
+                      "display": "Denominator Exclusion"
+                    }
+                  ]
+                },
+                "count": 0
+              }
+            ],
+            "measureScore": {
+              "value": 1.0
+            }
+          }
+        ],
+        "evaluatedResource": [
+          {
+            "reference": "#cb59a15e-7dcd-4731-8269-892ebb829b38"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MeasureReport/measurereport-numer-EXM124-FHIR4"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "numer-EXM124-FHIR4-3",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "10524-7",
+              "display": "Microscopic observation [Identifier] in Cervix by Cyto stain"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/numer-EXM124-FHIR4"
+        },
+        "effectiveDateTime": "2019-11-01T00:00:00",
+        "valueBoolean": true
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/numer-EXM124-FHIR4-3"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "numer-EXM124-FHIR4",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2028-9",
+                  "display": "Asian"
+                }
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2135-2",
+                  "display": "Hispanic or Latino"
+                }
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR",
+                  "display": "Medical Record Number"
+                }
+              ]
+            },
+            "system": "http://hospital.smarthealthit.org",
+            "value": "999999995"
+          }
+        ],
+        "name": [
+          {
+            "family": "Brigand",
+            "given": [
+              "Melanie"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1995-01-01"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Patient/numer-EXM124-FHIR4"
+      }
+    }
+  ]
+}
