@@ -141,7 +141,7 @@
         "id": "library-AdultOutpatientEncounters-FHIR4-1.1.000",
         "text": {
           "status": "generated",
-          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table class=\"grid dict\"><tr><th scope=\"row\"><b>Id: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">library-AdultOutpatientEncounters-FHIR4-1.1.000</td></tr><tr><th scope=\"row\"><b>Type: </b></th><td style=\"padding-right: 25px;\"><span><br/><span><span style=\"padding-left: 25px;\"><b>system: </b><span>http://hl7.org/fhir/codesystem-library-type.html</span><br/></span><span style=\"padding-left: 25px;\"><b>code: </b><span>logic-library</span></span></span></span></td></tr><tr><th scope=\"row\"><b>Version: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">1.1.000</td></tr><tr><th scope=\"row\"><b>Status: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">active</td></tr>    <!-- <th:block th:each=\"cont, iter : ${resource.contributor}\"> -->    <!-- <tr style=\"vertical-align: top;\"> -->    <!-- <th th:if=\"${iter.index == 0}\" th:rowspan=\"${iter.size}\"  scope=\"row\"><b>Contributor: </b></th> -->    <!-- <td style=\"padding-left: 25px; padding-right: 25px;\"> -->    <!-- <b><span th:narrative=\"${cont.type.toCode()}\"></span>: </b><span th:narrative=\"${cont.name}\"></span> -->    <!-- </td> -->    <!-- </tr> -->    <!-- </th:block> --><tr style=\"vertical-align: top;\"><th rowspan=\"1\" scope=\"row\"><b>Related: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>depends-on</span></p><p style=\"margin-bottom: 5px;\"><b>Resource: </b><br/><span>Library/library-FHIRHelpers-4.0.0</span></p></td></tr><tr style=\"vertical-align: top;\"><th rowspan=\"5\" scope=\"row\"><b>Data Requirements: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Encounter</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>type</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Encounter</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>type</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1240</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Encounter</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>type</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1025</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Encounter</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>type</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1023</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Encounter</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>type</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1016</span></span></p></div></td></tr>    <!-- Filter down to human readable content --><tr style=\"vertical-align: top;\"><th scope=\"row\"><b>Content: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><b>type: </b><span>text/cql</span></td></tr><tr><td colspan=\"2\" style=\"padding-left: 25px; padding-right: 25px;\"><pre><code class=\"language-cql\">library AdultOutpatientEncounters_FHIR4 version '1.1.000'\n\n/*\nThis example is a work in progress and should not be considered a final specification\nor recommendation for guidance. This example will help guide and direct the process\nof finding conventions and usage patterns that meet the needs of the various stakeholders\nin the measure development community.\n*/\n\nusing FHIR version '4.0.0'\n\ninclude FHIRHelpers version '4.0.0' called FHIRHelpers\n\nvalueset \"Office Visit\": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001'\nvalueset \"Annual Wellness Visit\": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1240'\nvalueset \"Preventive Care Services - Established Office Visit, 18 and Up\": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1025'\nvalueset \"Preventive Care Services-Initial Office Visit, 18 and Up\": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1023'\nvalueset \"Home Healthcare Services\": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1016'\n\ncontext Patient\n\ndefine function \"Qualifying Encounters\"(MeasurementPeriod Interval&lt;DateTime&gt;):\n\t(\n\t    [Encounter: \"Office Visit\"]\n\t\tunion [Encounter: \"Annual Wellness Visit\"]\n\t\tunion [Encounter: \"Preventive Care Services - Established Office Visit, 18 and Up\"]\n\t\tunion [Encounter: \"Preventive Care Services-Initial Office Visit, 18 and Up\"]\n\t\tunion [Encounter: \"Home Healthcare Services\"]\n    ) ValidEncounter\n\t\twhere\n\t\tValidEncounter.period during day of MeasurementPeriod\n\t\tand\n\t\tValidEncounter.status  = 'finished'\n</code></pre>\r\n                    \r\n                    \r\n                </td>\r\n            </tr>\r\n        \r\n    </table>\r\n</div>"
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table class=\"grid dict\"><tr><th scope=\"row\"><b>Id: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">library-AdultOutpatientEncounters-FHIR4-1.1.000</td></tr><tr><th scope=\"row\"><b>Type: </b></th><td style=\"padding-right: 25px;\"><span><br/><span><span style=\"padding-left: 25px;\"><b>system: </b><span>http://hl7.org/fhir/codesystem-library-type.html</span><br/></span><span style=\"padding-left: 25px;\"><b>code: </b><span>logic-library</span></span></span></span></td></tr><tr><th scope=\"row\"><b>Version: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">1.1.000</td></tr><tr><th scope=\"row\"><b>Status: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">active</td></tr>    <!-- <th:block th:each=\"cont, iter : ${resource.contributor}\"> -->    <!-- <tr style=\"vertical-align: top;\"> -->    <!-- <th th:if=\"${iter.index == 0}\" th:rowspan=\"${iter.size}\"  scope=\"row\"><b>Contributor: </b></th> -->    <!-- <td style=\"padding-left: 25px; padding-right: 25px;\"> -->    <!-- <b><span th:narrative=\"${cont.type.toCode()}\"></span>: </b><span th:narrative=\"${cont.name}\"></span> -->    <!-- </td> -->    <!-- </tr> -->    <!-- </th:block> --><tr style=\"vertical-align: top;\"><th rowspan=\"1\" scope=\"row\"><b>Related: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>depends-on</span></p><p style=\"margin-bottom: 5px;\"><b>Resource: </b><br/><span>Library/library-FHIRHelpers-4.0.0</span></p></td></tr><tr style=\"vertical-align: top;\"><th rowspan=\"5\" scope=\"row\"><b>Data Requirements: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Encounter</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>type</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Encounter</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>type</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1240</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Encounter</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>type</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1025</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Encounter</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>type</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1023</span></span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Encounter</span></p><p style=\"margin-bottom: 5px;\"><b>code filter:</b><br/><span style=\"padding-left: 25px;\"><b>path: </b><span>type</span></span><br/><span style=\"padding-left: 25px;\"><b>valueset: </b><span>http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1016</span></span></p></div></td></tr>    <!-- Filter down to human readable content --><tr style=\"vertical-align: top;\"><th scope=\"row\"><b>Content: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><b>type: </b><span>text/cql</span></td></tr><tr><td colspan=\"2\" style=\"padding-left: 25px; padding-right: 25px;\"><pre><code class=\"language-cql\">library AdultOutpatientEncounters_FHIR4 version '1.1.000'\n\n/*\nThis example is a work in progress and should not be considered a final specification\nor recommendation for guidance. This example will help guide and direct the process\nof finding conventions and usage patterns that meet the needs of the various stakeholders\nin the measure development community.\n*/\n\nusing FHIR version '4.0.0'\n\ninclude FHIRHelpers version '4.0.0' called FHIRHelpers\n\nvalueset \"Office Visit\": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001'\nvalueset \"Annual Wellness Visit\": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1240'\nvalueset \"Preventive Care Services - Established Office Visit, 18 and Up\": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1025'\nvalueset \"Preventive Care Services-Initial Office Visit, 18 and Up\": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1023'\nvalueset \"Home Healthcare Services\": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1016'\n\ncontext Patient\n\ndefine function \"Qualifying Encounters\"(MeasurementPeriod Interval&lt;DateTime&gt;):\n\t(\n\t    [Encounter: \"Office Visit\"]\n\t\tunion [Encounter: \"Annual Wellness Visit\"] \n\t\tunion [Encounter: \"Preventive Care Services - Established Office Visit, 18 and Up\"] \n\t\tunion [Encounter: \"Preventive Care Services-Initial Office Visit, 18 and Up\"] \n\t\tunion [Encounter: \"Home Healthcare Services\"]\n    ) ValidEncounter\n\t\twhere ValidEncounter.period during day of MeasurementPeriod\n\t\tand ValidEncounter.status  = 'finished' \n</code></pre>\r\n                    \r\n                    \r\n                </td>\r\n            </tr>\r\n        \r\n    </table>\r\n</div>"
         },
         "version": "1.1.000",
         "name": "AdultOutpatientEncounters_FHIR4",
@@ -215,7 +215,7 @@
           },
           {
             "contentType": "text/cql",
-            "data": "bGlicmFyeSBBZHVsdE91dHBhdGllbnRFbmNvdW50ZXJzX0ZISVI0IHZlcnNpb24gJzEuMS4wMDAnCgovKgpUaGlzIGV4YW1wbGUgaXMgYSB3b3JrIGluIHByb2dyZXNzIGFuZCBzaG91bGQgbm90IGJlIGNvbnNpZGVyZWQgYSBmaW5hbCBzcGVjaWZpY2F0aW9uCm9yIHJlY29tbWVuZGF0aW9uIGZvciBndWlkYW5jZS4gVGhpcyBleGFtcGxlIHdpbGwgaGVscCBndWlkZSBhbmQgZGlyZWN0IHRoZSBwcm9jZXNzCm9mIGZpbmRpbmcgY29udmVudGlvbnMgYW5kIHVzYWdlIHBhdHRlcm5zIHRoYXQgbWVldCB0aGUgbmVlZHMgb2YgdGhlIHZhcmlvdXMgc3Rha2Vob2xkZXJzCmluIHRoZSBtZWFzdXJlIGRldmVsb3BtZW50IGNvbW11bml0eS4KKi8KCnVzaW5nIEZISVIgdmVyc2lvbiAnNC4wLjAnCgppbmNsdWRlIEZISVJIZWxwZXJzIHZlcnNpb24gJzQuMC4wJyBjYWxsZWQgRkhJUkhlbHBlcnMKCnZhbHVlc2V0ICJPZmZpY2UgVmlzaXQiOiAnaHR0cDovL2N0cy5ubG0ubmloLmdvdi9maGlyL1ZhbHVlU2V0LzIuMTYuODQwLjEuMTEzODgzLjMuNDY0LjEwMDMuMTAxLjEyLjEwMDEnCnZhbHVlc2V0ICJBbm51YWwgV2VsbG5lc3MgVmlzaXQiOiAnaHR0cDovL2N0cy5ubG0ubmloLmdvdi9maGlyL1ZhbHVlU2V0LzIuMTYuODQwLjEuMTEzODgzLjMuNTI2LjMuMTI0MCcKdmFsdWVzZXQgIlByZXZlbnRpdmUgQ2FyZSBTZXJ2aWNlcyAtIEVzdGFibGlzaGVkIE9mZmljZSBWaXNpdCwgMTggYW5kIFVwIjogJ2h0dHA6Ly9jdHMubmxtLm5paC5nb3YvZmhpci9WYWx1ZVNldC8yLjE2Ljg0MC4xLjExMzg4My4zLjQ2NC4xMDAzLjEwMS4xMi4xMDI1Jwp2YWx1ZXNldCAiUHJldmVudGl2ZSBDYXJlIFNlcnZpY2VzLUluaXRpYWwgT2ZmaWNlIFZpc2l0LCAxOCBhbmQgVXAiOiAnaHR0cDovL2N0cy5ubG0ubmloLmdvdi9maGlyL1ZhbHVlU2V0LzIuMTYuODQwLjEuMTEzODgzLjMuNDY0LjEwMDMuMTAxLjEyLjEwMjMnCnZhbHVlc2V0ICJIb21lIEhlYWx0aGNhcmUgU2VydmljZXMiOiAnaHR0cDovL2N0cy5ubG0ubmloLmdvdi9maGlyL1ZhbHVlU2V0LzIuMTYuODQwLjEuMTEzODgzLjMuNDY0LjEwMDMuMTAxLjEyLjEwMTYnCgpjb250ZXh0IFBhdGllbnQKCmRlZmluZSBmdW5jdGlvbiAiUXVhbGlmeWluZyBFbmNvdW50ZXJzIihNZWFzdXJlbWVudFBlcmlvZCBJbnRlcnZhbDxEYXRlVGltZT4pOgoJKAoJICAgIFtFbmNvdW50ZXI6ICJPZmZpY2UgVmlzaXQiXQoJCXVuaW9uIFtFbmNvdW50ZXI6ICJBbm51YWwgV2VsbG5lc3MgVmlzaXQiXQoJCXVuaW9uIFtFbmNvdW50ZXI6ICJQcmV2ZW50aXZlIENhcmUgU2VydmljZXMgLSBFc3RhYmxpc2hlZCBPZmZpY2UgVmlzaXQsIDE4IGFuZCBVcCJdCgkJdW5pb24gW0VuY291bnRlcjogIlByZXZlbnRpdmUgQ2FyZSBTZXJ2aWNlcy1Jbml0aWFsIE9mZmljZSBWaXNpdCwgMTggYW5kIFVwIl0KCQl1bmlvbiBbRW5jb3VudGVyOiAiSG9tZSBIZWFsdGhjYXJlIFNlcnZpY2VzIl0KICAgICkgVmFsaWRFbmNvdW50ZXIKCQl3aGVyZQoJCVZhbGlkRW5jb3VudGVyLnBlcmlvZCBkdXJpbmcgZGF5IG9mIE1lYXN1cmVtZW50UGVyaW9kCgkJYW5kCgkJVmFsaWRFbmNvdW50ZXIuc3RhdHVzICA9ICdmaW5pc2hlZCcK"
+            "data": "bGlicmFyeSBBZHVsdE91dHBhdGllbnRFbmNvdW50ZXJzX0ZISVI0IHZlcnNpb24gJzEuMS4wMDAnCgovKgpUaGlzIGV4YW1wbGUgaXMgYSB3b3JrIGluIHByb2dyZXNzIGFuZCBzaG91bGQgbm90IGJlIGNvbnNpZGVyZWQgYSBmaW5hbCBzcGVjaWZpY2F0aW9uCm9yIHJlY29tbWVuZGF0aW9uIGZvciBndWlkYW5jZS4gVGhpcyBleGFtcGxlIHdpbGwgaGVscCBndWlkZSBhbmQgZGlyZWN0IHRoZSBwcm9jZXNzCm9mIGZpbmRpbmcgY29udmVudGlvbnMgYW5kIHVzYWdlIHBhdHRlcm5zIHRoYXQgbWVldCB0aGUgbmVlZHMgb2YgdGhlIHZhcmlvdXMgc3Rha2Vob2xkZXJzCmluIHRoZSBtZWFzdXJlIGRldmVsb3BtZW50IGNvbW11bml0eS4KKi8KCnVzaW5nIEZISVIgdmVyc2lvbiAnNC4wLjAnCgppbmNsdWRlIEZISVJIZWxwZXJzIHZlcnNpb24gJzQuMC4wJyBjYWxsZWQgRkhJUkhlbHBlcnMKCnZhbHVlc2V0ICJPZmZpY2UgVmlzaXQiOiAnaHR0cDovL2N0cy5ubG0ubmloLmdvdi9maGlyL1ZhbHVlU2V0LzIuMTYuODQwLjEuMTEzODgzLjMuNDY0LjEwMDMuMTAxLjEyLjEwMDEnCnZhbHVlc2V0ICJBbm51YWwgV2VsbG5lc3MgVmlzaXQiOiAnaHR0cDovL2N0cy5ubG0ubmloLmdvdi9maGlyL1ZhbHVlU2V0LzIuMTYuODQwLjEuMTEzODgzLjMuNTI2LjMuMTI0MCcKdmFsdWVzZXQgIlByZXZlbnRpdmUgQ2FyZSBTZXJ2aWNlcyAtIEVzdGFibGlzaGVkIE9mZmljZSBWaXNpdCwgMTggYW5kIFVwIjogJ2h0dHA6Ly9jdHMubmxtLm5paC5nb3YvZmhpci9WYWx1ZVNldC8yLjE2Ljg0MC4xLjExMzg4My4zLjQ2NC4xMDAzLjEwMS4xMi4xMDI1Jwp2YWx1ZXNldCAiUHJldmVudGl2ZSBDYXJlIFNlcnZpY2VzLUluaXRpYWwgT2ZmaWNlIFZpc2l0LCAxOCBhbmQgVXAiOiAnaHR0cDovL2N0cy5ubG0ubmloLmdvdi9maGlyL1ZhbHVlU2V0LzIuMTYuODQwLjEuMTEzODgzLjMuNDY0LjEwMDMuMTAxLjEyLjEwMjMnCnZhbHVlc2V0ICJIb21lIEhlYWx0aGNhcmUgU2VydmljZXMiOiAnaHR0cDovL2N0cy5ubG0ubmloLmdvdi9maGlyL1ZhbHVlU2V0LzIuMTYuODQwLjEuMTEzODgzLjMuNDY0LjEwMDMuMTAxLjEyLjEwMTYnCgpjb250ZXh0IFBhdGllbnQKCmRlZmluZSBmdW5jdGlvbiAiUXVhbGlmeWluZyBFbmNvdW50ZXJzIihNZWFzdXJlbWVudFBlcmlvZCBJbnRlcnZhbDxEYXRlVGltZT4pOgoJKAoJICAgIFtFbmNvdW50ZXI6ICJPZmZpY2UgVmlzaXQiXQoJCXVuaW9uIFtFbmNvdW50ZXI6ICJBbm51YWwgV2VsbG5lc3MgVmlzaXQiXSAKCQl1bmlvbiBbRW5jb3VudGVyOiAiUHJldmVudGl2ZSBDYXJlIFNlcnZpY2VzIC0gRXN0YWJsaXNoZWQgT2ZmaWNlIFZpc2l0LCAxOCBhbmQgVXAiXSAKCQl1bmlvbiBbRW5jb3VudGVyOiAiUHJldmVudGl2ZSBDYXJlIFNlcnZpY2VzLUluaXRpYWwgT2ZmaWNlIFZpc2l0LCAxOCBhbmQgVXAiXSAKCQl1bmlvbiBbRW5jb3VudGVyOiAiSG9tZSBIZWFsdGhjYXJlIFNlcnZpY2VzIl0KICAgICkgVmFsaWRFbmNvdW50ZXIKCQl3aGVyZSBWYWxpZEVuY291bnRlci5wZXJpb2QgZHVyaW5nIGRheSBvZiBNZWFzdXJlbWVudFBlcmlvZAoJCWFuZCBWYWxpZEVuY291bnRlci5zdGF0dXMgID0gJ2ZpbmlzaGVkJyAK"
           }
         ]
       },
@@ -468,6 +468,353 @@
       "request": {
         "method": "PUT",
         "url": "ValueSet/2.16.840.1.113883.3.464.1003.198.12.1020"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MeasureReport",
+        "id": "measurereport-numer-EXM125-FHIR4",
+        "contained": [
+          {
+            "resourceType": "Bundle",
+            "id": "cb59a15e-7dcd-4731-8269-892ebb829b38",
+            "type": "collection",
+            "entry": [
+              {
+                "fullUrl": "Procedure/numer-EXM130-FHIR4-1/_history/2",
+                "resource": {
+                  "resourceType": "Procedure",
+                  "id": "numer-EXM130-FHIR4-1",
+                  "meta": {
+                    "versionId": "2",
+                    "lastUpdated": "2019-12-13T12:44:18.550-07:00",
+                    "profile": [
+                      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+                    ]
+                  },
+                  "status": "completed",
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://www.ama-assn.org/go/cpt",
+                        "code": "44393",
+                        "display": "Colonoscopy through stoma; with ablation of tumor(s), polyp(s), or other lesion(s) not amenable to removal by hot biopsy forceps, bipolar cautery or snare technique"
+                      }
+                    ]
+                  },
+                  "subject": {
+                    "reference": "Patient/numer-EXM130-FHIR4"
+                  },
+                  "performedPeriod": {
+                    "start": "2010-01-01T00:00:00-06:00",
+                    "end": "2010-01-01T01:00:00-07:00"
+                  }
+                }
+              },
+              {
+                "fullUrl": "5309768d-aa68-4faa-9c55-e09097017251",
+                "resource": {
+                  "resourceType": "List",
+                  "id": "5309768d-aa68-4faa-9c55-e09097017251",
+                  "title": "numerator",
+                  "entry": [
+                    {
+                      "item": {
+                        "reference": "#Procedure/numer-EXM130-FHIR4-1/_history/2"
+                      }
+                    },
+                    {
+                      "item": {
+                        "reference": "#Procedure/numer-EXM130-FHIR4/_history/1"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "fullUrl": "Procedure/numer-EXM130-FHIR4/_history/1",
+                "resource": {
+                  "resourceType": "Procedure",
+                  "id": "numer-EXM130-FHIR4",
+                  "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2019-12-12T21:10:47.637-07:00",
+                    "profile": [
+                      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+                    ]
+                  },
+                  "status": "completed",
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://www.ama-assn.org/go/cpt",
+                        "code": "44393",
+                        "display": "Colonoscopy through stoma; with ablation of tumor(s), polyp(s), or other lesion(s) not amenable to removal by hot biopsy forceps, bipolar cautery or snare technique"
+                      }
+                    ]
+                  },
+                  "subject": {
+                    "reference": "Patient/numer-EXM130-FHIR4"
+                  },
+                  "performedPeriod": {
+                    "start": "2010-01-01T00:00:00",
+                    "end": "2010-01-01T01:00:00"
+                  }
+                }
+              },
+              {
+                "fullUrl": "3943e1bc-155c-4f56-9ef4-206d5b802b31",
+                "resource": {
+                  "resourceType": "List",
+                  "id": "3943e1bc-155c-4f56-9ef4-206d5b802b31",
+                  "title": "initial-population",
+                  "entry": [
+                    {
+                      "item": {
+                        "reference": "#Encounter/numer-EXM130-FHIR4-4/_history/1"
+                      }
+                    },
+                    {
+                      "item": {
+                        "reference": "#Patient/numer-EXM130-FHIR4/_history/1"
+                      }
+                    },
+                    {
+                      "item": {
+                        "reference": "#Encounter/numer-EXM130-FHIR4/_history/1"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "fullUrl": "Encounter/numer-EXM130-FHIR4-4/_history/1",
+                "resource": {
+                  "resourceType": "Encounter",
+                  "id": "numer-EXM130-FHIR4-4",
+                  "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2019-12-13T12:33:14.317-07:00",
+                    "profile": [
+                      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+                    ]
+                  },
+                  "status": "finished",
+                  "class": {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                    "code": "AMB",
+                    "display": "ambulatory"
+                  },
+                  "type": [
+                    {
+                      "coding": [
+                        {
+                          "system": "http://www.ama-assn.org/go/cpt",
+                          "code": "99201",
+                          "display": "Office or other outpatient visit for the evaluation and management of a new patient, which requires these 3 key components: A problem focused history; A problem focused examination; Straightforward medical decision making. Counseling and/or coordination of care with other physicians, other qualified health care professionals, or agencies are provided consistent with the nature of the problem(s) and the patient's and/or family's needs. Usually, the presenting problem(s) are self limited or minor. Typically, 10 minutes are spent face-to-face with the patient and/or family."
+                        }
+                      ]
+                    }
+                  ],
+                  "subject": {
+                    "reference": "Patient/numer-EXM130-FHIR4"
+                  },
+                  "period": {
+                    "start": "2019-05-30T00:00:00.0",
+                    "end": "2019-05-31T00:00:00.0"
+                  }
+                }
+              },
+              {
+                "fullUrl": "Patient/numer-EXM130-FHIR4/_history/1",
+                "resource": {
+                  "resourceType": "Patient",
+                  "id": "numer-EXM130-FHIR4",
+                  "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2019-12-12T21:10:47.637-07:00",
+                    "profile": [
+                      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+                    ]
+                  },
+                  "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">Don <b>BLITZ </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>999999992</td></tr><tr><td>Date of birth</td><td><span>01 January 1965</span></td></tr></tbody></table></div>"
+                  },
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+                      "extension": [
+                        {
+                          "url": "ombCategory",
+                          "valueCoding": {
+                            "system": "urn:oid:2.16.840.1.113883.6.238",
+                            "code": "2028-9",
+                            "display": "Asian"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+                      "extension": [
+                        {
+                          "url": "ombCategory",
+                          "valueCoding": {
+                            "system": "urn:oid:2.16.840.1.113883.6.238",
+                            "code": "2135-2",
+                            "display": "Hispanic or Latino"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "identifier": [
+                    {
+                      "use": "usual",
+                      "type": {
+                        "coding": [
+                          {
+                            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                            "code": "MR",
+                            "display": "Medical Record Number"
+                          }
+                        ]
+                      },
+                      "system": "http://hospital.smarthealthit.org",
+                      "value": "999999992"
+                    }
+                  ],
+                  "name": [
+                    {
+                      "family": "Blitz",
+                      "given": [
+                        "Don"
+                      ]
+                    }
+                  ],
+                  "gender": "male",
+                  "birthDate": "1965-01-01"
+                }
+              },
+              {
+                "fullUrl": "Encounter/numer-EXM130-FHIR4/_history/1",
+                "resource": {
+                  "resourceType": "Encounter",
+                  "id": "numer-EXM130-FHIR4",
+                  "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2019-12-12T21:10:47.637-07:00",
+                    "profile": [
+                      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+                    ]
+                  },
+                  "status": "finished",
+                  "class": {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                    "code": "AMB",
+                    "display": "ambulatory"
+                  },
+                  "type": [
+                    {
+                      "coding": [
+                        {
+                          "system": "http://www.ama-assn.org/go/cpt",
+                          "code": "99201",
+                          "display": "Office or other outpatient visit for the evaluation and management of a new patient, which requires these 3 key components: A problem focused history; A problem focused examination; Straightforward medical decision making. Counseling and/or coordination of care with other physicians, other qualified health care professionals, or agencies are provided consistent with the nature of the problem(s) and the patient's and/or family's needs. Usually, the presenting problem(s) are self limited or minor. Typically, 10 minutes are spent face-to-face with the patient and/or family."
+                        }
+                      ]
+                    }
+                  ],
+                  "subject": {
+                    "reference": "Patient/numer-EXM130-FHIR4"
+                  },
+                  "period": {
+                    "start": "2019-05-30T00:00:00.0",
+                    "end": "2019-05-31T00:00:00.0"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "status": "complete",
+        "type": "individual",
+        "measure": "Measure/measure-EXM130-FHIR4-7.2.000",
+        "subject": {
+          "reference": "Patient/numer-EXM130-FHIR4"
+        },
+        "period": {
+          "start": "2019-01-01T00:00:00-07:00",
+          "end": "2019-12-31T00:00:00-07:00"
+        },
+        "group": [
+          {
+            "id": "group-1",
+            "population": [
+              {
+                "code": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                      "code": "initial-population",
+                      "display": "Initial Population"
+                    }
+                  ]
+                },
+                "count": 1
+              },
+              {
+                "code": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                      "code": "numerator",
+                      "display": "Numerator"
+                    }
+                  ]
+                },
+                "count": 1
+              },
+              {
+                "code": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                      "code": "denominator",
+                      "display": "Denominator"
+                    }
+                  ]
+                },
+                "count": 1
+              },
+              {
+                "code": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                      "code": "denominator-exclusion",
+                      "display": "Denominator Exclusion"
+                    }
+                  ]
+                },
+                "count": 0
+              }
+            ],
+            "measureScore": {
+              "value": 1.0
+            }
+          }
+        ],
+        "evaluatedResource": [
+          {
+            "reference": "#cb59a15e-7dcd-4731-8269-892ebb829b38"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MeasureReport/measurereport-numer-EXM125-FHIR4"
       }
     },
     {
@@ -741,6 +1088,439 @@
       "request": {
         "method": "PUT",
         "url": "ValueSet/2.16.840.1.113883.3.464.1003.122.12.1036"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "denom-EXM125-FHIR4-3",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "24604-1",
+              "display": "MG Breast Diagnostic Limited Views"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/denom-EXM125-FHIR4"
+        },
+        "effectivePeriod": {
+          "start": "2016-11-01T00:00:00",
+          "end": "2016-11-01T00:00:00"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "DiagnosticReport/denom-EXM125-FHIR4-3"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MeasureReport",
+        "id": "measurereport-denom-EXM125-FHIR4",
+        "contained": [
+          {
+            "resourceType": "Bundle",
+            "id": "9b7ed301-ed4a-4f01-bb4f-6c0085883885",
+            "type": "collection",
+            "entry": [
+              {
+                "fullUrl": "Procedure/denom-EXM130-FHIR4-2/_history/1",
+                "resource": {
+                  "resourceType": "Procedure",
+                  "id": "denom-EXM130-FHIR4-2",
+                  "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2019-12-12T21:10:47.637-07:00",
+                    "profile": [
+                      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+                    ]
+                  },
+                  "status": "completed",
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://www.ama-assn.org/go/cpt",
+                        "code": "44393",
+                        "display": "Colonoscopy through stoma; with ablation of tumor(s), polyp(s), or other lesion(s) not amenable to removal by hot biopsy forceps, bipolar cautery or snare technique"
+                      }
+                    ]
+                  },
+                  "subject": {
+                    "reference": "Patient/denom-EXM130-FHIR4"
+                  },
+                  "performedPeriod": {
+                    "start": "2009-12-30T12:00:00",
+                    "end": "2009-12-30T13:00:00"
+                  }
+                }
+              },
+              {
+                "fullUrl": "Encounter/denom-EXM130-FHIR4-1/_history/1",
+                "resource": {
+                  "resourceType": "Encounter",
+                  "id": "denom-EXM130-FHIR4-1",
+                  "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2019-12-12T21:10:47.637-07:00",
+                    "profile": [
+                      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+                    ]
+                  },
+                  "status": "finished",
+                  "class": {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                    "code": "AMB",
+                    "display": "ambulatory"
+                  },
+                  "type": [
+                    {
+                      "coding": [
+                        {
+                          "system": "http://www.ama-assn.org/go/cpt",
+                          "code": "99201",
+                          "display": "Office or other outpatient visit for the evaluation and management of a new patient, which requires these 3 key components: A problem focused history; A problem focused examination; Straightforward medical decision making. Counseling and/or coordination of care with other physicians, other qualified health care professionals, or agencies are provided consistent with the nature of the problem(s) and the patient's and/or family's needs. Usually, the presenting problem(s) are self limited or minor. Typically, 10 minutes are spent face-to-face with the patient and/or family."
+                        }
+                      ]
+                    }
+                  ],
+                  "subject": {
+                    "reference": "Patient/denom-EXM130-FHIR4"
+                  },
+                  "period": {
+                    "start": "2019-05-30T00:00:00-00:00",
+                    "end": "2019-05-31T00:00:00-00:00"
+                  }
+                }
+              },
+              {
+                "fullUrl": "7f1cf2ed-0ecd-4828-aec1-4f963286a36f",
+                "resource": {
+                  "resourceType": "List",
+                  "id": "7f1cf2ed-0ecd-4828-aec1-4f963286a36f",
+                  "title": "initial-population",
+                  "entry": [
+                    {
+                      "item": {
+                        "reference": "#Encounter/denom-EXM130-FHIR4-1/_history/1"
+                      }
+                    },
+                    {
+                      "item": {
+                        "reference": "#Patient/denom-EXM130-FHIR4/_history/1"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "fullUrl": "dd9af5a5-c92d-4f02-a1e8-e86c221caef6",
+                "resource": {
+                  "resourceType": "List",
+                  "id": "dd9af5a5-c92d-4f02-a1e8-e86c221caef6",
+                  "title": "numerator",
+                  "entry": [
+                    {
+                      "item": {
+                        "reference": "#Procedure/denom-EXM130-FHIR4-2/_history/1"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "fullUrl": "Patient/denom-EXM130-FHIR4/_history/1",
+                "resource": {
+                  "resourceType": "Patient",
+                  "id": "denom-EXM130-FHIR4",
+                  "meta": {
+                    "versionId": "1",
+                    "lastUpdated": "2019-12-12T21:10:47.637-07:00",
+                    "profile": [
+                      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+                    ]
+                  },
+                  "text": {
+                    "status": "generated",
+                    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">Ben <b>DERE </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>999999992</td></tr><tr><td>Date of birth</td><td><span>01 January 1965</span></td></tr></tbody></table></div>"
+                  },
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+                      "extension": [
+                        {
+                          "url": "ombCategory",
+                          "valueCoding": {
+                            "system": "urn:oid:2.16.840.1.113883.6.238",
+                            "code": "2028-9",
+                            "display": "Asian"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+                      "extension": [
+                        {
+                          "url": "ombCategory",
+                          "valueCoding": {
+                            "system": "urn:oid:2.16.840.1.113883.6.238",
+                            "code": "2135-2",
+                            "display": "Hispanic or Latino"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "identifier": [
+                    {
+                      "use": "usual",
+                      "type": {
+                        "coding": [
+                          {
+                            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                            "code": "MR",
+                            "display": "Medical Record Number"
+                          }
+                        ]
+                      },
+                      "system": "http://hospital.smarthealthit.org",
+                      "value": "999999992"
+                    }
+                  ],
+                  "name": [
+                    {
+                      "family": "Dere",
+                      "given": [
+                        "Ben"
+                      ]
+                    }
+                  ],
+                  "gender": "male",
+                  "birthDate": "1965-01-01"
+                }
+              }
+            ]
+          }
+        ],
+        "status": "complete",
+        "type": "individual",
+        "measure": "Measure/measure-EXM130-FHIR4-7.2.000",
+        "subject": {
+          "reference": "Patient/denom-EXM130-FHIR4"
+        },
+        "period": {
+          "start": "2019-01-01T00:00:00-07:00",
+          "end": "2019-12-31T00:00:00-07:00"
+        },
+        "group": [
+          {
+            "id": "group-1",
+            "population": [
+              {
+                "code": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                      "code": "initial-population",
+                      "display": "Initial Population"
+                    }
+                  ]
+                },
+                "count": 1
+              },
+              {
+                "code": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                      "code": "numerator",
+                      "display": "Numerator"
+                    }
+                  ]
+                },
+                "count": 0
+              },
+              {
+                "code": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                      "code": "denominator",
+                      "display": "Denominator"
+                    }
+                  ]
+                },
+                "count": 1
+              },
+              {
+                "code": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                      "code": "denominator-exclusion",
+                      "display": "Denominator Exclusion"
+                    }
+                  ]
+                },
+                "count": 0
+              }
+            ],
+            "measureScore": {
+              "value": 0.0
+            }
+          }
+        ],
+        "evaluatedResource": [
+          {
+            "reference": "#9b7ed301-ed4a-4f01-bb4f-6c0085883885"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MeasureReport/measurereport-denom-EXM125-FHIR4"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "numer-EXM125-FHIR4",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2028-9",
+                  "display": "Asian"
+                }
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2135-2",
+                  "display": "Hispanic or Latino"
+                }
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR",
+                  "display": "Medical Record Number"
+                }
+              ]
+            },
+            "system": "http://hospital.smarthealthit.org",
+            "value": "999999995"
+          }
+        ],
+        "name": [
+          {
+            "family": "McCarren",
+            "given": [
+              "Karen"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1965-01-01"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Patient/numer-EXM125-FHIR4"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "denom-EXM125-FHIR4",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2028-9",
+                  "display": "Asian"
+                }
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2135-2",
+                  "display": "Hispanic or Latino"
+                }
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR",
+                  "display": "Medical Record Number"
+                }
+              ]
+            },
+            "system": "http://hospital.smarthealthit.org",
+            "value": "999999995"
+          }
+        ],
+        "name": [
+          {
+            "family": "Dunn",
+            "given": [
+              "Dorothy"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1965-01-01"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Patient/denom-EXM125-FHIR4"
       }
     },
     {
@@ -1328,6 +2108,33 @@
     },
     {
       "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "numer-EXM125-FHIR4-3",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "24604-1",
+              "display": "MG Breast Diagnostic Limited Views"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/numer-EXM125-FHIR4"
+        },
+        "effectivePeriod": {
+          "start": "2018-05-30T00:00:00-00:00",
+          "end": "2018-11-30T00:00:00-00:00"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "DiagnosticReport/numer-EXM125-FHIR4-3"
+      }
+    },
+    {
+      "resource": {
         "resourceType": "ValueSet",
         "id": "2.16.840.1.113883.3.526.3.1240",
         "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1240",
@@ -1404,6 +2211,45 @@
       "request": {
         "method": "PUT",
         "url": "ValueSet/2.16.840.1.113762.1.4.1108.15"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "numer-EXM124-FHIR4-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://www.ama-assn.org/go/cpt",
+                "code": "99201",
+                "display": "Office or other outpatient visit for the evaluation and management of a new patient, which requires these 3 key components: A problem focused history; A problem focused examination; Straightforward medical decision making. Counseling and/or coordination of care with other physicians, other qualified health care professionals, or agencies are provided consistent with the nature of the problem(s) and the patient's and/or family's needs. Usually, the presenting problem(s) are self limited or minor. Typically, 10 minutes are spent face-to-face with the patient and/or family."
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/numer-EXM124-FHIR4"
+        },
+        "period": {
+          "start": "2019-05-31T00:00:00-00:00",
+          "end": "2019-05-31T00:00:00-00:00"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Encounter/numer-EXM124-FHIR4-1"
       }
     },
     {
@@ -3054,6 +3900,45 @@
       "request": {
         "method": "PUT",
         "url": "Measure/measure-exm125-FHIR4/_history/2"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "denom-EXM125-FHIR4-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://www.ama-assn.org/go/cpt",
+                "code": "99201",
+                "display": "Office or other outpatient visit for the evaluation and management of a new patient, which requires these 3 key components: A problem focused history; A problem focused examination; Straightforward medical decision making. Counseling and/or coordination of care with other physicians, other qualified health care professionals, or agencies are provided consistent with the nature of the problem(s) and the patient's and/or family's needs. Usually, the presenting problem(s) are self limited or minor. Typically, 10 minutes are spent face-to-face with the patient and/or family."
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/denom-EXM125-FHIR4"
+        },
+        "period": {
+          "start": "2019-05-31T00:00:00-00:00",
+          "end": "2019-05-31T00:00:00-00:00"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Encounter/denom-EXM125-FHIR4-1"
       }
     },
     {
