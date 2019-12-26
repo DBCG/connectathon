@@ -168,6 +168,9 @@ define function "Normalize Abatement"(condition Condition):
 define function "GetPrevalencePeriod"(condition Condition):
   Interval[start of "Normalize Onset"(condition.onset), end of "Normalize Abatement"(condition))
 
+//Measure Review: 
+//Global."Normalize Interval" does not work in R4 for a number of resource attributes as it did in STU3.
+//Example: R4 Procedure.performed and Observation.effective no longer have the same Choice types.
 define function "Normalize Interval"(choice Choice<FHIR.dateTime, FHIR.Period>):
   if choice is FHIR.dateTime then
 	  Interval[FHIRHelpers.ToDateTime(choice as FHIR.dateTime), FHIRHelpers.ToDateTime(choice as FHIR.dateTime)]
