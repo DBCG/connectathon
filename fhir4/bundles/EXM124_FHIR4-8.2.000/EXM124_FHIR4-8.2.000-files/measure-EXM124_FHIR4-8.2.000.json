@@ -2,6 +2,8 @@
   "resourceType": "Measure",
   "id": "measure-EXM124-FHIR4-8.2.000",
   "meta": {
+    "versionId": "2",
+    "lastUpdated": "2019-12-26T13:14:06.409-07:00",
     "profile": [
       "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm"
     ]
@@ -36,14 +38,17 @@
   "experimental": true,
   "date": "2018-09-17",
   "publisher": "National Committee for Quality Assurance",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.ncqa.org/"
+        }
+      ]
+    }
+  ],
   "description": "Percentage of women 21-64 years of age who were screened for cervical cancer using either of the following criteria: <br> *  Women age 21-64 who had cervical cytology performed every 3 years <br.*  Women age 30-64 who had cervical cytology/human papillomavirus (HPV) co-testing performed every 5 years ",
-  "purpose": "Women 23-64 years of age with a visit during the measurement period",
-  "approvalDate": "2016-01-01",
-  "lastReviewDate": "2016-09-01",
-  "effectivePeriod": {
-    "start": "2019-01-01",
-    "end": "2019-12-31"
-  },
   "useContext": [
     {
       "code": {
@@ -64,6 +69,14 @@
       ]
     }
   ],
+  "purpose": "Women 23-64 years of age with a visit during the measurement period",
+  "copyright": "This Physician Performance Measure (Measure) and related data specifications were developed by the National Committee for Quality Assurance (NCQA). NCQA is not responsible for any use of the Measure. NCQA makes no representations, warranties, or endorsement about the quality of any organization or physician that uses or reports performance measures and NCQA has no liability to anyone who relies on such measures or specifications. NCQA holds a copyright in the Measure. The Measure can be reproduced and distributed, without modification, for noncommercial purposes (eg, use by healthcare providers in connection with their practices) without obtaining approval from NCQA. Commercial use is defined as the sale, licensing, or distribution of the Measure for commercial gain, or incorporation of the Measure into a product or service that is sold, licensed or distributed for commercial gain. All commercial uses or requests for modification must be approved by NCQA and are subject to a license at the discretion of NCQA. (C) 2012-2017 National Committee for Quality Assurance. All Rights Reserved. Limited proprietary coding is contained in the Measure specifications for user convenience. Users of proprietary code sets should obtain all necessary licenses from the owners of the code sets. NCQA disclaims all liability for use or accuracy of any third party codes contained in the specifications. CPT(R) contained in the Measure specifications is copyright 2004-2017 American Medical Association. LOINC(R) copyright 2004-2017 Regenstrief Institute, Inc. This material contains SNOMED Clinical Terms(R) (SNOMED CT[R] ) copyright 2004-2017 International Health Terminology Standards Development Organisation. ICD-10 copyright 2017 World Health Organization. All Rights Reserved.",
+  "approvalDate": "2016-01-01",
+  "lastReviewDate": "2016-09-01",
+  "effectivePeriod": {
+    "start": "2019-01-01",
+    "end": "2019-12-31"
+  },
   "topic": [
     {
       "coding": [
@@ -75,23 +88,6 @@
       ]
     }
   ],
-  "contributor": [
-    {
-      "type": "author",
-      "name": "National Committee for Quality Assurance"
-    }
-  ],
-  "contact": [
-    {
-      "telecom": [
-        {
-          "system": "url",
-          "value": "http://www.ncqa.org/"
-        }
-      ]
-    }
-  ],
-  "copyright": "This Physician Performance Measure (Measure) and related data specifications were developed by the National Committee for Quality Assurance (NCQA). NCQA is not responsible for any use of the Measure. NCQA makes no representations, warranties, or endorsement about the quality of any organization or physician that uses or reports performance measures and NCQA has no liability to anyone who relies on such measures or specifications. NCQA holds a copyright in the Measure. The Measure can be reproduced and distributed, without modification, for noncommercial purposes (eg, use by healthcare providers in connection with their practices) without obtaining approval from NCQA. Commercial use is defined as the sale, licensing, or distribution of the Measure for commercial gain, or incorporation of the Measure into a product or service that is sold, licensed or distributed for commercial gain. All commercial uses or requests for modification must be approved by NCQA and are subject to a license at the discretion of NCQA. (C) 2012-2017 National Committee for Quality Assurance. All Rights Reserved. Limited proprietary coding is contained in the Measure specifications for user convenience. Users of proprietary code sets should obtain all necessary licenses from the owners of the code sets. NCQA disclaims all liability for use or accuracy of any third party codes contained in the specifications. CPT(R) contained in the Measure specifications is copyright 2004-2017 American Medical Association. LOINC(R) copyright 2004-2017 Regenstrief Institute, Inc. This material contains SNOMED Clinical Terms(R) (SNOMED CT[R] ) copyright 2004-2017 International Health Terminology Standards Development Organisation. ICD-10 copyright 2017 World Health Organization. All Rights Reserved.",
   "relatedArtifact": [
     {
       "type": "citation",
@@ -108,6 +104,26 @@
     {
       "type": "citation",
       "citation": "U.S. Preventive Services Task Force (USPSTF). 2016. \"Screening for Breast Cancer: U.S. Preventive Services Task Force Recommendation Statement.\" Ann Intern Med. 164(4):279-296. doi:10.7326/M15-2886."
+    },
+    {
+      "type": "depends-on",
+      "resource": "Library/library-FHIRHelpers-4.0.0"
+    },
+    {
+      "type": "depends-on",
+      "resource": "Library/library-Hospice-FHIR4-1.0.000"
+    },
+    {
+      "type": "depends-on",
+      "resource": "Library/library-AdultOutpatientEncounters-FHIR4-1.1.000"
+    },
+    {
+      "type": "depends-on",
+      "resource": "Library/library-MATGlobalCommonFunctions-FHIR4-4.0.000"
+    },
+    {
+      "type": "depends-on",
+      "resource": "Library/library-SupplementalDataElements-FHIR4-1.0.0"
     }
   ],
   "library": [
@@ -136,16 +152,16 @@
   "clinicalRecommendationStatement": "The U.S. Preventive Services Task Force (USPSTF) recommends biennial screening mammography for women aged 50-74 years (B recommendation).  <br> The decision to start screening mammography in women prior to age 50 years should be an individual one. Women who place a higher value on the potential benefit than the potential harms may choose to begin biennial screening between the ages of 40 and 49 years (C recommendation). (USPSTF, 2016) <br> The USPSTF concludes that the current evidence is insufficient to assess the balance of benefits and harms of screening mammography in women aged 75 years or older (I statement). (USPSTF, 2016) <br> The USPSTF concludes that the current evidence is insufficient to assess the benefits and harms of digital breast tomosynthesis (DBT) as a primary screening method for breast cancer (I Statement). (USPSTF, 2016)  <br> The USPSTF concludes that the current evidence is insufficient to assess the balance of benefits and harms of adjunctive screening for breast cancer using breast ultrasonography, magnetic resonance imaging, DBT, or other methods in women identified to have dense breasts on an otherwise negative screening mammogram (I statement). (USPSTF, 2016)",
   "improvementNotation": {
     "coding": [
-		{
-			"system": "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
-			"code": "increase"
-		}
-	]
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
+        "code": "increase"
+      }
+    ]
   },
   "guidance": "To ensure the measure is only looking for a cervical cytology test only after a woman turns 21 years of age, the youngest age in the initial population is 23. <br> Patient self-report for procedures as well as diagnostic studies should be recorded in 'Procedure, Performed' template or 'Diagnostic Study, Performed' template in QRDA-1. <br> Include only cytology and HPV \"co-testing\"; in co-testing, both cytology and HPV tests are performed (i.e., the samples are collected and both tests are ordered, regardless of the cytology result) on the same date of service. Do not include reflex testing. In addition, if the medical record indicates the HPV test was performed only after determining the cytology result, this is considered reflex testing and does not meet criteria for the measure.",
   "group": [
     {
-	  "id": "group-1",
+      "id": "group-1",
       "population": [
         {
           "code": {
@@ -158,9 +174,9 @@
             ]
           },
           "criteria": {
-			"language": "text/cql",
-			"expression": "Initial Population"
-		  }
+            "language": "text/cql",
+            "expression": "Initial Population"
+          }
         },
         {
           "code": {
@@ -173,9 +189,9 @@
             ]
           },
           "criteria": {
-			"language": "text/cql",
-			"expression": "Numerator"
-		  }
+            "language": "text/cql",
+            "expression": "Numerator"
+          }
         },
         {
           "code": {
@@ -188,9 +204,9 @@
             ]
           },
           "criteria": {
-			"language": "text/cql",
-			"expression": "Denominator"
-		  }
+            "language": "text/cql",
+            "expression": "Denominator"
+          }
         },
         {
           "code": {
@@ -203,9 +219,9 @@
             ]
           },
           "criteria": {
-			"language": "text/cql",
-			"expression": "Denominator Exclusion"
-		  }
+            "language": "text/cql",
+            "expression": "Denominator Exclusion"
+          }
         }
       ]
     }
@@ -225,10 +241,10 @@
           ]
         }
       ],
-	  "criteria": {
-		"language": "text/cql",
-		"expression": "SDE Ethnicity"
-	  }
+      "criteria": {
+        "language": "text/cql",
+        "expression": "SDE Ethnicity"
+      }
     },
     {
       "code": {
@@ -244,10 +260,10 @@
           ]
         }
       ],
-	  "criteria": {
-		"language": "text/cql",
-		"expression": "SDE Payer"
-	  }
+      "criteria": {
+        "language": "text/cql",
+        "expression": "SDE Payer"
+      }
     },
     {
       "code": {
@@ -263,10 +279,10 @@
           ]
         }
       ],
-	  "criteria": {
-		"language": "text/cql",
-		"expression": "SDE Race"
-	  }
+      "criteria": {
+        "language": "text/cql",
+        "expression": "SDE Race"
+      }
     },
     {
       "code": {
@@ -282,10 +298,10 @@
           ]
         }
       ],
-	  "criteria": {
-		"language": "text/cql",
-		"expression": "SDE Sex"
-	  }
+      "criteria": {
+        "language": "text/cql",
+        "expression": "SDE Sex"
+      }
     }
   ]
 }
