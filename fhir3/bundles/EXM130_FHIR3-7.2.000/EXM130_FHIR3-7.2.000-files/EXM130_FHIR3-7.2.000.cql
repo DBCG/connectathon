@@ -66,10 +66,9 @@ define "Total Colectomy Performed":
 		where Colectomy.status = 'completed'
 			and Global."Normalize Interval"(Colectomy.performed) starts on or before end of "Measurement Period"
 
-define "Malignant Neoplasm":
+define "Malignant Neoplasm Ever":
 	[Condition: "Malignant Neoplasm of Colon"] ColorectalCancer
 		where Global."Normalize Onset"(ColorectalCancer.onset) starts on or before end of "Measurement Period"
-      and ColorectalCancer.clinicalStatus = 'active'
 
 define "Fecal Occult Blood Test Performed":
 	[Observation: "Fecal Occult Blood Test (FOBT)"] FecalOccultResult
@@ -99,7 +98,7 @@ define "Numerator":
 
 define "Denominator Exclusion":
 	Hospice."Has Hospice"("Measurement Period")
-		or exists "Malignant Neoplasm"
+		or exists "Malignant Neoplasm Ever"
 		or exists "Total Colectomy Performed"
 
 define "Initial Population":
