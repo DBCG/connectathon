@@ -1,5 +1,5 @@
-// for 2020 Reporting Year
 library EXM104_FHIR4 version '8.1.000'
+// for 2020 Reporting Year
 //STK 2
 /*
 Based on CMS104 - Discharged on Antithrombotic Therapy
