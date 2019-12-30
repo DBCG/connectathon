@@ -163,7 +163,8 @@ define "No VTE Prophylaxis Device Applied or Ordered":
                            or Device.type in "Graduated compression stockings (GCS)"
                    )
      ) D
-     where GetBaseExtension(D, 'request-doNotPerform').value is true //Connectathon: pending cql_engine fix #262 (FHIR 3.0.0 model info issue with Extension.url)
+     //JR: updated to use the Global get extension because the argument is DomainResource
+     where Global.GetExtension(D, 'doNotPerform').value is true
   )
   union ((
     ["DeviceRequest": code in "Venous foot pumps (VFP)"]
@@ -171,7 +172,8 @@ define "No VTE Prophylaxis Device Applied or Ordered":
       union ["DeviceRequest": code in "Graduated compression stockings (GCS)"]
   ) D
     where D.intent ~ ToConcept("Order")
-	and GetExtension(D, 'doNotPerform').value is true //Connectathon: pending cql_engine fix #262 (FHIR 3.0.0 model info issue with Extension.url)
+    //JR: updated to use the Global get extension because the argument is DomainResource
+	 and Global.GetExtension(D, 'doNotPerform').value is true
     //where D.doNotPerform is true // Needs a QI-Core extension to support
   )
 define function GetExtension(Extensions List<Extension>, URL String):
@@ -209,16 +211,17 @@ define "No VTE Prophylaxis Medication Administered or Ordered":
 	)
 	union
 	 // TODO: Tracker for QI-core to add doNotPerform extension for MedicationRequest and suggest to the base Resource
-	((	["MedicationRequest": code in "Low Dose Unfractionated Heparin for VTE Prophylaxis"]
+	//JR: code is not an attribute of MedicationRequest.  Used medication instead.
+	((	["MedicationRequest": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxis"]
 	union
-	["MedicationRequest": code in "Low Molecular Weight Heparin for VTE Prophylaxis"]
+	["MedicationRequest": medication in "Low Molecular Weight Heparin for VTE Prophylaxis"]
 	union
-	["MedicationRequest": code in "Injectable Factor Xa Inhibitor for VTE Prophylaxis"]
+	["MedicationRequest": medication in "Injectable Factor Xa Inhibitor for VTE Prophylaxis"]
 	union
-	["MedicationRequest": code in "Warfarin"]
+	["MedicationRequest": medication in "Warfarin"]
 	) MedicationOrder
 	where	MedicationOrder.intent = 'order'
-		and GetExtension(MedicationOrder.extension, 'http://example.org/fhir/extensions/doNotPerform').value is true //Connectathon: pending cql_engine fix #262 (FHIR 3.0.0 model info issue with Extension.url)
+		and GetExtension(MedicationOrder.extension, 'http://example.org/fhir/extensions/doNotPerform').value is true
 		//MedicationOrder.doNotPerform is true // Needs a QI-Core extension to support
 	)
 
@@ -345,9 +348,10 @@ define "VTE Prophylaxis by Medication Administered or Device Applied":
 						and VTEMedication.dosage.route in "Subcutaneous route"
             return start of VTEMedication.effective
 	)
-		union (["MedicationAdministration": code in "Low Molecular Weight Heparin for VTE Prophylaxis"] VTEMedication return start of VTEMedication.effective)
-		union (["MedicationAdministration": code in "Injectable Factor Xa Inhibitor for VTE Prophylaxis"] VTEMedication return start of VTEMedication.effective)
-		union (["MedicationAdministration": code in "Warfarin"] VTEMedication return start of VTEMedication.effective)
+		//JR: code is not an attribute of MedicationAdministration.  Used medication instead.
+		union (["MedicationAdministration": medication in "Low Molecular Weight Heparin for VTE Prophylaxis"] VTEMedication return start of VTEMedication.effective)
+		union (["MedicationAdministration": medication in "Injectable Factor Xa Inhibitor for VTE Prophylaxis"] VTEMedication return start of VTEMedication.effective)
+		union (["MedicationAdministration": medication in "Warfarin"] VTEMedication return start of VTEMedication.effective)
 		union
             (
                 (
@@ -526,7 +530,7 @@ define "No VTE Prophylaxis Due to Patient Refusal on Day of or Day After Procedu
 define "No VTE Prophylaxis Medication or Device Due to Patient Refusal":
 	( "No VTE Prophylaxis Medication Administered or Ordered"
 		union "No VTE Prophylaxis Device Applied or Ordered" ) NoVTEProphylaxis
-		where GetExtension(NoVTEProphylaxis.extension, 'http://example.org/StructureDefinition/notDoneReason').value in "Patient Refusal" //Connectathon: pending cql_engine fix #262 (FHIR 3.0.0 model info issue with Extension.url)
+		where GetExtension(NoVTEProphylaxis.extension, 'http://example.org/StructureDefinition/notDoneReason').value in "Patient Refusal"
 
 //Done
 define "No VTE Prophylaxis Due to Patient Refusal":
