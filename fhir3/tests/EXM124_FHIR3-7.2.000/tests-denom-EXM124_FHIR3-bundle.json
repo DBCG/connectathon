@@ -49,7 +49,7 @@
         "contained": [
           {
             "resourceType": "Bundle",
-            "id": "2e887a09-364f-4c53-a343-4735ca9833be",
+            "id": "281bd287-9131-4e37-ab8a-9e85089f27ab",
             "type": "collection",
             "entry": [
               {
@@ -59,7 +59,7 @@
                   "id": "denom-EXM124-FHIR3-2",
                   "meta": {
                     "versionId": "1",
-                    "lastUpdated": "2019-12-18T11:39:24.199-07:00"
+                    "lastUpdated": "2019-12-30T13:47:18.695-07:00"
                   },
                   "status": "final",
                   "code": {
@@ -78,15 +78,35 @@
                 }
               },
               {
-                "fullUrl": "9a675e83-45bd-4afb-9863-5c96a2830dbd",
+                "fullUrl": "5b47da2d-5d1f-4dce-93c7-f30503c2ecf3",
                 "resource": {
                   "resourceType": "List",
-                  "id": "9a675e83-45bd-4afb-9863-5c96a2830dbd",
+                  "id": "5b47da2d-5d1f-4dce-93c7-f30503c2ecf3",
                   "title": "numerator",
                   "entry": [
                     {
                       "item": {
                         "reference": "#Observation/denom-EXM124-FHIR3-2/_history/1"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "fullUrl": "585e64db-ea2b-49b9-bfd0-a1c5db9e550b",
+                "resource": {
+                  "resourceType": "List",
+                  "id": "585e64db-ea2b-49b9-bfd0-a1c5db9e550b",
+                  "title": "initial-population",
+                  "entry": [
+                    {
+                      "item": {
+                        "reference": "#Patient/denom-EXM124-FHIR3/_history/1"
+                      }
+                    },
+                    {
+                      "item": {
+                        "reference": "#Encounter/denom-EXM124-FHIR3-1/_history/1"
                       }
                     }
                   ]
@@ -99,7 +119,7 @@
                   "id": "denom-EXM124-FHIR3",
                   "meta": {
                     "versionId": "1",
-                    "lastUpdated": "2019-12-18T11:39:24.199-07:00",
+                    "lastUpdated": "2019-12-30T13:47:18.695-07:00",
                     "profile": [
                       "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
                     ]
@@ -165,33 +185,13 @@
                 }
               },
               {
-                "fullUrl": "6c976c9f-2556-4911-a4aa-a54bed9f4cc3",
-                "resource": {
-                  "resourceType": "List",
-                  "id": "6c976c9f-2556-4911-a4aa-a54bed9f4cc3",
-                  "title": "initial-population",
-                  "entry": [
-                    {
-                      "item": {
-                        "reference": "#Patient/denom-EXM124-FHIR3/_history/1"
-                      }
-                    },
-                    {
-                      "item": {
-                        "reference": "#Encounter/denom-EXM124-FHIR3-1/_history/1"
-                      }
-                    }
-                  ]
-                }
-              },
-              {
                 "fullUrl": "Encounter/denom-EXM124-FHIR3-1/_history/1",
                 "resource": {
                   "resourceType": "Encounter",
                   "id": "denom-EXM124-FHIR3-1",
                   "meta": {
                     "versionId": "1",
-                    "lastUpdated": "2019-12-18T11:39:24.199-07:00",
+                    "lastUpdated": "2019-12-30T13:47:18.695-07:00",
                     "profile": [
                       "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
                     ]
@@ -244,9 +244,6 @@
             },
             "population": [
               {
-                "identifier": {
-                  "value": "initial-population-identifier"
-                },
                 "code": {
                   "coding": [
                     {
@@ -259,9 +256,6 @@
                 "count": 1
               },
               {
-                "identifier": {
-                  "value": "numerator-identifier"
-                },
                 "code": {
                   "coding": [
                     {
@@ -274,9 +268,6 @@
                 "count": 0
               },
               {
-                "identifier": {
-                  "value": "denominator-identifier"
-                },
                 "code": {
                   "coding": [
                     {
@@ -289,9 +280,6 @@
                 "count": 1
               },
               {
-                "identifier": {
-                  "value": "denominator-exclusions-identifier"
-                },
                 "code": {
                   "coding": [
                     {
@@ -308,7 +296,7 @@
           }
         ],
         "evaluatedResources": {
-          "reference": "#2e887a09-364f-4c53-a343-4735ca9833be"
+          "reference": "#281bd287-9131-4e37-ab8a-9e85089f27ab"
         }
       },
       "request": {
