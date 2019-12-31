@@ -1,4 +1,4 @@
-library TJC_Overall_FHIR4 version '4.0.000'
+library TJCOverall_FHIR4 version '4.0.000'
 
 using FHIR version '4.0.0'
 // NOTE: BTR 2019-07-30: Updated version dependencies
@@ -26,6 +26,7 @@ valueset "Observation Services": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.
 code "Birth date": '21112-8' from "LOINC" display 'Birth date'
 
 parameter "Measurement Period" Interval<DateTime>
+  default Interval[@2019-01-01T00:00:00.0, @2020-01-01T00:00:00.0)
 
 context Patient
 
@@ -62,7 +63,7 @@ define "Ischemic Stroke Encounters with Discharge Disposition":
 	)
 
 	define "Comfort Measures during Hospitalization":
-		"Ischemic Stroke Encounter" IschemicStrokeEncounter 
+		"Ischemic Stroke Encounter" IschemicStrokeEncounter
 	   	with "Intervention Comfort Measures" ComfortMeasure
 	    	such that FHIRHelpers.ToDateTime(Coalesce(ComfortMeasure.performed as dateTime,ComfortMeasure.authoredOn)) during Global."HospitalizationWithObservation"(IschemicStrokeEncounter)
 
