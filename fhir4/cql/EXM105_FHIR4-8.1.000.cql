@@ -15,7 +15,7 @@ using FHIR version '4.0.0'
 include FHIRHelpers version '4.0.0'
 include MATGlobalCommonFunctions_FHIR4 version '4.0.000' called Global
 include SupplementalDataElements_FHIR4 version '1.0.0' called SDE
-include TJC_Overall_FHIR4 version '4.0.000' called TJC
+include TJCOverall_FHIR4 version '4.0.000' called TJC
 
 //QA
 codesystem "LOINC": 'http://loinc.org'
@@ -59,6 +59,7 @@ code "Order": 'order' from "RequestIntent" display 'Order'
 code "Discharge": 'discharge' from "MedicationRequestCategory" display 'Discharge'
 
 parameter "Measurement Period" Interval<DateTime>
+  default Interval[@2019-01-01T00:00:00.0, @2020-01-01T00:00:00.0)
 
 context Patient
 
