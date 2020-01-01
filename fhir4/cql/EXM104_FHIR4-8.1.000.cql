@@ -11,7 +11,7 @@ using FHIR version '4.0.0'
 include FHIRHelpers version '4.0.0'
 include MATGlobalCommonFunctions_FHIR4 version '4.0.000' called Global
 include SupplementalDataElements_FHIR4 version '1.0.0' called SDE
-include TJC_Overall_FHIR4 version '4.0.000' called TJC
+include TJCOverall_FHIR4 version '4.0.000' called TJC
 
 codesystem "LOINC": 'http://loinc.org'
 codesystem "SNOMEDCT": 'http://snomed.info/sct/731000124108'
@@ -77,7 +77,7 @@ define "Initial Population":
         define "All Stroke Encounter":
         	"Non Elective Inpatient Encounter" NonElectiveEncounter
         		where Global.PrincipalDiagnosis(NonElectiveEncounter).code in "Hemorrhagic Stroke"
-        		or Global.PrincipalDiagnosis(NonElectiveEncounter).code in "Ischemic Stroke"
+        		  or Global.PrincipalDiagnosis(NonElectiveEncounter).code in "Ischemic Stroke"
 
 //QA
               define "Non Elective Inpatient Encounter":
@@ -95,7 +95,7 @@ define "Denominator":
       where Global.PrincipalDiagnosis(EncounterWithAge).code in "Ischemic Stroke"
 
 //QA
-define "Denominator Exclusions":
+define "Denominator Exclusion":
 	TJC."Ischemic Stroke Encounters with Discharge Disposition"
 		union TJC."Comfort Measures during Hospitalization"
 
@@ -131,13 +131,14 @@ define "Denominator Exclusions":
 define "Numerator":
 	TJC."Ischemic Stroke Encounter" IschemicStrokeEncounter
 		with "Antithrombotic Therapy at Discharge" DischargeAntithrombotic
-			such that DischargeAntithrombotic.authoredOn during IschemicStrokeEncounter.period
+			such that DischargeAntithrombotic.authoredOn during Global."Normalize Interval"(IschemicStrokeEncounter.period)
 
 //QA
-      define "Antithrombotic Therapy at Discharge":
-      	["MedicationRequest": medication in "Antithrombotic Therapy"] Antithrombotic
-      	  where exists (Antithrombotic.category C where FHIRHelpers.ToConcept(C) ~ "Discharge")
-      	    and Antithrombotic.intent in {'plan', 'order'}
+define "Antithrombotic Therapy at Discharge":
+    ["MedicationRequest"] MedicationRequest
+    where MedicationRequest.medication in "Antithrombotic Therapy"
+     and exists (MedicationRequest.category C where FHIRHelpers.ToConcept(C) ~ "Discharge")
+      and MedicationRequest.intent.value in {'plan', 'order'}
 
 //QA
 define "Denominator Exceptions":
