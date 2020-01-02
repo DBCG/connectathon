@@ -1,7 +1,7 @@
+library EXM108_FHIR4 version '8.2.000'
 //for 2020 reporting year. QDM to QI-4
 //Venous Thromboembolism Prophylaxis
 //Author: TJC
-library EXM108_FHIR4 version '8.2.000'
 
 using FHIR version '4.0.0'
 
@@ -9,7 +9,7 @@ include FHIRHelpers version '4.0.0' called FHIRHelpers
 include MATGlobalCommonFunctions_FHIR4 version '4.0.000' called Global
 include SupplementalDataElements_FHIR4 version '1.0.0' called SDE
 include VTEICU_FHIR4 version '3.1.000' called VTEICU
-include TJC_Overall_FHIR4 version '4.0.000' called TJC
+include TJCOverall_FHIR4 version '4.0.000' called TJC
 
 codesystem "SNOMEDCT": 'http://snomed.info/sct/731000124108'
 codesystem "LOINC": 'http://loinc.org'
@@ -107,7 +107,7 @@ define "Encounter With Age Range and Without VTE Diagnosis or Obstetrical Condit
 define "Denominator":
       "Initial Population"
 
-define "Denominator Exclusions":
+define "Denominator Exclusion":
     "Encounter Less Than 2 Days"
      union "Encounter With ICU Location Stay 1 Day or More"
      union "Encounter With Principal Diagnosis of Mental Disorder or Stroke"
