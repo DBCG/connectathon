@@ -18,7 +18,7 @@ docker run -p 8080:8080 contentgroup/cqf-ruler
 #### FHIR3
 
 * [Measure CQL](fhir3/cql/EXM165_FHIR3-8.5.000.cql)
-* [Master Bundle](fhir3/bundles/EXM165_FHIR3-8.5.000/EXM165_FHIR3-8.5.000-bundle.json)  (includes everything but the CQL)
+* [Master Bundle](fhir3/bundles/EXM165_FHIR3-8.5.000/EXM165_FHIR3-8.5.000-bundle.json)  (includes all the Individual bundles)
 
 Individual bundles:
 * [Measure Bundle](fhir3/bundles/EXM165_FHIR3-8.5.000/EXM165_FHIR3-8.5.000-files/measure-EXM165_FHIR3-8.5.000.json)
