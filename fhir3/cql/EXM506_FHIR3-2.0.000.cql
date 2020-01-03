@@ -45,13 +45,17 @@ define "Encounter with an Opioid or Benzodiazepine at Discharge":
     	such that OpioidsDischarge.authoredOn during InpatientEncounter.period
     		and OpioidsDischarge.intent = 'order'
 	)
+  //Measure Review:
+  //The prior implementation was restricting "Inpatient Encounter with Age Greater than or Equal to 18"
+  //to both Opioid AND Benzodiazepine at discharge.
+  //The following implementation restricts it to Opioid OR Benzodiazepine, per the description.
+  //Need validation from the measure developers that this meets the itent of the spec.
 		union (
-			"Inpatient Encounter with Age Greater than or Equal to 18" InpatientEncounter
-	    	with [MedicationRequest: medication in "Schedule IV Benzodiazepines"] BenzodiazepineDischarge
-			such that BenzodiazepineDischarge.authoredOn during InpatientEncounter.period
-     			and BenzodiazepineDischarge.intent = 'order'
+      "Inpatient Encounter with Age Greater than or Equal to 18" InpatientEncounter
+	    with [MedicationRequest: medication in "Schedule IV Benzodiazepines"] BenzodiazepineDischarge
+	     such that BenzodiazepineDischarge.authoredOn during InpatientEncounter.period
+     	  and BenzodiazepineDischarge.intent = 'order'
 		 )
-
 
 define "Initial Population":
 "Encounter with an Opioid or Benzodiazepine at Discharge"

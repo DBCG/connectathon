@@ -98,7 +98,7 @@ define "Bilateral Mastectomy Procedure":
 define "Numerator":
 		exists (
 				[DiagnosticReport: "Mammography"] Mammogram
-						where ( Mammogram.effective ends 27 months or less before day of end of "Measurement Period" )
+						where ( Global."Normalize Interval"(Mammogram.effective) ends 27 months or less before day of end of "Measurement Period" )
 								and Mammogram.status in { 'final', 'amended', 'corrected', 'appended' }
 		)
 
