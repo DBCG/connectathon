@@ -43,45 +43,6 @@
     },
     {
       "resource": {
-        "resourceType": "Device",
-        "id": "numer-EXM108-FHIR4-5",
-        "type": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "442023007",
-              "display": "Venous foot pump, device (physical object)"
-            }
-          ]
-        },
-        "patient": {
-          "reference": "Patient/numer-EXM108-FHIR4"
-        }
-      },
-      "request": {
-        "method": "PUT",
-        "url": "Device/numer-EXM108-FHIR4-5"
-      }
-    },
-    {
-      "resource": {
-        "resourceType": "DeviceUseStatement",
-        "id": "numer-EXM108-FHIR4-4",
-        "status": "completed",
-        "subject": {
-          "reference": "Patient/numer-EXM108-FHIR4"
-        },
-        "device": {
-          "reference": "Device/numer-EXM108-FHIR4-5"
-        }
-      },
-      "request": {
-        "method": "PUT",
-        "url": "DeviceUseStatement/numer-EXM108-FHIR4-4"
-      }
-    },
-    {
-      "resource": {
         "resourceType": "Encounter",
         "id": "numer-EXM108-FHIR4-3",
         "meta": {
@@ -136,76 +97,6 @@
       "request": {
         "method": "PUT",
         "url": "Encounter/numer-EXM108-FHIR4-3"
-      }
-    },
-    {
-      "resource": {
-        "resourceType": "MeasureReport",
-        "id": "measurereport-numer-EXM108-FHIR4",
-        "status": "complete",
-        "type": "individual",
-        "period": {
-          "start": "2019-01-01T00:00:00-07:00",
-          "end": "2019-12-31T00:00:00-07:00"
-        },
-        "group": [
-          {
-            "population": [
-              {
-                "code": {
-                  "coding": [
-                    {
-                      "system": "http://terminology.hl7.org/CodeSystem/measure-population",
-                      "code": "initial-population",
-                      "display": "Initial Population"
-                    }
-                  ]
-                },
-                "count": 1
-              },
-              {
-                "code": {
-                  "coding": [
-                    {
-                      "system": "http://terminology.hl7.org/CodeSystem/measure-population",
-                      "code": "numerator",
-                      "display": "Numerator"
-                    }
-                  ]
-                },
-                "count": 1
-              },
-              {
-                "code": {
-                  "coding": [
-                    {
-                      "system": "http://terminology.hl7.org/CodeSystem/measure-population",
-                      "code": "denominator",
-                      "display": "Denominator"
-                    }
-                  ]
-                },
-                "count": 1
-              },
-              {
-                "code": {
-                  "coding": [
-                    {
-                      "system": "http://terminology.hl7.org/CodeSystem/measure-population",
-                      "code": "denominator-exclusion",
-                      "display": "Denominator Exclusion"
-                    }
-                  ]
-                },
-                "count": 0
-              }
-            ]
-          }
-        ]
-      },
-      "request": {
-        "method": "PUT",
-        "url": "MeasureReport/measurereport-numer-EXM108-FHIR4"
       }
     },
     {
