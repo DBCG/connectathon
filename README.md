@@ -221,29 +221,29 @@ to the following conventions:
   * Library test folder names: [cql library name]
     * ex: EXM124_FHIR3
   * CQL test folder names: [context id]
-    * ex: Denom-98ce13ee-450b-43ca-9fbe-08b05999532b-1
+    * ex: denom-EXM124-FHIR3
     * note: this must match the Context ID for the CQL Library (usually the ID of the Patient resource)
   * Resource folder names: [resource name]
     * ex: Encounter
   * Test file names: [id]
-    * ex: Denom-98ce13ee-450b-43ca-9fbe-08b05999532b-1.json
+    * ex: denom-EXM124-FHIR3.json
     * note: this must match the id of the resource file
 
 ```
     |-- fhir3
         |-- tests
-        |   |-- EXM124_FHIR3
-        |   |   |-- Denom-5649e34d-df03-498f-9c82-4087bb5a2a46-1
+        |   |-- EXM124_FHIR3-7.2.000
+        |   |   |-- denom-EXM124-FHIR3
         |   |   |   |-- Patient
-        |   |   |   |   |-- Denom-5649e34d-df03-498f-9c82-4087bb5a2a46-1.json
+        |   |   |   |   |-- denom-EXM124-FHIR3.json
         |   |   |   |-- Encounter
-        |   |   |       |-- Denom-5649e34d-df03-498f-9c82-4087bb5a2a46-2.json
-        |   |   |-- Numer-98ce13ee-450b-43ca-9fbe-08b05999532b-1
+        |   |   |       |-- denom-EXM124-FHIR3-1.json
+        |   |   |-- numer-EXM124-FHIR3
         |   |       |-- Patient
-        |   |       |   |-- Denom-98ce13ee-450b-43ca-9fbe-08b05999532b-1.json
+        |   |       |   |-- denom-EXM125-FHIR3.json
         |   |       |-- Encounter
-        |   |           |-- Denom-98ce13ee-450b-43ca-9fbe-08b05999532b-2.json
-        |   |-- EXM125_FHIR3
+        |   |           |-- denom-EXM125-FHIR3-1.json
+        |   |-- EXM125_FHIR3-7.2.000
     |-- fhir4
         |-- tests
 
