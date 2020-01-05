@@ -17,7 +17,6 @@ include MATGlobalCommonFunctions_FHIR4 version '4.0.000' called Global
 include SupplementalDataElements_FHIR4 version '1.0.0' called SDE
 include TJCOverall_FHIR4 version '4.0.000' called TJC
 
-//QA
 codesystem "LOINC": 'http://loinc.org'
 codesystem "SNOMEDCT": 'http://snomed.info/sct/731000124108'
 // NOTE: R4 code system URLs changed to be based on terminology.hl7.org...
@@ -27,7 +26,6 @@ codesystem "RequestIntent": 'http://terminology.hl7.org/CodeSystem/request-inten
 //codesystem "RequestIntent": 'http://hl7.org/fhir/request-intent'
 codesystem "MedicationRequestCategory": 'http://terminology.hl7.org/CodeSystem/medicationrequest-category'
 
-//QA
 valueset "Comfort Measures": 'http://cts.nlm.nih.gov/fhir/ValueSet/1.3.6.1.4.1.33895.1.3.0.45'
 valueset "Discharged to Health Care Facility for Hospice Care": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.207'
 valueset "Discharge To Acute Care Facility": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.87'
@@ -49,7 +47,6 @@ valueset "Race": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.83
 valueset "Statin Allergen": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.423'
 valueset "Statin Grouper": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.19'
 
-//QA
 // TODO: Use NLM VSAC Canonical URLs
 code "Birthdate": '21112-8' from "LOINC" display 'Birth date'
 code "Dead": '419099009' from "SNOMEDCT" display 'Dead'
@@ -75,10 +72,8 @@ define "SDE Race":
 define "SDE Sex":
 	SDE."SDE Sex"
 
-//QA
 define "Initial Population":
 	TJC."Encounter with Principal Diagnosis and Age"
-
 
     define "Encounter with Principal Diagnosis and Age":
       "All Stroke Encounter" AllStrokeEncounter
@@ -95,21 +90,17 @@ define "Initial Population":
                 		where Global."LengthInDays"(NonElectiveEncounter.period)<= 120
                 			and NonElectiveEncounter.period ends during "Measurement Period"
 
-//QA
 define "Denominator":
 	TJC."Ischemic Stroke Encounter"
 
-//QA
   define "Ischemic Stroke Encounter":
     "Encounter with Principal Diagnosis and Age" EncounterWithAge
       where Global.PrincipalDiagnosis(EncounterWithAge).code in "Ischemic Stroke"
 
-//QA
 define "Denominator Exclusions":
 	TJC."Ischemic Stroke Encounters with Discharge Disposition"
 		union TJC."Comfort Measures during Hospitalization"
 
-//QA
     define "TJC.Ischemic Stroke Encounters with Discharge Disposition":
     ( ( "Ischemic Stroke Encounter" IschemicStrokeEncounter
         where IschemicStrokeEncounter.hospitalization.dischargeDisposition in "Discharge To Acute Care Facility"
@@ -120,13 +111,11 @@ define "Denominator Exclusions":
           )
     )
 
-//QA - edited Global."Hospitalization" to Global."HospitalizationWithObservation"
     define "Comfort Measures during Hospitalization":
     	"Ischemic Stroke Encounter" IschemicStrokeEncounter
        	with "Intervention Comfort Measures" ComfortMeasure
         	such that Coalesce(ComfortMeasure.performed as dateTime,ComfortMeasure.authoredOn) during Global."HospitalizationWithObservation"(IschemicStrokeEncounter)
 
-//QA
           define "Intervention Comfort Measures":
           	(["ServiceRequest": "Comfort Measures"] P
           		where P.intent in {'order', 'plan'})
@@ -134,19 +123,16 @@ define "Denominator Exclusions":
           		(["Procedure": "Comfort Measures"] IntervetionPerformed
           		where IntervetionPerformed.status in {'in progress', 'complete'})
 
-//QA
 define "Numerator":
 	"Ischemic Stroke Encounter" IschemicStrokeEncounter
 		with "Statin at Discharge" DischargeStatin
 			such that DischargeStatin.authoredOn during (IschemicStrokeEncounter.period)
 
-//QA
       define "Statin at Discharge":
         ["MedicationRequest": medication in "Statin Grouper"] Statin
           where exists (Statin.category C where FHIRHelpers.ToConcept(C) ~ "Discharge")
             and Statin.intent in {'order', 'plan'}
 
-//QA - added "starts" prior to "on or before end of, was missing. Should "Normalize Onset" be in quotes if it is a function?
 define "Denominator Exception":
 	("Ischemic Stroke Encounter" IschemicStrokeEncounter
 		with "Statin Not Given at Discharge" NoDischargeStatin
@@ -158,7 +144,6 @@ define "Denominator Exception":
 			such that "Normalize Onset"(StatinAllergy.onset) starts on or before end of IschemicStrokeEncounter.period)
   union "Encounter with Max LDL less than 70 mg per dL"
 
-//QA - added and NoStatin.intent = 'order'
       define "Statin Not Given at Discharge":
         ["MedicationRequest": medication in "Statin Grouper"] NoStatin
           where FHIRHelpers.ToBoolean(NoStatin.doNotPerform) is true
@@ -167,11 +152,9 @@ define "Denominator Exception":
              and exists (NoStatin.category C where FHIRHelpers.ToConcept(C) ~ "Discharge")
               and NoStatin.intent = 'order'
 
-//QA
       define "Statin Allergy":
       	["AllergyIntolerance": "Statin Allergen"]
 
-//QA - was missing 'mg/dL' after < 70
       define "Encounter with Max LDL less than 70 mg per dL":
       	"Ischemic Stroke Encounter" IschemicStrokeEncounter
       		where Max(["Observation": "LDL-c"] Ldl
@@ -179,7 +162,6 @@ define "Denominator Exception":
       				return (Ldl.value as Quantity)
       		) < 70 'mg/dL'
 
-//Following function copied from MATGlobalCommonFunctions 2.0 in cqf-measures github repo
 define function "Normalize Onset"(onset Choice<FHIR.dateTime, FHIR.Age, FHIR.Period, FHIR.Range, FHIR.string>):
 	if onset is FHIR.dateTime then Interval[onset.value, onset.value]
 	 else if onset is FHIR.Period then FHIRHelpers.ToInterval(onset as FHIR.Period)
