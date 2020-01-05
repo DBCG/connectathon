@@ -12,6 +12,15 @@
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
           ]
         },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
         "category": [
           {
             "coding": [
@@ -78,6 +87,15 @@
           {
             "condition": {
               "reference": "Condition/numer-EXM108-FHIR4-2"
+            },
+            "use": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/diagnosis-role",
+                  "code": "billing",
+                  "display": "Billing"
+                }
+              ]
             },
             "rank": 1
           }
