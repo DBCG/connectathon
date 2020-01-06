@@ -5,17 +5,17 @@ This directory includes various FHIR STU3 Bundles, generated with [Synthea](http
 ## Currently Supported Measures
 
 * [EXM104_FHIR3-8.1.000](https://github.com/DBCG/connectathon/tree/master/fhir3/bundles/EXM104_FHIR3-8.1.000)
-  * [10 Numerator Patients](https://github.com/DBCG/connectathon/tree/master/fhir3/tests/test-patient-bundles/EXM104/numerator)
-  * [10 Denominator Patients](https://github.com/DBCG/connectathon/tree/master/fhir3/tests/test-patient-bundles/EXM104/denominator)
+  * [10 Numerator Patients](https://github.com/DBCG/connectathon/tree/master/fhir3/supplemental-tests/EXM104/numerator)
+  * [10 Denominator Patients](https://github.com/DBCG/connectathon/tree/master/fhir3/supplemental-tests/EXM104/denominator)
 * [EXM124_FHIR3-7.2.000](https://github.com/DBCG/connectathon/tree/master/fhir3/bundles/EXM124_FHIR3-7.2.000)
-  * [10 Numerator Patients](https://github.com/DBCG/connectathon/tree/master/fhir3/tests/test-patient-bundles/EXM124/numerator)
-  * [10 Denominator Patients](https://github.com/DBCG/connectathon/tree/master/fhir3/tests/test-patient-bundles/EXM124/denominator)
+  * [10 Numerator Patients](https://github.com/DBCG/connectathon/tree/master/fhir3/supplemental-tests/EXM124/numerator)
+  * [10 Denominator Patients](https://github.com/DBCG/connectathon/tree/master/fhir3/supplemental-tests/EXM124/denominator)
 * [EXM125_FHIR3-7.2.000](https://github.com/DBCG/connectathon/tree/master/fhir3/bundles/EXM125_FHIR3-7.2.000)
-  * [10 Numerator Patients](https://github.com/DBCG/connectathon/tree/master/fhir3/tests/test-patient-bundles/EXM125/numerator)
-  * [10 Denominator Patients](https://github.com/DBCG/connectathon/tree/master/fhir3/tests/test-patient-bundles/EXM125/denominator)
+  * [10 Numerator Patients](https://github.com/DBCG/connectathon/tree/master/fhir3/supplemental-tests/EXM125/numerator)
+  * [10 Denominator Patients](https://github.com/DBCG/connectathon/tree/master/fhir3/supplemental-tests/EXM125/denominator)
 * [EXM130_FHIR3-7.2.000](https://github.com/DBCG/connectathon/tree/master/fhir3/bundles/EXM130_FHIR3-7.2.000)
-  * [10 Numerator Patients](https://github.com/DBCG/connectathon/tree/master/fhir3/tests/test-patient-bundles/EXM130/numerator)
-  * [10 Denominator Patients](https://github.com/DBCG/connectathon/tree/master/fhir3/tests/test-patient-bundles/EXM130/denominator)
+  * [10 Numerator Patients](https://github.com/DBCG/connectathon/tree/master/fhir3/supplemental-tests/EXM130/numerator)
+  * [10 Denominator Patients](https://github.com/DBCG/connectathon/tree/master/fhir3/supplemental-tests/EXM130/denominator)
 
 ## Uploading to a Server
 
