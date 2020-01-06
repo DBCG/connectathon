@@ -31,7 +31,9 @@ Individual bundles:
 #### FHIR4
 
 * [Measure CQL](fhir4/cql/EXM165_FHIR4-8.5.000.cql)
-* [Master Bundle](fhir4/bundles/EXM165_FHIR4-8.5.000/EXM165_FHIR4-8.5.000-bundle.json)
+* [Master Bundle](fhir4/bundles/EXM165_FHIR4-8.5.000/EXM165_FHIR4-8.5.000-bundle.json)  (includes all the Individual bundles)
+
+Individual bundles:
 * [Measure Bundle](fhir4/bundles/EXM165_FHIR4-8.5.000/EXM165_FHIR4-8.5.000-files/measure-EXM165_FHIR4-8.5.000.json)
 * [Terminology Bundle](fhir4/bundles/EXM165_FHIR4-8.5.000/EXM165_FHIR4-8.5.000-files/valuesets-EXM165_FHIR4-8.5.000-bundle.json)
 * [Denominator Test Bundle](fhir4/bundles/EXM165_FHIR4-8.5.000/EXM165_FHIR4-8.5.000-files/tests-denom-EXM165_FHIR4-bundle.json)
@@ -44,7 +46,9 @@ Individual bundles:
 #### FHIR3
 
 * [Measure CQL](fhir3/cql/EXM124_FHIR3-7.2.000.cql)
-* [Master Bundle](fhir3/bundles/EXM124_FHIR3-7.2.000/EXM124_FHIR3-7.2.000-bundle.json)
+* [Master Bundle](fhir3/bundles/EXM124_FHIR3-7.2.000/EXM124_FHIR3-7.2.000-bundle.json)  (includes all the Individual bundles)
+
+Individual bundles:
 * [Measure Bundle](fhir3/bundles/EXM124_FHIR3-7.2.000/EXM124_FHIR3-7.2.000-files/measure-EXM124_FHIR3-7.2.000.json)
 * [Terminology Bundle](fhir3/bundles/EXM124_FHIR3-7.2.000/EXM124_FHIR3-7.2.000-files/valuesets-EXM124_FHIR3-7.2.000-bundle.json)
 * [Denominator Test Bundle](fhir3/bundles/EXM124_FHIR3-7.2.000/EXM124_FHIR3-7.2.000-files/tests-denom-EXM124_FHIR3-bundle.json)
@@ -55,7 +59,9 @@ Individual bundles:
 #### FHIR4
 
 * [Measure CQL](fhir4/cql/EXM124_FHIR4-8.2.000.cql)
-* [Master Bundle](fhir4/bundles/EXM124_FHIR4-8.2.000/EXM124_FHIR4-8.2.000-bundle.json)
+* [Master Bundle](fhir4/bundles/EXM124_FHIR4-8.2.000/EXM124_FHIR4-8.2.000-bundle.json)  (includes all the Individual bundles)
+
+Individual bundles:
 * [Measure Bundle](fhir4/bundles/EXM124_FHIR4-8.2.000/EXM124_FHIR4-8.2.000-files/measure-EXM124_FHIR4-8.2.000.json)
 * [Terminology Bundle](fhir4/bundles/EXM124_FHIR4-8.2.000/EXM124_FHIR4-8.2.000-files/valuesets-EXM124_FHIR4-8.2.000-bundle.json)
 * [Denominator Test Bundle](fhir4/bundles/EXM124_FHIR4-8.2.000/EXM124_FHIR4-8.2.000-files/tests-denom-EXM124_FHIR4-bundle.json)
@@ -68,7 +74,9 @@ Individual bundles:
 #### FHIR3
 
 * [Measure CQL](fhir3/cql/EXM125_FHIR3-7.2.000.cql)
-* [Master Bundle](fhir3/bundles/EXM125_FHIR3-7.2.000/EXM125_FHIR3-7.2.000-bundle.json)
+* [Master Bundle](fhir3/bundles/EXM125_FHIR3-7.2.000/EXM125_FHIR3-7.2.000-bundle.json)  (includes all the Individual bundles)
+
+Individual bundles:
 * [Measure Bundle](fhir3/bundles/EXM125_FHIR3-7.2.000/EXM125_FHIR3-7.2.000-files/measure-EXM125_FHIR3-7.2.000.json)
 * [Terminology Bundle](fhir3/bundles/EXM125_FHIR3-7.2.000/EXM125_FHIR3-7.2.000-files/valuesets-EXM125_FHIR3-7.2.000-bundle.json)
 * [Denominator Test Bundle](fhir3/bundles/EXM125_FHIR3-7.2.000/EXM125_FHIR3-7.2.000-files/tests-denom-EXM125_FHIR3-bundle.json)
@@ -79,7 +87,9 @@ Individual bundles:
 #### FHIR4
 
 * [Measure CQL](fhir4/cql/EXM125_FHIR4-7.2.000.cql)
-* [Master Bundle](fhir4/bundles/EXM125_FHIR4-7.2.000/EXM125_FHIR4-7.2.000-bundle.json)
+* [Master Bundle](fhir4/bundles/EXM125_FHIR4-7.2.000/EXM125_FHIR4-7.2.000-bundle.json)  (includes all the Individual bundles)
+
+Individual bundles:
 * [Measure Bundle](fhir4/bundles/EXM125_FHIR4-7.2.000/EXM125_FHIR4-7.2.000-files/measure-EXM125_FHIR4-7.2.000.json)
 * [Terminology Bundle](fhir4/bundles/EXM125_FHIR4-7.2.000/EXM125_FHIR4-7.2.000-files/valuesets-EXM125_FHIR4-7.2.000-bundle.json)
 * [Denominator Test Bundle](fhir4/bundles/EXM125_FHIR4-7.2.000/EXM125_FHIR4-7.2.000-files/tests-denom-EXM125_FHIR4-bundle.json)
@@ -92,7 +102,9 @@ Individual bundles:
 #### FHIR3
 
 * [Measure CQL](fhir3/cql/EXM130_FHIR3-7.2.000.cql)
-* [Master Bundle](fhir3/bundles/EXM130_FHIR3-7.2.000/EXM130_FHIR3-7.2.000-bundle.json)
+* [Master Bundle](fhir3/bundles/EXM130_FHIR3-7.2.000/EXM130_FHIR3-7.2.000-bundle.json)  (includes all the Individual bundles)
+
+Individual bundles:
 * [Measure Bundle](fhir3/bundles/EXM130_FHIR3-7.2.000/EXM130_FHIR3-7.2.000-files/measure-EXM130_FHIR3-7.2.000.json)
 * [Terminology Bundle](fhir3/bundles/EXM130_FHIR3-7.2.000/EXM130_FHIR3-7.2.000-files/valuesets-EXM130_FHIR3-7.2.000-bundle.json)
 * [Denominator Test Bundle](fhir3/bundles/EXM130_FHIR3-7.2.000/EXM130_FHIR3-7.2.000-files/tests-denom-EXM130_FHIR3-bundle.json)
@@ -103,7 +115,9 @@ Individual bundles:
 #### FHIR4
 
 * [Measure CQL](fhir4/cql/EXM130_FHIR4-7.2.000.cql)
-* [Master Bundle](fhir4/bundles/EXM130_FHIR4-7.2.000/EXM130_FHIR4-7.2.000-bundle.json)
+* [Master Bundle](fhir4/bundles/EXM130_FHIR4-7.2.000/EXM130_FHIR4-7.2.000-bundle.json)  (includes all the Individual bundles)
+
+Individual bundles:
 * [Measure Bundle](fhir4/bundles/EXM130_FHIR4-7.2.000/EXM130_FHIR4-7.2.000-files/measure-EXM130_FHIR4-7.2.000.json)
 * [Terminology Bundle](fhir4/bundles/EXM130_FHIR4-7.2.000/EXM130_FHIR4-7.2.000-files/valuesets-EXM130_FHIR4-7.2.000-bundle.json)
 * [Denominator Test Bundle](fhir4/bundles/EXM130_FHIR4-7.2.000/EXM130_FHIR4-7.2.000-files/tests-denom-EXM130_FHIR4-bundle.json)
@@ -116,7 +130,9 @@ Individual bundles:
 #### FHIR3
 
 * [Measure CQL](fhir3/cql/EXM108_FHIR3-7.4.000.cql)
-* [Master Bundle](fhir3/bundles/EXM108_FHIR3-7.4.000/EXM108_FHIR3-7.4.000-bundle.json)
+* [Master Bundle](fhir3/bundles/EXM108_FHIR3-7.4.000/EXM108_FHIR3-7.4.000-bundle.json)  (includes all the Individual bundles)
+
+Individual bundles:
 * [Measure Bundle](fhir3/bundles/EXM108_FHIR3-7.4.000/EXM108_FHIR3-7.4.000-files/measure-EXM108_FHIR3-7.4.000.json)
 * [Terminology Bundle](fhir3/bundles/EXM108_FHIR3-7.4.000/EXM108_FHIR3-7.4.000-files/valuesets-EXM108_FHIR3-7.4.000-bundle.json)
 * [Denominator Test Bundle](fhir3/bundles/EXM108_FHIR3-7.4.000/EXM108_FHIR3-7.4.000-files/tests-denom-EXM108_FHIR3-bundle.json)
@@ -127,7 +143,9 @@ Individual bundles:
 #### FHIR4
 
 * [Measure CQL](fhir4/cql/EXM108_FHIR4-8.2.000.cql)
-* [Master Bundle](fhir4/bundles/EXM108_FHIR4-8.2.000/EXM108_FHIR4-8.2.000-bundle.json)
+* [Master Bundle](fhir4/bundles/EXM108_FHIR4-8.2.000/EXM108_FHIR4-8.2.000-bundle.json)  (includes all the Individual bundles)
+
+Individual bundles:
 * [Measure Bundle](fhir4/bundles/EXM108_FHIR4-8.2.000/EXM108_FHIR4-8.2.000-files/measure-EXM108_FHIR4-8.2.000.json)
 * [Terminology Bundle](fhir4/bundles/EXM108_FHIR4-8.2.000/EXM108_FHIR4-8.2.000-files/valuesets-EXM108_FHIR4-8.2.000-bundle.json)
 * [Denominator Test Bundle](fhir4/bundles/EXM108_FHIR4-8.2.000/EXM108_FHIR4-8.2.000-files/tests-denom-EXM108_FHIR4-bundle.json)
@@ -140,7 +158,9 @@ Individual bundles:
 #### FHIR3
 
 * [Measure CQL](fhir3/cql/EXM104_FHIR3-8.1.000.cql)
-* [Master Bundle](fhir3/bundles/EXM104_FHIR3-8.1.000/EXM104_FHIR3-8.1.000-bundle.json)
+* [Master Bundle](fhir3/bundles/EXM104_FHIR3-8.1.000/EXM104_FHIR3-8.1.000-bundle.json)  (includes all the Individual bundles)
+
+Individual bundles:
 * [Measure Bundle](fhir3/bundles/EXM104_FHIR3-8.1.000/EXM104_FHIR3-8.1.000-files/measure-EXM104_FHIR3-8.1.000.json)
 * [Terminology Bundle](fhir3/bundles/EXM104_FHIR3-8.1.000/EXM104_FHIR3-8.1.000-files/valuesets-EXM104_FHIR3-8.1.000-bundle.json)
 * [Denominator Test Bundle](fhir3/bundles/EXM104_FHIR3-8.1.000/EXM104_FHIR3-8.1.000-files/tests-denom-EXM104_FHIR3-bundle.json)
@@ -151,7 +171,9 @@ Individual bundles:
 #### FHIR4
 
 * [Measure CQL](fhir4/cql/EXM104_FHIR4-8.1.000.cql)
-* [Master Bundle](fhir4/bundles/EXM104_FHIR4-8.1.000/EXM104_FHIR4-8.1.000-bundle.json)
+* [Master Bundle](fhir4/bundles/EXM104_FHIR4-8.1.000/EXM104_FHIR4-8.1.000-bundle.json)  (includes all the Individual bundles)
+
+Individual bundles:
 * [Measure Bundle](fhir4/bundles/EXM104_FHIR4-8.1.000/EXM104_FHIR4-8.1.000-files/measure-EXM104_FHIR4-8.1.000.json)
 * [Terminology Bundle](fhir4/bundles/EXM104_FHIR4-8.1.000/EXM104_FHIR4-8.1.000-files/valuesets-EXM104_FHIR4-8.1.000-bundle.json)
 * [Denominator Test Bundle](fhir4/bundles/EXM104_FHIR4-8.1.000/EXM104_FHIR4-8.1.000-files/tests-denom-EXM104_FHIR4-bundle.json)
