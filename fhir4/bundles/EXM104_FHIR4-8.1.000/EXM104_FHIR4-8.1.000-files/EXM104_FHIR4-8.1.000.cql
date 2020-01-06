@@ -102,7 +102,8 @@ define "Numerator":
       define "Antithrombotic Therapy at Discharge":
       	["MedicationRequest": medication in "Antithrombotic Therapy"] Antithrombotic
       	  where exists (Antithrombotic.category C where FHIRHelpers.ToConcept(C) ~ "Discharge")
-      	    and Antithrombotic.intent in {'plan', 'order'}
+          //.value should not be required.  Antithrombotic.intent should work.  Pending fix to CQF Ruler.
+      	    and Antithrombotic.intent.value in {'plan', 'order'}
 
 define "Denominator Exceptions":
 	"Encounter With No Antithrombotic At Discharge"
