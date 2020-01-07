@@ -1,6 +1,6 @@
 #!/bin/bash
-echo Downloading the CQF Tooling jar is currently not an option. Get the jar from Bryn.
-exit 1
+#echo Downloading the CQF Tooling jar is currently not an option. Get the jar from Bryn.
+#exit 1
 
 dlurl=https://oss.sonatype.org/service/local/repositories/snapshots/content/org/opencds/cqf/tooling/1.0-SNAPSHOT/tooling-1.0-20200107.000442-2-jar-with-dependencies.jar
 tooling_jar=tooling-1.0-SNAPSHOT-jar-with-dependencies.jar
