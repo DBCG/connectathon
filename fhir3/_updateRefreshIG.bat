@@ -1,8 +1,6 @@
 @ECHO OFF
-ECHO Downloading the CQF Tooling jar is currently not an option. Get the jar from Bryn.
-GOTO done
 
-SET dlurl=https://dbcg.github.io/latest-cqf-tooling/tooling-1.0-SNAPSHOT-jar-with-dependencies.jar
+SET dlurl=https://oss.sonatype.org/service/local/repositories/snapshots/content/org/opencds/cqf/tooling/1.0-SNAPSHOT/tooling-1.0-20200107.000442-2-jar-with-dependencies.jar
 SET tooling_jar=tooling-1.0-SNAPSHOT-jar-with-dependencies.jar
 SET input_cache_path=%~dp0input-cache\
 
