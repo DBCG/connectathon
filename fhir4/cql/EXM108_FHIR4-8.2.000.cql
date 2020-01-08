@@ -220,7 +220,7 @@ define "Encounter With VTE Prophylaxis Received on Day of or Day After Admission
     //Measure Review: VTEProphylaxis is the result of the union of different types, not all of which have an 'effective' attribute.
     //This is causing an "attribute not found" exception when the result only contains data for the type without an 'effective' attribute.
     //Not sure if this is desired behavior (and the code should be changed) or a bug (and the tooling should be fixed).
-		where Coalesce(VTEProphylaxis.effective as Period, VTEProphylaxis.performed as Period) starts during TJC."CalendarDayOfOrDayAfter"(start of QualifyingEncounter.period)
+		where VTEProphylaxis starts during TJC."CalendarDayOfOrDayAfter"(start of QualifyingEncounter.period)
 		return QualifyingEncounter
  	)
  	union ( from
@@ -228,7 +228,7 @@ define "Encounter With VTE Prophylaxis Received on Day of or Day After Admission
     				["Procedure": "General or Neuraxial Anesthesia"] AnesthesiaProcedure,
     				"VTE Prophylaxis by Medication Administered or Device Applied" VTEProphylaxis
    				where AnesthesiaProcedure.performed as Period ends 1 day after day of start of QualifyingEncounter.period
-   					and Coalesce(VTEProphylaxis.effective as Period,  VTEProphylaxis.performed as Period) starts during TJC."CalendarDayOfOrDayAfter"(end of FHIRHelpers.ToInterval(AnesthesiaProcedure.performed as Period))
+   					and VTEProphylaxis starts during TJC."CalendarDayOfOrDayAfter"(end of FHIRHelpers.ToInterval(AnesthesiaProcedure.performed as Period))
    				return QualifyingEncounter
    		)
 
@@ -237,10 +237,11 @@ define "Encounter With VTE Prophylaxis Received on Day of or Day After Admission
  	      ( ["MedicationAdministration": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
  			      where VTEMedication.status ='completed'
  						     and VTEMedication.dosage.route in "Subcutaneous route"
+                 return Global."Normalize Interval"(VTEMedication.effective)
  	      )
- 		     union (["MedicationAdministration": medication in "Low Molecular Weight Heparin for VTE Prophylaxis"] LMWH where LMWH.status = 'completed')
- 		      union (["MedicationAdministration": medication in "Injectable Factor Xa Inhibitor for VTE Prophylaxis"] FactorXa where FactorXa.status = 'completed')
- 		       union (["MedicationAdministration": medication in "Warfarin"] Warfarin where Warfarin.status = 'completed')
+ 		     union (["MedicationAdministration": medication in "Low Molecular Weight Heparin for VTE Prophylaxis"] LMWH where LMWH.status = 'completed' return Global."Normalize Interval"(LMWH.effective))
+ 		      union (["MedicationAdministration": medication in "Injectable Factor Xa Inhibitor for VTE Prophylaxis"] FactorXa where FactorXa.status = 'completed' return Global."Normalize Interval"(FactorXa.effective))
+ 		       union (["MedicationAdministration": medication in "Warfarin"] Warfarin where Warfarin.status = 'completed' return Global."Normalize Interval"(Warfarin.effective))
  		        union (
                   ["Procedure": "Device Application"] DeviceApplied
                   where DeviceApplied.status = 'complete'
@@ -248,6 +249,7 @@ define "Encounter With VTE Prophylaxis Received on Day of or Day After Admission
                             or DeviceApplied.usedCode in"Venous foot pumps (VFP)"
                             or DeviceApplied.usedCode in "Graduated compression stockings (GCS)"
                             )
+                        return Global."Normalize Interval"(DeviceApplied.performed)
                   )
 
 define "Encounter With Medication Oral Factor Xa Inhibitor Administered on Day of or Day After Admission or Procedure":
