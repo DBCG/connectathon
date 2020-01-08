@@ -1,0 +1,47 @@
+{
+  "resourceType": "Library",
+  "id": "library-scratchpad-FHIR4-8.1.000",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table class=\"grid dict\"><tr><th scope=\"row\"><b>Id: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">library-scratchpad-FHIR4-8.1.000</td></tr><tr><th scope=\"row\"><b>Type: </b></th><td style=\"padding-right: 25px;\"> logic-library </td></tr><tr><th scope=\"row\"><b>Version: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">8.1.000</td></tr><tr><th scope=\"row\"><b>Status: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">active</td></tr><tr style=\"vertical-align: top;\"><th rowspan=\"1\" scope=\"row\"><b>Related: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>depends-on</span></p><p style=\"margin-bottom: 5px;\"><b>Resource: </b><br/><span>Library/library-FHIRHelpers-4.0.0</span></p></td></tr><tr style=\"vertical-align: top;\"><th rowspan=\"3\" scope=\"row\"><b>Data Requirements: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>MedicationAdministration</span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Encounter</span></p></div></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><div xmlns=\"http://www.w3.org/1999/xhtml\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>Observation</span></p></div></td></tr><tr style=\"vertical-align: top;\"><th scope=\"row\"><b>Content: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><b>type: </b><span>text/cql</span></td></tr><tr><td colspan=\"2\" style=\"padding-left: 25px; padding-right: 25px;\"><pre><code class=\"language-cql\">library scratchpad_FHIR4 version '8.1.000'\n// for 2020 Reporting Year\n//STK 2\n/*\nBased on CMS104 - Discharged on Antithrombotic Therapy\nAuthor: TJC\n*/\n\nusing FHIR version '4.0.0'\n\ninclude FHIRHelpers version '4.0.0'\n\nparameter \"Measurement Period\" Interval&lt;DateTime&gt;\n\ncontext Patient\n\ndefine \"Medication Administration Effective Period\":\n  [\"MedicationAdministration\"] MA return MA.effective as Period\n\ndefine \"Encounter\":\n  [Encounter]\n\ndefine \"From\":\n  from \"Encounter\" QualifyingEncounter,\n       \"Medication Administration Effective Period\" EffectivePeriod\n       return QualifyingEncounter\n\ndefine \"Initial Population\":\n  \"Encounter\"\n\ndefine \"Denominator\":\n  \"Initial Population\"\n\ndefine \"Numerator\":\n  \"From\"\n\ndefine \"Denominator Exclusion\":\n  [Observation]\n</code></pre>\r\n                    \r\n                    \r\n                </td>\r\n            </tr>\r\n        \r\n    </table>\r\n</div>"
+  },
+  "version": "8.1.000",
+  "name": "scratchpad_FHIR4",
+  "status": "active",
+  "experimental": true,
+  "type": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/codesystem-library-type.html",
+        "code": "logic-library"
+      }
+    ]
+  },
+  "relatedArtifact": [
+    {
+      "type": "depends-on",
+      "resource": "Library/library-FHIRHelpers-4.0.0"
+    }
+  ],
+  "dataRequirement": [
+    {
+      "type": "MedicationAdministration"
+    },
+    {
+      "type": "Encounter"
+    },
+    {
+      "type": "Observation"
+    }
+  ],
+  "content": [
+    {
+      "contentType": "application/elm+xml",
+      "data": "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjxsaWJyYXJ5IHhtbG5zPSJ1cm46aGw3LW9yZzplbG06cjEiIHhtbG5zOnQ9InVybjpobDctb3JnOmVsbS10eXBlczpyMSIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeG1sbnM6eHNkPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYSIgeG1sbnM6Zmhpcj0iaHR0cDovL2hsNy5vcmcvZmhpciIgeG1sbnM6cWRtNDM9InVybjpoZWFsdGhpdC1nb3Y6cWRtOnY0XzMiIHhtbG5zOnFkbTUzPSJ1cm46aGVhbHRoaXQtZ292OnFkbTp2NV8zIiB4bWxuczphPSJ1cm46aGw3LW9yZzpjcWwtYW5ub3RhdGlvbnM6cjEiPg0KICAgPGlkZW50aWZpZXIgaWQ9InNjcmF0Y2hwYWRfRkhJUjQiIHZlcnNpb249IjguMS4wMDAiLz4NCiAgIDxzY2hlbWFJZGVudGlmaWVyIGlkPSJ1cm46aGw3LW9yZzplbG0iIHZlcnNpb249InIxIi8+DQogICA8dXNpbmdzPg0KICAgICAgPGRlZiBsb2NhbElkZW50aWZpZXI9IlN5c3RlbSIgdXJpPSJ1cm46aGw3LW9yZzplbG0tdHlwZXM6cjEiLz4NCiAgICAgIDxkZWYgbG9jYWxJZGVudGlmaWVyPSJGSElSIiB1cmk9Imh0dHA6Ly9obDcub3JnL2ZoaXIiIHZlcnNpb249IjQuMC4wIi8+DQogICA8L3VzaW5ncz4NCiAgIDxpbmNsdWRlcz4NCiAgICAgIDxkZWYgbG9jYWxJZGVudGlmaWVyPSJGSElSSGVscGVycyIgcGF0aD0iRkhJUkhlbHBlcnMiIHZlcnNpb249IjQuMC4wIi8+DQogICA8L2luY2x1ZGVzPg0KICAgPHBhcmFtZXRlcnM+DQogICAgICA8ZGVmIG5hbWU9Ik1lYXN1cmVtZW50IFBlcmlvZCIgYWNjZXNzTGV2ZWw9IlB1YmxpYyI+DQogICAgICAgICA8cGFyYW1ldGVyVHlwZVNwZWNpZmllciB4c2k6dHlwZT0iSW50ZXJ2YWxUeXBlU3BlY2lmaWVyIj4NCiAgICAgICAgICAgIDxwb2ludFR5cGUgbmFtZT0idDpEYXRlVGltZSIgeHNpOnR5cGU9Ik5hbWVkVHlwZVNwZWNpZmllciIvPg0KICAgICAgICAgPC9wYXJhbWV0ZXJUeXBlU3BlY2lmaWVyPg0KICAgICAgPC9kZWY+DQogICA8L3BhcmFtZXRlcnM+DQogICA8c3RhdGVtZW50cz4NCiAgICAgIDxkZWYgbmFtZT0iUGF0aWVudCIgY29udGV4dD0iUGF0aWVudCI+DQogICAgICAgICA8ZXhwcmVzc2lvbiB4c2k6dHlwZT0iU2luZ2xldG9uRnJvbSI+DQogICAgICAgICAgICA8b3BlcmFuZCBkYXRhVHlwZT0iZmhpcjpQYXRpZW50IiB4c2k6dHlwZT0iUmV0cmlldmUiLz4NCiAgICAgICAgIDwvZXhwcmVzc2lvbj4NCiAgICAgIDwvZGVmPg0KICAgICAgPGRlZiBuYW1lPSJNZWRpY2F0aW9uIEFkbWluaXN0cmF0aW9uIEVmZmVjdGl2ZSBQZXJpb2QiIGNvbnRleHQ9IlBhdGllbnQiIGFjY2Vzc0xldmVsPSJQdWJsaWMiPg0KICAgICAgICAgPGV4cHJlc3Npb24geHNpOnR5cGU9IlF1ZXJ5Ij4NCiAgICAgICAgICAgIDxzb3VyY2UgYWxpYXM9Ik1BIj4NCiAgICAgICAgICAgICAgIDxleHByZXNzaW9uIGRhdGFUeXBlPSJmaGlyOk1lZGljYXRpb25BZG1pbmlzdHJhdGlvbiIgeHNpOnR5cGU9IlJldHJpZXZlIi8+DQogICAgICAgICAgICA8L3NvdXJjZT4NCiAgICAgICAgICAgIDxyZXR1cm4+DQogICAgICAgICAgICAgICA8ZXhwcmVzc2lvbiBzdHJpY3Q9ImZhbHNlIiB4c2k6dHlwZT0iQXMiPg0KICAgICAgICAgICAgICAgICAgPG9wZXJhbmQgcGF0aD0iZWZmZWN0aXZlIiBzY29wZT0iTUEiIHhzaTp0eXBlPSJQcm9wZXJ0eSIvPg0KICAgICAgICAgICAgICAgICAgPGFzVHlwZVNwZWNpZmllciBuYW1lPSJmaGlyOlBlcmlvZCIgeHNpOnR5cGU9Ik5hbWVkVHlwZVNwZWNpZmllciIvPg0KICAgICAgICAgICAgICAgPC9leHByZXNzaW9uPg0KICAgICAgICAgICAgPC9yZXR1cm4+DQogICAgICAgICA8L2V4cHJlc3Npb24+DQogICAgICA8L2RlZj4NCiAgICAgIDxkZWYgbmFtZT0iRW5jb3VudGVyIiBjb250ZXh0PSJQYXRpZW50IiBhY2Nlc3NMZXZlbD0iUHVibGljIj4NCiAgICAgICAgIDxleHByZXNzaW9uIGRhdGFUeXBlPSJmaGlyOkVuY291bnRlciIgeHNpOnR5cGU9IlJldHJpZXZlIi8+DQogICAgICA8L2RlZj4NCiAgICAgIDxkZWYgbmFtZT0iRnJvbSIgY29udGV4dD0iUGF0aWVudCIgYWNjZXNzTGV2ZWw9IlB1YmxpYyI+DQogICAgICAgICA8ZXhwcmVzc2lvbiB4c2k6dHlwZT0iUXVlcnkiPg0KICAgICAgICAgICAgPHNvdXJjZSBhbGlhcz0iUXVhbGlmeWluZ0VuY291bnRlciI+DQogICAgICAgICAgICAgICA8ZXhwcmVzc2lvbiBuYW1lPSJFbmNvdW50ZXIiIHhzaTp0eXBlPSJFeHByZXNzaW9uUmVmIi8+DQogICAgICAgICAgICA8L3NvdXJjZT4NCiAgICAgICAgICAgIDxzb3VyY2UgYWxpYXM9IkVmZmVjdGl2ZVBlcmlvZCI+DQogICAgICAgICAgICAgICA8ZXhwcmVzc2lvbiBuYW1lPSJNZWRpY2F0aW9uIEFkbWluaXN0cmF0aW9uIEVmZmVjdGl2ZSBQZXJpb2QiIHhzaTp0eXBlPSJFeHByZXNzaW9uUmVmIi8+DQogICAgICAgICAgICA8L3NvdXJjZT4NCiAgICAgICAgICAgIDxyZXR1cm4+DQogICAgICAgICAgICAgICA8ZXhwcmVzc2lvbiBuYW1lPSJRdWFsaWZ5aW5nRW5jb3VudGVyIiB4c2k6dHlwZT0iQWxpYXNSZWYiLz4NCiAgICAgICAgICAgIDwvcmV0dXJuPg0KICAgICAgICAgPC9leHByZXNzaW9uPg0KICAgICAgPC9kZWY+DQogICAgICA8ZGVmIG5hbWU9IkluaXRpYWwgUG9wdWxhdGlvbiIgY29udGV4dD0iUGF0aWVudCIgYWNjZXNzTGV2ZWw9IlB1YmxpYyI+DQogICAgICAgICA8ZXhwcmVzc2lvbiBuYW1lPSJFbmNvdW50ZXIiIHhzaTp0eXBlPSJFeHByZXNzaW9uUmVmIi8+DQogICAgICA8L2RlZj4NCiAgICAgIDxkZWYgbmFtZT0iRGVub21pbmF0b3IiIGNvbnRleHQ9IlBhdGllbnQiIGFjY2Vzc0xldmVsPSJQdWJsaWMiPg0KICAgICAgICAgPGV4cHJlc3Npb24gbmFtZT0iSW5pdGlhbCBQb3B1bGF0aW9uIiB4c2k6dHlwZT0iRXhwcmVzc2lvblJlZiIvPg0KICAgICAgPC9kZWY+DQogICAgICA8ZGVmIG5hbWU9Ik51bWVyYXRvciIgY29udGV4dD0iUGF0aWVudCIgYWNjZXNzTGV2ZWw9IlB1YmxpYyI+DQogICAgICAgICA8ZXhwcmVzc2lvbiBuYW1lPSJGcm9tIiB4c2k6dHlwZT0iRXhwcmVzc2lvblJlZiIvPg0KICAgICAgPC9kZWY+DQogICAgICA8ZGVmIG5hbWU9IkRlbm9taW5hdG9yIEV4Y2x1c2lvbiIgY29udGV4dD0iUGF0aWVudCIgYWNjZXNzTGV2ZWw9IlB1YmxpYyI+DQogICAgICAgICA8ZXhwcmVzc2lvbiBkYXRhVHlwZT0iZmhpcjpPYnNlcnZhdGlvbiIgeHNpOnR5cGU9IlJldHJpZXZlIi8+DQogICAgICA8L2RlZj4NCiAgIDwvc3RhdGVtZW50cz4NCjwvbGlicmFyeT4NCg=="
+    },
+    {
+      "contentType": "text/cql",
+      "data": "bGlicmFyeSBzY3JhdGNocGFkX0ZISVI0IHZlcnNpb24gJzguMS4wMDAnCi8vIGZvciAyMDIwIFJlcG9ydGluZyBZZWFyCi8vU1RLIDIKLyoKQmFzZWQgb24gQ01TMTA0IC0gRGlzY2hhcmdlZCBvbiBBbnRpdGhyb21ib3RpYyBUaGVyYXB5CkF1dGhvcjogVEpDCiovCgp1c2luZyBGSElSIHZlcnNpb24gJzQuMC4wJwoKaW5jbHVkZSBGSElSSGVscGVycyB2ZXJzaW9uICc0LjAuMCcKCnBhcmFtZXRlciAiTWVhc3VyZW1lbnQgUGVyaW9kIiBJbnRlcnZhbDxEYXRlVGltZT4KCmNvbnRleHQgUGF0aWVudAoKZGVmaW5lICJNZWRpY2F0aW9uIEFkbWluaXN0cmF0aW9uIEVmZmVjdGl2ZSBQZXJpb2QiOgogIFsiTWVkaWNhdGlvbkFkbWluaXN0cmF0aW9uIl0gTUEgcmV0dXJuIE1BLmVmZmVjdGl2ZSBhcyBQZXJpb2QKCmRlZmluZSAiRW5jb3VudGVyIjoKICBbRW5jb3VudGVyXQoKZGVmaW5lICJGcm9tIjoKICBmcm9tICJFbmNvdW50ZXIiIFF1YWxpZnlpbmdFbmNvdW50ZXIsCiAgICAgICAiTWVkaWNhdGlvbiBBZG1pbmlzdHJhdGlvbiBFZmZlY3RpdmUgUGVyaW9kIiBFZmZlY3RpdmVQZXJpb2QKICAgICAgIHJldHVybiBRdWFsaWZ5aW5nRW5jb3VudGVyCgpkZWZpbmUgIkluaXRpYWwgUG9wdWxhdGlvbiI6CiAgIkVuY291bnRlciIKCmRlZmluZSAiRGVub21pbmF0b3IiOgogICJJbml0aWFsIFBvcHVsYXRpb24iCgpkZWZpbmUgIk51bWVyYXRvciI6CiAgIkZyb20iCgpkZWZpbmUgIkRlbm9taW5hdG9yIEV4Y2x1c2lvbiI6CiAgW09ic2VydmF0aW9uXQo="
+    }
+  ]
+}

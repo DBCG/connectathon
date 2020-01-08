@@ -1,12 +1,12 @@
 {
   "resourceType": "Bundle",
-  "id": "tests-numer-EXM108-FHIR4-bundle",
+  "id": "tests-denom-EXM108-FHIR4-bundle",
   "type": "transaction",
   "entry": [
     {
       "resource": {
         "resourceType": "Condition",
-        "id": "numer-EXM108-FHIR4-2",
+        "id": "denom-EXM108-FHIR4-2",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
@@ -36,24 +36,24 @@
           "coding": [
             {
               "system": "http://snomed.info/sct",
-              "code": "213213007",
-              "display": "Cardiac arrest as a complication of care (disorder)"
+              "code": "10327003",
+              "display": "Cocaine-induced mood disorder (disorder)"
             }
           ]
         },
         "subject": {
-          "reference": "Patient/numer-EXM108-FHIR4"
+          "reference": "Patient/denom-EXM108-FHIR4"
         }
       },
       "request": {
         "method": "PUT",
-        "url": "Condition/numer-EXM108-FHIR4-2"
+        "url": "Condition/denom-EXM108-FHIR4-2"
       }
     },
     {
       "resource": {
         "resourceType": "Encounter",
-        "id": "numer-EXM108-FHIR4-3",
+        "id": "denom-EXM108-FHIR4-1",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
@@ -77,7 +77,7 @@
           }
         ],
         "subject": {
-          "reference": "Patient/numer-EXM108-FHIR4"
+          "reference": "Patient/denom-EXM108-FHIR4"
         },
         "period": {
           "start": "2019-01-16T08:30:00-07:00",
@@ -86,18 +86,8 @@
         "diagnosis": [
           {
             "condition": {
-              "reference": "Condition/numer-EXM108-FHIR4-2"
-            },
-            "use": {
-              "coding": [
-                {
-                  "system": "http://hl7.org/fhir/diagnosis-role",
-                  "code": "billing",
-                  "display": "Billing"
-                }
-              ]
-            },
-            "rank": 1
+              "reference": "Condition/denom-EXM108-FHIR4-2"
+            }
           }
         ],
         "hospitalization": {
@@ -114,13 +104,13 @@
       },
       "request": {
         "method": "PUT",
-        "url": "Encounter/numer-EXM108-FHIR4-3"
+        "url": "Encounter/denom-EXM108-FHIR4-1"
       }
     },
     {
       "resource": {
         "resourceType": "MedicationAdministration",
-        "id": "numer-EXM108-FHIR4-7",
+        "id": "denom-EXM108-FHIR4-5",
         "status": "completed",
         "medicationCodeableConcept": {
           "coding": [
@@ -135,19 +125,19 @@
           "reference": "Patient/denom-EXM108-FHIR4"
         },
         "effectivePeriod": {
-          "start": "2019-01-16T12:30:00-07:00",
-          "end": "2019-01-17T13:00:00-07:00"
+          "start": "2019-01-19T12:30:00-07:00",
+          "end": "2019-01-19T13:00:00-07:00"
         }
       },
       "request": {
         "method": "PUT",
-        "url": "MedicationAdministration/numer-EXM108-FHIR4-7"
+        "url": "MedicationAdministration/denom-EXM108-FHIR4-5"
       }
     },
     {
       "resource": {
         "resourceType": "Patient",
-        "id": "numer-EXM108-FHIR4",
+        "id": "denom-EXM108-FHIR4",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
@@ -194,23 +184,55 @@
               ]
             },
             "system": "http://hospital.smarthealthit.org",
-            "value": "999999997"
+            "value": "999999996"
           }
         ],
         "name": [
           {
-            "family": "Smith",
+            "family": "Jones",
             "given": [
-              "Jill"
+              "Frank"
             ]
           }
         ],
-        "gender": "female",
-        "birthDate": "1963-09-13"
+        "gender": "male",
+        "birthDate": "1951-05-01"
       },
       "request": {
         "method": "PUT",
-        "url": "Patient/numer-EXM108-FHIR4"
+        "url": "Patient/denom-EXM108-FHIR4"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "denom-EXM108-FHIR4-4",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "112943005",
+              "display": "Epidural injection of anesthetic substance"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/denom-EXM108-FHIR4"
+        },
+        "performedPeriod": {
+          "start": "2019-01-17T08:30:00-07:00",
+          "end": "2019-01-17T10:30:00-07:00"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Procedure/denom-EXM108-FHIR4-4"
       }
     }
   ]
