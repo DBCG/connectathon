@@ -217,6 +217,9 @@ define "Encounter With VTE Prophylaxis Received on Day of or Day After Admission
  	( from
  			"Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" QualifyingEncounter,
  			"VTE Prophylaxis by Medication Administered or Device Applied" VTEProphylaxis
+    //Measure Review: VTEProphylaxis is the result of the union of different types, not all of which have an 'effective' attribute.
+    //This is causing an "attribute not found" exception when the result only contains data for the type without an 'effective' attribute.
+    //Not sure if this is desired behavior (and the code should be changed) or a bug (and the tooling should be fixed).
 		where Coalesce(VTEProphylaxis.effective as Period, VTEProphylaxis.performed as Period) starts during TJC."CalendarDayOfOrDayAfter"(start of QualifyingEncounter.period)
 		return QualifyingEncounter
  	)
