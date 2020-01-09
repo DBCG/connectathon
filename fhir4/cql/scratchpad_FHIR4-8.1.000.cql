@@ -14,25 +14,25 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "Medication Administration Effective Period":
-  ["MedicationAdministration"] MA return MA.effective as Period
+define "Medication Administration":
+  ["MedicationAdministration"]
 
-define "Encounter":
-  [Encounter]
+define "Procedure":
+  [Procedure]
 
-define "From":
-  from "Encounter" QualifyingEncounter,
-       "Medication Administration Effective Period" EffectivePeriod
-       return QualifyingEncounter
+define "Choice Procedure Medication Administration":
+  "Procedure"
+    union "Medication Administration"
+
+define "Numerator":
+  "Choice Procedure Medication Administration" choiceProcMed
+    where Coalesce(choiceProcMed.effective as Period, choiceProcMed.performed as Period) != null
 
 define "Initial Population":
-  "Encounter"
+  "Medication Administration"
 
 define "Denominator":
   "Initial Population"
-
-define "Numerator":
-  "From"
 
 define "Denominator Exclusion":
   [Observation]
