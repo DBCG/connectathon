@@ -75,7 +75,7 @@ define "SDE Sex":
 define "Initial Population":
 	TJC."Encounter with Principal Diagnosis and Age"
 
-    define "Encounter with Principal Diagnosis and Age":
+    /* define "Encounter with Principal Diagnosis and Age":
       "All Stroke Encounter" AllStrokeEncounter
       	with ["Patient"] BirthDate
       		such that Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(BirthDate.birthDate), start of AllStrokeEncounter.period) >= 18
@@ -88,81 +88,55 @@ define "Initial Population":
                 define "Non Elective Inpatient Encounter":
                 	["Encounter": "Non-Elective Inpatient Encounter"] NonElectiveEncounter
                 		where Global."LengthInDays"(NonElectiveEncounter.period)<= 120
-                			and NonElectiveEncounter.period ends during "Measurement Period"
+                			and NonElectiveEncounter.period ends during "Measurement Period" */
 
 define "Denominator":
 	TJC."Ischemic Stroke Encounter"
 
-  define "Ischemic Stroke Encounter":
-    "Encounter with Principal Diagnosis and Age" EncounterWithAge
-      where Global.PrincipalDiagnosis(EncounterWithAge).code in "Ischemic Stroke"
-
-define "Denominator Exclusions":
+define "Denominator Exclusion":
 	TJC."Ischemic Stroke Encounters with Discharge Disposition"
 		union TJC."Comfort Measures during Hospitalization"
 
-    define "TJC.Ischemic Stroke Encounters with Discharge Disposition":
-    ( ( "Ischemic Stroke Encounter" IschemicStrokeEncounter
-        where IschemicStrokeEncounter.hospitalization.dischargeDisposition in "Discharge To Acute Care Facility"
-          or IschemicStrokeEncounter.hospitalization.dischargeDisposition in "Left Against Medical Advice"
-          or IschemicStrokeEncounter.hospitalization.dischargeDisposition in "Patient Expired"
-          or IschemicStrokeEncounter.hospitalization.dischargeDisposition in "Discharged to Home for Hospice Care"
-          or IschemicStrokeEncounter.hospitalization.dischargeDisposition in "Discharged to Health Care Facility for Hospice Care"
-          )
-    )
-
-    define "Comfort Measures during Hospitalization":
-    	"Ischemic Stroke Encounter" IschemicStrokeEncounter
-       	with "Intervention Comfort Measures" ComfortMeasure
-        	such that Coalesce(ComfortMeasure.performed as dateTime,ComfortMeasure.authoredOn) during Global."HospitalizationWithObservation"(IschemicStrokeEncounter)
-
-          define "Intervention Comfort Measures":
-          	(["ServiceRequest": "Comfort Measures"] P
-          		where P.intent in {'order', 'plan'})
-          		union
-          		(["Procedure": "Comfort Measures"] IntervetionPerformed
-          		where IntervetionPerformed.status in {'in progress', 'complete'})
-
 define "Numerator":
-	"Ischemic Stroke Encounter" IschemicStrokeEncounter
+	TJC."Ischemic Stroke Encounter" IschemicStrokeEncounter
 		with "Statin at Discharge" DischargeStatin
-			such that DischargeStatin.authoredOn during (IschemicStrokeEncounter.period)
+			such that DischargeStatin.authoredOn during day of Global."Normalize Interval"(IschemicStrokeEncounter.period)
 
-      define "Statin at Discharge":
-        ["MedicationRequest": medication in "Statin Grouper"] Statin
-          where exists (Statin.category C where FHIRHelpers.ToConcept(C) ~ "Discharge")
-            and Statin.intent in {'order', 'plan'}
+define "Statin at Discharge":
+  ["MedicationRequest": medication in "Statin Grouper"] Statin
+    where exists (Statin.category C where FHIRHelpers.ToConcept(C) ~ "Discharge")
+      and Statin.intent.value in {'order', 'plan'}
 
 define "Denominator Exception":
-	("Ischemic Stroke Encounter" IschemicStrokeEncounter
-		with "Statin Not Given at Discharge" NoDischargeStatin
-			such that NoDischargeStatin.authoredOn during IschemicStrokeEncounter.period
-	)
-	union
-	("Ischemic Stroke Encounter" IschemicStrokeEncounter
-		with "Statin Allergy" StatinAllergy
-			such that "Normalize Onset"(StatinAllergy.onset) starts on or before end of IschemicStrokeEncounter.period)
-  union "Encounter with Max LDL less than 70 mg per dL"
+	(
+    TJC."Ischemic Stroke Encounter" IschemicStrokeEncounter
+    	with "Statin Not Given at Discharge" NoDischargeStatin
+    		such that NoDischargeStatin.authoredOn during day of Global."Normalize Interval"(IschemicStrokeEncounter.period)
+	) union
+	 (
+     TJC."Ischemic Stroke Encounter" IschemicStrokeEncounter
+		   with "Statin Allergy" StatinAllergy
+			    such that Global."Normalize Onset"(StatinAllergy.onset) starts on or before end of Global."Normalize Interval"(IschemicStrokeEncounter.period)
+    ) union
+      "Encounter with Max LDL less than 70 mg per dL"
 
-      define "Statin Not Given at Discharge":
-        ["MedicationRequest": medication in "Statin Grouper"] NoStatin
-          where FHIRHelpers.ToBoolean(NoStatin.doNotPerform) is true
-          and (NoStatin.reasonCode in "Medical Reason"
-            or NoStatin.reasonCode in "Patient Refusal")
-             and exists (NoStatin.category C where FHIRHelpers.ToConcept(C) ~ "Discharge")
-              and NoStatin.intent = 'order'
+define "Statin Not Given at Discharge":
+  ["MedicationRequest": medication in "Statin Grouper"] NoStatin
+    where FHIRHelpers.ToBoolean(NoStatin.doNotPerform) is true
+      and (
+        NoStatin.reasonCode in "Medical Reason"
+          or NoStatin.reasonCode in "Patient Refusal"
+      )
+      and exists (NoStatin.category C where FHIRHelpers.ToConcept(C) ~ "Discharge")
+      and NoStatin.intent.value = 'order'
 
-      define "Statin Allergy":
-      	["AllergyIntolerance": "Statin Allergen"]
+define "Statin Allergy":
+	["AllergyIntolerance": "Statin Allergen"]
 
-      define "Encounter with Max LDL less than 70 mg per dL":
-      	"Ischemic Stroke Encounter" IschemicStrokeEncounter
-      		where Max(["Observation": "LDL-c"] Ldl
-      				where (Ldl.issued) during Interval[(IschemicStrokeEncounter.period.start) - 30 days, IschemicStrokeEncounter.period.end]
-      				return (Ldl.value as Quantity)
-      		) < 70 'mg/dL'
-
-define function "Normalize Onset"(onset Choice<FHIR.dateTime, FHIR.Age, FHIR.Period, FHIR.Range, FHIR.string>):
-	if onset is FHIR.dateTime then Interval[onset.value, onset.value]
-	 else if onset is FHIR.Period then FHIRHelpers.ToInterval(onset as FHIR.Period)
-  	else null
+define "Encounter with Max LDL less than 70 mg per dL":
+	TJC."Ischemic Stroke Encounter" IschemicStrokeEncounter
+		where Max(
+        ["Observation": "LDL-c"] Ldl
+				    where Ldl.issued during Interval[IschemicStrokeEncounter.period.start - 30 days, IschemicStrokeEncounter.period.end]
+				return Ldl.value as Quantity
+		) < 70 'mg/dL'

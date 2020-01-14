@@ -30,47 +30,54 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-//Changed "ProcedureRequest" to "ServiceRequest"
-define "Intervention Comfort Measures":
-	(["ServiceRequest": "Comfort Measures"] P
-		where P.intent = 'order')
-		union
-		(["Procedure": "Comfort Measures"] InterventionPerformed
-		where InterventionPerformed.status = 'completed')
+define "Non Elective Inpatient Encounter":
+	["Encounter": "Non-Elective Inpatient Encounter"] NonElectiveEncounter
+		where Global."LengthInDays"(NonElectiveEncounter.period) <= 120
+			and NonElectiveEncounter.period ends during "Measurement Period"
 
 define "All Stroke Encounter":
 	"Non Elective Inpatient Encounter" NonElectiveEncounter
     where Global.PrincipalDiagnosis(NonElectiveEncounter).code in "Hemorrhagic Stroke"
       or Global.PrincipalDiagnosis(NonElectiveEncounter).code in "Ischemic Stroke"
 
+define "Encounter with Principal Diagnosis and Age":
+	"All Stroke Encounter" AllStrokeEncounter
+		with ["Patient"] BirthDate
+			such that Global."CalendarAgeInYearsAt"(
+        FHIRHelpers.ToDate(BirthDate.birthDate),
+        start of FHIRHelpers.ToInterval(AllStrokeEncounter.period)
+      ) >= 18
+
 define "Ischemic Stroke Encounter":
 	"Encounter with Principal Diagnosis and Age" EncounterWithAge
 		where Global.PrincipalDiagnosis(EncounterWithAge).code in "Ischemic Stroke"
 
-define "Non Elective Inpatient Encounter":
-	["Encounter": "Non-Elective Inpatient Encounter"] NonElectiveEncounter
-		where Global."LengthInDays"(NonElectiveEncounter.period)<= 120
-			and NonElectiveEncounter.period ends during "Measurement Period"
-
 define "Ischemic Stroke Encounters with Discharge Disposition":
-	( ( "Ischemic Stroke Encounter" IschemicStrokeEncounter
-				where IschemicStrokeEncounter.hospitalization.dischargeDisposition in "Discharge To Acute Care Facility"
-					or IschemicStrokeEncounter.hospitalization.dischargeDisposition in "Left Against Medical Advice"
-					or IschemicStrokeEncounter.hospitalization.dischargeDisposition in "Patient Expired"
-					or IschemicStrokeEncounter.hospitalization.dischargeDisposition in "Discharged to Home for Hospice Care"
-					or IschemicStrokeEncounter.hospitalization.dischargeDisposition in "Discharged to Health Care Facility for Hospice Care"
-		)
-	)
+	"Ischemic Stroke Encounter" IschemicStrokeEncounter
+			where IschemicStrokeEncounter.hospitalization.dischargeDisposition in "Discharge To Acute Care Facility"
+				or IschemicStrokeEncounter.hospitalization.dischargeDisposition in "Left Against Medical Advice"
+				or IschemicStrokeEncounter.hospitalization.dischargeDisposition in "Patient Expired"
+				or IschemicStrokeEncounter.hospitalization.dischargeDisposition in "Discharged to Home for Hospice Care"
+				or IschemicStrokeEncounter.hospitalization.dischargeDisposition in "Discharged to Health Care Facility for Hospice Care"
 
-	define "Comfort Measures during Hospitalization":
-		"Ischemic Stroke Encounter" IschemicStrokeEncounter 
-	   	with "Intervention Comfort Measures" ComfortMeasure
-	    	such that FHIRHelpers.ToDateTime(Coalesce(ComfortMeasure.performed as dateTime,ComfortMeasure.authoredOn)) during Global."HospitalizationWithObservation"(IschemicStrokeEncounter)
+//Changed "ProcedureRequest" to "ServiceRequest"
+define "Intervention Comfort Measure Dates":
+	(
+    ["ServiceRequest": "Comfort Measures"] P
+		  where P.intent = 'order'
+      return P.authoredOn
+  ) union
+		(
+      ["Procedure": "Comfort Measures"] InterventionPerformed
+		      where InterventionPerformed.status = 'completed'
+          return InterventionPerformed.performed as dateTime
+    )
 
-define "Encounter with Principal Diagnosis and Age":
-	"All Stroke Encounter" AllStrokeEncounter
-		with ["Patient"] BirthDate
-			such that Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(BirthDate.birthDate), start of FHIRHelpers.ToInterval(AllStrokeEncounter.period)) >= 18
+define "Comfort Measures during Hospitalization":
+	"Ischemic Stroke Encounter" IschemicStrokeEncounter
+   	with "Intervention Comfort Measure Dates" ComfortMeasureDate
+    	such that ComfortMeasureDate  during day of Global."HospitalizationWithObservation"(IschemicStrokeEncounter)
+
 
 define function "CalendarDayOfOrDayAfter"(StartValue DateTime ):
 	Interval(Global."ToDate"(StartValue), Global."ToDate"(StartValue + 2 days))
