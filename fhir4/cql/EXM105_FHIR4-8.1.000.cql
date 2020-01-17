@@ -8,9 +8,6 @@ Author: TJC
 using FHIR version '4.0.0'
 
 include FHIRHelpers version '4.0.0'
-include MATGlobalCommonFunctions_FHIR4 version '4.0.000' called Global
-include SupplementalDataElements_FHIR4 version '1.0.0' called SDE
-include TJCOverall_FHIR4 version '4.0.000' called TJC
 
 codesystem "LOINC": 'http://loinc.org'
 codesystem "SNOMEDCT": 'http://snomed.info/sct/731000124108'
@@ -51,80 +48,23 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
-define "SDE Ethnicity":
-  SDE."SDE Ethnicity"
+define "Medication Request Intent is an Enumeration":
+  [MedicationRequest] MR
+    return MR.intent
 
-define "SDE Payer":
-	SDE."SDE Payer"
+//This is what causes the error
+/* define "intent equals code":
+[MedicationRequest] MR
+  return MR.intent = 'order'
 
-define "SDE Race":
-  SDE."SDE Race"
+define "intent in list of codes":
+  [MedicationRequest] MR
+    return MR.intent in {'order'} */
 
-define "SDE Sex":
-	SDE."SDE Sex"
+define "intent value equals code":
+  [MedicationRequest] MR
+    return MR.intent.value = 'order'
 
-define "Initial Population":
-	TJC."Encounter with Principal Diagnosis and Age"
-
-define "Denominator":
-	TJC."Ischemic Stroke Encounter"
-
-define "Denominator Exclusion":
-	TJC."Ischemic Stroke Encounters with Discharge Disposition"
-		union TJC."Comfort Measures during Hospitalization"
-
-define "Numerator":
-	TJC."Ischemic Stroke Encounter" IschemicStrokeEncounter
-		with "Statin at Discharge" DischargeStatin
-			such that DischargeStatin.authoredOn during day of Global."Normalize Interval"(IschemicStrokeEncounter.period)
-
-// NOTE: Added check for Statin.status in { 'active', 'completed' }
-// Discussion about whether to check for both active and completed, versus just specifying active
-// Also discussion about whether to use "Community" or "Discharge"
-// Suggest using both since there is potential overlap and even some instances that would have both codes
-define "Statin at Discharge":
-  ["MedicationRequest": medication in "Statin Grouper"] Statin
-    where exists (Statin.category C where FHIRHelpers.ToConcept(C) in { "Community", "Discharge" })
-      and Statin.status in { 'active', 'completed' }
-      and Statin.intent in {'order', 'plan'}
-
-define "Denominator Exception":
-	(
-    TJC."Ischemic Stroke Encounter" IschemicStrokeEncounter
-    	with "Statin Not Given at Discharge" NoDischargeStatin
-    		such that NoDischargeStatin.authoredOn during day of IschemicStrokeEncounter.period
-	) union
-	 (
-     TJC."Ischemic Stroke Encounter" IschemicStrokeEncounter
-		   with "Statin Allergy" StatinAllergy
-			    such that Global."Normalize Onset"(StatinAllergy.onset) starts on or before end of IschemicStrokeEncounter.period
-    ) union
-      "Encounter with Max LDL less than 70 mg per dL"
-
-// NOTE: Added status check and category check, consider define Statin Medication Request for reuse
-define "Statin Not Given at Discharge":
-  ["MedicationRequest": medication in "Statin Grouper"] NoStatin
-    where NoStatin.doNotPerform is true
-      and (
-        NoStatin.reasonCode in "Medical Reason"
-          or NoStatin.reasonCode in "Patient Refusal"
-      )
-      and exists (NoStatin.category C where FHIRHelpers.ToConcept(C) in { "Community", "Discharge" })
-      and NoStatin.status = 'completed'
-      and NoStatin.intent = 'order'
-
-// NOTE: Added clinicalStatus and verificationStatus check
-define "Statin Allergy":
-	["AllergyIntolerance": "Statin Allergen"] StatinAllergy
-    where StatinAllergy.clinicalStatus in { Global."active", Global."recurrence", Global."relapse" }
-      and FHIRHelpers.ToConcept(StatinAllergy.verificationStatus) ~ Global."confirmed"
-
-// NOTE: Added check for status in final or amended
-define "Encounter with Max LDL less than 70 mg per dL":
-	TJC."Ischemic Stroke Encounter" IschemicStrokeEncounter
-		where Max(
-        ["Observation": "LDL-c"] Ldl
-				    where Ldl.status in { 'final', 'amended' }
-              and Ldl.issued during Interval[IschemicStrokeEncounter.period.start - 30 days, IschemicStrokeEncounter.period.end]
-				return Ldl.value as Quantity
-		) < 70 'mg/dL'
+define "intent value in list of codes":
+  [MedicationRequest] MR
+    return MR.intent.value in {'order'}
