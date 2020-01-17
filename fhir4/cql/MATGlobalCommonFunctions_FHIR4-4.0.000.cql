@@ -11,6 +11,7 @@ codesystem "Diagnosis Role": 'http://terminology.hl7.org/CodeSystem/diagnosis-ro
 codesystem "RequestIntent": 'http://terminology.hl7.org/CodeSystem/request-intent'
 codesystem "MedicationRequestCategory": 'http://terminology.hl7.org/CodeSystem/medicationrequest-category'
 codesystem "ConditionClinicalStatusCodes": 'http://terminology.hl7.org/CodeSystem/condition-clinical'
+codesystem "ConditionVerificationStatusCodes": 'http://terminology.hl7.org/CodeSystem/condition-verification'
 
 valueset "Encounter Inpatient": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307'
 valueset "Emergency Department Visit": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292'
@@ -29,6 +30,15 @@ code "relapse": 'relapse' from "ConditionClinicalStatusCodes"
 code "inactive": 'inactive' from "ConditionClinicalStatusCodes"
 code "remission": 'remission' from "ConditionClinicalStatusCodes"
 code "resolved": 'resolved' from "ConditionClinicalStatusCodes"
+
+// Condition Verification Status Codes - Consider value sets for these
+code "unconfirmed": 'unconfirmed' from ConditionVerificationStatusCodes
+code "provisional": 'provisional' from ConditionVerificationStatusCodes
+code "differential": 'differential' from ConditionVerificationStatusCodes
+code "confirmed": 'confirmed' from ConditionVerificationStatusCodes
+code "refuted": 'refuted' from ConditionVerificationStatusCodes
+code "entered-in-error": 'entered-in-error' from ConditionVerificationStatusCodes
+
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -184,19 +194,20 @@ define function "Normalize Interval"(choice Choice<FHIR.dateTime, FHIR.Period, F
     	Interval[FHIRHelpers.ToDateTime(choice as FHIR.dateTime), FHIRHelpers.ToDateTime(choice as FHIR.dateTime)]
 		when choice is FHIR.Period then
   		FHIRHelpers.ToInterval(choice as FHIR.Period)
-		when choice is FHIR.Timing then
-		  Message(null as Interval<DateTime>, true, '1', 'Error', 'Cannot compute a single interval from a Timing type')
 		when choice is FHIR.instant then
 			Interval[FHIRHelpers.ToDateTime(choice as FHIR.instant), FHIRHelpers.ToDateTime(choice as FHIR.instant)]
-    when choice is FHIR.string then
-      Message(null as Interval<DateTime>, true, '1', 'Error', 'Cannot compute an interval from a String value')
 		when choice is FHIR.Age then
 		  Interval[FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(choice as FHIR.Age),
 			  FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(choice as FHIR.Age) + 1 year)
 		when choice is FHIR.Range then
 		  Interval[FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity((choice as FHIR.Range).low),
 			  FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity((choice as FHIR.Range).high) + 1 year)
-		else null as Interval<DateTime>
+		when choice is FHIR.Timing then
+		  Message(null as Interval<DateTime>, true, '1', 'Error', 'Cannot compute a single interval from a Timing type')
+    when choice is FHIR.string then
+      Message(null as Interval<DateTime>, true, '1', 'Error', 'Cannot compute an interval from a String value')
+		else
+			null as Interval<DateTime>
 	end
 
 define function "GetId"(uri String):

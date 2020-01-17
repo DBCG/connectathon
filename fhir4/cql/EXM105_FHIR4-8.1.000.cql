@@ -43,6 +43,7 @@ code "Birthdate": '21112-8' from "LOINC" display 'Birth date'
 code "Dead": '419099009' from "SNOMEDCT" display 'Dead'
 code "Billing": 'billing' from "Diagnosis Role" display 'Billing'
 code "Order": 'order' from "RequestIntent" display 'Order'
+code "Community": 'community' from "MedicationRequestCategory" display 'Community'
 code "Discharge": 'discharge' from "MedicationRequestCategory" display 'Discharge'
 
 parameter "Measurement Period" Interval<DateTime>
@@ -80,25 +81,27 @@ define "Numerator":
 // NOTE: Added check for Statin.status in { 'active', 'completed' }
 // Discussion about whether to check for both active and completed, versus just specifying active
 // Also discussion about whether to use "Community" or "Discharge"
+// Suggest using both since there is potential overlap and even some instances that would have both codes
 define "Statin at Discharge":
   ["MedicationRequest": medication in "Statin Grouper"] Statin
-    where exists (Statin.category C where FHIRHelpers.ToConcept(C) ~ "Discharge")
+    where exists (Statin.category C where FHIRHelpers.ToConcept(C) in { "Community", "Discharge" })
       and Statin.status in { 'active', 'completed' }
-      and Statin.intent.value in {'order', 'plan'}
+      and Statin.intent in {'order', 'plan'}
 
 define "Denominator Exception":
 	(
     TJC."Ischemic Stroke Encounter" IschemicStrokeEncounter
     	with "Statin Not Given at Discharge" NoDischargeStatin
-    		such that NoDischargeStatin.authoredOn during day of Global."Normalize Interval"(IschemicStrokeEncounter.period)
+    		such that NoDischargeStatin.authoredOn during day of IschemicStrokeEncounter.period
 	) union
 	 (
      TJC."Ischemic Stroke Encounter" IschemicStrokeEncounter
 		   with "Statin Allergy" StatinAllergy
-			    such that Global."Normalize Onset"(StatinAllergy.onset) starts on or before end of Global."Normalize Interval"(IschemicStrokeEncounter.period)
+			    such that Global."Normalize Onset"(StatinAllergy.onset) starts on or before end of IschemicStrokeEncounter.period
     ) union
       "Encounter with Max LDL less than 70 mg per dL"
 
+// NOTE: Added status check and category check, consider define Statin Medication Request for reuse
 define "Statin Not Given at Discharge":
   ["MedicationRequest": medication in "Statin Grouper"] NoStatin
     where NoStatin.doNotPerform is true
@@ -106,16 +109,22 @@ define "Statin Not Given at Discharge":
         NoStatin.reasonCode in "Medical Reason"
           or NoStatin.reasonCode in "Patient Refusal"
       )
-      and exists (NoStatin.category C where FHIRHelpers.ToConcept(C) ~ "Discharge")
-      and NoStatin.intent.value = 'order'
+      and exists (NoStatin.category C where FHIRHelpers.ToConcept(C) in { "Community", "Discharge" })
+      and NoStatin.status = 'completed'
+      and NoStatin.intent = 'order'
 
+// NOTE: Added clinicalStatus and verificationStatus check
 define "Statin Allergy":
-	["AllergyIntolerance": "Statin Allergen"]
+	["AllergyIntolerance": "Statin Allergen"] StatinAllergy
+    where StatinAllergy.clinicalStatus in { Global."active", Global."recurrence", Global."relapse" }
+      and FHIRHelpers.ToConcept(StatinAllergy.verificationStatus) ~ Global."confirmed"
 
+// NOTE: Added check for status in final or amended
 define "Encounter with Max LDL less than 70 mg per dL":
 	TJC."Ischemic Stroke Encounter" IschemicStrokeEncounter
 		where Max(
         ["Observation": "LDL-c"] Ldl
-				    where Ldl.issued during Interval[IschemicStrokeEncounter.period.start - 30 days, IschemicStrokeEncounter.period.end]
+				    where Ldl.status in { 'final', 'amended' }
+              and Ldl.issued during Interval[IschemicStrokeEncounter.period.start - 30 days, IschemicStrokeEncounter.period.end]
 				return Ldl.value as Quantity
 		) < 70 'mg/dL'
