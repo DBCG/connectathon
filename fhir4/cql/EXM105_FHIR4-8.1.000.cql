@@ -75,21 +75,6 @@ define "SDE Sex":
 define "Initial Population":
 	TJC."Encounter with Principal Diagnosis and Age"
 
-    /* define "Encounter with Principal Diagnosis and Age":
-      "All Stroke Encounter" AllStrokeEncounter
-      	with ["Patient"] BirthDate
-      		such that Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(BirthDate.birthDate), start of AllStrokeEncounter.period) >= 18
-
-          define "All Stroke Encounter":
-          	"Non Elective Inpatient Encounter" NonElectiveEncounter
-          		where Global.PrincipalDiagnosis(NonElectiveEncounter).code in "Hemorrhagic Stroke"
-          		or Global.PrincipalDiagnosis(NonElectiveEncounter).code in "Ischemic Stroke"
-
-                define "Non Elective Inpatient Encounter":
-                	["Encounter": "Non-Elective Inpatient Encounter"] NonElectiveEncounter
-                		where Global."LengthInDays"(NonElectiveEncounter.period)<= 120
-                			and NonElectiveEncounter.period ends during "Measurement Period" */
-
 define "Denominator":
 	TJC."Ischemic Stroke Encounter"
 
