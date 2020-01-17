@@ -1,8 +1,4 @@
 library EXM105_FHIR4 version '8.1.000'
-// for 2020 Reporting Year
-// NOTE: BTR 2019-07-30: Renamed for consistency
-//library "Discharged on Statin Medication" version '8.1.0'
-//STK 6
 
 /*
 Based on CMS105v8 - Discharged on Statin Medication
@@ -11,7 +7,6 @@ Author: TJC
 
 using FHIR version '4.0.0'
 
-// NOTE: BTR 2019-07-30: Updated dependencies
 include FHIRHelpers version '4.0.0'
 include MATGlobalCommonFunctions_FHIR4 version '4.0.000' called Global
 include SupplementalDataElements_FHIR4 version '1.0.0' called SDE
@@ -19,11 +14,8 @@ include TJCOverall_FHIR4 version '4.0.000' called TJC
 
 codesystem "LOINC": 'http://loinc.org'
 codesystem "SNOMEDCT": 'http://snomed.info/sct/731000124108'
-// NOTE: R4 code system URLs changed to be based on terminology.hl7.org...
 codesystem "Diagnosis Role": 'http://terminology.hl7.org/CodeSystem/diagnosis-role'
-//codesystem "Diagnosis Role": 'http://hl7.org/fhir/diagnosis-role'
 codesystem "RequestIntent": 'http://terminology.hl7.org/CodeSystem/request-intent'
-//codesystem "RequestIntent": 'http://hl7.org/fhir/request-intent'
 codesystem "MedicationRequestCategory": 'http://terminology.hl7.org/CodeSystem/medicationrequest-category'
 
 valueset "Comfort Measures": 'http://cts.nlm.nih.gov/fhir/ValueSet/1.3.6.1.4.1.33895.1.3.0.45'
@@ -47,10 +39,8 @@ valueset "Race": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.83
 valueset "Statin Allergen": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.423'
 valueset "Statin Grouper": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.19'
 
-// TODO: Use NLM VSAC Canonical URLs
 code "Birthdate": '21112-8' from "LOINC" display 'Birth date'
 code "Dead": '419099009' from "SNOMEDCT" display 'Dead'
-//code "Medication-dischargeMedication": '8654-6' from "LOINC" display 'Hospital Discharge medications'
 code "Billing": 'billing' from "Diagnosis Role" display 'Billing'
 code "Order": 'order' from "RequestIntent" display 'Order'
 code "Discharge": 'discharge' from "MedicationRequestCategory" display 'Discharge'
@@ -75,21 +65,6 @@ define "SDE Sex":
 define "Initial Population":
 	TJC."Encounter with Principal Diagnosis and Age"
 
-    /* define "Encounter with Principal Diagnosis and Age":
-      "All Stroke Encounter" AllStrokeEncounter
-      	with ["Patient"] BirthDate
-      		such that Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(BirthDate.birthDate), start of AllStrokeEncounter.period) >= 18
-
-          define "All Stroke Encounter":
-          	"Non Elective Inpatient Encounter" NonElectiveEncounter
-          		where Global.PrincipalDiagnosis(NonElectiveEncounter).code in "Hemorrhagic Stroke"
-          		or Global.PrincipalDiagnosis(NonElectiveEncounter).code in "Ischemic Stroke"
-
-                define "Non Elective Inpatient Encounter":
-                	["Encounter": "Non-Elective Inpatient Encounter"] NonElectiveEncounter
-                		where Global."LengthInDays"(NonElectiveEncounter.period)<= 120
-                			and NonElectiveEncounter.period ends during "Measurement Period" */
-
 define "Denominator":
 	TJC."Ischemic Stroke Encounter"
 
@@ -102,9 +77,13 @@ define "Numerator":
 		with "Statin at Discharge" DischargeStatin
 			such that DischargeStatin.authoredOn during day of Global."Normalize Interval"(IschemicStrokeEncounter.period)
 
+// NOTE: Added check for Statin.status in { 'active', 'completed' }
+// Discussion about whether to check for both active and completed, versus just specifying active
+// Also discussion about whether to use "Community" or "Discharge"
 define "Statin at Discharge":
   ["MedicationRequest": medication in "Statin Grouper"] Statin
     where exists (Statin.category C where FHIRHelpers.ToConcept(C) ~ "Discharge")
+      and Statin.status in { 'active', 'completed' }
       and Statin.intent.value in {'order', 'plan'}
 
 define "Denominator Exception":
@@ -122,7 +101,7 @@ define "Denominator Exception":
 
 define "Statin Not Given at Discharge":
   ["MedicationRequest": medication in "Statin Grouper"] NoStatin
-    where FHIRHelpers.ToBoolean(NoStatin.doNotPerform) is true
+    where NoStatin.doNotPerform is true
       and (
         NoStatin.reasonCode in "Medical Reason"
           or NoStatin.reasonCode in "Patient Refusal"
