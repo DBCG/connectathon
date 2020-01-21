@@ -8,7 +8,7 @@ include FHIRHelpers version '4.0.0' called FHIRHelpers
 // NOTE: BTR 2019-07-30: Updated dependencies
 include MATGlobalCommonFunctions_FHIR4 version '4.0.000' called Global
 
-valueset "Intensive Care Unit": 'urn:oid:2.16.840.1.113762.1.4.1029.206'
+valueset "Intensive Care Unit": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.23'
 
 parameter "Measurement Period" Interval<DateTime>
 
