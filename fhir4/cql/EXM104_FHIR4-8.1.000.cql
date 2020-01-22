@@ -20,7 +20,6 @@ codesystem "Diagnosis Role": 'http://terminology.hl7.org/CodeSystem/diagnosis-ro
 //codesystem "Diagnosis Role": 'http://hl7.org/fhir/diagnosis-role'
 codesystem "RequestIntent": 'http://terminology.hl7.org/CodeSystem/request-intent'
 //codesystem "RequestIntent": 'http://hl7.org/fhir/request-intent'
-codesystem "MedicationRequestCategory": 'http://terminology.hl7.org/CodeSystem/medicationrequest-category'
 
 
 valueset "Antithrombotic Therapy": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.201'
@@ -45,7 +44,6 @@ valueset "Ticagrelor Therapy": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.
 
 code "Birth date": '21112-8' from "LOINC" display 'Birth date'
 code "Order": 'order' from "RequestIntent" display 'Order'
-code "Discharge": 'discharge' from "MedicationRequestCategory" display 'Discharge'
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -66,68 +64,68 @@ define "SDE Sex":
 define "Initial Population":
 	TJC."Encounter with Principal Diagnosis and Age"
 
-  define "Encounter with Principal Diagnosis and Age":
-    "All Stroke Encounter" AllStrokeEncounter
-    	with ["Patient"] BirthDate
-    		such that Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(BirthDate.birthDate), start of AllStrokeEncounter.period) >= 18
+define "Encounter with Principal Diagnosis and Age":
+  "All Stroke Encounter" AllStrokeEncounter
+  	with ["Patient"] BirthDate
+  		such that Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(BirthDate.birthDate), start of AllStrokeEncounter.period) >= 18
 
-        define "All Stroke Encounter":
-        	"Non Elective Inpatient Encounter" NonElectiveEncounter
-        		where Global.PrincipalDiagnosis(NonElectiveEncounter).code in "Hemorrhagic Stroke"
-        		or Global.PrincipalDiagnosis(NonElectiveEncounter).code in "Ischemic Stroke"
+define "All Stroke Encounter":
+	"Non Elective Inpatient Encounter" NonElectiveEncounter
+		where Global.PrincipalDiagnosis(NonElectiveEncounter).code in "Hemorrhagic Stroke"
+		  or Global.PrincipalDiagnosis(NonElectiveEncounter).code in "Ischemic Stroke"
 
-
-              define "Non Elective Inpatient Encounter":
-              	["Encounter": "Non-Elective Inpatient Encounter"] NonElectiveEncounter
-              		where Global."LengthInDays"(NonElectiveEncounter.period)<= 120
-              			and NonElectiveEncounter.period ends during "Measurement Period"
+define "Non Elective Inpatient Encounter":
+	["Encounter": "Non-Elective Inpatient Encounter"] NonElectiveEncounter
+		where Global."LengthInDays"(NonElectiveEncounter.period)<= 120
+			and NonElectiveEncounter.period ends during "Measurement Period"
 
 define "Denominator":
 	TJC."Ischemic Stroke Encounter"
 
-  define "Ischemic Stroke Encounter":
-    "Encounter with Principal Diagnosis and Age" EncounterWithAge
-      where Global.PrincipalDiagnosis(EncounterWithAge).code in "Ischemic Stroke"
+define "Ischemic Stroke Encounter":
+  "Encounter with Principal Diagnosis and Age" EncounterWithAge
+    where Global.PrincipalDiagnosis(EncounterWithAge).code in "Ischemic Stroke"
 
 define "Denominator Exclusion":
 	TJC."Ischemic Stroke Encounters with Discharge Disposition"
 		union TJC."Comfort Measures during Hospitalization"
-
 
 define "Numerator":
 	TJC."Ischemic Stroke Encounter" IschemicStrokeEncounter
 		with "Antithrombotic Therapy at Discharge" DischargeAntithrombotic
 			such that DischargeAntithrombotic.authoredOn during Global."Normalize Interval"(IschemicStrokeEncounter.period)
 
-      define "Antithrombotic Therapy at Discharge":
-      	["MedicationRequest": medication in "Antithrombotic Therapy"] Antithrombotic
-      	  where exists (Antithrombotic.category C where FHIRHelpers.ToConcept(C) ~ "Discharge")
-          //.value should not be required.  Antithrombotic.intent should work.  Pending fix to CQF Ruler.
-      	    and Antithrombotic.intent.value in {'plan', 'order'}
+define "Antithrombotic Therapy at Discharge":
+	["MedicationRequest": medication in "Antithrombotic Therapy"] Antithrombotic
+	  where exists (Antithrombotic.category C where FHIRHelpers.ToConcept(C) in { Global."Community", Global."Discharge" })
+      and Antithrombotic.status in { 'active', 'completed' }
+	    and Antithrombotic.intent.value = 'order'
 
 define "Denominator Exceptions":
 	"Encounter With No Antithrombotic At Discharge"
 		union "Encounter With Ticagrelor at Discharge"
 
-    define "Encounter With No Antithrombotic At Discharge":
-    	TJC."Ischemic Stroke Encounter" IschemicStrokeEncounter
-    		with "Antithrombotic Not Given at Discharge" NoDischargeAntithrombotic
-    			such that NoDischargeAntithrombotic.authoredOn during IschemicStrokeEncounter.period
+define "Encounter With No Antithrombotic At Discharge":
+	TJC."Ischemic Stroke Encounter" IschemicStrokeEncounter
+		with "Antithrombotic Not Given at Discharge" NoDischargeAntithrombotic
+			such that NoDischargeAntithrombotic.authoredOn during IschemicStrokeEncounter.period
 
-          define "Antithrombotic Not Given at Discharge":
-          	["MedicationRequest": medication in "Antithrombotic Therapy"] NoAntithromboticDischarge
-              where NoAntithromboticDischarge.doNotPerform is true
-          			and (NoAntithromboticDischarge.reasonCode in "Medical Reason"
-          				or NoAntithromboticDischarge.reasonCode in "Patient Refusal")
-                    and exists (NoAntithromboticDischarge.category C where FHIRHelpers.ToConcept(C) ~ "Discharge")
+define "Antithrombotic Not Given at Discharge":
+	["MedicationRequest": medication in "Antithrombotic Therapy"] NoAntithromboticDischarge
+    where NoAntithromboticDischarge.doNotPerform is true
+			and (NoAntithromboticDischarge.reasonCode in "Medical Reason"
+				or NoAntithromboticDischarge.reasonCode in "Patient Refusal")
+      and exists (NoAntithromboticDischarge.category C where FHIRHelpers.ToConcept(C) in { Global."Community", Global."Discharge" })
+      and NoAntithromboticDischarge.status = 'completed'
+      and NoAntithromboticDischarge.intent = 'order'
 
+define "Encounter With Ticagrelor at Discharge":
+  TJC."Ischemic Stroke Encounter" IschemicStrokeEncounter
+    with "Ticagrelor Therapy at Discharge" DischargeTicagrelor
+      such that DischargeTicagrelor.authoredOn during IschemicStrokeEncounter.period
 
-    define "Encounter With Ticagrelor at Discharge":
-      TJC."Ischemic Stroke Encounter" IschemicStrokeEncounter
-        with "Ticagrelor Therapy at Discharge" DischargeTicagrelor
-          such that DischargeTicagrelor.authoredOn during IschemicStrokeEncounter.period
-
-          define "Ticagrelor Therapy at Discharge":
-            ["MedicationRequest": medication in TJC."Ticagrelor Therapy"] Ticagrelor
-              where exists (Ticagrelor.category C where FHIRHelpers.ToConcept(C) ~ "Discharge")
-                and Ticagrelor.intent in {'order', 'plan'}
+define "Ticagrelor Therapy at Discharge":
+  ["MedicationRequest": medication in TJC."Ticagrelor Therapy"] Ticagrelor
+    where exists (Ticagrelor.category C where FHIRHelpers.ToConcept(C) in { Global."Community", Global."Discharge" })
+      and Ticagrelor.status in { 'active', 'completed' }
+      and Ticagrelor.intent = 'order'

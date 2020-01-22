@@ -16,7 +16,6 @@ codesystem "LOINC": 'http://loinc.org'
 codesystem "SNOMEDCT": 'http://snomed.info/sct/731000124108'
 codesystem "Diagnosis Role": 'http://terminology.hl7.org/CodeSystem/diagnosis-role'
 codesystem "RequestIntent": 'http://terminology.hl7.org/CodeSystem/request-intent'
-codesystem "MedicationRequestCategory": 'http://terminology.hl7.org/CodeSystem/medicationrequest-category'
 
 valueset "Comfort Measures": 'http://cts.nlm.nih.gov/fhir/ValueSet/1.3.6.1.4.1.33895.1.3.0.45'
 valueset "Discharged to Health Care Facility for Hospice Care": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.207'
@@ -43,8 +42,6 @@ code "Birthdate": '21112-8' from "LOINC" display 'Birth date'
 code "Dead": '419099009' from "SNOMEDCT" display 'Dead'
 code "Billing": 'billing' from "Diagnosis Role" display 'Billing'
 code "Order": 'order' from "RequestIntent" display 'Order'
-code "Community": 'community' from "MedicationRequestCategory" display 'Community'
-code "Discharge": 'discharge' from "MedicationRequestCategory" display 'Discharge'
 
 parameter "Measurement Period" Interval<DateTime>
   default Interval[@2019-01-01T00:00:00.0, @2020-01-01T00:00:00.0)
@@ -82,11 +79,13 @@ define "Numerator":
 // Discussion about whether to check for both active and completed, versus just specifying active
 // Also discussion about whether to use "Community" or "Discharge"
 // Suggest using both since there is potential overlap and even some instances that would have both codes
+// Will keep both and followup with Pharmacy to verify the approach
+// NOTE: Changed intent to only "order", since we're specifically looking for authorized prescriptions
 define "Statin at Discharge":
   ["MedicationRequest": medication in "Statin Grouper"] Statin
-    where exists (Statin.category C where FHIRHelpers.ToConcept(C) in { "Community", "Discharge" })
+    where exists (Statin.category C where FHIRHelpers.ToConcept(C) in { Global."Community", Global."Discharge" })
       and Statin.status in { 'active', 'completed' }
-      and Statin.intent in {'order', 'plan'}
+      and Statin.intent = 'order'
 
 define "Denominator Exception":
 	(
@@ -109,15 +108,15 @@ define "Statin Not Given at Discharge":
         NoStatin.reasonCode in "Medical Reason"
           or NoStatin.reasonCode in "Patient Refusal"
       )
-      and exists (NoStatin.category C where FHIRHelpers.ToConcept(C) in { "Community", "Discharge" })
+      and exists (NoStatin.category C where FHIRHelpers.ToConcept(C) in { Global."Community", Global."Discharge" })
       and NoStatin.status = 'completed'
       and NoStatin.intent = 'order'
 
 // NOTE: Added clinicalStatus and verificationStatus check
 define "Statin Allergy":
 	["AllergyIntolerance": "Statin Allergen"] StatinAllergy
-    where StatinAllergy.clinicalStatus in { Global."active", Global."recurrence", Global."relapse" }
-      and FHIRHelpers.ToConcept(StatinAllergy.verificationStatus) ~ Global."confirmed"
+    where (StatinAllergy.clinicalStatus is null or FHIRHelpers.ToConcept(StatinAllergy.clinicalStatus) ~ Global."allergy-active")
+      and FHIRHelpers.ToConcept(StatinAllergy.verificationStatus) in { Global."allergy-unconfirmed", Global."allergy-confirmed" }
 
 // NOTE: Added check for status in final or amended
 define "Encounter with Max LDL less than 70 mg per dL":

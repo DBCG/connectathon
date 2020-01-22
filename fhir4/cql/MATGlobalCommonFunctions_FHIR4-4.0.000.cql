@@ -12,6 +12,8 @@ codesystem "RequestIntent": 'http://terminology.hl7.org/CodeSystem/request-inten
 codesystem "MedicationRequestCategory": 'http://terminology.hl7.org/CodeSystem/medicationrequest-category'
 codesystem "ConditionClinicalStatusCodes": 'http://terminology.hl7.org/CodeSystem/condition-clinical'
 codesystem "ConditionVerificationStatusCodes": 'http://terminology.hl7.org/CodeSystem/condition-verification'
+codesystem "AllergyIntoleranceClinicalStatusCodes": 'http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical'
+codesystem "AllergyIntoleranceVerificationStatusCodes": 'http://terminology.hl7.org/CodeSystem/allergyintolerance-verification'
 
 valueset "Encounter Inpatient": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307'
 valueset "Emergency Department Visit": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292'
@@ -39,6 +41,18 @@ code "confirmed": 'confirmed' from ConditionVerificationStatusCodes
 code "refuted": 'refuted' from ConditionVerificationStatusCodes
 code "entered-in-error": 'entered-in-error' from ConditionVerificationStatusCodes
 
+code "allergy-active": 'active' from "AllergyIntoleranceClinicalStatusCodes"
+code "allergy-inactive": 'inactive' from "AllergyIntoleranceClinicalStatusCodes"
+code "allergy-resolved": 'resolved' from "AllergyIntoleranceClinicalStatusCodes"
+
+// Allergy/Intolerance Verification Status Codes - Consider value sets for these
+code "allergy-unconfirmed": 'unconfirmed' from AllergyIntoleranceVerificationStatusCodes
+code "allergy-confirmed": 'confirmed' from AllergyIntoleranceVerificationStatusCodes
+code "allergy-refuted": 'refuted' from AllergyIntoleranceVerificationStatusCodes
+
+// MedicationRequest Category Codes
+code "Community": 'community' from "MedicationRequestCategory" display 'Community'
+code "Discharge": 'discharge' from "MedicationRequestCategory" display 'Discharge'
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -242,6 +256,19 @@ define function "GetExtensions"(domainResource DomainResource, url String):
 
 define function "GetExtension"(domainResource DomainResource, url String):
   singleton from "GetExtensions"(domainResource, url)
+
+/*
+NOTE: Extensions are not the preferred approach, but are used as a way to access
+content that is defined by extensions but not yet surfaced in the
+CQL model info.
+*/
+define function "GetExtensions"(element Element, url String):
+  element.extension E
+	  where E.url = (url)
+		return E
+
+define function "GetExtension"(element Element, url String):
+  singleton from "GetExtensions"(element, url)
 
 /*
 NOTE: Extensions are not the preferred approach, but are used as a way to access
