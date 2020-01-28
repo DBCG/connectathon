@@ -66,27 +66,8 @@ define "SDE Sex":
 define "Initial Population":
 	TJC."Encounter with Principal Diagnosis and Age"
 
-define "Encounter with Principal Diagnosis and Age":
-  "All Stroke Encounter" AllStrokeEncounter
-  	with ["Patient"] BirthDate
-  		such that Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(BirthDate.birthDate), start of AllStrokeEncounter.period) >= 18
-
-define "All Stroke Encounter":
-	"Non Elective Inpatient Encounter" NonElectiveEncounter
-		where Global.PrincipalDiagnosis(NonElectiveEncounter).code in "Hemorrhagic Stroke"
-		  or Global.PrincipalDiagnosis(NonElectiveEncounter).code in "Ischemic Stroke"
-
-define "Non Elective Inpatient Encounter":
-	["Encounter": "Non-Elective Inpatient Encounter"] NonElectiveEncounter
-		where Global."LengthInDays"(NonElectiveEncounter.period)<= 120
-			and NonElectiveEncounter.period ends during "Measurement Period"
-
 define "Denominator":
 	TJC."Ischemic Stroke Encounter"
-
-define "Ischemic Stroke Encounter":
-  "Encounter with Principal Diagnosis and Age" EncounterWithAge
-    where Global.PrincipalDiagnosis(EncounterWithAge).code in "Ischemic Stroke"
 
 define "Denominator Exclusion":
 	TJC."Ischemic Stroke Encounters with Discharge Disposition"
@@ -103,7 +84,7 @@ define "Antithrombotic Therapy at Discharge":
       and Antithrombotic.status in { 'active', 'completed' }
 	    and Antithrombotic.intent.value = 'order'
 
-define "Denominator Exceptions":
+define "Denominator Exception":
 	"Encounter With No Antithrombotic At Discharge"
 		union "Encounter With Ticagrelor at Discharge"
 
