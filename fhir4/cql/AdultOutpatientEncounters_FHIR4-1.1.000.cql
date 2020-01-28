@@ -17,15 +17,18 @@ valueset "Preventive Care Services - Established Office Visit, 18 and Up": 'http
 valueset "Preventive Care Services-Initial Office Visit, 18 and Up": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1023'
 valueset "Home Healthcare Services": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1016'
 
+parameter "Measurement Period" Interval<DateTime>
+  default Interval[@2019-01-01T00:00:00.0, @2020-01-01T00:00:00.0)
+	
 context Patient
 
 define function "Qualifying Encounters"(MeasurementPeriod Interval<DateTime>):
 	(
 	    [Encounter: "Office Visit"]
-		union [Encounter: "Annual Wellness Visit"] 
-		union [Encounter: "Preventive Care Services - Established Office Visit, 18 and Up"] 
-		union [Encounter: "Preventive Care Services-Initial Office Visit, 18 and Up"] 
+		union [Encounter: "Annual Wellness Visit"]
+		union [Encounter: "Preventive Care Services - Established Office Visit, 18 and Up"]
+		union [Encounter: "Preventive Care Services-Initial Office Visit, 18 and Up"]
 		union [Encounter: "Home Healthcare Services"]
     ) ValidEncounter
 		where ValidEncounter.period during day of MeasurementPeriod
-		and ValidEncounter.status  = 'finished' 
+		and ValidEncounter.status  = 'finished'
