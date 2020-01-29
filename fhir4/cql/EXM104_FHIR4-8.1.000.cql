@@ -80,7 +80,8 @@ define "Numerator":
 
 define "Antithrombotic Therapy at Discharge":
 	["MedicationRequest": medication in "Antithrombotic Therapy"] Antithrombotic
-	  where exists (Antithrombotic.category C where FHIRHelpers.ToConcept(C) in { Global."Community", Global."Discharge" })
+  //Note: expressed as an or with equivalence semantics pending resolution of potential CQL issue.
+	  where exists (Antithrombotic.category C where FHIRHelpers.ToConcept(C) ~ Global."Community" or FHIRHelpers.ToConcept(C) ~ Global."Discharge")
       and Antithrombotic.status in { 'active', 'completed' }
 	    and Antithrombotic.intent.value = 'order'
 
@@ -98,7 +99,8 @@ define "Antithrombotic Not Given at Discharge":
     where NoAntithromboticDischarge.doNotPerform is true
 			and (NoAntithromboticDischarge.reasonCode in "Medical Reason"
 				or NoAntithromboticDischarge.reasonCode in "Patient Refusal")
-      and exists (NoAntithromboticDischarge.category C where FHIRHelpers.ToConcept(C) in { Global."Community", Global."Discharge" })
+      //Note: expressed as an or with equivalence semantics pending resolution of potential CQL issue.
+      and exists (NoAntithromboticDischarge.category C where FHIRHelpers.ToConcept(C) ~ Global."Community" or FHIRHelpers.ToConcept(C) ~ Global."Discharge")
       and NoAntithromboticDischarge.status = 'completed'
       and NoAntithromboticDischarge.intent = 'order'
 
@@ -109,6 +111,7 @@ define "Encounter With Ticagrelor at Discharge":
 
 define "Ticagrelor Therapy at Discharge":
   ["MedicationRequest": medication in TJC."Ticagrelor Therapy"] Ticagrelor
-    where exists (Ticagrelor.category C where FHIRHelpers.ToConcept(C) in { Global."Community", Global."Discharge" })
+    //Note: expressed as an or with equivalence semantics pending resolution of potential CQL issue.
+    where exists (Ticagrelor.category C where FHIRHelpers.ToConcept(C) ~ Global."Community" or FHIRHelpers.ToConcept(C) ~ Global."Discharge")
       and Ticagrelor.status in { 'active', 'completed' }
       and Ticagrelor.intent = 'order'
