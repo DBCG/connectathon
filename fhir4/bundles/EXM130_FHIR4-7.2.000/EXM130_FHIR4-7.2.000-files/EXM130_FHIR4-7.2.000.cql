@@ -75,25 +75,17 @@ define "Fecal Occult Blood Test Performed":
 		where FecalOccultResult.status in {'final', 'amended', 'corrected', 'preliminary'}
 			and FecalOccultResult.value is not null
 			and Global."Normalize Interval"(FecalOccultResult.effective) during day of "Measurement Period"
-			// and FecalOccultResult.FHIR.provenance.recorded during "Measurement Period"
 
 define "Fecal Immunochemical Test DNA":
 	[Observation: "FIT DNA"] FitDNA
 		where FitDNA.status in {'final', 'amended', 'corrected', 'preliminary'}
 			and FitDNA.value is not null
 			and Global."Normalize Interval"(FitDNA.effective) occurs 3 years or less on or before day of end of "Measurement Period"
-			// and FitDNA.FHIR.provenance.recorded occurs 3 years or less on or before end of "Measurement Period"
 
 define "Colonoscopy Performed":
 	[Procedure: "Colonoscopy"] Colonoscopy
 		where Colonoscopy.status = 'completed'
-		//Blocking Issue:
-		//Note: copy of Measure Review in MATGlobalCommonFunctions 4.0.000
-		//Measure Review: 
-		//Global."Normalize Interval" does not work in R4 for Procedure.performed and Observation.effective as it did in STU3.
-		//R4 Procedure.performed and Observation.effective no longer have the same Choice types.
-      and Global."Normalize Interval"(Colonoscopy.performed) ends 10 years or less on or before end of "Measurement Period"
-		 //	and Global."Normalize Onset"(Colonoscopy.performed) ends 10 years or less on or before end of "Measurement Period"
+		  and Global."Normalize Onset"(Colonoscopy.performed) ends 10 years or less on or before end of "Measurement Period"
 
 define "Numerator":
 	exists "Colonoscopy Performed"

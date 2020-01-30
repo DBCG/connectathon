@@ -3,9 +3,79 @@
   "contained": [
     {
       "resourceType": "Bundle",
-      "id": "da2eddd1-0574-4add-b81a-38b6b6c2093f",
+      "id": "c8691f84-3d73-4570-8211-5696411b3fe8",
       "type": "collection",
       "entry": [
+        {
+          "fullUrl": "be2e5cd9-f295-4ecf-9e31-d1143427e75a",
+          "resource": {
+            "resourceType": "List",
+            "id": "be2e5cd9-f295-4ecf-9e31-d1143427e75a",
+            "title": "numerator",
+            "entry": [
+              {
+                "item": {
+                  "reference": "denom-EXM125-FHIR4-3"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "fullUrl": "DiagnosticReport/denom-EXM125-FHIR4-3",
+          "resource": {
+            "resourceType": "DiagnosticReport",
+            "id": "denom-EXM125-FHIR4-3",
+            "meta": {
+              "versionId": "1",
+              "lastUpdated": "2020-01-29T16:25:20.948-07:00",
+              "profile": [
+                "http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-note"
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\"> MG Breast Diagnostic Limited Views </div><table class=\"hapiPropertyTable\"><tbody><tr><td>Status</td><td>FINAL</td></tr></tbody></table></div>"
+            },
+            "status": "final",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "24604-1",
+                  "display": "MG Breast Diagnostic Limited Views"
+                }
+              ]
+            },
+            "subject": {
+              "reference": "Patient/denom-EXM125-FHIR4"
+            },
+            "effectivePeriod": {
+              "start": "2016-11-01T00:00:00",
+              "end": "2016-11-01T00:00:00"
+            }
+          }
+        },
+        {
+          "fullUrl": "14aba553-6dd8-4439-bfb4-11bb1c2f6ce9",
+          "resource": {
+            "resourceType": "List",
+            "id": "14aba553-6dd8-4439-bfb4-11bb1c2f6ce9",
+            "title": "denominator",
+            "entry": [
+              {
+                "item": {
+                  "reference": "denom-EXM125-FHIR4"
+                }
+              },
+              {
+                "item": {
+                  "reference": "denom-EXM125-FHIR4-1"
+                }
+              }
+            ]
+          }
+        },
         {
           "fullUrl": "Patient/denom-EXM125-FHIR4",
           "resource": {
@@ -13,7 +83,7 @@
             "id": "denom-EXM125-FHIR4",
             "meta": {
               "versionId": "1",
-              "lastUpdated": "2020-01-01T07:30:44.171-07:00",
+              "lastUpdated": "2020-01-29T16:25:20.948-07:00",
               "profile": [
                 "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
               ]
@@ -85,7 +155,7 @@
             "id": "denom-EXM125-FHIR4-1",
             "meta": {
               "versionId": "1",
-              "lastUpdated": "2020-01-01T07:30:44.171-07:00",
+              "lastUpdated": "2020-01-29T16:25:20.948-07:00",
               "profile": [
                 "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
               ]
@@ -117,42 +187,10 @@
           }
         },
         {
-          "fullUrl": "DiagnosticReport/denom-EXM125-FHIR4-3",
-          "resource": {
-            "resourceType": "DiagnosticReport",
-            "id": "denom-EXM125-FHIR4-3",
-            "meta": {
-              "versionId": "1",
-              "lastUpdated": "2020-01-01T07:30:44.171-07:00"
-            },
-            "text": {
-              "status": "generated",
-              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\"> MG Breast Diagnostic Limited Views </div><table class=\"hapiPropertyTable\"><tbody><tr><td>Status</td><td>FINAL</td></tr></tbody></table></div>"
-            },
-            "status": "final",
-            "code": {
-              "coding": [
-                {
-                  "system": "http://loinc.org",
-                  "code": "24604-1",
-                  "display": "MG Breast Diagnostic Limited Views"
-                }
-              ]
-            },
-            "subject": {
-              "reference": "Patient/denom-EXM125-FHIR4"
-            },
-            "effectivePeriod": {
-              "start": "2016-11-01T00:00:00",
-              "end": "2016-11-01T00:00:00"
-            }
-          }
-        },
-        {
-          "fullUrl": "10102cbe-dcea-4c8a-9ca8-af7ba567e9e3",
+          "fullUrl": "48ff6ecc-39b2-4190-ba70-ad5c4d9cd01f",
           "resource": {
             "resourceType": "List",
-            "id": "10102cbe-dcea-4c8a-9ca8-af7ba567e9e3",
+            "id": "48ff6ecc-39b2-4190-ba70-ad5c4d9cd01f",
             "title": "initial-population",
             "entry": [
               {
@@ -163,21 +201,6 @@
               {
                 "item": {
                   "reference": "denom-EXM125-FHIR4-1"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "fullUrl": "9e67bc1b-aca5-493b-a859-912d150ddc8a",
-          "resource": {
-            "resourceType": "List",
-            "id": "9e67bc1b-aca5-493b-a859-912d150ddc8a",
-            "title": "numerator",
-            "entry": [
-              {
-                "item": {
-                  "reference": "denom-EXM125-FHIR4-3"
                 }
               }
             ]
@@ -193,8 +216,8 @@
     "reference": "Patient/denom-EXM125-FHIR4"
   },
   "period": {
-    "start": "2019-01-01T00:00:00-07:00",
-    "end": "2019-12-31T00:00:00-07:00"
+    "start": "2018-12-31T17:00:00-07:00",
+    "end": "2019-12-30T17:00:00-07:00"
   },
   "group": [
     {
@@ -256,7 +279,7 @@
   ],
   "evaluatedResource": [
     {
-      "reference": "#da2eddd1-0574-4add-b81a-38b6b6c2093f"
+      "reference": "#c8691f84-3d73-4570-8211-5696411b3fe8"
     }
   ]
 }
