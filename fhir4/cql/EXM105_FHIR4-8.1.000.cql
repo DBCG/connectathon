@@ -83,7 +83,8 @@ define "Numerator":
 // NOTE: Changed intent to only "order", since we're specifically looking for authorized prescriptions
 define "Statin at Discharge":
   ["MedicationRequest": medication in "Statin Grouper"] Statin
-    where exists (Statin.category C where FHIRHelpers.ToConcept(C) in { Global."Community", Global."Discharge" })
+    //Note: expressed as an or with equivalence semantics pending resolution of potential CQL issue.
+    where exists (Statin.category C where FHIRHelpers.ToConcept(C) ~ Global."Community" or FHIRHelpers.ToConcept(C) ~ Global."Discharge")
       and Statin.status in { 'active', 'completed' }
       and Statin.intent = 'order'
 
@@ -108,7 +109,8 @@ define "Statin Not Given at Discharge":
         NoStatin.reasonCode in "Medical Reason"
           or NoStatin.reasonCode in "Patient Refusal"
       )
-      and exists (NoStatin.category C where FHIRHelpers.ToConcept(C) in { Global."Community", Global."Discharge" })
+    //Note: expressed as an or with equivalence semantics pending resolution of potential CQL issue.
+      and exists (NoStatin.category C where FHIRHelpers.ToConcept(C) ~ Global."Community" or FHIRHelpers.ToConcept(C) ~ Global."Discharge")
       and NoStatin.status = 'completed'
       and NoStatin.intent = 'order'
 
