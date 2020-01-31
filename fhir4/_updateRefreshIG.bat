@@ -1,6 +1,6 @@
 @ECHO OFF
 
-SET dlurl=https://oss.sonatype.org/service/local/repositories/snapshots/content/org/opencds/cqf/tooling/1.0-SNAPSHOT/tooling-1.0-20200107.163002-6-jar-with-dependencies.jar
+SET dlurl=https://oss.sonatype.org/service/local/repositories/snapshots/content/org/opencds/cqf/tooling/1.0-SNAPSHOT/tooling-1.0-20200131.205047-13-jar-with-dependencies.jar
 SET tooling_jar=tooling-1.0-SNAPSHOT-jar-with-dependencies.jar
 SET input_cache_path=%~dp0input-cache\
 
@@ -57,11 +57,12 @@ GOTO done
 
 :win10
 POWERSHELL -command if ('System.Net.WebClient' -as [type]) {(new-object System.Net.WebClient).DownloadFile(\"%dlurl%\",\"%jarlocation%\") } else { Invoke-WebRequest -Uri "%dlurl%" -Outfile "%jarlocation%" }
-
+ECHO Download complete.
 GOTO done
 
 :win7
 bitsadmin /transfer GetRefresh /download /priority normal "%dlurl%" "%jarlocation%"
+ECHO Download complete.
 GOTO done
 
 :win8.1

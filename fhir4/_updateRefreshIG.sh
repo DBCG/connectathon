@@ -2,8 +2,7 @@
 #echo Downloading the CQF Tooling jar is currently not an option. Get the jar from Bryn.
 #exit 1
 
-dlurl=https://oss.sonatype.org/service/local/repositories/snapshots/content/org/opencds/cqf/tooling/1.0-SNAPSHOT/tooling-1.0-20200107.163002-6-jar-with-dependencies.jar
-tooling_jar=tooling-1.0-SNAPSHOT-jar-with-dependencies.jar
+dlurl=https://oss.sonatype.org/service/local/repositories/snapshots/content/org/opencds/cqf/tooling/1.0-SNAPSHOT/tooling-1.0-20200131.205047-13-jar-with-dependencies.jar
 input_cache_path=./input-cache/
 
 set -e
@@ -47,6 +46,7 @@ if [[ "$response" =~ ^([yY])$ ]]; then
 	echo "Downloading most recent tooling to $jarlocationname - it's ~70 MB, so this may take a bit"
 #	wget "https://oss.sonatype.org/service/local/repositories/snapshots/content/org/opencds/cqf/tooling/1.0-SNAPSHOT/tooling-1.0-20200107.163002-6-jar-with-dependencies.jar" -O "$jarlocation"
 	curl $dlurl -o "$jarlocation" --create-dirs
+	echo "Download complete."
 else
 	echo cancel...
 fi
