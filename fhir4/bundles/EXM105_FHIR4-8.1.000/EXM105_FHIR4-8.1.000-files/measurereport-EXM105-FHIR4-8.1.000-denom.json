@@ -3,7 +3,7 @@
   "contained": [
     {
       "resourceType": "Bundle",
-      "id": "3672f3b8-2fd6-4eb9-8c65-0c86a9a77ddb",
+      "id": "a3cb4e0c-0461-4844-b2f6-3f461e77ac97",
       "type": "collection",
       "entry": [
         {
@@ -13,7 +13,7 @@
             "id": "denom-EXM105-FHIR4-1",
             "meta": {
               "versionId": "1",
-              "lastUpdated": "2020-01-29T16:25:21.837-07:00",
+              "lastUpdated": "2020-01-31T08:59:31.508-07:00",
               "profile": [
                 "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
               ]
@@ -53,50 +53,75 @@
           }
         },
         {
-          "fullUrl": "0d57ce55-d1b4-49dc-953f-9e2efd29c812",
+          "fullUrl": "816a0916-3319-491a-9e11-72b207d5c2df",
           "resource": {
             "resourceType": "List",
-            "id": "0d57ce55-d1b4-49dc-953f-9e2efd29c812",
-            "title": "denominator",
+            "id": "816a0916-3319-491a-9e11-72b207d5c2df",
+            "title": "initial-population",
             "entry": [
               {
                 "item": {
-                  "reference": "denom-EXM105-FHIR4-1"
+                  "reference": "#Condition/denom-EXM105-FHIR4-1"
                 }
               },
               {
                 "item": {
-                  "reference": "denom-EXM105-FHIR4-2"
+                  "reference": "#Encounter/denom-EXM105-FHIR4-2"
                 }
               },
               {
                 "item": {
-                  "reference": "denom-EXM105-FHIR4"
+                  "reference": "#Patient/denom-EXM105-FHIR4"
                 }
               }
             ]
           }
         },
         {
-          "fullUrl": "ca0fd042-3dd7-4b06-b2ce-926f5de80a79",
+          "fullUrl": "1f132549-947b-41cf-97a0-381cbb32a97a",
           "resource": {
             "resourceType": "List",
-            "id": "ca0fd042-3dd7-4b06-b2ce-926f5de80a79",
+            "id": "1f132549-947b-41cf-97a0-381cbb32a97a",
+            "title": "denominator",
+            "entry": [
+              {
+                "item": {
+                  "reference": "#Condition/denom-EXM105-FHIR4-1"
+                }
+              },
+              {
+                "item": {
+                  "reference": "#Encounter/denom-EXM105-FHIR4-2"
+                }
+              },
+              {
+                "item": {
+                  "reference": "#Patient/denom-EXM105-FHIR4"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "fullUrl": "fb2b8cc9-5734-4b5d-908c-c12e24dd29e7",
+          "resource": {
+            "resourceType": "List",
+            "id": "fb2b8cc9-5734-4b5d-908c-c12e24dd29e7",
             "title": "numerator",
             "entry": [
               {
                 "item": {
-                  "reference": "denom-EXM105-FHIR4-1"
+                  "reference": "#Condition/denom-EXM105-FHIR4-1"
                 }
               },
               {
                 "item": {
-                  "reference": "denom-EXM105-FHIR4-2"
+                  "reference": "#Encounter/denom-EXM105-FHIR4-2"
                 }
               },
               {
                 "item": {
-                  "reference": "denom-EXM105-FHIR4"
+                  "reference": "#Patient/denom-EXM105-FHIR4"
                 }
               }
             ]
@@ -109,7 +134,7 @@
             "id": "denom-EXM105-FHIR4-2",
             "meta": {
               "versionId": "1",
-              "lastUpdated": "2020-01-29T16:25:21.837-07:00",
+              "lastUpdated": "2020-01-31T08:59:31.508-07:00",
               "profile": [
                 "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
               ]
@@ -164,7 +189,7 @@
             "id": "denom-EXM105-FHIR4",
             "meta": {
               "versionId": "1",
-              "lastUpdated": "2020-01-29T16:25:21.837-07:00",
+              "lastUpdated": "2020-01-31T08:59:31.508-07:00",
               "profile": [
                 "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
               ]
@@ -227,31 +252,6 @@
             ],
             "gender": "male",
             "birthDate": "1955-11-05"
-          }
-        },
-        {
-          "fullUrl": "373def30-ceae-4717-922b-02d8792222cb",
-          "resource": {
-            "resourceType": "List",
-            "id": "373def30-ceae-4717-922b-02d8792222cb",
-            "title": "initial-population",
-            "entry": [
-              {
-                "item": {
-                  "reference": "denom-EXM105-FHIR4-1"
-                }
-              },
-              {
-                "item": {
-                  "reference": "denom-EXM105-FHIR4-2"
-                }
-              },
-              {
-                "item": {
-                  "reference": "denom-EXM105-FHIR4"
-                }
-              }
-            ]
           }
         }
       ]
@@ -327,7 +327,7 @@
   ],
   "evaluatedResource": [
     {
-      "reference": "#3672f3b8-2fd6-4eb9-8c65-0c86a9a77ddb"
+      "reference": "#a3cb4e0c-0461-4844-b2f6-3f461e77ac97"
     }
   ]
 }
