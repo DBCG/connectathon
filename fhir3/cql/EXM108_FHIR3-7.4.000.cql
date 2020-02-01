@@ -175,8 +175,6 @@ define "No VTE Prophylaxis Device Applied or Ordered":
       //JR: updated to use the Global get extension
   	  and Global.GetExtension(D, 'doNotPerform').value is true
   )
-define function GetExtension(Extensions List<Extension>, URL String):
-  singleton from (Extensions E where E.url = URL return E)
 
 //Done
 define "No VTE Prophylaxis Device Due to Medical Reason During ED Visit":
