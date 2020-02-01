@@ -2,7 +2,7 @@
 #echo Downloading the CQF Tooling jar is currently not an option. Get the jar from Bryn.
 #exit 1
 
-dlurl=https://oss.sonatype.org/service/local/repositories/snapshots/content/org/opencds/cqf/tooling/1.0-SNAPSHOT/tooling-1.0-20200131.233958-14-jar-with-dependencies.jar
+dlurl=https://oss.sonatype.org/service/local/repositories/snapshots/content/org/opencds/cqf/tooling/1.0-SNAPSHOT/tooling-1.0-20200201.140334-18-jar-with-dependencies.jar
 input_cache_path=./input-cache/
 
 set -e
