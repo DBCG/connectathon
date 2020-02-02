@@ -1,19 +1,20 @@
 {
   "resourceType": "MeasureReport",
+  "id": "measurereport-denom-EXM130-FHIR3-7.2.000-expectedresults",
   "contained": [
     {
       "resourceType": "Bundle",
-      "id": "46f7e60a-5308-4cab-8b52-2a4a7d1e6e2a",
+      "id": "f058cd0e-4dfd-46d6-b95d-af36931aaa9f",
       "type": "collection",
       "entry": [
         {
-          "fullUrl": "Encounter/numer-EXM124-FHIR3-1",
+          "fullUrl": "Encounter/denom-EXM130-FHIR3-1",
           "resource": {
             "resourceType": "Encounter",
-            "id": "numer-EXM124-FHIR3-1",
+            "id": "denom-EXM130-FHIR3-1",
             "meta": {
               "versionId": "1",
-              "lastUpdated": "2019-12-30T13:47:18.695-07:00",
+              "lastUpdated": "2019-12-30T14:08:35.912-07:00",
               "profile": [
                 "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
               ]
@@ -36,75 +37,95 @@
               }
             ],
             "subject": {
-              "reference": "Patient/numer-EXM124-FHIR3"
+              "reference": "Patient/denom-EXM130-FHIR3"
             },
             "period": {
-              "start": "2019-01-02T00:00:00-00:00",
-              "end": "2019-01-03T00:00:00-00:00"
+              "start": "2019-05-30T00:00:00-00:00",
+              "end": "2019-05-31T00:00:00-00:00"
             }
           }
         },
         {
-          "fullUrl": "Observation/numer-EXM124-FHIR3-2",
-          "resource": {
-            "resourceType": "Observation",
-            "id": "numer-EXM124-FHIR3-2",
-            "meta": {
-              "versionId": "1",
-              "lastUpdated": "2019-12-30T13:47:18.695-07:00"
-            },
-            "status": "final",
-            "code": {
-              "coding": [
-                {
-                  "system": "http://loinc.org",
-                  "code": "10524-7",
-                  "display": "Microscopic observation [Identifier] in Cervix by Cyto stain"
-                }
-              ]
-            },
-            "subject": {
-              "reference": "Patient/numer-EXM124-FHIR3"
-            },
-            "effectiveDateTime": "2019-11-01T00:00:00",
-            "valueBoolean": true
-          }
-        },
-        {
-          "fullUrl": "33d9b753-d1ea-4b7a-9d36-8bf4cce72aff",
+          "fullUrl": "5a5622d9-a4ee-4d92-8734-33a12ad6f7a4",
           "resource": {
             "resourceType": "List",
-            "id": "33d9b753-d1ea-4b7a-9d36-8bf4cce72aff",
+            "id": "5a5622d9-a4ee-4d92-8734-33a12ad6f7a4",
             "title": "initial-population",
             "entry": [
               {
                 "item": {
-                  "reference": "numer-EXM124-FHIR3-1"
+                  "reference": "denom-EXM130-FHIR3-1"
                 }
               },
               {
                 "item": {
-                  "reference": "numer-EXM124-FHIR3"
+                  "reference": "denom-EXM130-FHIR3"
                 }
               }
             ]
           }
         },
         {
-          "fullUrl": "Patient/numer-EXM124-FHIR3",
+          "fullUrl": "Procedure/denom-EXM130-FHIR3-2",
           "resource": {
-            "resourceType": "Patient",
-            "id": "numer-EXM124-FHIR3",
+            "resourceType": "Procedure",
+            "id": "denom-EXM130-FHIR3-2",
             "meta": {
               "versionId": "1",
-              "lastUpdated": "2019-12-30T13:47:18.695-07:00",
+              "lastUpdated": "2019-12-30T14:08:35.912-07:00",
+              "profile": [
+                "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+              ]
+            },
+            "status": "completed",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://www.ama-assn.org/go/cpt",
+                  "code": "44393",
+                  "display": "Colonoscopy through stoma; with ablation of tumor(s), polyp(s), or other lesion(s) not amenable to removal by hot biopsy forceps, bipolar cautery or snare technique"
+                }
+              ]
+            },
+            "subject": {
+              "reference": "Patient/denom-EXM130-FHIR3"
+            },
+            "performedPeriod": {
+              "start": "2009-12-30T12:00:00",
+              "end": "2009-12-30T13:00:00"
+            }
+          }
+        },
+        {
+          "fullUrl": "6819b91a-c4f7-4368-bd3c-a21c7a8ebe2a",
+          "resource": {
+            "resourceType": "List",
+            "id": "6819b91a-c4f7-4368-bd3c-a21c7a8ebe2a",
+            "title": "numerator",
+            "entry": [
+              {
+                "item": {
+                  "reference": "denom-EXM130-FHIR3-2"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "fullUrl": "Patient/denom-EXM130-FHIR3",
+          "resource": {
+            "resourceType": "Patient",
+            "id": "denom-EXM130-FHIR3",
+            "meta": {
+              "versionId": "1",
+              "lastUpdated": "2019-12-30T14:08:35.912-07:00",
               "profile": [
                 "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
               ]
             },
             "text": {
               "status": "generated",
-              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">Dilly <b>DALLY </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>999999993</td></tr><tr><td>Date of birth</td><td><span>01 January 1995</span></td></tr></tbody></table></div>"
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">Ben <b>DERE </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>999999992</td></tr><tr><td>Date of birth</td><td><span>01 January 1965</span></td></tr></tbody></table></div>"
             },
             "extension": [
               {
@@ -114,8 +135,8 @@
                     "url": "ombCategory",
                     "valueCoding": {
                       "system": "urn:oid:2.16.840.1.113883.6.238",
-                      "code": "2106-3",
-                      "display": "White"
+                      "code": "2028-9",
+                      "display": "Asian"
                     }
                   }
                 ]
@@ -127,8 +148,8 @@
                     "url": "ombCategory",
                     "valueCoding": {
                       "system": "urn:oid:2.16.840.1.113883.6.238",
-                      "code": "2186-5",
-                      "display": "Not Hispanic or Latino"
+                      "code": "2135-2",
+                      "display": "Hispanic or Latino"
                     }
                   }
                 ]
@@ -147,34 +168,19 @@
                   ]
                 },
                 "system": "http://hospital.smarthealthit.org",
-                "value": "999999993"
+                "value": "999999992"
               }
             ],
             "name": [
               {
-                "family": "Dally",
+                "family": "Dere",
                 "given": [
-                  "Dilly"
+                  "Ben"
                 ]
               }
             ],
-            "gender": "female",
-            "birthDate": "1995-01-01"
-          }
-        },
-        {
-          "fullUrl": "9b3d6bc8-b8fe-483c-bdbf-184cae087ac8",
-          "resource": {
-            "resourceType": "List",
-            "id": "9b3d6bc8-b8fe-483c-bdbf-184cae087ac8",
-            "title": "numerator",
-            "entry": [
-              {
-                "item": {
-                  "reference": "numer-EXM124-FHIR3-2"
-                }
-              }
-            ]
+            "gender": "male",
+            "birthDate": "1965-01-01"
           }
         }
       ]
@@ -183,10 +189,10 @@
   "status": "complete",
   "type": "individual",
   "measure": {
-    "reference": "Measure/measure-EXM124-FHIR3-7.2.000"
+    "reference": "Measure/measure-EXM130-FHIR3-7.2.000"
   },
   "patient": {
-    "reference": "Patient/numer-EXM124-FHIR3"
+    "reference": "Patient/denom-EXM130-FHIR3"
   },
   "period": {
     "start": "2019-01-01T00:00:00-07:00",
@@ -220,7 +226,7 @@
               }
             ]
           },
-          "count": 1
+          "count": 0
         },
         {
           "code": {
@@ -247,10 +253,10 @@
           "count": 0
         }
       ],
-      "measureScore": 1.0
+      "measureScore": 0.0
     }
   ],
   "evaluatedResources": {
-    "reference": "#46f7e60a-5308-4cab-8b52-2a4a7d1e6e2a"
+    "reference": "#f058cd0e-4dfd-46d6-b95d-af36931aaa9f"
   }
 }

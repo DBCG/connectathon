@@ -1,34 +1,20 @@
 {
   "resourceType": "MeasureReport",
+  "id": "measurereport-numer-EXM124-FHIR3-7.2.000-expectedresults",
   "contained": [
     {
       "resourceType": "Bundle",
-      "id": "7dc4989e-5d2a-48ff-9bb7-df0efc130deb",
+      "id": "46f7e60a-5308-4cab-8b52-2a4a7d1e6e2a",
       "type": "collection",
       "entry": [
         {
-          "fullUrl": "312e828b-ac92-4b68-a841-d0a248c8d2d4",
-          "resource": {
-            "resourceType": "List",
-            "id": "312e828b-ac92-4b68-a841-d0a248c8d2d4",
-            "title": "numerator",
-            "entry": [
-              {
-                "item": {
-                  "reference": "numer-EXM125-FHIR3-2"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "fullUrl": "Encounter/numer-EXM125-FHIR3-3",
+          "fullUrl": "Encounter/numer-EXM124-FHIR3-1",
           "resource": {
             "resourceType": "Encounter",
-            "id": "numer-EXM125-FHIR3-3",
+            "id": "numer-EXM124-FHIR3-1",
             "meta": {
               "versionId": "1",
-              "lastUpdated": "2019-12-18T11:39:25.057-07:00",
+              "lastUpdated": "2019-12-30T13:47:18.695-07:00",
               "profile": [
                 "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
               ]
@@ -51,61 +37,75 @@
               }
             ],
             "subject": {
-              "reference": "Patient/numer-EXM125-FHIR3"
+              "reference": "Patient/numer-EXM124-FHIR3"
             },
             "period": {
-              "start": "2019-05-30T00:00:00-00:00",
-              "end": "2019-05-31T00:00:00-00:00"
+              "start": "2019-01-02T00:00:00-00:00",
+              "end": "2019-01-03T00:00:00-00:00"
             }
           }
         },
         {
-          "fullUrl": "DiagnosticReport/numer-EXM125-FHIR3-2",
+          "fullUrl": "Observation/numer-EXM124-FHIR3-2",
           "resource": {
-            "resourceType": "DiagnosticReport",
-            "id": "numer-EXM125-FHIR3-2",
+            "resourceType": "Observation",
+            "id": "numer-EXM124-FHIR3-2",
             "meta": {
               "versionId": "1",
-              "lastUpdated": "2019-12-18T11:39:25.057-07:00"
-            },
-            "text": {
-              "status": "generated",
-              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\"> MG Breast Diagnostic Limited Views </div><table class=\"hapiPropertyTable\"><tbody><tr><td>Status</td><td>FINAL</td></tr></tbody></table></div>"
+              "lastUpdated": "2019-12-30T13:47:18.695-07:00"
             },
             "status": "final",
             "code": {
               "coding": [
                 {
                   "system": "http://loinc.org",
-                  "code": "24604-1",
-                  "display": "MG Breast Diagnostic Limited Views"
+                  "code": "10524-7",
+                  "display": "Microscopic observation [Identifier] in Cervix by Cyto stain"
                 }
               ]
             },
             "subject": {
-              "reference": "Patient/numer-EXM125-FHIR3"
+              "reference": "Patient/numer-EXM124-FHIR3"
             },
-            "effectivePeriod": {
-              "start": "2018-05-30T00:00:00-00:00",
-              "end": "2018-11-30T00:00:00-00:00"
-            }
+            "effectiveDateTime": "2019-11-01T00:00:00",
+            "valueBoolean": true
           }
         },
         {
-          "fullUrl": "Patient/numer-EXM125-FHIR3",
+          "fullUrl": "33d9b753-d1ea-4b7a-9d36-8bf4cce72aff",
+          "resource": {
+            "resourceType": "List",
+            "id": "33d9b753-d1ea-4b7a-9d36-8bf4cce72aff",
+            "title": "initial-population",
+            "entry": [
+              {
+                "item": {
+                  "reference": "numer-EXM124-FHIR3-1"
+                }
+              },
+              {
+                "item": {
+                  "reference": "numer-EXM124-FHIR3"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "fullUrl": "Patient/numer-EXM124-FHIR3",
           "resource": {
             "resourceType": "Patient",
-            "id": "numer-EXM125-FHIR3",
+            "id": "numer-EXM124-FHIR3",
             "meta": {
               "versionId": "1",
-              "lastUpdated": "2019-12-18T11:39:25.057-07:00",
+              "lastUpdated": "2019-12-30T13:47:18.695-07:00",
               "profile": [
                 "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
               ]
             },
             "text": {
               "status": "generated",
-              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">Moe <b>SNUFFY </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>999999992</td></tr><tr><td>Date of birth</td><td><span>01 January 1965</span></td></tr></tbody></table></div>"
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><div class=\"hapiHeaderText\">Dilly <b>DALLY </b></div><table class=\"hapiPropertyTable\"><tbody><tr><td>Identifier</td><td>999999993</td></tr><tr><td>Date of birth</td><td><span>01 January 1995</span></td></tr></tbody></table></div>"
             },
             "extension": [
               {
@@ -115,8 +115,8 @@
                     "url": "ombCategory",
                     "valueCoding": {
                       "system": "urn:oid:2.16.840.1.113883.6.238",
-                      "code": "2028-9",
-                      "display": "Asian"
+                      "code": "2106-3",
+                      "display": "White"
                     }
                   }
                 ]
@@ -128,8 +128,8 @@
                     "url": "ombCategory",
                     "valueCoding": {
                       "system": "urn:oid:2.16.840.1.113883.6.238",
-                      "code": "2135-2",
-                      "display": "Hispanic or Latino"
+                      "code": "2186-5",
+                      "display": "Not Hispanic or Latino"
                     }
                   }
                 ]
@@ -148,36 +148,31 @@
                   ]
                 },
                 "system": "http://hospital.smarthealthit.org",
-                "value": "999999992"
+                "value": "999999993"
               }
             ],
             "name": [
               {
-                "family": "Snuffy",
+                "family": "Dally",
                 "given": [
-                  "Moe"
+                  "Dilly"
                 ]
               }
             ],
             "gender": "female",
-            "birthDate": "1965-01-01"
+            "birthDate": "1995-01-01"
           }
         },
         {
-          "fullUrl": "688252a4-92d2-495a-aac4-cce1b5e5050b",
+          "fullUrl": "9b3d6bc8-b8fe-483c-bdbf-184cae087ac8",
           "resource": {
             "resourceType": "List",
-            "id": "688252a4-92d2-495a-aac4-cce1b5e5050b",
-            "title": "initial-population",
+            "id": "9b3d6bc8-b8fe-483c-bdbf-184cae087ac8",
+            "title": "numerator",
             "entry": [
               {
                 "item": {
-                  "reference": "numer-EXM125-FHIR3-3"
-                }
-              },
-              {
-                "item": {
-                  "reference": "numer-EXM125-FHIR3"
+                  "reference": "numer-EXM124-FHIR3-2"
                 }
               }
             ]
@@ -189,10 +184,10 @@
   "status": "complete",
   "type": "individual",
   "measure": {
-    "reference": "Measure/measure-EXM125-FHIR3-7.2.000"
+    "reference": "Measure/measure-EXM124-FHIR3-7.2.000"
   },
   "patient": {
-    "reference": "Patient/numer-EXM125-FHIR3"
+    "reference": "Patient/numer-EXM124-FHIR3"
   },
   "period": {
     "start": "2019-01-01T00:00:00-07:00",
@@ -205,9 +200,6 @@
       },
       "population": [
         {
-          "identifier": {
-            "value": "initial-population-identifier"
-          },
           "code": {
             "coding": [
               {
@@ -220,9 +212,6 @@
           "count": 1
         },
         {
-          "identifier": {
-            "value": "numerator-identifier"
-          },
           "code": {
             "coding": [
               {
@@ -235,9 +224,6 @@
           "count": 1
         },
         {
-          "identifier": {
-            "value": "denominator-identifier"
-          },
           "code": {
             "coding": [
               {
@@ -250,9 +236,6 @@
           "count": 1
         },
         {
-          "identifier": {
-            "value": "denominator-exclusions-identifier"
-          },
           "code": {
             "coding": [
               {
@@ -269,6 +252,6 @@
     }
   ],
   "evaluatedResources": {
-    "reference": "#7dc4989e-5d2a-48ff-9bb7-df0efc130deb"
+    "reference": "#46f7e60a-5308-4cab-8b52-2a4a7d1e6e2a"
   }
 }
