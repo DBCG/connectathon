@@ -1,3 +1,30 @@
+```
+NOTICE:  
+
+The struture of the Connectathon repo is being updated to match conventions of other IGs to enable cross IG usage of the "refresh" tooling. 
+
+The impact will be the following folder changes:
+IS: 
+   "cql/"
+   "resources/library/"
+   "resources/measure/"
+   "resources/valuesets/"
+   "tests/"
+ UPDATE:  
+   "input/pagecontent/cql/"
+   "input/resources/library/"
+   "input/resources/measure/"
+   "input/vocabulary/valueset/"
+   "input/tests/"
+   
+ The update is scheduled for release 2/15/2020.
+ 
+ Please plan accordingly.
+ 
+ Contact rob@alphora.com with any concerns.
+ ```
+ 
+
 # HL7 CMS/FHIR Connectathon
 
 Resources for use at HL7/CMS FHIR Connectathon, Clinical Reasoning Track.
