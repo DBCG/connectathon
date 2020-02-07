@@ -10,14 +10,14 @@ IS:
    "resources/measure/"
    "resources/valuesets/"
    "tests/"
- UPDATE:  
+UPDATED TO:  
    "input/pagecontent/cql/"
    "input/resources/library/"
    "input/resources/measure/"
    "input/vocabulary/valueset/"
    "input/tests/"
    
- The update is scheduled for release 2/15/2020.
+ The updates are scheduled for release 2/15/2020.
  
  Please plan accordingly.
  
