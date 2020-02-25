@@ -1,6 +1,6 @@
 @ECHO OFF
 
-SET dlurl=https://oss.sonatype.org/service/local/repositories/snapshots/content/org/opencds/cqf/tooling/1.0-SNAPSHOT/tooling-1.0-20200201.140334-18-jar-with-dependencies.jar
+SET dlurl=https://oss.sonatype.org/service/local/repositories/snapshots/content/org/opencds/cqf/tooling/1.0-SNAPSHOT/tooling-1.0-20200225.172228-23-jar-with-dependencies.jar
 SET tooling_jar=tooling-1.0-SNAPSHOT-jar-with-dependencies.jar
 SET input_cache_path=%~dp0input-cache\
 
