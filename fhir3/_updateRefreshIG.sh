@@ -4,6 +4,7 @@
 
 dlurl=https://oss.sonatype.org/service/local/repositories/snapshots/content/org/opencds/cqf/tooling/1.0-SNAPSHOT/tooling-1.0-20200225.172228-23-jar-with-dependencies.jar
 input_cache_path=./input-cache/
+tooling_jar=tooling-1.0-SNAPSHOT-jar-with-dependencies.jar
 
 set -e
 if ! type "curl" > /dev/null; then
