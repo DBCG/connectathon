@@ -18,7 +18,7 @@ UPDATED TO:
    "input/vocabulary/valueset/"
    "input/tests/"
    
- The updates are scheduled for release 2/22/2020.
+ The updates are scheduled for release 3/1/2020.
  
  Please plan accordingly.
  
