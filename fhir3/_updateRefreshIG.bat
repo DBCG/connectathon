@@ -1,7 +1,7 @@
 @ECHO OFF
 
-SET dlurl=https://oss.sonatype.org/service/local/repositories/snapshots/content/org/opencds/cqf/tooling/1.0-SNAPSHOT/tooling-1.0-20200225.172228-23-jar-with-dependencies.jar
-SET tooling_jar=tooling-1.0-SNAPSHOT-jar-with-dependencies.jar
+SET "dlurl=https://oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&g=org.opencds.cqf&a=tooling&v=1.0.1-SNAPSHOT&c=jar-with-dependencies"
+SET tooling_jar=tooling-1.0.1-SNAPSHOT-jar-with-dependencies.jar
 SET input_cache_path=%~dp0input-cache\
 
 FOR %%x IN ("%CD%") DO SET upper_path=%%~dpx
@@ -56,7 +56,7 @@ ECHO Unrecognized version: %version%
 GOTO done
 
 :win10
-POWERSHELL -command if ('System.Net.WebClient' -as [type]) {(new-object System.Net.WebClient).DownloadFile(\"%dlurl%\",\"%jarlocation%\") } else { Invoke-WebRequest -Uri "%dlurl%" -Outfile "%jarlocation%" }
+POWERSHELL -command "if ('System.Net.WebClient' -as [type]) {(new-object System.Net.WebClient).DownloadFile('%dlurl%','%jarlocation%') } else { Invoke-WebRequest -Uri '%dlurl%' -Outfile '%jarlocation%' }"
 ECHO Download complete.
 GOTO done
 
