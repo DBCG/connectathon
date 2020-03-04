@@ -1,10 +1,10 @@
 ```
 NOTICE:  
 
-The struture of the Connectathon repo is being updated to match conventions of other IGs to enable cross IG usage of the "refresh" tooling. 
+The struture of the Connectathon repo has been updated to match conventions of other IGs to enable cross IG usage of the "refresh" tooling. 
 
-The impact will be the following folder changes:
-IS: 
+The impacted the following directory changes:
+WAS: 
    "cql/"
    "resources/library/"
    "resources/measure/"
@@ -18,11 +18,9 @@ UPDATED TO:
    "input/vocabulary/valueset/"
    "input/tests/"
    
- The updates are scheduled for release 3/1/2020.
- 
- Please plan accordingly.
- 
- Contact rob@alphora.com with any concerns.
+These changes temporarily impacted the ability to run Connectathon measures from the Atom CQL plugin.  We will be releasing an update to address the issue by end of day 3/4/2020.
+
+Contact rob@alphora.com with any concerns.
  ```
  
 
