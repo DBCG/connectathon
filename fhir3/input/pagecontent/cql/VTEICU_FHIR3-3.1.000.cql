@@ -5,7 +5,7 @@ using FHIR version '3.0.0'
 include FHIRHelpers version '3.0.0' called FHIRHelpers
 include MATGlobalCommonFunctions_FHIR3 version '4.0.000' called Global
 
-valueset "Intensive Care Unit": 'urn:oid:2.16.840.1.113762.1.4.1029.206'
+valueset "Intensive Care Unit": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.23'
 
 parameter "Measurement Period" Interval<DateTime>
 
