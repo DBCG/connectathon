@@ -1,5 +1,5 @@
 @ECHO OFF
-SET tooling_jar=tooling-1.0.1-SNAPSHOT-jar-with-dependencies.jar
+SET tooling_jar=tooling-1.0.2-SNAPSHOT-jar-with-dependencies.jar
 SET input_cache_path=%~dp0input-cache
 
 ECHO Checking internet connection...
