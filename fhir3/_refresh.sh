@@ -1,6 +1,6 @@
 #!/bin/bash
 #DO NOT EDIT WITH WINDOWS
-tooling_jar=tooling-1.0.2-SNAPSHOT-jar-with-dependencies.jar
+tooling_jar=tooling-1.0.4-SNAPSHOT-jar-with-dependencies.jar
 input_cache_path=./input-cache
 set -e
 echo Checking internet connection...
