@@ -1,5 +1,5 @@
 #!/bin/bash
-#echo Downloading the CQF Tooling jar is currently not an option. Get the jar from Bryn.
+#DO NOT EDIT WITH WINDOWS
 #exit 1
 
 r=snapshots
