@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - "12"
+services:
+  - docker
+before_install:
+  - sudo chown -R travis ./travis/setup.sh
+  - sudo chmod +x ./travis/setup.sh ./travis/test_measures.sh
+  - ./travis/setup.sh
+script: ./travis/test_measures.sh
