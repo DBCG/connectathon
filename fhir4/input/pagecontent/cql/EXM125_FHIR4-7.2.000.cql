@@ -60,7 +60,7 @@ define "Unilateral Mastectomy Procedure":
 						and UnilateralMastectomyProcedure.status = 'completed'
 
 define "Right Mastectomy":
-		(BAD CQL
+		(
 				( [Condition: "Status Post Right Mastectomy"] C
           where C.clinicalStatus ~ ToConcept(Global."active")
         )
