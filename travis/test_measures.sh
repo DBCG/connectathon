@@ -1,7 +1,9 @@
 #!/bin/bash
 
 echo "> Rebuilding Measure Bundles"
-./travis/rebuild_bundles.sh
+if ! ./travis/rebuild_bundles.sh; then
+  exit 1
+fi
 
 cd fhir-patient-generator
 

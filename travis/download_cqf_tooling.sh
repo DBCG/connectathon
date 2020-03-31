@@ -24,7 +24,6 @@ if test -f "$tooling_dest"; then
 	echo "Tooling JAR FOUND, will not replace it"
 else
   echo "Downloading most recent tooling JAR - it's ~170 MB, so this may take a bit"
-  #	wget "https://oss.sonatype.org/service/local/repositories/snapshots/content/org/opencds/cqf/tooling/1.0-SNAPSHOT/tooling-1.0-20200107.163002-6-jar-with-dependencies.jar" -O "$jarlocation"
   curl $dlurl -L -o "$tooling_dest" --create-dirs
   echo "Download complete."
 fi
