@@ -5,6 +5,7 @@ rebuild_log=./travis/tooling/rebuildRun.log
 
 # Remove EXM165 because it is unfinished
 rm ./fhir4/input/resources/measure/measure-EXM165_FHIR4-8.5.000.json
+rm ./fhir4/input/pagecontent/cql/EXM165_FHIR4-8.5.000.cql
 
 java -jar $tooling_jar -RefreshIG -ip="./fhir4/" -iv=fhir4 -t -d -p -v 2>&1 | tee $rebuild_log
 
