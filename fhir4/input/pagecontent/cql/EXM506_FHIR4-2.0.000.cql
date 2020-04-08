@@ -47,19 +47,10 @@ define "Benzodiazepine at Discharge":
       where exists (BenzodiazepineDischarge.category C where FHIRHelpers.ToConcept(C) ~ "Discharge")
           and BenzodiazepineDischarge.intent = 'plan'
 
-define "Encounter with Benzodiazepine at Discharge":
-  "Inpatient Encounter with Age Greater than or Equal to 18" InpatientEncounter
-    with ("Benzodiazepine at Discharge")Benzodiazepine
-      such that FHIRHelpers.ToDateTime(Benzodiazepine.authoredOn) during (InpatientEncounter.period)
-
-define "Encounter with an Opioid at Discharge":
-  "Inpatient Encounter with Age Greater than or Equal to 18" InpatientEncounter
-    with ("Opioid at Discharge")Opioid
-      such that FHIRHelpers.ToDateTime(Opioid.authoredOn) during (InpatientEncounter.period)
-
 define "Encounter with an Opioid or Benzodiazepine at Discharge":
-  "Encounter with Benzodiazepine at Discharge" union
-    "Encounter with an Opioid at Discharge"
+  "Inpatient Encounter with Age Greater than or Equal to 18" InpatientEncounter
+    with ("Opioid at Discharge" union "Benzodiazepine at Discharge") OpioidBenzodiazepine
+      such that FHIRHelpers.ToDateTime(OpioidBenzodiazepine.authoredOn) during (InpatientEncounter.period)
 
 define "Initial Population":
 "Encounter with an Opioid or Benzodiazepine at Discharge"
@@ -67,15 +58,10 @@ define "Initial Population":
 define "Denominator":
 "Initial Population"
 
-define "Palliative Procedure":
-  "Inpatient Encounter with Age Greater than or Equal to 18" InpatientEncounter
-    with ["Procedure": "Palliative Care"] PalliativeCareOrder
-    such that Global."Normalize Onset"(PalliativeCareOrder.performed) overlaps InpatientEncounter.period
-
-define "Denominator Exclusions":
+define "Denominator Exclusion":
  ("Inpatient Encounter with Age Greater than or Equal to 18" InpatientEncounter
  with [Condition: "All Primary and Secondary Cancer"]Cancer
-      such that Global."Normalize Onset"(Cancer.onset) overlaps InpatientEncounter.period)
+      such that Global."Normalize Interval"(Cancer.onset) overlaps InpatientEncounter.period)
 
        union ("Inpatient Encounter with Age Greater than or Equal to 18" InpatientEncounter
      with (["ServiceRequest": "Palliative Care"]
@@ -86,12 +72,15 @@ define "Denominator Exclusions":
    union ("Inpatient Encounter with Age Greater than or Equal to 18" InpatientEncounter
  with  (["Procedure": "Palliative Care"]
      union ["Procedure": "Hospice Care"] ) PalliativeOrHospiceCarePerformed
-             such that Global."Normalize Onset"(PalliativeOrHospiceCarePerformed.performed)
+             such that Global."Normalize Interval"(PalliativeOrHospiceCarePerformed.performed)
               overlaps InpatientEncounter.period)
 
 define "Encounter with a Concurrent Opioid and Benzodiazepine at Discharge":
-"Encounter with Benzodiazepine at Discharge" intersect
-  "Encounter with an Opioid at Discharge"
+"Inpatient Encounter with Age Greater than or Equal to 18" InpatientEncounter
+   with ("Opioid at Discharge") OpioidDischarge
+   such that FHIRHelpers.ToDateTime(OpioidDischarge.authoredOn) during (InpatientEncounter.period)
+   with ("Benzodiazepine at Discharge") BenzodiazepineDischarge
+   such that FHIRHelpers.ToDateTime(BenzodiazepineDischarge.authoredOn) during (InpatientEncounter.period)
 
 define "Encounter with Two or More Concurrent Opioids at Discharge":
 	"Inpatient Encounter with Age Greater than or Equal to 18" InpatientEncounter
