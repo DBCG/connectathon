@@ -32,6 +32,18 @@ parameter "Measurement Period" Interval<DateTime>
 
 context Patient
 
+define "SDE Ethnicity":
+  SDE."Ethnicity"
+
+define "SDE Payer":
+  SDE."Payer"
+
+define "SDE Race":
+  SDE."Race"
+
+define "SDE Sex":
+  SDE."ONC Administrative Sex"
+
 define "Inpatient Encounter with Age Greater than or Equal to 18":
   Global."Inpatient Encounter" EncounterInpatient
      with ["Patient"] BirthDate
