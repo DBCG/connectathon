@@ -1,19 +1,44 @@
 {
-"resourceType": "Measure",
-"id": "measure-EXM506-FHIR3-2.0.000",
+  "resourceType": "Measure",
+  "id": "measure-EXM506-FHIR3-2.0.000",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm"
     ]
   },
   "text": {
-    "status": "generated",
-    "div": ""
+    "status": "generated"
   },
+  "contained": [
+    {
+      "resourceType": "Device",
+      "id": "cqf-tooling",
+      "meta": {
+        "profile": [
+          "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/device-softwaresystem-cqfm"
+        ]
+      },
+      "type": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/software-system-type",
+            "code": "tooling"
+          }
+        ]
+      },
+      "version": "1.1.0-SNAPSHOT"
+    }
+  ],
   "extension": [
     {
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
       "valueCode": "boolean"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+      "valueReference": {
+        "reference": "#cqf-tooling"
+      }
     }
   ],
   "url": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-EXM506-FHIR3",
@@ -80,74 +105,74 @@
   ],
   "copyright": "This Physician Performance Measure (Measure) and related data specifications were developed by the National Committee for Quality Assurance (NCQA). NCQA is not responsible for any use of the Measure. NCQA makes no representations, warranties, or endorsement about the quality of any organization or physician that uses or reports performance measures and NCQA has no liability to anyone who relies on such measures or specifications. NCQA holds a copyright in the Measure. The Measure can be reproduced and distributed, without modification, for noncommercial purposes (eg, use by healthcare providers in connection with their practices) without obtaining approval from NCQA. Commercial use is defined as the sale, licensing, or distribution of the Measure for commercial gain, or incorporation of the Measure into a product or service that is sold, licensed or distributed for commercial gain. All commercial uses or requests for modification must be approved by NCQA and are subject to a license at the discretion of NCQA. (C) 2012-2017 National Committee for Quality Assurance. All Rights Reserved. <br> Limited proprietary coding is contained in the Measure specifications for user convenience. Users of proprietary code sets should obtain all necessary licenses from the owners of the code sets. NCQA disclaims all liability for use or accuracy of any third party codes contained in the specifications. <br> CPT(R) contained in the Measure specifications is copyright 2004-2017 American Medical Association. LOINC(R) copyright 2004-2017 Regenstrief Institute, Inc. This material contains SNOMED Clinical Terms(R) (SNOMED CT[R] ) copyright 2004-2017 International Health Terminology Standards Development Organisation. ICD-10 copyright 2017 World Health Organization. All Rights Reserved.",
   "relatedArtifact": [
-  {
-    "type": "citation",
-    "citation": "American Academy of Emergency Medicine (AAEM). (2013). Emergency department opioid-prescribing guidelines for the treatment of non-cancer-related pain. Retrieved from https://www.deepdyve.com/lp/elsevier/american-academy-of-emergency-medicine-PlQtPNi8J4"
-  },
-  {
-    "type": "citation",
-    "citation": "American Society of Interventional Pain Physicians (ASIPP). (2012). Guidelines for responsible opioid prescribing in chronic noncancer pain. Retrieved from https://www.asipp.org/opioidguidelines.htm "
-  },
-  {
-    "type": "citation",
-    "citation": "Dasgupta, N., Jonsson Funk, M., Proescholdbell, S., et al. (2015, September). Cohort study of the impact of high-dose opioid analgesics on overdose mortality. Pain Medicine. Retrieved from http://onlinelibrary.wiley.com/doi/10.1111/pme.12907/abstract"
-  },
-  {
-    "type": "citation",
-    "citation": "Dowell, D., Haegerich, T., & Chou, R. (2016). CDC guideline for prescribing opioids for chronic pain—United States, 2016. MMWR Recommendations and Reports, 65. Retrieved from http://www.cdc.gov/media/dpk/2016/dpk-opioid-prescription-guidelines.html"
-  },
-  {
-    "type": "citation",
-    "citation": "Herzig, S., Rothberg, M., Cheung, M., et al. (2014). Opioid utilization and opioid-related adverse events in nonsurgical patients in U.S. hospitals. Journal of Hospital Medicine, 9(2), 73-81."
-  },
-  {
-    "type": "citation",
-    "citation": "Jena, A., Goldman, D., Schaeffer, L. D., et al. (2014). Opioid prescribing by multiple providers in Medicare: Retrospective observational study of insurance claims. BMJ, 348, g1393. DOI: 10.1136/bmj.g1393"
-  },
-  {
-    "type": "citation",
-    "citation": "Liu, Y., Logan, J., Paulozzi, L., et al. (2013). Potential misuse and inappropriate prescription practices involving opioid analgesics. American Journal of Managed Care, 19(8), 648–665. Retrieved from http://www.ajmc.com/journals/issue/2013/2013-1-vol19-n8/Potential-Misuse-and-Inappropriate-Prescription-Practices-Involving-Opioid-Analgesics/"
-  },
-  {
-    "type": "citation",
-    "citation": "Lin, L. A., Bohnert, A. S., Kerns, R. D., et al. (2017). Impact of the opioid safety initiative on opioid-related prescribing in veterans. Pain, 158(5), 833–839. Retrieved from https://www.ncbi.nlm.nih.gov/pubmed/28240996"
-  },
-  {
-    "type": "citation",
-    "citation": "Mack, K., Zhang, K., Paulozzi, L., et al. (2015, February). Prescription practices involving opioid analgesics among Americans with Medicaid, 2010. Journal of Health Care for the Poor and Underserved, 26(1), 182–198. Retrieved from http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4365785"
-  },
-  {
-    "type": "citation",
-    "citation": "National Institute on Drug Abuse. (2011). Analysis of opioid prescription practices finds areas of concern. Retrieved from https://www.drugabuse.gov/news-events/news-releases/2011/04/analysis-opioid-prescription-practices-finds-areas-concern"
-  },
-  {
-    "type": "citation",
-    "citation": "New York City (NYC) Department of Health and Mental Hygiene (NYC DOHMH). (2013). NYC emergency department discharge opioid-prescribing guidelines. Retrieved from https://www1.nyc.gov/site/doh/providers/health-topics/opioid-prescribing-resources-for-emergency-departments.page"
-  },
-  {
-    "type": "citation",
-    "citation": "Park, T., Saitz, R., Ganoczy, D., et al. (2015). Benzodiazepine-prescribing patterns and deaths from drug overdose among U.S. veterans receiving opioid analgesics: Case-cohort study. BMJ, 350, h2698. Retrieved from http://www.bmj.com/content/350/bmj.h2698"
-  },
-  {
-    "type": "citation",
-    "citation": "Rudd, R., Aleshire, N., Zibbell, J., et al. (2016, January). Increases in drug and opioid overdose deaths—United States, 2000–2014. Morbidity and Mortality Weekly Report, 64(50), 1378–1382. Retrieved from http://www.cdc.gov/mmwr/preview/mmwrhtml/mm6450a3.htm"
-  },
-  {
-    "type": "citation",
-    "citation": "Sun, E., Dixit, A., Humphreys, K., et al. (2017). Association between concurrent use of prescription opioids and benzodiazepines and overdose: Retrospective analysis. BMJ, 356, j760. Retrieved from http://www.bmj.com/content/356/bmj.j760"
-  },
-  {
-    "type": "citation",
-    "citation": "U.S. Department of Veterans Affairs. (2014). Opioid safety initiative toolkit. Retrieved from https://www.va.gov/PAINMANAGEMENT/Opioid_Safety_Initiative_OSI.asp"
-  },
-  {
-    "type": "citation",
-    "citation": "U.S. Department of Veterans Affairs. (2016). Opioid safety initiative: Opioids (including tramadol) used in combination with benzodiazepine derivative sedatives/hypnotics. Unpublished manuscript."
-  },
-  {
-    "type": "citation",
-    "citation": "Washington Agency Medical Directors’ Group (WAMDG). (2015). Interagency guideline on prescribing opioids for pain, Part II: Prescribing opioids in the acute and subacute phase. Retrieved from http://www.agencymeddirectors.wa.gov/Files/2015AMDGOpioidGuideline.pdf"
-  }
+    {
+      "type": "citation",
+      "citation": "American Academy of Emergency Medicine (AAEM). (2013). Emergency department opioid-prescribing guidelines for the treatment of non-cancer-related pain. Retrieved from https://www.deepdyve.com/lp/elsevier/american-academy-of-emergency-medicine-PlQtPNi8J4"
+    },
+    {
+      "type": "citation",
+      "citation": "American Society of Interventional Pain Physicians (ASIPP). (2012). Guidelines for responsible opioid prescribing in chronic noncancer pain. Retrieved from https://www.asipp.org/opioidguidelines.htm "
+    },
+    {
+      "type": "citation",
+      "citation": "Dasgupta, N., Jonsson Funk, M., Proescholdbell, S., et al. (2015, September). Cohort study of the impact of high-dose opioid analgesics on overdose mortality. Pain Medicine. Retrieved from http://onlinelibrary.wiley.com/doi/10.1111/pme.12907/abstract"
+    },
+    {
+      "type": "citation",
+      "citation": "Dowell, D., Haegerich, T., & Chou, R. (2016). CDC guideline for prescribing opioids for chronic pain—United States, 2016. MMWR Recommendations and Reports, 65. Retrieved from http://www.cdc.gov/media/dpk/2016/dpk-opioid-prescription-guidelines.html"
+    },
+    {
+      "type": "citation",
+      "citation": "Herzig, S., Rothberg, M., Cheung, M., et al. (2014). Opioid utilization and opioid-related adverse events in nonsurgical patients in U.S. hospitals. Journal of Hospital Medicine, 9(2), 73-81."
+    },
+    {
+      "type": "citation",
+      "citation": "Jena, A., Goldman, D., Schaeffer, L. D., et al. (2014). Opioid prescribing by multiple providers in Medicare: Retrospective observational study of insurance claims. BMJ, 348, g1393. DOI: 10.1136/bmj.g1393"
+    },
+    {
+      "type": "citation",
+      "citation": "Liu, Y., Logan, J., Paulozzi, L., et al. (2013). Potential misuse and inappropriate prescription practices involving opioid analgesics. American Journal of Managed Care, 19(8), 648–665. Retrieved from http://www.ajmc.com/journals/issue/2013/2013-1-vol19-n8/Potential-Misuse-and-Inappropriate-Prescription-Practices-Involving-Opioid-Analgesics/"
+    },
+    {
+      "type": "citation",
+      "citation": "Lin, L. A., Bohnert, A. S., Kerns, R. D., et al. (2017). Impact of the opioid safety initiative on opioid-related prescribing in veterans. Pain, 158(5), 833–839. Retrieved from https://www.ncbi.nlm.nih.gov/pubmed/28240996"
+    },
+    {
+      "type": "citation",
+      "citation": "Mack, K., Zhang, K., Paulozzi, L., et al. (2015, February). Prescription practices involving opioid analgesics among Americans with Medicaid, 2010. Journal of Health Care for the Poor and Underserved, 26(1), 182–198. Retrieved from http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4365785"
+    },
+    {
+      "type": "citation",
+      "citation": "National Institute on Drug Abuse. (2011). Analysis of opioid prescription practices finds areas of concern. Retrieved from https://www.drugabuse.gov/news-events/news-releases/2011/04/analysis-opioid-prescription-practices-finds-areas-concern"
+    },
+    {
+      "type": "citation",
+      "citation": "New York City (NYC) Department of Health and Mental Hygiene (NYC DOHMH). (2013). NYC emergency department discharge opioid-prescribing guidelines. Retrieved from https://www1.nyc.gov/site/doh/providers/health-topics/opioid-prescribing-resources-for-emergency-departments.page"
+    },
+    {
+      "type": "citation",
+      "citation": "Park, T., Saitz, R., Ganoczy, D., et al. (2015). Benzodiazepine-prescribing patterns and deaths from drug overdose among U.S. veterans receiving opioid analgesics: Case-cohort study. BMJ, 350, h2698. Retrieved from http://www.bmj.com/content/350/bmj.h2698"
+    },
+    {
+      "type": "citation",
+      "citation": "Rudd, R., Aleshire, N., Zibbell, J., et al. (2016, January). Increases in drug and opioid overdose deaths—United States, 2000–2014. Morbidity and Mortality Weekly Report, 64(50), 1378–1382. Retrieved from http://www.cdc.gov/mmwr/preview/mmwrhtml/mm6450a3.htm"
+    },
+    {
+      "type": "citation",
+      "citation": "Sun, E., Dixit, A., Humphreys, K., et al. (2017). Association between concurrent use of prescription opioids and benzodiazepines and overdose: Retrospective analysis. BMJ, 356, j760. Retrieved from http://www.bmj.com/content/356/bmj.j760"
+    },
+    {
+      "type": "citation",
+      "citation": "U.S. Department of Veterans Affairs. (2014). Opioid safety initiative toolkit. Retrieved from https://www.va.gov/PAINMANAGEMENT/Opioid_Safety_Initiative_OSI.asp"
+    },
+    {
+      "type": "citation",
+      "citation": "U.S. Department of Veterans Affairs. (2016). Opioid safety initiative: Opioids (including tramadol) used in combination with benzodiazepine derivative sedatives/hypnotics. Unpublished manuscript."
+    },
+    {
+      "type": "citation",
+      "citation": "Washington Agency Medical Directors’ Group (WAMDG). (2015). Interagency guideline on prescribing opioids for pain, Part II: Prescribing opioids in the acute and subacute phase. Retrieved from http://www.agencymeddirectors.wa.gov/Files/2015AMDGOpioidGuideline.pdf"
+    }
   ],
   "library": [
     {

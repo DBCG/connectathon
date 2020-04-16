@@ -10,10 +10,36 @@
   "text": {
     "status": "generated"
   },
+  "contained": [
+    {
+      "resourceType": "Device",
+      "id": "cqf-tooling",
+      "meta": {
+        "profile": [
+          "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/device-softwaresystem-cqfm"
+        ]
+      },
+      "type": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/software-system-type",
+            "code": "tooling"
+          }
+        ]
+      },
+      "version": "1.1.0-SNAPSHOT"
+    }
+  ],
   "extension": [
     {
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
       "valueCode": "boolean"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+      "valueReference": {
+        "reference": "#cqf-tooling"
+      }
     }
   ],
   "url": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-exm117-FHIR3",
