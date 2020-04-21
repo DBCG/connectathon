@@ -34,7 +34,7 @@ define function "Has Hospice"(MeasurementPeriod Interval<DateTime>):
 	)
     or exists (
         [ServiceRequest: "Hospice care ambulatory"] HospiceOrder
-            where HospiceOrder.intent = 'order'
+            where HospiceOrder.intent.value = 'order'
                 and FHIRHelpers.ToDateTime(HospiceOrder.authoredOn) in day of MeasurementPeriod
     )
     or exists (
