@@ -1,4 +1,4 @@
-library Hospice_FHIR4 version '1.0.000'
+library Hospice_FHIR4 version '1.0.001'
 
 /*
 This example is a work in progress and should not be considered a final specification
@@ -34,7 +34,7 @@ define function "Has Hospice"(MeasurementPeriod Interval<DateTime>):
 	)
     or exists (
         [ServiceRequest: "Hospice care ambulatory"] HospiceOrder
-            where HospiceOrder.intent = 'order'
+            where HospiceOrder.intent.value = 'order'
                 and FHIRHelpers.ToDateTime(HospiceOrder.authoredOn) in day of MeasurementPeriod
     )
     or exists (
