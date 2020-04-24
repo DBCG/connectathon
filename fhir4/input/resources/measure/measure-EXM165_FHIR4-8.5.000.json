@@ -173,138 +173,148 @@
       },
     "guidance": "In reference to the numerator element, only blood pressure readings performed by a clinician or a remote monitoring device are acceptable  for numerator compliance with this measure. \n\nDo not include BP readings:\n-Taken during an acute inpatient stay or an ED visit\n-Taken on the same day as a diagnostic test or diagnostic or therapeutic procedure that requires a change in diet or change in medication on or one day before the day of the test or procedure, with the exception of fasting blood tests.\n-Reported by or taken by the member\n\n\nIf no blood pressure is recorded during the measurement period, the patient's blood pressure is assumed \"not controlled.\"\n\nIf there are multiple blood pressure readings on the same day, use the lowest systolic and the lowest diastolic reading as the most recent blood pressure reading.",
     "group": [
-        {
-            "identifier": {
-                "value": "group-1"
-            },
-            "population": [
+      {
+        "id": "group-1",
+        "population": [
+          {
+            "code": {
+              "coding": [
                 {
-                    "identifier": {
-                        "value": "initial-population-identifier"
-                    },
-                    "code": {
-                        "coding": [
-                            {
-                                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
-                                "code": "initial-population",
-                                "display": "Initial Population"
-                            }
-                        ]
-                    },
-                    "criteria": "Initial Population"
-                },
-                {
-                    "identifier": {
-                        "value": "numerator-identifier"
-                    },
-                    "code": {
-                        "coding": [
-                            {
-                                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
-                                "code": "numerator",
-                                "display": "Numerator"
-                            }
-                        ]
-                    },
-                    "criteria": "Numerator"
-                },
-                {
-                    "identifier": {
-                        "value": "denominator-identifier"
-                    },
-                    "code": {
-                        "coding": [
-                            {
-                                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
-                                "code": "denominator",
-                                "display": "Denominator"
-                            }
-                        ]
-                    },
-                    "criteria": "Denominator"
-                },
-                {
-                    "identifier": {
-                        "value": "denominator-exclusions-identifier"
-                    },
-                    "code": {
-                        "coding": [
-                            {
-                                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
-                                "code": "denominator-exclusion",
-                                "display": "Denominator Exclusion"
-                            }
-                        ]
-                    },
-                    "criteria": "Denominator Exclusion"
+                  "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                  "code": "initial-population",
+                  "display": "Initial Population"
                 }
-            ]
-        }
+              ]
+            },
+            "criteria": {
+              "language": "text/cql",
+              "expression": "Initial Population"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                  "code": "numerator",
+                  "display": "Numerator"
+                }
+              ]
+            },
+            "criteria": {
+              "language": "text/cql",
+              "expression": "Numerator"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                  "code": "denominator",
+                  "display": "Denominator"
+                }
+              ]
+            },
+            "criteria": {
+              "language": "text/cql",
+              "expression": "Denominator"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                  "code": "denominator-exclusion",
+                  "display": "Denominator Exclusion"
+                }
+              ]
+            },
+            "criteria": {
+              "language": "text/cql",
+              "expression": "Denominator Exclusion"
+            }
+          }
+        ]
+      }
     ],
     "supplementalData": [
-        {
-            "identifier": {
-                "value": "sde-ethnicity"
-            },
-            "usage": [
-                {
-                    "coding": [
-                        {
-                            "system": "http://hl7.org/fhir/measure-data-usage",
-                            "code": "supplemental-data"
-                        }
-                    ]
-                }
-            ],
-            "criteria": "SDE Ethnicity"
+      {
+        "code": {
+          "text": "sde-ethnicity"
         },
-        {
-            "identifier": {
-                "value": "sde-payer"
-            },
-            "usage": [
-                {
-                    "coding": [
-                        {
-                            "system": "http://hl7.org/fhir/measure-data-usage",
-                            "code": "supplemental-data"
-                        }
-                    ]
-                }
-            ],
-            "criteria": "SDE Payer"
-        },
-        {
-            "identifier": {
-                "value": "sde-race"
-            },
-            "usage": [
-                {
-                    "coding": [
-                        {
-                            "system": "http://hl7.org/fhir/measure-data-usage",
-                            "code": "supplemental-data"
-                        }
-                    ]
-                }
-            ],
-            "criteria": "SDE Race"
-        },
-        {
-            "identifier": {
-                "value": "sde-sex"
-            },
-            "usage": [
-                {
-                    "coding": [
-                        {
-                            "system": "http://hl7.org/fhir/measure-data-usage",
-                            "code": "supplemental-data"
-                        }
-                    ]
-                }
-            ],
-            "criteria": "SDE Sex"
+        "usage": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/measure-data-usage",
+                "code": "supplemental-data"
+              }
+            ]
+          }
+        ],
+        "criteria": {
+          "language": "text/cql",
+          "expression": "SDE Ethnicity"
         }
+      },
+      {
+        "code": {
+          "text": "sde-payer"
+        },
+        "usage": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/measure-data-usage",
+                "code": "supplemental-data"
+              }
+            ]
+          }
+        ],
+        "criteria": {
+          "language": "text/cql",
+          "expression": "SDE Payer"
+        }
+      },
+      {
+        "code": {
+          "text": "sde-race"
+        },
+        "usage": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/measure-data-usage",
+                "code": "supplemental-data"
+              }
+            ]
+          }
+        ],
+        "criteria": {
+          "language": "text/cql",
+          "expression": "SDE Race"
+        }
+      },
+      {
+        "code": {
+          "text": "sde-sex"
+        },
+        "usage": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/measure-data-usage",
+                "code": "supplemental-data"
+              }
+            ]
+          }
+        ],
+        "criteria": {
+          "language": "text/cql",
+          "expression": "SDE Sex"
+        }
+      }
     ]
 }
