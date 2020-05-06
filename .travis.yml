@@ -1,10 +1,16 @@
 language: node_js
 node_js:
   - "12"
+env:
+  - MEASURE=EXM_104
+  - MEASURE=EXM_105
+  - MEASURE=EXM_124
+  - MEASURE=EXM_125
+  - MEASURE=EXM_130
 services:
   - docker
 before_install:
   - sudo chown -R travis ./travis/setup.sh
   - sudo chmod +x ./travis/setup.sh ./travis/test_measures.sh ./travis/download_cqf_tooling.sh ./travis/rebuild_bundles.sh
   - ./travis/setup.sh
-script: ./travis/test_measures.sh
+script: ./travis/test_measures.sh $MEASURE

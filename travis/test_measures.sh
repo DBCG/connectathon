@@ -1,13 +1,9 @@
 #!/bin/bash
 
-echo "> Rebuilding Measure Bundles"
+echo "> Rebuilding Measure Bundles and Loading CQF-Ruler"
 if ! ./travis/rebuild_bundles.sh; then
   exit 1
 fi
 
-cd fhir-patient-generator
-make all CI_TOOL=true
-
-# Use make commands to test measures and/or
-# compare calculation results against the
-# existing patient sets.
+echo "> Starting Calculation and Comparison of MeasureReports"
+node ./travis/calculateMeasures.js $1
