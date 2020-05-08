@@ -10,7 +10,7 @@ Updated FHIR version to 4.0.1
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1' called FHIRHelpers
-include MATGlobalCommonFunctions_FHIR4 version '5.0.000' called Global
+include MATGlobalCommonFunctions version '5.0.000' called Global
 
 codesystem "LOINC": 'http://loinc.org'
 

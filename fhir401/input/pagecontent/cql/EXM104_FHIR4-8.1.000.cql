@@ -1,4 +1,4 @@
-library EXM104_FHIR4 version '8.1.000'
+library EXM104 version '8.1.000'
 // for 2020 Reporting Year
 //STK 2
 /*
@@ -6,12 +6,12 @@ Based on CMS104 - Discharged on Antithrombotic Therapy
 Author: TJC
 */
 
-using FHIR version '4.0.0'
+using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.0.0'
-include MATGlobalCommonFunctions_FHIR4 version '4.0.000' called Global
-include SupplementalDataElements_FHIR4 version '1.0.0' called SDE
-include TJCOverall_FHIR4 version '4.0.000' called TJC
+include FHIRHelpers version '4.0.1'
+include MATGlobalCommonFunctions version '5.0.000' called Global
+include SupplementalDataElements version '2.0.0' called SDE
+include TJCOverall version '5.0.000' called TJC
 
 codesystem "LOINC": 'http://loinc.org'
 codesystem "SNOMEDCT": 'http://snomed.info/sct/731000124108'

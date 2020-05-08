@@ -16,7 +16,7 @@ Updated FHIR version to 4.0.1
 
 using FHIR version '4.0.1'
 
-include MATGlobalCommonFunctions_FHIR4 version '5.0.000' called Global
+include MATGlobalCommonFunctions version '5.0.000' called Global
 include FHIRHelpers version '4.0.1' called FHIRHelpers
 
 codesystem "SNOMEDCT:2017-09": 'http://snomed.info/sct/731000124108' version 'http://snomed.info/sct/731000124108/version/201709'

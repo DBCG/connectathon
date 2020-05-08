@@ -2,9 +2,9 @@ library HIVScreening version '2.9.000'
 
 using FHIR version '4.0.0'
 
-include FHIRHelpers version '4.0.0' called FHIRHelpers
-include MATGlobalCommonFunctions_FHIR4 version '4.0.000' called Global
-include SupplementalDataElements_FHIR4 version '1.0.0' called SDE
+include FHIRHelpers version '4.0.1' called FHIRHelpers
+include MATGlobalCommonFunctions version '5.0.000' called Global
+include SupplementalDataElements version '2.0.0' called SDE
 
 codesystem "LOINC": 'http://loinc.org'
 

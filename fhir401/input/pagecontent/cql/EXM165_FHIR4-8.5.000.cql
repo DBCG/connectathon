@@ -6,10 +6,10 @@ Controlling High Blood Pressure (CBP)
 
 using FHIR version '4.0.0'
 
-include FHIRHelpers version '4.0.0'
-include MATGlobalCommonFunctions_FHIR4 version '4.0.000' called Common
+include FHIRHelpers version '4.0.1'
+include MATGlobalCommonFunctions version '5.0.000' called Common
 include AdultOutpatientEncounters_FHIR4 version '1.1.000' called AdultOutpatientEncounters
-include SupplementalDataElements_FHIR4 version '1.0.0' called SDE
+include SupplementalDataElements version '2.0.0' called SDE
 include AdvancedIllnessandFrailtyExclusion_FHIR4 version '4.0.000' called FrailtyLTI
 include Hospice_FHIR4 version '1.0.000' called Hospice
 //include NCQACommon_FHIR version '3.10.000' called Common

@@ -1,17 +1,10 @@
-library TJCOverall_FHIR4 version '5.0.000'
-
-/*
-@update: @@BTR 2020-03-31 ->
-Incremented version to 5.0.000
-Updated FHIR version to 4.0.1
-@@
-*/
+library TJCOverall version '5.0.000'
 
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1' called FHIRHelpers
-include MATGlobalCommonFunctions_FHIR4 version '5.0.000' called Global
-include SupplementalDataElements_FHIR4 version '2.0.0' called SDE
+include MATGlobalCommonFunctions version '5.0.000' called Global
+include SupplementalDataElements version '2.0.0' called SDE
 
 codesystem "SNOMEDCT": 'http://snomed.info/sct/731000124108'
 codesystem "LOINC": 'http://loinc.org'

@@ -5,11 +5,11 @@ library EXM108_FHIR4 version '8.2.000'
 
 using FHIR version '4.0.0'
 
-include FHIRHelpers version '4.0.0' called FHIRHelpers
-include MATGlobalCommonFunctions_FHIR4 version '4.0.000' called Global
-include SupplementalDataElements_FHIR4 version '1.0.0' called SDE
+include FHIRHelpers version '4.0.1' called FHIRHelpers
+include MATGlobalCommonFunctions version '5.0.000' called Global
+include SupplementalDataElements version '2.0.0' called SDE
 include VTEICU_FHIR4 version '3.1.000' called VTEICU
-include TJCOverall_FHIR4 version '4.0.000' called TJC
+include TJCOverall version '5.0.000' called TJC
 
 codesystem "SNOMEDCT": 'http://snomed.info/sct/731000124108'
 codesystem "LOINC": 'http://loinc.org'

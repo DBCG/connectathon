@@ -2,9 +2,9 @@ library EXM506_FHIR4 version '2.0.000'
 
 using FHIR version '4.0.0'
 
-include MATGlobalCommonFunctions_FHIR4 version '4.0.000' called Global
-include FHIRHelpers version '4.0.0' called FHIRHelpers
-include SupplementalDataElements_FHIR4 version '1.0.0' called SDE
+include MATGlobalCommonFunctions version '5.0.000' called Global
+include FHIRHelpers version '4.0.1' called FHIRHelpers
+include SupplementalDataElements version '2.0.0' called SDE
 
 codesystem "Diagnosis Role": 'http://terminology.hl7.org/CodeSystem/diagnosis-role'
 codesystem "LOINC": 'http://loinc.org'

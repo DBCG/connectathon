@@ -11,7 +11,7 @@ using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1' called FHIRHelpers
 // NOTE: BTR 2019-07-30: Updated dependencies
-include MATGlobalCommonFunctions_FHIR4 version '5.0.000' called Global
+include MATGlobalCommonFunctions version '5.0.000' called Global
 
 valueset "Intensive Care Unit": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.23'
 
