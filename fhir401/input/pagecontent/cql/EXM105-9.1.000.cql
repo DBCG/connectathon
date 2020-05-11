@@ -1,11 +1,11 @@
-library EXM105_FHIR4 version '8.1.000'
+library EXM105 version '9.1.000'
 
 /*
 Based on CMS105v8 - Discharged on Statin Medication
 Author: TJC
 */
 
-using FHIR version '4.0.0'
+using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1'
 include MATGlobalCommonFunctions version '5.0.000' called Global
@@ -97,7 +97,7 @@ define "Denominator Exception":
 	 (
      TJC."Ischemic Stroke Encounter" IschemicStrokeEncounter
 		   with "Statin Allergy" StatinAllergy
-			    such that Global."Normalize Onset"(StatinAllergy.onset) starts on or before end of IschemicStrokeEncounter.period
+			    such that Global."Normalize Interval"(StatinAllergy.onset) starts on or before end of IschemicStrokeEncounter.period
     ) union
       "Encounter with Max LDL less than 70 mg per dL"
 

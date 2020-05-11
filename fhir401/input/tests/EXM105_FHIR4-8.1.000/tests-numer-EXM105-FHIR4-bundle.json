@@ -1,12 +1,12 @@
 {
   "resourceType": "Bundle",
-  "id": "tests-numer-EXM105-FHIR4-bundle",
+  "id": "tests-numer-EXM105-bundle",
   "type": "transaction",
   "entry": [
     {
       "resource": {
         "resourceType": "Condition",
-        "id": "numer-EXM105-FHIR4-1",
+        "id": "numer-EXM105-1",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
@@ -33,18 +33,18 @@
           ]
         },
         "subject": {
-          "reference": "Patient/numer-EXM105-FHIR4"
+          "reference": "Patient/numer-EXM105"
         }
       },
       "request": {
         "method": "PUT",
-        "url": "Condition/numer-EXM105-FHIR4-1"
+        "url": "Condition/numer-EXM105-1"
       }
     },
     {
       "resource": {
         "resourceType": "Encounter",
-        "id": "numer-EXM105-FHIR4-2",
+        "id": "numer-EXM105-2",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
@@ -68,7 +68,7 @@
           }
         ],
         "subject": {
-          "reference": "Patient/numer-EXM105-FHIR4"
+          "reference": "Patient/numer-EXM105"
         },
         "period": {
           "start": "2019-08-21T00:00:00-06:00",
@@ -77,7 +77,7 @@
         "diagnosis": [
           {
             "condition": {
-              "reference": "Condition/numer-EXM105-FHIR4-1"
+              "reference": "Condition/numer-EXM105-1"
             },
             "rank": 1
           }
@@ -85,13 +85,13 @@
       },
       "request": {
         "method": "PUT",
-        "url": "Encounter/numer-EXM105-FHIR4-2"
+        "url": "Encounter/numer-EXM105-2"
       }
     },
     {
       "resource": {
         "resourceType": "MeasureReport",
-        "id": "measurereport-numer-EXM105-FHIR4",
+        "id": "measurereport-numer-EXM105",
         "status": "complete",
         "type": "individual",
         "period": {
@@ -156,13 +156,13 @@
       },
       "request": {
         "method": "PUT",
-        "url": "MeasureReport/measurereport-numer-EXM105-FHIR4"
+        "url": "MeasureReport/measurereport-numer-EXM105"
       }
     },
     {
       "resource": {
         "resourceType": "MedicationRequest",
-        "id": "numer-EXM105-FHIR4-5",
+        "id": "numer-EXM105-5",
         "status": "completed",
         "intent": "order",
         "category": {
@@ -184,19 +184,19 @@
           ]
         },
         "subject": {
-          "reference": "Patient/numer-EXM105-FHIR4"
+          "reference": "Patient/numer-EXM105"
         },
         "authoredOn": "2019-12-17T08:00:00"
       },
       "request": {
         "method": "PUT",
-        "url": "MedicationRequest/numer-EXM105-FHIR4-5"
+        "url": "MedicationRequest/numer-EXM105-5"
       }
     },
     {
       "resource": {
         "resourceType": "Patient",
-        "id": "numer-EXM105-FHIR4",
+        "id": "numer-EXM105",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
@@ -259,7 +259,7 @@
       },
       "request": {
         "method": "PUT",
-        "url": "Patient/numer-EXM105-FHIR4"
+        "url": "Patient/numer-EXM105"
       }
     }
   ]

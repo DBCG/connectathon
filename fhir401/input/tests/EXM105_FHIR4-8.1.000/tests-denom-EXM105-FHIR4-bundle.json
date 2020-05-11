@@ -1,12 +1,12 @@
 {
   "resourceType": "Bundle",
-  "id": "tests-denom-EXM105-FHIR4-bundle",
+  "id": "tests-denom-EXM105-bundle",
   "type": "transaction",
   "entry": [
     {
       "resource": {
         "resourceType": "Condition",
-        "id": "denom-EXM105-FHIR4-1",
+        "id": "denom-EXM105-1",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
@@ -33,18 +33,18 @@
           ]
         },
         "subject": {
-          "reference": "Patient/denom-EXM105-FHIR4"
+          "reference": "Patient/denom-EXM105"
         }
       },
       "request": {
         "method": "PUT",
-        "url": "Condition/denom-EXM105-FHIR4-1"
+        "url": "Condition/denom-EXM105-1"
       }
     },
     {
       "resource": {
         "resourceType": "Encounter",
-        "id": "denom-EXM105-FHIR4-2",
+        "id": "denom-EXM105-2",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
@@ -68,7 +68,7 @@
           }
         ],
         "subject": {
-          "reference": "Patient/denom-EXM105-FHIR4"
+          "reference": "Patient/denom-EXM105"
         },
         "period": {
           "start": "2019-08-21T00:00:00-06:00",
@@ -77,7 +77,7 @@
         "diagnosis": [
           {
             "condition": {
-              "reference": "Condition/denom-EXM105-FHIR4-1"
+              "reference": "Condition/denom-EXM105-1"
             },
             "rank": 1
           }
@@ -85,13 +85,13 @@
       },
       "request": {
         "method": "PUT",
-        "url": "Encounter/denom-EXM105-FHIR4-2"
+        "url": "Encounter/denom-EXM105-2"
       }
     },
     {
       "resource": {
         "resourceType": "MeasureReport",
-        "id": "measurereport-denom-EXM105-FHIR4",
+        "id": "measurereport-denom-EXM105",
         "status": "complete",
         "type": "individual",
         "period": {
@@ -156,13 +156,13 @@
       },
       "request": {
         "method": "PUT",
-        "url": "MeasureReport/measurereport-denom-EXM105-FHIR4"
+        "url": "MeasureReport/measurereport-denom-EXM105"
       }
     },
     {
       "resource": {
         "resourceType": "Patient",
-        "id": "denom-EXM105-FHIR4",
+        "id": "denom-EXM105",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
@@ -225,7 +225,7 @@
       },
       "request": {
         "method": "PUT",
-        "url": "Patient/denom-EXM105-FHIR4"
+        "url": "Patient/denom-EXM105"
       }
     }
   ]
