@@ -1,4 +1,4 @@
-library AdvancedIllnessandFrailtyExclusion_FHIR4 version '5.0.000'
+library AdvancedIllnessandFrailtyExclusion version '6.0.000'
 
 /*
 @update: @@BTR 2020-03-31 ->
