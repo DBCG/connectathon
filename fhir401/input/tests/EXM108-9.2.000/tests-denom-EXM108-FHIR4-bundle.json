@@ -1,12 +1,12 @@
 {
   "resourceType": "Bundle",
-  "id": "tests-denom-EXM108-FHIR4-bundle",
+  "id": "tests-denom-EXM108-bundle",
   "type": "transaction",
   "entry": [
     {
       "resource": {
         "resourceType": "Condition",
-        "id": "denom-EXM108-FHIR4-2",
+        "id": "denom-EXM108-2",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
@@ -33,18 +33,18 @@
           ]
         },
         "subject": {
-          "reference": "Patient/denom-EXM108-FHIR4"
+          "reference": "Patient/denom-EXM108"
         }
       },
       "request": {
         "method": "PUT",
-        "url": "Condition/denom-EXM108-FHIR4-2"
+        "url": "Condition/denom-EXM108-2"
       }
     },
     {
       "resource": {
         "resourceType": "Encounter",
-        "id": "denom-EXM108-FHIR4-1",
+        "id": "denom-EXM108-1",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
@@ -68,7 +68,7 @@
           }
         ],
         "subject": {
-          "reference": "Patient/denom-EXM108-FHIR4"
+          "reference": "Patient/denom-EXM108"
         },
         "period": {
           "start": "2019-01-16T08:30:00-07:00",
@@ -77,7 +77,7 @@
         "diagnosis": [
           {
             "condition": {
-              "reference": "Condition/denom-EXM108-FHIR4-2"
+              "reference": "Condition/denom-EXM108-2"
             }
           }
         ],
@@ -95,13 +95,13 @@
       },
       "request": {
         "method": "PUT",
-        "url": "Encounter/denom-EXM108-FHIR4-1"
+        "url": "Encounter/denom-EXM108-1"
       }
     },
     {
       "resource": {
         "resourceType": "MeasureReport",
-        "id": "measurereport-denom-EXM108-FHIR4",
+        "id": "measurereport-denom-EXM108",
         "status": "complete",
         "type": "individual",
         "period": {
@@ -166,13 +166,13 @@
       },
       "request": {
         "method": "PUT",
-        "url": "MeasureReport/measurereport-denom-EXM108-FHIR4"
+        "url": "MeasureReport/measurereport-denom-EXM108"
       }
     },
     {
       "resource": {
         "resourceType": "MedicationAdministration",
-        "id": "denom-EXM108-FHIR4-5",
+        "id": "denom-EXM108-5",
         "status": "completed",
         "medicationCodeableConcept": {
           "coding": [
@@ -184,7 +184,7 @@
           ]
         },
         "subject": {
-          "reference": "Patient/denom-EXM108-FHIR4"
+          "reference": "Patient/denom-EXM108"
         },
         "effectivePeriod": {
           "start": "2019-01-19T12:30:00-07:00",
@@ -193,13 +193,13 @@
       },
       "request": {
         "method": "PUT",
-        "url": "MedicationAdministration/denom-EXM108-FHIR4-5"
+        "url": "MedicationAdministration/denom-EXM108-5"
       }
     },
     {
       "resource": {
         "resourceType": "Patient",
-        "id": "denom-EXM108-FHIR4",
+        "id": "denom-EXM108",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
@@ -262,13 +262,13 @@
       },
       "request": {
         "method": "PUT",
-        "url": "Patient/denom-EXM108-FHIR4"
+        "url": "Patient/denom-EXM108"
       }
     },
     {
       "resource": {
         "resourceType": "Procedure",
-        "id": "denom-EXM108-FHIR4-4",
+        "id": "denom-EXM108-4",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
@@ -285,7 +285,7 @@
           ]
         },
         "subject": {
-          "reference": "Patient/denom-EXM108-FHIR4"
+          "reference": "Patient/denom-EXM108"
         },
         "performedPeriod": {
           "start": "2019-01-17T08:30:00-07:00",
@@ -294,7 +294,7 @@
       },
       "request": {
         "method": "PUT",
-        "url": "Procedure/denom-EXM108-FHIR4-4"
+        "url": "Procedure/denom-EXM108-4"
       }
     }
   ]

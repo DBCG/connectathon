@@ -1,14 +1,14 @@
-library EXM108_FHIR4 version '8.2.000'
+library EXM108 version '9.2.000'
 //for 2020 reporting year. QDM to QI-4
 //Venous Thromboembolism Prophylaxis
 //Author: TJC
 
-using FHIR version '4.0.0'
+using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1' called FHIRHelpers
 include MATGlobalCommonFunctions version '5.0.000' called Global
 include SupplementalDataElements version '2.0.0' called SDE
-include VTEICU_FHIR4 version '3.1.000' called VTEICU
+include VTEICU version '5.0.000' called VTEICU
 include TJCOverall version '5.0.000' called TJC
 
 codesystem "SNOMEDCT": 'http://snomed.info/sct/731000124108'
