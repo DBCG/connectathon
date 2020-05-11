@@ -240,7 +240,7 @@ define "Encounter With Prior or Present Diagnosis of Atrial Fibrillation or VTE"
 	( "Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" QualifyingEncounter
 		with ["Condition": code in "Atrial Fibrillation/Flutter"] AtrialFibrillation
 		such that FHIRHelpers.ToConcept(AtrialFibrillation.clinicalStatus) in { Global."active", Global."recurrence", Global."relapse" }
-			and Global."Normalize Onset"(AtrialFibrillation.onset) starts on or before end of QualifyingEncounter.period
+			and Global."Normalize Interval"(AtrialFibrillation.onset) starts on or before end of QualifyingEncounter.period
     )
     union ( "Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" QualifyingEncounter
     				where Global.EncounterDiagnosis(QualifyingEncounter).code in "Atrial Fibrillation/Flutter"
@@ -249,7 +249,7 @@ define "Encounter With Prior or Present Diagnosis of Atrial Fibrillation or VTE"
     				with ["Condition": code in "Venous Thromboembolism"] VTEDiagnosis
     				such that  FHIRHelpers.ToConcept(VTEDiagnosis.clinicalStatus) in { Global."inactive", Global."remission", Global."resolved" }
       					//and VTEDiagnosis.verificationStatus = 'confirmed'
-    				and Global."Normalize Onset"(VTEDiagnosis.onset) before start of QualifyingEncounter.period
+    				and Global."Normalize Interval"(VTEDiagnosis.onset) before start of QualifyingEncounter.period
       		)
 
 define "Encounter With Prior or Present Procedure of Hip or Knee Replacement Surgery":
