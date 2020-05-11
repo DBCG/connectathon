@@ -1,4 +1,4 @@
-library EXM130_FHIR4 version '7.2.000'
+library EXM130 version '8.0.000'
 
 /*
 Based on CMS130v7 - Colorectal Cancer Screening
@@ -11,11 +11,11 @@ of finding conventions and usage patterns that meet the needs of the various sta
 in the measure development community.
 */
 
-using FHIR version '4.0.0'
+using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1' called FHIRHelpers
-include Hospice_FHIR4 version '1.0.000' called Hospice
-include AdultOutpatientEncounters_FHIR4 version '1.1.000' called AdultOutpatientEncounters
+include Hospice version '2.0.000' called Hospice
+include AdultOutpatientEncounters version '2.0.000' called AdultOutpatientEncounters
 include MATGlobalCommonFunctions version '5.0.000' called Global
 include SupplementalDataElements version '2.0.0' called SDE
 
@@ -68,7 +68,7 @@ define "Total Colectomy Performed":
 
 define "Malignant Neoplasm Ever":
 	[Condition: "Malignant Neoplasm of Colon"] ColorectalCancer
-		where Global."Normalize Onset"(ColorectalCancer.onset) starts on or before end of "Measurement Period"
+		where Global."Normalize Interval"(ColorectalCancer.onset) starts on or before end of "Measurement Period"
 
 define "Fecal Occult Blood Test Performed":
 	[Observation: "Fecal Occult Blood Test (FOBT)"] FecalOccultResult
@@ -85,7 +85,7 @@ define "Fecal Immunochemical Test DNA":
 define "Colonoscopy Performed":
 	[Procedure: "Colonoscopy"] Colonoscopy
 		where Colonoscopy.status = 'completed'
-		  and Global."Normalize Onset"(Colonoscopy.performed) ends 10 years or less on or before end of "Measurement Period"
+		  and Global."Normalize Interval"(Colonoscopy.performed) ends 10 years or less on or before end of "Measurement Period"
 
 define "Numerator":
 	exists "Colonoscopy Performed"
@@ -95,10 +95,10 @@ define "Numerator":
 		or exists "CT Colonography Performed"
 
 define "Denominator Exclusion":
-	Hospice."Has Hospice"("Measurement Period")
+	Hospice."Has Hospice"
 		or exists "Malignant Neoplasm Ever"
 		or exists "Total Colectomy Performed"
 
 define "Initial Population":
 	Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(Patient.birthDate), start of "Measurement Period") in Interval[50, 75]
-			and exists AdultOutpatientEncounters."Qualifying Encounters"("Measurement Period")
+			and exists AdultOutpatientEncounters."Qualifying Encounters"
