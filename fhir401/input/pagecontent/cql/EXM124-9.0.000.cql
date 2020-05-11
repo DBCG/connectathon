@@ -1,4 +1,4 @@
-library EXM124_FHIR401 version '9.0.000'
+library EXM124 version '9.0.000'
 
 
 /*
@@ -15,8 +15,8 @@ in the measure development community.
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1' called FHIRHelpers
-include Hospice_FHIR4 version '2.0.000' called Hospice
-include AdultOutpatientEncounters_FHIR4 version '2.0.000' called AdultOutpatientEncounters
+include Hospice version '2.0.000' called Hospice
+include AdultOutpatientEncounters version '2.0.000' called AdultOutpatientEncounters
 include MATGlobalCommonFunctions version '5.0.000' called Global
 include SupplementalDataElements version '2.0.0' called SDE
 
