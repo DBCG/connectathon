@@ -1,4 +1,4 @@
-library Hospice_FHIR4 version '2.0.000'
+library Hospice version '2.0.000'
 
 /*
 This example is a work in progress and should not be considered a final specification
