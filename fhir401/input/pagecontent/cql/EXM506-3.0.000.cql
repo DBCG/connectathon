@@ -1,6 +1,6 @@
-library EXM506_FHIR4 version '2.0.000'
+library EXM506 version '3.0.000'
 
-using FHIR version '4.0.0'
+using FHIR version '4.0.1'
 
 include MATGlobalCommonFunctions version '5.0.000' called Global
 include FHIRHelpers version '4.0.1' called FHIRHelpers
