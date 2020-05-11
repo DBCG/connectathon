@@ -1,6 +1,6 @@
-library HIVScreening version '2.9.000'
+library HIVScreening version '3.0.000'
 
-using FHIR version '4.0.0'
+using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1' called FHIRHelpers
 include MATGlobalCommonFunctions version '5.0.000' called Global
@@ -54,7 +54,7 @@ define "Denominator Exclusions":
 	exists ( [Condition: code in "Conditions Due To Human Immunodeficiency Virus (HIV)"] HIVConditions
 			where FHIRHelpers.ToConcept(HIVConditions.clinicalStatus) ~ Global."active"
 			and FHIRHelpers.ToConcept(HIVConditions.verificationStatus) ~ Global."confirmed"
-			and Global."Normalize Onset"(HIVConditions.onset) starts before start of "Measurement Period" )
+			and Global."Normalize Interval"(HIVConditions.onset) starts before start of "Measurement Period" )
 
 define "Numerator":
 	exists "HIV Test Performed"
