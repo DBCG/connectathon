@@ -1,4 +1,4 @@
-library EXM125_FHIR4 version '7.2.000'
+library EXM125 version '8.0.000'
 
 /*
 Based on CMS125v7 - Breast Cancer Screening
@@ -11,11 +11,11 @@ of finding conventions and usage patterns that meet the needs of the various sta
 in the measure development community.
 */
 
-using FHIR version '4.0.0'
+using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1' called FHIRHelpers
-include Hospice_FHIR4 version '1.0.000' called Hospice
-include AdultOutpatientEncounters_FHIR4 version '1.1.000' called AdultOutpatientEncounters
+include Hospice version '2.0.000' called Hospice
+include AdultOutpatientEncounters version '2.0.000' called AdultOutpatientEncounters
 include MATGlobalCommonFunctions version '5.0.000' called Global
 include SupplementalDataElements version '2.0.0' called SDE
 
@@ -70,7 +70,7 @@ define "Right Mastectomy":
                   and UnilateralMastectomyDiagnosis.clinicalStatus ~ ToConcept(Global."active")
 				)
 		) RightMastectomy
-				where Global."Normalize Onset"(RightMastectomy.onset) starts before day of end of "Measurement Period"
+				where Global."Normalize Interval"(RightMastectomy.onset) starts before day of end of "Measurement Period"
 
 define "Left Mastectomy":
 		(
@@ -83,11 +83,11 @@ define "Left Mastectomy":
                   and UnilateralMastectomyDiagnosis.clinicalStatus ~ ToConcept(Global."active")
 				)
 		) LeftMastectomy
-				where Global."Normalize Onset"(LeftMastectomy.onset) starts before day of end of "Measurement Period"
+				where Global."Normalize Interval"(LeftMastectomy.onset) starts before day of end of "Measurement Period"
 
 define "History Bilateral Mastectomy":
 		[Condition: "History of bilateral mastectomy"] BilateralMastectomyHistory
-				where Global."Normalize Onset"(BilateralMastectomyHistory.onset) starts before day of end of "Measurement Period"
+				where Global."Normalize Interval"(BilateralMastectomyHistory.onset) starts before day of end of "Measurement Period"
           and BilateralMastectomyHistory.clinicalStatus ~ ToConcept(Global."active")
 
 define "Bilateral Mastectomy Procedure":
@@ -103,7 +103,7 @@ define "Numerator":
 		)
 
 define "Denominator Exclusion":
-		Hospice."Has Hospice"("Measurement Period")
+		Hospice."Has Hospice"
 				or ( Count("Unilateral Mastectomy Procedure") = 2 )
 				or ( exists "Right Mastectomy" and exists "Left Mastectomy" )
 				or exists "History Bilateral Mastectomy"
@@ -112,4 +112,4 @@ define "Denominator Exclusion":
 define "Initial Population":
 		Patient.gender = 'female'
 				and Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(Patient.birthDate), start of "Measurement Period") in Interval[51, 74]
-				and exists AdultOutpatientEncounters."Qualifying Encounters"("Measurement Period")
+				and exists AdultOutpatientEncounters."Qualifying Encounters"
