@@ -1,0 +1,203 @@
+{
+  "resourceType": "Measure",
+  "id": "measure-EXM529-1.0.000",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2020-02-14T00:00:00.000+00:00",
+    "profile": [
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm"
+    ]
+  },
+  "text": {
+    "status": "generated"
+  },
+  "contained": [
+    {
+      "resourceType": "Device",
+      "id": "cqf-tooling",
+      "meta": {
+        "profile": [
+          "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/device-softwaresystem-cqfm"
+        ]
+      },
+      "type": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/cqfmeasures/CodeSystem/software-system-type",
+            "code": "tooling"
+          }
+        ]
+      },
+      "version": [
+        {
+          "value": "1.1.0-SNAPSHOT"
+        }
+      ]
+    }
+  ],
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
+      "valueCode": "boolean"
+    },
+    {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+      "valueReference": {
+        "reference": "#cqf-tooling"
+      }
+    }
+  ],
+  "url": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-EXM529-FHIR",
+  "version": "1.0.000",
+  "name": "EXM529",
+  "title": "Hospital Core Clinical Data Elements",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "Centers for Medicare & Medicaid Services (CMS)",
+  "description": "This is not a measure. This logic is intended to extract electronic clinical data. It is designed to extract the first captured set of vital signs and basic laboratory results obtained on adult Medicare fee-for-service patients admitted to acute care short stay hospitals. These data will be linked with administrative claims data to risk-adjust hospital-level hybrid outcome measures.",
+  "useContext": [
+    {
+      "code": {
+        "code": "program"
+      },
+      "valueCodeableConcept": {
+        "text": "eligible-provider"
+      }
+    }
+  ],
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "purpose": "The logic is not meant to guide or alter the care patients receive. The purpose of this CCDE logic is to extract clinical data that are already routinely captured in EHRs among hospitalized adult patients. It is not intended to require that clinical staff perform additional measurements or tests that are not needed for diagnostic assessment or treatment of patients.",
+  "copyright": "Limited proprietary coding is contained in these specifications for user convenience. Users of proprietary code sets should obtain all necessary licenses from the owners of the code sets.\n\nCPT(R) contained in the Measure specifications is copyright 2004-2013 American Medical Association. LOINC(R) copyright 2004-2013 Regenstrief Institute, Inc. This material contains SNOMED Clinical Terms(R) (SNOMED CT[R]) copyright 2004-2013 International Health Terminology Standards Development Organisation. ICD-10 copyright 2013 World Health Organization. All Rights Reserved.",
+  "effectivePeriod": {
+    "start": "2020-01-01",
+    "end": "2020-12-31"
+  },
+  "topic": [
+    {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "57024-2",
+          "display": "Health Quality Measure Document"
+        }
+      ]
+    }
+  ],
+  "library": [
+    "http://hl7.org/fhir/us/draftmeasures/Library/library-EXM529-1.0.000"
+  ],
+  "disclaimer": "The performance Measure is not a clinical guideline and does not establish a standard of medical care, and has not been tested for all potential applications.\n\nTHE MEASURE AND SPECIFICATIONS ARE PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND.\n \nDue to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM].",
+  "scoring": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/measure-scoring",
+        "code": "proportion"
+      }
+    ]
+  },
+  "rationale": "Although we are using the \"proportion\" function in the MAT, hospitals will not report a proportion, ratio, or rate. Instead hospitals will report actual data values for the elements included.\n\nThe intent of this logic is to extract the FIRST set of clinical data elements on patients, from hospital EHRs, and to use the data to risk adjust hospital-level hybrid outcome measures. This work addresses stakeholder concerns that clinical data garnered from patients, and used by clinicians to guide diagnostic decisions and treatment, are preferable to administrative claims data. We are calling the list of data elements for extraction the \"core clinical data elements\". The core clinical data elements are the first set of vital signs and basic laboratory test results captured on adult Medicare fee-for-service patients, age 65 or older, after they arrive at the hospital to which they are subsequently admitted. For example, this first set of data values are often captured in the emergency department or in the pre-operative area sometimes hours before a patient is admitted to that same facility.\n\nThese data elements were selected because they: 1. reflect patients' clinical status when they first present to the hospital; 2. are clinically and statistically relevant to patient outcomes; 3. are consistently obtained on adult inpatients based on current clinical practice; 4. are captured with a standard definition and recorded in a standard format across providers; and 5. are entered in structured fields that are feasibly retrieved from current EHR systems. The core clinical data elements also include some demographic data (such as age and sex). Demographic data are used to link EHR data files with administrative claims data for CMS to calculate results for hospital-level hybrid outcome measures.",
+  "clinicalRecommendationStatement": "The logic is not meant to guide or alter the care patients receive. The purpose of this CCDE logic is to extract clinical data that are already routinely captured in EHRs among hospitalized adult patients. It is not intended to require that clinical staff perform additional measurements or tests that are not needed for diagnostic assessment or treatment of patients.",
+  "guidance": "This logic guides the user to extract the FIRST captured core clinical data elements for all Medicare fee-for-service patients age 65 or older, (as described by Initial Population field) directly admitted to the hospital or admitted to the same facility after an emergency department stay or surgical procedure.\n\nThe logic supports extraction of the FIRST set of core clinical data elements in two different ways, depending on if the patient was a direct admission:\n\n1. If the patient was a direct admission, the logic supports extraction of the FIRST captured vital signs within 2 hours after the start of the inpatient admission, and the FIRST captured laboratory test results within 24 hours after the start of the inpatient admission.\n2. If the patient has values captured prior to admission, for example from the emergency department or pre-operative or other outpatient area within the hospital, the logic supports extraction of the FIRST captured vital signs and laboratory test results within 24 hours PRIOR to the start of the inpatient admission. All clinical systems used in inpatient and outpatient locations within the hospital facility should be queried when looking for core clinical data element values related to a patient who is subsequently admitted.\n\nValue sets for the laboratory tests represent the LOINC codes currently available for these tests. If the institution is using local codes to capture and store relevant laboratory test data, those sites should map that information to the LOINC code for CCDE reporting.\n\nNOTE: Do not report ALL values on a patient during their entire admission.  Only report the FIRST recorded value for EACH core clinical data element collected in the appropriate timeframe, if available.",
+  "group": [
+    {
+      "id": "group-1",
+      "population": [
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "initial-population",
+                "display": "Initial Population"
+              }
+            ]
+          },
+          "description": "All Medicare fee-for-service patients age 65 and older with an inpatient admission (length of stay <365 days) during the measurement period."
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "denominator",
+                "display": "Denominator"
+              }
+            ]
+          },
+          "description": "Same as initial population."
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "code": "numerator",
+                "display": "Numerator"
+              }
+            ]
+          },
+          "description": "For patients in the denominator, report the FIRST value for vital signs captured within the 24 hours prior to the inpatient admission. If no values were captured in the 24 hours prior to the admission (for example, for patients directly admitted to the hospitals) report the first value captured within 2 hours after the start of the inpatient admission. For laboratory test results, report the first captured value in the 24 hours prior to admission. If there are no values in the 24 hours prior to admission, report the first values within 24 hours after the start of the inpatient admission. First values for the following data elements may be captured in the emergency department or other outpatient area within the hospital before a patient is subsequently admitted to the same hospital. First values for these data elements may also be captured on an inpatient unit for directly admitted patients who do not receive care in the emergency department or other hospital outpatient location before admission.\n\nThe core clinical data elements are as follows:\n\nHeart rate\nSystolic blood pressure\nRespiratory rate\nTemperature\nOxygen saturation\nWeight\nHematocrit\nWhite blood cell count\nPotassium\nSodium\nBicarbonate\nCreatinine\nGlucose\n\nNOTE: Do not report ALL values on a patient during their entire admission. Only report the FIRST recorded value for EACH core clinical data element collected in the appropriate timeframe, if available."
+        }
+      ]
+    }
+  ],
+  "supplementalData": [
+    {
+      "usage": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/measure-data-usage",
+              "code": "supplemental-data"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "usage": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/measure-data-usage",
+              "code": "supplemental-data"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "usage": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/measure-data-usage",
+              "code": "supplemental-data"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "usage": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/measure-data-usage",
+              "code": "supplemental-data"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
