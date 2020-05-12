@@ -1,44 +1,34 @@
-```
-NOTICE:  
-
-The struture of the Connectathon repo has been updated to match conventions of other IGs to enable cross IG usage of the "refresh" tooling. 
-
-The impacted the following directory changes:
-WAS: 
-   "cql/"
-   "resources/library/"
-   "resources/measure/"
-   "resources/valuesets/"
-   "tests/"
-   
-UPDATED TO:  
-   "input/pagecontent/cql/"
-   "input/resources/library/"
-   "input/resources/measure/"
-   "input/vocabulary/valueset/"
-   "input/tests/"
-   
-These changes temporarily impacted the ability to run Connectathon measures from the Atom CQL plugin.  We will be releasing an update to address the issue by end of day 3/4/2020.
-
-Contact rob@alphora.com with any concerns.
- ```
- 
-
 # HL7 CMS/FHIR Connectathon
 
 Resources for use at HL7/CMS FHIR Connectathon, Clinical Reasoning Track.
 
-* [Track Description](https://confluence.hl7.org/display/FHIR/2020-01+CMS+FHIR+Connectathon+1)
+* [Track Description](https://confluence.hl7.org/display/FHIR/2020-05+Clinical+Reasoning)
 * [Zulip Stream](https://chat.fhir.org/#narrow/stream/179207-connectathon-mgmt/topic/Clinical.20Reasoning.20Track)
 
 * CQF-Ruler Docker Container:
+Select a Docker Container that is appropriate for the verion of FHIR you are working with:
 
+DSTU3
+R4
+```
+docker pull contentgroup/cqf-ruler
+docker run -p 8080:8080 contentgroup/cqf-ruler
+```
+
+R4.0.1
 ```
 docker pull contentgroup/cqf-ruler:develop
 docker run -p 8080:8080 contentgroup/cqf-ruler:develop
 ```
 
+* Sandbox:
+http://cqm-sandbox.alphora.com/cqf-ruler-r4/fhir/
+The sandbox will be using the contentgroup/cqf-ruler:develop Docker Container which is approprioate for FHIR R4.0.1 work.
+
 ## Measure Reporting Scenarios
+```
+Note: the FHIR verion (FHIR3, FHIR4) has been removed from the naming convention for R4.0.1.
+```
 
 ### Controlling Blood Pressure - EXM165
 
