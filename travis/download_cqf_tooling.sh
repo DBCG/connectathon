@@ -3,7 +3,7 @@
 r=snapshots
 g=org.opencds.cqf
 a=tooling
-v=1.0.4-SNAPSHOT
+v=1.1.0-SNAPSHOT
 c=jar-with-dependencies
 
 dlurl='https://oss.sonatype.org/service/local/artifact/maven/redirect?r='${r}'&g='${g}'&a='${a}'&v='${v}'&c='${c}''
@@ -11,7 +11,7 @@ dlurl='https://oss.sonatype.org/service/local/artifact/maven/redirect?r='${r}'&g
 echo ${dlurl}
 
 jar_folder=./travis/tooling/
-tooling_jar=tooling-1.0.4-SNAPSHOT-jar-with-dependencies.jar
+tooling_jar=tooling-1.1.0-SNAPSHOT-jar-with-dependencies.jar
 
 set -e
 if ! type "curl" > /dev/null; then

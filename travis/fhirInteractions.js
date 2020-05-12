@@ -40,7 +40,10 @@ async function getCQFMeasureList() {
           // iterate over each measure found
           const measureListing = measureSearchBundle.entry.map((entry) => {
             // find the CMS identifier of the resource and use it for the exmId. Default to EXM_UNKNOWN if it can't be found
-            let cmsId = entry.resource.identifier.find((identifier) => { return identifier.system == "http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/cms" });
+            let cmsId;
+            if (entry.resource.identifier) {
+              cmsId = entry.resource.identifier.find((identifier) => { return identifier.system == "http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/cms" });
+            }
             let exmId = "EXM_UNKNOWN";
             if (cmsId) {
               exmId = `EXM_${cmsId.value}`
@@ -52,9 +55,11 @@ async function getCQFMeasureList() {
             };
           });
 
+          console.log(measureListing);
           resolve(measureListing);
         } catch (e) {
           reject(`Failed to parse result from cqf-ruler: ${e.message}`);
+          console.error(e);
           return;
         }
       });
