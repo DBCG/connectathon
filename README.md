@@ -30,33 +30,91 @@ The sandbox will be using the contentgroup/cqf-ruler:develop Docker Container wh
 Note: the FHIR verion (FHIR3, FHIR4) has been removed from the naming convention for R4.0.1.
 ```
 
-### Controlling Blood Pressure - EXM165
+### Discharged on Antithrombotic Therapy - EXM104
 
 #### FHIR3
 
-* [Measure CQL](fhir3/input/pagecontent/cql/EXM165_FHIR3-8.5.000.cql)
-* [Master Bundle](fhir3/bundles/EXM165_FHIR3-8.5.000/EXM165_FHIR3-8.5.000-bundle.json)  (includes all the Individual bundles)
+* [Measure CQL](fhir3/input/pagecontent/cql/EXM104_FHIR3-8.1.000.cql)
+* [Master Bundle](fhir3/bundles/EXM104_FHIR3-8.1.000/EXM104_FHIR3-8.1.000-bundle.json)  (includes all the Individual bundles)
 
 Individual bundles:
-* [Measure Bundle](fhir3/bundles/EXM165_FHIR3-8.5.000/EXM165_FHIR3-8.5.000-files/measure-EXM165_FHIR3-8.5.000.json)
-* [Terminology Bundle](fhir3/bundles/EXM165_FHIR3-8.5.000/EXM165_FHIR3-8.5.000-files/valuesets-EXM165_FHIR3-8.5.000-bundle.json)
-* [Denominator Test Bundle](fhir3/bundles/EXM165_FHIR3-8.5.000/EXM165_FHIR3-8.5.000-files/tests-denom-EXM165_FHIR3-bundle.json)
-    * Denominator Patient ID: denom-EXM165-FHIR3
-* [Numerator Test Bundle](fhir3/bundles/EXM165_FHIR3-8.5.000/EXM165_FHIR3-8.5.000-files/tests-numer-EXM165_FHIR3-bundle.json)
-    * Numerator Patient ID: numer-EXM165-FHIR3
+* [Measure Bundle](fhir3/bundles/EXM104_FHIR3-8.1.000/EXM104_FHIR3-8.1.000-files/measure-EXM104_FHIR3-8.1.000.json)
+* [Terminology Bundle](fhir3/bundles/EXM104_FHIR3-8.1.000/EXM104_FHIR3-8.1.000-files/valuesets-EXM104_FHIR3-8.1.000-bundle.json)
+* [Denominator Test Bundle](fhir3/bundles/EXM104_FHIR3-8.1.000/EXM104_FHIR3-8.1.000-files/tests-denom-EXM104_FHIR3-bundle.json)
+    * Denominator Patient ID: denom-EXM104-FHIR3
+* [Numerator Test Bundle](fhir3/bundles/EXM104_FHIR3-8.1.000/EXM104_FHIR3-8.1.000-files/tests-numer-EXM104_FHIR3-bundle.json)
+    * Numerator Patient ID: numer-EXM104-FHIR3
 
 #### FHIR4
 
-* [Measure CQL](fhir4/cql/EXM165_FHIR4-8.5.000.cql)
-* [Master Bundle](fhir4/bundles/EXM165_FHIR4-8.5.000/EXM165_FHIR4-8.5.000-bundle.json)  (includes all the Individual bundles)
+* [Measure CQL](fhir4/input/pagecontent/cql/EXM104_FHIR4-8.1.000.cql)
+* [Master Bundle](fhir4/bundles/EXM104_FHIR4-8.1.000/EXM104_FHIR4-8.1.000-bundle.json)  (includes all the Individual bundles)
 
 Individual bundles:
-* [Measure Bundle](fhir4/bundles/EXM165_FHIR4-8.5.000/EXM165_FHIR4-8.5.000-files/measure-EXM165_FHIR4-8.5.000.json)
-* [Terminology Bundle](fhir4/bundles/EXM165_FHIR4-8.5.000/EXM165_FHIR4-8.5.000-files/valuesets-EXM165_FHIR4-8.5.000-bundle.json)
-* [Denominator Test Bundle](fhir4/bundles/EXM165_FHIR4-8.5.000/EXM165_FHIR4-8.5.000-files/tests-denom-EXM165_FHIR4-bundle.json)
-    * Denominator Patient ID: denom-EXM165-FHI4
-* [Numerator Test Bundle](fhir4/bundles/EXM165_FHIR4-8.5.000/EXM165_FHIR4-8.5.000-files/tests-numer-EXM165_FHIR4-bundle.json)
-    * Numerator Patient ID: numer-EXM165-FHIR4
+* [Measure Bundle](fhir4/bundles/EXM104_FHIR4-8.1.000/EXM104_FHIR4-8.1.000-files/measure-EXM104_FHIR4-8.1.000.json)
+* [Terminology Bundle](fhir4/bundles/EXM104_FHIR4-8.1.000/EXM104_FHIR4-8.1.000-files/valuesets-EXM104_FHIR4-8.1.000-bundle.json)
+* [Denominator Test Bundle](fhir4/bundles/EXM104_FHIR4-8.1.000/EXM104_FHIR4-8.1.000-files/tests-denom-EXM104_FHIR4-bundle.json)
+    * Denominator Patient ID: denom-EXM104-FHI4
+* [Numerator Test Bundle](fhir4/bundles/EXM104_FHIR4-8.1.000/EXM104_FHIR4-8.1.000-files/tests-numer-EXM104_FHIR4-bundle.json)
+    * Numerator Patient ID: numer-EXM104-FHIR4
+
+### Discharged on Statin Medication - EXM105
+
+#### FHIR3
+
+* [Measure CQL](fhir3/input/pagecontent/cql/EXM105_FHIR3-8.0.000.cql)
+* [Master Bundle](fhir3/bundles/EXM105_FHIR3-8.0.000/EXM105_FHIR3-8.0.000-bundle.json)  (includes all the Individual bundles)
+
+Individual bundles:
+* [Measure Bundle](fhir3/bundles/EXM105_FHIR3-8.0.000/EXM105_FHIR3-8.0.000-files/measure-EXM105_FHIR3-8.0.000.json)
+* [Terminology Bundle](fhir3/bundles/EXM105_FHIR3-8.0.000/EXM105_FHIR3-8.0.000-files/valuesets-EXM105_FHIR3-8.0.000-bundle.json)
+* [Denominator Test Bundle](fhir3/bundles/EXM105_FHIR3-8.0.000/EXM105_FHIR3-8.0.000-files/tests-denom-EXM105_FHIR3-bundle.json)
+    * Denominator Patient ID: denom-EXM105-FHIR3
+* [Numerator Test Bundle](fhir3/bundles/EXM105_FHIR3-8.0.000/EXM105_FHIR3-8.0.000-files/tests-numer-EXM105_FHIR3-bundle.json)
+    * Numerator Patient ID: numer-EXM105-FHIR3
+
+#### FHIR4
+
+* [Measure CQL](fhir4/input/pagecontent/cql/EXM105_FHIR4-8.1.000.cql)
+* [Master Bundle](fhir4/bundles/EXM105_FHIR4-8.1.000/EXM105_FHIR4-8.1.000-bundle.json)  (includes all the Individual bundles)
+
+Individual bundles:
+* [Measure Bundle](fhir4/bundles/EXM105_FHIR4-8.1.000/EXM105_FHIR4-8.1.000-files/measure-EXM105_FHIR4-8.1.000.json)
+* [Terminology Bundle](fhir4/bundles/EXM105_FHIR4-8.1.000/EXM105_FHIR4-8.1.000-files/valuesets-EXM105_FHIR4-8.1.000-bundle.json)
+* [Denominator Test Bundle](fhir4/bundles/EXM105_FHIR4-8.1.000/EXM105_FHIR4-8.1.000-files/tests-denom-EXM105_FHIR4-bundle.json)
+    * Denominator Patient ID: denom-EXM105-FHI4
+* [Numerator Test Bundle](fhir4/bundles/EXM105_FHIR4-8.1.000/EXM105_FHIR4-8.1.000-files/tests-numer-EXM105_FHIR4-bundle.json)
+    * Numerator Patient ID: numer-EXM105-FHIR4
+
+
+### Venous Thromboembolism Prophylaxis - EXM108
+
+#### FHIR3
+
+* [Measure CQL](fhir3/input/pagecontent/cql/EXM108_FHIR3-7.4.000.cql)
+* [Master Bundle](fhir3/bundles/EXM108_FHIR3-7.4.000/EXM108_FHIR3-7.4.000-bundle.json)  (includes all the Individual bundles)
+
+Individual bundles:
+* [Measure Bundle](fhir3/bundles/EXM108_FHIR3-7.4.000/EXM108_FHIR3-7.4.000-files/measure-EXM108_FHIR3-7.4.000.json)
+* [Terminology Bundle](fhir3/bundles/EXM108_FHIR3-7.4.000/EXM108_FHIR3-7.4.000-files/valuesets-EXM108_FHIR3-7.4.000-bundle.json)
+* [Denominator Test Bundle](fhir3/bundles/EXM108_FHIR3-7.4.000/EXM108_FHIR3-7.4.000-files/tests-denom-EXM108_FHIR3-bundle.json)
+    * Denominator Patient ID: denom-EXM108-FHIR3
+* [Numerator Test Bundle](fhir3/bundles/EXM108_FHIR3-7.4.000/EXM108_FHIR3-7.4.000-files/tests-numer-EXM108_FHIR3-bundle.json)
+    * Numerator Patient ID: numer-EXM108-FHIR3
+
+#### FHIR4
+
+* [Measure CQL](fhir4/input/pagecontent/cql/EXM108_FHIR4-8.2.000.cql)
+* [Master Bundle](fhir4/bundles/EXM108_FHIR4-8.2.000/EXM108_FHIR4-8.2.000-bundle.json)  (includes all the Individual bundles)
+
+Individual bundles:
+* [Measure Bundle](fhir4/bundles/EXM108_FHIR4-8.2.000/EXM108_FHIR4-8.2.000-files/measure-EXM108_FHIR4-8.2.000.json)
+* [Terminology Bundle](fhir4/bundles/EXM108_FHIR4-8.2.000/EXM108_FHIR4-8.2.000-files/valuesets-EXM108_FHIR4-8.2.000-bundle.json)
+* [Denominator Test Bundle](fhir4/bundles/EXM108_FHIR4-8.2.000/EXM108_FHIR4-8.2.000-files/tests-denom-EXM108_FHIR4-bundle.json)
+    * Denominator Patient ID: denom-EXM108-FHI4
+* [Numerator Test Bundle](fhir4/bundles/EXM108_FHIR4-8.2.000/EXM108_FHIR4-8.2.000-files/tests-numer-EXM108_FHIR4-bundle.json)
+    * Numerator Patient ID: numer-EXM108-FHIR4
+
 
 ### Cervical Cancer Screening - EXM124
 
@@ -75,7 +133,7 @@ Individual bundles:
 
 #### FHIR4
 
-* [Measure CQL](fhir4/cql/EXM124_FHIR4-8.2.000.cql)
+* [Measure CQL](fhir4/input/pagecontent/cql/EXM124_FHIR4-8.2.000.cql)
 * [Master Bundle](fhir4/bundles/EXM124_FHIR4-8.2.000/EXM124_FHIR4-8.2.000-bundle.json)  (includes all the Individual bundles)
 
 Individual bundles:
@@ -103,7 +161,7 @@ Individual bundles:
 
 #### FHIR4
 
-* [Measure CQL](fhir4/cql/EXM125_FHIR4-7.2.000.cql)
+* [Measure CQL](fhir4/input/pagecontent/cql/EXM125_FHIR4-7.2.000.cql)
 * [Master Bundle](fhir4/bundles/EXM125_FHIR4-7.2.000/EXM125_FHIR4-7.2.000-bundle.json)  (includes all the Individual bundles)
 
 Individual bundles:
@@ -131,7 +189,7 @@ Individual bundles:
 
 #### FHIR4
 
-* [Measure CQL](fhir4/cql/EXM130_FHIR4-7.2.000.cql)
+* [Measure CQL](fhir4/input/pagecontent/cql/EXM130_FHIR4-7.2.000.cql)
 * [Master Bundle](fhir4/bundles/EXM130_FHIR4-7.2.000/EXM130_FHIR4-7.2.000-bundle.json)  (includes all the Individual bundles)
 
 Individual bundles:
@@ -142,61 +200,35 @@ Individual bundles:
 * [Numerator Test Bundle](fhir4/bundles/EXM130_FHIR4-7.2.000/EXM130_FHIR4-7.2.000-files/tests-numer-EXM130_FHIR4-bundle.json)
     * Numerator Patient ID: numer-EXM130-FHIR4
 
-### Venous Thromboembolism Prophylaxis - EXM108
+
+### Controlling Blood Pressure - EXM165
 
 #### FHIR3
 
-* [Measure CQL](fhir3/input/pagecontent/cql/EXM108_FHIR3-7.4.000.cql)
-* [Master Bundle](fhir3/bundles/EXM108_FHIR3-7.4.000/EXM108_FHIR3-7.4.000-bundle.json)  (includes all the Individual bundles)
+* [Measure CQL](fhir3/input/pagecontent/cql/EXM165_FHIR3-8.5.000.cql)
+* [Master Bundle](fhir3/bundles/EXM165_FHIR3-8.5.000/EXM165_FHIR3-8.5.000-bundle.json)  (includes all the Individual bundles)
 
 Individual bundles:
-* [Measure Bundle](fhir3/bundles/EXM108_FHIR3-7.4.000/EXM108_FHIR3-7.4.000-files/measure-EXM108_FHIR3-7.4.000.json)
-* [Terminology Bundle](fhir3/bundles/EXM108_FHIR3-7.4.000/EXM108_FHIR3-7.4.000-files/valuesets-EXM108_FHIR3-7.4.000-bundle.json)
-* [Denominator Test Bundle](fhir3/bundles/EXM108_FHIR3-7.4.000/EXM108_FHIR3-7.4.000-files/tests-denom-EXM108_FHIR3-bundle.json)
-    * Denominator Patient ID: denom-EXM108-FHIR3
-* [Numerator Test Bundle](fhir3/bundles/EXM108_FHIR3-7.4.000/EXM108_FHIR3-7.4.000-files/tests-numer-EXM108_FHIR3-bundle.json)
-    * Numerator Patient ID: numer-EXM108-FHIR3
+* [Measure Bundle](fhir3/bundles/EXM165_FHIR3-8.5.000/EXM165_FHIR3-8.5.000-files/measure-EXM165_FHIR3-8.5.000.json)
+* [Terminology Bundle](fhir3/bundles/EXM165_FHIR3-8.5.000/EXM165_FHIR3-8.5.000-files/valuesets-EXM165_FHIR3-8.5.000-bundle.json)
+* [Denominator Test Bundle](fhir3/bundles/EXM165_FHIR3-8.5.000/EXM165_FHIR3-8.5.000-files/tests-denom-EXM165_FHIR3-bundle.json)
+    * Denominator Patient ID: denom-EXM165-FHIR3
+* [Numerator Test Bundle](fhir3/bundles/EXM165_FHIR3-8.5.000/EXM165_FHIR3-8.5.000-files/tests-numer-EXM165_FHIR3-bundle.json)
+    * Numerator Patient ID: numer-EXM165-FHIR3
 
 #### FHIR4
 
-* [Measure CQL](fhir4/cql/EXM108_FHIR4-8.2.000.cql)
-* [Master Bundle](fhir4/bundles/EXM108_FHIR4-8.2.000/EXM108_FHIR4-8.2.000-bundle.json)  (includes all the Individual bundles)
+* [Measure CQL](fhir4/input/pagecontent/cql/EXM165_FHIR4-8.5.000.cql)
+* [Master Bundle](fhir4/bundles/EXM165_FHIR4-8.5.000/EXM165_FHIR4-8.5.000-bundle.json)  (includes all the Individual bundles)
 
 Individual bundles:
-* [Measure Bundle](fhir4/bundles/EXM108_FHIR4-8.2.000/EXM108_FHIR4-8.2.000-files/measure-EXM108_FHIR4-8.2.000.json)
-* [Terminology Bundle](fhir4/bundles/EXM108_FHIR4-8.2.000/EXM108_FHIR4-8.2.000-files/valuesets-EXM108_FHIR4-8.2.000-bundle.json)
-* [Denominator Test Bundle](fhir4/bundles/EXM108_FHIR4-8.2.000/EXM108_FHIR4-8.2.000-files/tests-denom-EXM108_FHIR4-bundle.json)
-    * Denominator Patient ID: denom-EXM108-FHI4
-* [Numerator Test Bundle](fhir4/bundles/EXM108_FHIR4-8.2.000/EXM108_FHIR4-8.2.000-files/tests-numer-EXM108_FHIR4-bundle.json)
-    * Numerator Patient ID: numer-EXM108-FHIR4
+* [Measure Bundle](fhir4/bundles/EXM165_FHIR4-8.5.000/EXM165_FHIR4-8.5.000-files/measure-EXM165_FHIR4-8.5.000.json)
+* [Terminology Bundle](fhir4/bundles/EXM165_FHIR4-8.5.000/EXM165_FHIR4-8.5.000-files/valuesets-EXM165_FHIR4-8.5.000-bundle.json)
+* [Denominator Test Bundle](fhir4/bundles/EXM165_FHIR4-8.5.000/EXM165_FHIR4-8.5.000-files/tests-denom-EXM165_FHIR4-bundle.json)
+    * Denominator Patient ID: denom-EXM165-FHI4
+* [Numerator Test Bundle](fhir4/bundles/EXM165_FHIR4-8.5.000/EXM165_FHIR4-8.5.000-files/tests-numer-EXM165_FHIR4-bundle.json)
+    * Numerator Patient ID: numer-EXM165-FHIR4
 
-### Discharged on Antithrombotic Therapy - EXM104
-
-#### FHIR3
-
-* [Measure CQL](fhir3/input/pagecontent/cql/EXM104_FHIR3-8.1.000.cql)
-* [Master Bundle](fhir3/bundles/EXM104_FHIR3-8.1.000/EXM104_FHIR3-8.1.000-bundle.json)  (includes all the Individual bundles)
-
-Individual bundles:
-* [Measure Bundle](fhir3/bundles/EXM104_FHIR3-8.1.000/EXM104_FHIR3-8.1.000-files/measure-EXM104_FHIR3-8.1.000.json)
-* [Terminology Bundle](fhir3/bundles/EXM104_FHIR3-8.1.000/EXM104_FHIR3-8.1.000-files/valuesets-EXM104_FHIR3-8.1.000-bundle.json)
-* [Denominator Test Bundle](fhir3/bundles/EXM104_FHIR3-8.1.000/EXM104_FHIR3-8.1.000-files/tests-denom-EXM104_FHIR3-bundle.json)
-    * Denominator Patient ID: denom-EXM104-FHIR3
-* [Numerator Test Bundle](fhir3/bundles/EXM104_FHIR3-8.1.000/EXM104_FHIR3-8.1.000-files/tests-numer-EXM104_FHIR3-bundle.json)
-    * Numerator Patient ID: numer-EXM104-FHIR3
-
-#### FHIR4
-
-* [Measure CQL](fhir4/cql/EXM104_FHIR4-8.1.000.cql)
-* [Master Bundle](fhir4/bundles/EXM104_FHIR4-8.1.000/EXM104_FHIR4-8.1.000-bundle.json)  (includes all the Individual bundles)
-
-Individual bundles:
-* [Measure Bundle](fhir4/bundles/EXM104_FHIR4-8.1.000/EXM104_FHIR4-8.1.000-files/measure-EXM104_FHIR4-8.1.000.json)
-* [Terminology Bundle](fhir4/bundles/EXM104_FHIR4-8.1.000/EXM104_FHIR4-8.1.000-files/valuesets-EXM104_FHIR4-8.1.000-bundle.json)
-* [Denominator Test Bundle](fhir4/bundles/EXM104_FHIR4-8.1.000/EXM104_FHIR4-8.1.000-files/tests-denom-EXM104_FHIR4-bundle.json)
-    * Denominator Patient ID: denom-EXM104-FHI4
-* [Numerator Test Bundle](fhir4/bundles/EXM104_FHIR4-8.1.000/EXM104_FHIR4-8.1.000-files/tests-numer-EXM104_FHIR4-bundle.json)
-    * Numerator Patient ID: numer-EXM104-FHIR4
 
 ### Bulk Data Example
 
