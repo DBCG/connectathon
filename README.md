@@ -229,6 +229,64 @@ Individual bundles:
     * Numerator Patient ID: numer-EXM165-FHIR4
 
 
+### HIV Screening - EXM349
+
+#### FHIR3
+
+* [Measure CQL](fhir3/input/pagecontent/cql/EXM349_FHIR3-2.9.000.cql)
+* [Master Bundle](fhir3/bundles/EXM349_FHIR3-2.9.000/EXM349_FHIR3-2.9.000-bundle.json)  (includes all the Individual bundles)
+
+Individual bundles:
+* [Measure Bundle](fhir3/bundles/EXM349_FHIR3-2.9.000/EXM349_FHIR3-2.9.000-files/measure-EXM349_FHIR3-2.9.000.json)
+* [Terminology Bundle](fhir3/bundles/EXM349_FHIR3-2.9.000/EXM349_FHIR3-2.9.000-files/valuesets-EXM349_FHIR3-2.9.000-bundle.json)
+* [Denominator Test Bundle](fhir3/bundles/EXM349_FHIR3-2.9.000/EXM349_FHIR3-2.9.000-files/tests-denom-EXM349_FHIR3-bundle.json)
+    * Denominator Patient ID: denom-EXM349-FHIR3
+* [Numerator Test Bundle](fhir3/bundles/EXM349_FHIR3-2.9.000/EXM349_FHIR3-2.9.000-files/tests-numer-EXM349_FHIR3-bundle.json)
+    * Numerator Patient ID: numer-EXM349-FHIR3
+
+#### FHIR4
+
+* [Measure CQL](fhir4/input/pagecontent/cql/EXM349_FHIR4-2.9.000.cql)
+* [Master Bundle](fhir4/bundles/EXM349_FHIR4-2.9.000/EXM349_FHIR4-2.9.000-bundle.json)  (includes all the Individual bundles)
+
+Individual bundles:
+* [Measure Bundle](fhir4/bundles/EXM349_FHIR4-2.9.000/EXM349_FHIR4-2.9.000-files/measure-EXM349_FHIR4-2.9.000.json)
+* [Terminology Bundle](fhir4/bundles/EXM349_FHIR4-2.9.000/EXM349_FHIR4-2.9.000-files/valuesets-EXM349_FHIR4-2.9.000-bundle.json)
+* [Denominator Test Bundle](fhir4/bundles/EXM349_FHIR4-2.9.000/EXM349_FHIR4-2.9.000-files/tests-denom-EXM349_FHIR4-bundle.json)
+    * Denominator Patient ID: denom-EXM349-FHI4
+* [Numerator Test Bundle](fhir4/bundles/EXM349_FHIR4-2.9.000/EXM349_FHIR4-2.9.000-files/tests-numer-EXM349_FHIR4-bundle.json)
+    * Numerator Patient ID: numer-EXM349-FHIR4
+
+
+### Safe Use of Opiods - Concurrent Prescribing - EXM506
+
+#### FHIR3
+
+* [Measure CQL](fhir3/input/pagecontent/cql/EXM506_FHIR3-2.0.000.cql)
+* [Master Bundle](fhir3/bundles/EXM506_FHIR3-2.0.000/EXM506_FHIR3-2.0.000-bundle.json)  (includes all the Individual bundles)
+
+Individual bundles:
+* [Measure Bundle](fhir3/bundles/EXM506_FHIR3-2.0.000/EXM506_FHIR3-2.0.000-files/measure-EXM506_FHIR3-2.0.000.json)
+* [Terminology Bundle](fhir3/bundles/EXM506_FHIR3-2.0.000/EXM506_FHIR3-2.0.000-files/valuesets-EXM506_FHIR3-2.0.000-bundle.json)
+* [Denominator Test Bundle](fhir3/bundles/EXM506_FHIR3-2.0.000/EXM506_FHIR3-2.0.000-files/tests-denom-EXM506_FHIR3-bundle.json)
+    * Denominator Patient ID: denom-EXM506-FHIR3
+* [Numerator Test Bundle](fhir3/bundles/EXM506_FHIR3-2.0.000/EXM506_FHIR3-2.0.000-files/tests-numer-EXM506_FHIR3-bundle.json)
+    * Numerator Patient ID: numer-EXM506-FHIR3
+
+#### FHIR4
+
+* [Measure CQL](fhir4/input/pagecontent/cql/EXM506_FHIR4-2.0.000.cql)
+* [Master Bundle](fhir4/bundles/EXM506_FHIR4-2.0.000/EXM506_FHIR4-2.0.000-bundle.json)  (includes all the Individual bundles)
+
+Individual bundles:
+* [Measure Bundle](fhir4/bundles/EXM506_FHIR4-2.0.000/EXM506_FHIR4-2.0.000-files/measure-EXM506_FHIR4-2.0.000.json)
+* [Terminology Bundle](fhir4/bundles/EXM506_FHIR4-2.0.000/EXM506_FHIR4-2.0.000-files/valuesets-EXM506_FHIR4-2.0.000-bundle.json)
+* [Denominator Test Bundle](fhir4/bundles/EXM506_FHIR4-2.0.000/EXM506_FHIR4-2.0.000-files/tests-denom-EXM506_FHIR4-bundle.json)
+    * Denominator Patient ID: denom-EXM506-FHI4
+* [Numerator Test Bundle](fhir4/bundles/EXM506_FHIR4-2.0.000/EXM506_FHIR4-2.0.000-files/tests-numer-EXM506_FHIR4-bundle.json)
+    * Numerator Patient ID: numer-EXM506-FHIR4
+    
+
 ### Bulk Data Example
 
 ````
