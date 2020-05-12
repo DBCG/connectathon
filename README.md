@@ -28,8 +28,12 @@ A sandbox willl not be provided for FHIR3 or FHIR4.  Please use the appropriate 
 
 ## Measure Reporting Scenarios
 ```
-Note: the FHIR verion (FHIR3, FHIR4) has been removed from the naming convention for R4.0.1.
+Note: each FHIR version has been implemented as a separate IG.  Folder structures have changed to match.
 ```
+```
+Note: the FHIR version (FHIR3, FHIR4) has been removed from the naming convention for R4.0.1.
+```
+
 
 ### Discharged on Antithrombotic Therapy - EXM104
 
