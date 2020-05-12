@@ -34,7 +34,7 @@ Note: the FHIR verion (FHIR3, FHIR4) has been removed from the naming convention
 
 #### FHIR3
 
-* [Measure CQL](fhir3/cql/EXM165_FHIR3-8.5.000.cql)
+* [Measure CQL](fhir3/input/pagecontent/cql/EXM165_FHIR3-8.5.000.cql)
 * [Master Bundle](fhir3/bundles/EXM165_FHIR3-8.5.000/EXM165_FHIR3-8.5.000-bundle.json)  (includes all the Individual bundles)
 
 Individual bundles:
@@ -62,7 +62,7 @@ Individual bundles:
 
 #### FHIR3
 
-* [Measure CQL](fhir3/cql/EXM124_FHIR3-7.2.000.cql)
+* [Measure CQL](fhir3/input/pagecontent/cql/EXM124_FHIR3-7.2.000.cql)
 * [Master Bundle](fhir3/bundles/EXM124_FHIR3-7.2.000/EXM124_FHIR3-7.2.000-bundle.json)  (includes all the Individual bundles)
 
 Individual bundles:
@@ -90,7 +90,7 @@ Individual bundles:
 
 #### FHIR3
 
-* [Measure CQL](fhir3/cql/EXM125_FHIR3-7.2.000.cql)
+* [Measure CQL](fhir3/input/pagecontent/cql/EXM125_FHIR3-7.2.000.cql)
 * [Master Bundle](fhir3/bundles/EXM125_FHIR3-7.2.000/EXM125_FHIR3-7.2.000-bundle.json)  (includes all the Individual bundles)
 
 Individual bundles:
@@ -118,7 +118,7 @@ Individual bundles:
 
 #### FHIR3
 
-* [Measure CQL](fhir3/cql/EXM130_FHIR3-7.2.000.cql)
+* [Measure CQL](fhir3/input/pagecontent/cql/EXM130_FHIR3-7.2.000.cql)
 * [Master Bundle](fhir3/bundles/EXM130_FHIR3-7.2.000/EXM130_FHIR3-7.2.000-bundle.json)  (includes all the Individual bundles)
 
 Individual bundles:
@@ -146,7 +146,7 @@ Individual bundles:
 
 #### FHIR3
 
-* [Measure CQL](fhir3/cql/EXM108_FHIR3-7.4.000.cql)
+* [Measure CQL](fhir3/input/pagecontent/cql/EXM108_FHIR3-7.4.000.cql)
 * [Master Bundle](fhir3/bundles/EXM108_FHIR3-7.4.000/EXM108_FHIR3-7.4.000-bundle.json)  (includes all the Individual bundles)
 
 Individual bundles:
@@ -174,7 +174,7 @@ Individual bundles:
 
 #### FHIR3
 
-* [Measure CQL](fhir3/cql/EXM104_FHIR3-8.1.000.cql)
+* [Measure CQL](fhir3/input/pagecontent/cql/EXM104_FHIR3-8.1.000.cql)
 * [Master Bundle](fhir3/bundles/EXM104_FHIR3-8.1.000/EXM104_FHIR3-8.1.000-bundle.json)  (includes all the Individual bundles)
 
 Individual bundles:
