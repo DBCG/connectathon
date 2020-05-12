@@ -8,8 +8,7 @@ Resources for use at HL7/CMS FHIR Connectathon, Clinical Reasoning Track.
 * CQF-Ruler Docker Container:
 Select a Docker Container that is appropriate for the verion of FHIR you are working with:
 
-DSTU3
-R4
+DSTU3/R4
 ```
 docker pull contentgroup/cqf-ruler
 docker run -p 8080:8080 contentgroup/cqf-ruler
