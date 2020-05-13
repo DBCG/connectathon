@@ -10,7 +10,7 @@ GOTO igpublish
 
 :isonline
 ECHO We're online, setting publish to the Connectathon sandbox FHIR server
-SET fsoption=-fs http://cqm-sandbox.alphora.com/cqf-ruler-dstu3/fhir/
+SET fsoption=-fs http://localhost:8080/cqf-ruler-dstu3/fhir/
 
 :igpublish
 
