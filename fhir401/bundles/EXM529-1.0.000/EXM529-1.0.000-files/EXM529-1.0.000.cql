@@ -1,10 +1,10 @@
-library EXM529_FHIR4 version '1.0.000'
+library EXM529 version '1.0.000'
 
-using FHIR version '4.0.0'
+using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.0.0' called FHIRHelpers
-include MATGlobalCommonFunctions_FHIR4 version '5.0.000' called Global
-include SupplementalDataElements_FHIR4 version '1.0.0' called SDE
+include FHIRHelpers version '4.0.1' called FHIRHelpers
+include MATGlobalCommonFunctions version '5.0.000' called Global
+include SupplementalDataElements version '2.0.0' called SDE
 
 codesystem "LOINC": 'http://loinc.org'
 
@@ -87,7 +87,7 @@ define function "FirstLabTest"(LabList List<FHIR.Observation>, CCDE String)://re
 			and Lab.status in {'final', 'amended', 'preliminary'})
     //sort by issued.value)//Sort doesn't work here as intended. Sorting need to be done outside of the Encounter comparison, so it has been moved above
 		//Note that when using + with string values, if either argument is null, the result will be null. To treat null as the empty string (''), use the & operator
-	return '\r\n' & CCDE & ',' & Encounter.id.value & ',' & ToString(firstlab.value as Quantity) & ',' & ToString(firstlab.issued)//May need to account for value[x] as data types other than Quantity
+	return '\r\n' & CCDE & ',' & (Encounter.id as String) & ',' & ToString(firstlab.value as Quantity) & ',' & ToString(firstlab.issued)//May need to account for value[x] as data types other than Quantity
 	//Added " & '\r\n'" to the return to create new lines
 
 define function "FirstPhysicalExam"(ExamList List<FHIR.Observation>, CCDE String):
@@ -95,11 +95,11 @@ define function "FirstPhysicalExam"(ExamList List<FHIR.Observation>, CCDE String
   	let firstexam: First(ExamList Exam
 		where Exam.effective in Interval[start of Encounter.period - 1440 minutes, start of Encounter.period + 120 minutes]//again, "1 day" and "2 hours"? Daylight savings switch?
 			and Exam.status in {'final', 'amended', 'preliminary'})
-	return '\r\n' & CCDE & ',' & Encounter.id.value & ',' & ToString(firstexam.value as Quantity) & ',' & ToString(firstexam.effective)
+	return '\r\n' & CCDE & ',' & (Encounter.id as String) & ',' & ToString(firstexam.value as Quantity) & ',' & ToString(firstexam.effective)
 
 define function "FirstPhysicalExamWithUsingLabTiming"(ExamList List<FHIR.Observation>, CCDE String):
   "Inpatient Encounters" Encounter
   let firstexamwithlabtiming: First(ExamList Exam
     where Exam.effective in Interval[start of Encounter.period - 1440 minutes, start of Encounter.period + 1440 minutes]//same questions again.
 			and Exam.status in {'final', 'amended', 'preliminary'})
-  return '\r\n' & CCDE & ',' & Encounter.id.value & ',' & ToString(firstexamwithlabtiming.value as Quantity) & ',' & ToString(firstexamwithlabtiming.effective)
+  return '\r\n' & CCDE & ',' & (Encounter.id as String) & ',' & ToString(firstexamwithlabtiming.value as Quantity) & ',' & ToString(firstexamwithlabtiming.effective)
