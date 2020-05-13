@@ -411,6 +411,20 @@ Individual bundles:
 * [Numerator Test Bundle](fhir401/bundles/EXM506-3.0.000/EXM506-3.0.000-files/tests-numer-EXM506-bundle.json)
     * Numerator Patient ID: numer-EXM506
 
+### Hospital Core Clinical Data Element - EXM529
+   
+#### FHIR401
+
+* [Measure CQL](fhir401/input/pagecontent/cql/EXM529-1.0.000.cql)
+* [Master Bundle](fhir401/bundles/EXM529-1.0.000/EXM529-1.0.000-bundle.json)  (includes all the Individual bundles)
+
+Individual bundles:
+* [Measure Bundle](fhir401/bundles/EXM529-1.0.000/EXM529-1.0.000-files/measure-EXM529-1.0.000.json)
+* [Terminology Bundle](fhir401/bundles/EXM529-1.0.000/EXM529-1.0.000-files/valuesets-EXM529-1.0.000-bundle.json)
+* [Initial Population Test Bundle](fhir401/bundles/EXM529-1.0.000/EXM529-1.0.000-files/tests-ip-EXM529-bundle.json)
+    * Initial Population Patient ID: ip-EXM529
+
+
 ### Bulk Data Example
 
 ````
