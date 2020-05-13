@@ -44,31 +44,41 @@
     },
     {
       "resource": {
-        "resourceType": "Procedure",
-        "id": "denex2-EXM506-FHIR4-4",
-        "meta": {
-          "profile": [
-            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
-          ]
-        },
+        "resourceType": "MedicationRequest",
+        "id": "denex2-EXM506-FHIR4-3",
         "status": "completed",
-        "code": {
+        "intent": "plan",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+                "code": "discharge",
+                "display": "Discharge"
+              }
+            ]
+          }
+        ],
+        "medicationCodeableConcept": {
           "coding": [
             {
-              "system": "http://snomed.info/sct",
-              "code": "305496007",
-              "display": "Under care of palliative care physician (finding)"
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "1010600",
+              "display": "Buprenorphine 2 MG / Naloxone 0.5 MG Oral Strip"
             }
           ]
         },
         "subject": {
           "reference": "Patient/denex2-EXM506-FHIR4"
         },
-        "performedDateTime": "2019-01-17T08:30:00-07:00"
+        "encounter": {
+          "reference": "Encounter/denex2-EXM506-FHIR4-1"
+        },
+        "authoredOn": "2019-01-17T08:00:00"
       },
       "request": {
         "method": "PUT",
-        "url": "Procedure/denex2-EXM506-FHIR4-4"
+        "url": "MedicationRequest/denex2-EXM506-FHIR4-3"
       }
     },
     {
@@ -142,41 +152,31 @@
     },
     {
       "resource": {
-        "resourceType": "MedicationRequest",
-        "id": "denex2-EXM506-FHIR4-3",
+        "resourceType": "Procedure",
+        "id": "denex2-EXM506-FHIR4-4",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
         "status": "completed",
-        "intent": "plan",
-        "category": [
-          {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
-                "code": "discharge",
-                "display": "Discharge"
-              }
-            ]
-          }
-        ],
-        "medicationCodeableConcept": {
+        "code": {
           "coding": [
             {
-              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-              "code": "1010600",
-              "display": "Buprenorphine 2 MG / Naloxone 0.5 MG Oral Strip"
+              "system": "http://snomed.info/sct",
+              "code": "305496007",
+              "display": "Under care of palliative care physician (finding)"
             }
           ]
         },
         "subject": {
           "reference": "Patient/denex2-EXM506-FHIR4"
         },
-        "encounter": {
-          "reference": "Encounter/denex2-EXM506-FHIR4-1"
-        },
-        "authoredOn": "2019-01-17T08:00:00"
+        "performedDateTime": "2019-01-17T08:30:00-07:00"
       },
       "request": {
         "method": "PUT",
-        "url": "MedicationRequest/denex2-EXM506-FHIR4-3"
+        "url": "Procedure/denex2-EXM506-FHIR4-4"
       }
     }
   ]

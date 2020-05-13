@@ -50,13 +50,13 @@ define "Inpatient Encounter with Age Greater than or Equal to 18":
 
 define "Opioid at Discharge":
   ["MedicationRequest": "Schedule II and Schedule III Opioids"] OpioidsDischarge
-     where exists (OpioidsDischarge.category C where FHIRHelpers.ToConcept(C) in {Global. "Community", Global."Discharge"})
+     where exists (OpioidsDischarge.category C where FHIRHelpers.ToConcept(C) in {Global."Community", Global."Discharge"})
          and OpioidsDischarge.status in {'active', 'completed'}
          and OpioidsDischarge.intent in {'order', 'plan'}
 
 define "Benzodiazepine at Discharge":
   ["MedicationRequest": "Schedule IV Benzodiazepines"] BenzodiazepineDischarge
-     where exists (BenzodiazepineDischarge.category C where FHIRHelpers.ToConcept(C) in {Global. "Community", Global."Discharge"})
+     where exists (BenzodiazepineDischarge.category C where FHIRHelpers.ToConcept(C) in {Global."Community", Global."Discharge"})
          and BenzodiazepineDischarge.status in {'active', 'completed'}
          and BenzodiazepineDischarge.intent in {'order', 'plan'}
 
