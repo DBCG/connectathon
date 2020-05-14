@@ -63,6 +63,14 @@ define "SDE Race":
 define "SDE Sex":
 	SDE."SDE Sex"
 
+define "Test1":
+  ["Condition"] C return C.id
+
+define "Test2":
+  TJC."Non Elective Inpatient Encounter" E
+    return (singleton from (E.diagnosis D where FHIRHelpers.ToInteger(D.rank) = 1)) PD
+    	return Global."GetId"(PD.condition.reference)
+
 define "Initial Population":
 	TJC."Encounter with Principal Diagnosis and Age"
 

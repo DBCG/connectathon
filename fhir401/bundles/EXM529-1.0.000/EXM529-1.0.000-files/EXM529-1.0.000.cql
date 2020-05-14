@@ -87,7 +87,7 @@ define function "FirstLabTest"(LabList List<FHIR.Observation>, CCDE String)://re
 			and Lab.status in {'final', 'amended', 'preliminary'})
     //sort by issued.value)//Sort doesn't work here as intended. Sorting need to be done outside of the Encounter comparison, so it has been moved above
 		//Note that when using + with string values, if either argument is null, the result will be null. To treat null as the empty string (''), use the & operator
-	return '\r\n' & CCDE & ',' & (Encounter.id as String) & ',' & ToString(firstlab.value as Quantity) & ',' & ToString(firstlab.issued)//May need to account for value[x] as data types other than Quantity
+	return '\r\n' & CCDE & ',' & Encounter.id & ',' & ToString(FHIRHelpers.ToQuantity(firstlab.value)) & ',' & ToString(firstlab.issued)//May need to account for value[x] as data types other than Quantity
 	//Added " & '\r\n'" to the return to create new lines
 
 define function "FirstPhysicalExam"(ExamList List<FHIR.Observation>, CCDE String):
