@@ -60,11 +60,10 @@ define "Ischemic Stroke Encounters with Discharge Disposition":
 			or IschemicStrokeEncounter.hospitalization.dischargeDisposition in "Discharged to Home for Hospice Care"
 			or IschemicStrokeEncounter.hospitalization.dischargeDisposition in "Discharged to Health Care Facility for Hospice Care"
 
-// Translator issue with 1.4.9-SNAPSHOT: https://github.com/cqframework/clinical_quality_language/issues/511
 define "Comfort Measures during Hospitalization":
 	"Ischemic Stroke Encounter" IschemicStrokeEncounter
-   	//with "Intervention Comfort Measures" ComfortMeasure
-    //	such that FHIRHelpers.ToDateTime(Coalesce(ComfortMeasure.performed as dateTime,ComfortMeasure.authoredOn)) during Global."HospitalizationWithObservation"(IschemicStrokeEncounter)
+   	with "Intervention Comfort Measures" ComfortMeasure
+    	such that FHIRHelpers.ToDateTime(Coalesce(ComfortMeasure.performed as dateTime,ComfortMeasure.authoredOn)) during Global."HospitalizationWithObservation"(IschemicStrokeEncounter)
 
 define "Encounter with Principal Diagnosis and Age":
 	"All Stroke Encounter" AllStrokeEncounter
