@@ -87,7 +87,7 @@ define function "FirstLabTest"(LabList List<FHIR.Observation>, CCDE String)://re
 			and Lab.status in {'final', 'amended', 'preliminary'})
     //sort by issued.value)//Sort doesn't work here as intended. Sorting need to be done outside of the Encounter comparison, so it has been moved above
 		//Note that when using + with string values, if either argument is null, the result will be null. To treat null as the empty string (''), use the & operator
-	return '\r\n' & CCDE & ',' & (Encounter.id as String) & ',' & ToString(firstlab.value as Quantity) & ',' & ToString(firstlab.issued)//May need to account for value[x] as data types other than Quantity
+	return '\r\n' & CCDE & ',' & Encounter.id & ',' & ToString(firstlab.value as Quantity) & ',' & ToString(firstlab.issued)//May need to account for value[x] as data types other than Quantity
 	//Added " & '\r\n'" to the return to create new lines
 
 define function "FirstPhysicalExam"(ExamList List<FHIR.Observation>, CCDE String):
@@ -95,11 +95,11 @@ define function "FirstPhysicalExam"(ExamList List<FHIR.Observation>, CCDE String
   	let firstexam: First(ExamList Exam
 		where Exam.effective in Interval[start of Encounter.period - 1440 minutes, start of Encounter.period + 120 minutes]//again, "1 day" and "2 hours"? Daylight savings switch?
 			and Exam.status in {'final', 'amended', 'preliminary'})
-	return '\r\n' & CCDE & ',' & (Encounter.id as String) & ',' & ToString(firstexam.value as Quantity) & ',' & ToString(firstexam.effective)
+	return '\r\n' & CCDE & ',' & Encounter.id & ',' & ToString(firstexam.value as Quantity) & ',' & ToString(firstexam.effective)
 
 define function "FirstPhysicalExamWithUsingLabTiming"(ExamList List<FHIR.Observation>, CCDE String):
   "Inpatient Encounters" Encounter
   let firstexamwithlabtiming: First(ExamList Exam
     where Exam.effective in Interval[start of Encounter.period - 1440 minutes, start of Encounter.period + 1440 minutes]//same questions again.
 			and Exam.status in {'final', 'amended', 'preliminary'})
-  return '\r\n' & CCDE & ',' & (Encounter.id as String) & ',' & ToString(firstexamwithlabtiming.value as Quantity) & ',' & ToString(firstexamwithlabtiming.effective)
+  return '\r\n' & CCDE & ',' & Encounter.id & ',' & ToString(firstexamwithlabtiming.value as Quantity) & ',' & ToString(firstexamwithlabtiming.effective)
