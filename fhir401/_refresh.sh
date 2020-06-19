@@ -1,6 +1,6 @@
 #!/bin/bash
 #DO NOT EDIT WITH WINDOWS
-tooling_jar=tooling-1.1.0-SNAPSHOT-jar-with-dependencies.jar
+tooling_jar=tooling-1.1.1-SNAPSHOT-jar-with-dependencies.jar
 input_cache_path=./input-cache
 ig_resource_path=./input/connectathon.xml
 
