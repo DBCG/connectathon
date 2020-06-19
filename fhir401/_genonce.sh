@@ -17,13 +17,13 @@ echo "$txoption"
 
 publisher=$input_cache_path/$publisher_jar
 if test -f "$publisher"; then
-	JAVA -jar $publisher -ig ig.ini $txoption $*
+	java -jar $publisher -ig ig.ini $txoption $*
 
 else
 	publisher=../$publisher_jar
 	echo $publisher
 	if test -f "$publisher"; then
-		JAVA -jar $publisher -ig ig.ini $txoption $*
+		java -jar $publisher -ig ig.ini $txoption $*
 	else
 		echo IG Publisher NOT FOUND in input-cache or parent folder.  Please run _updatePublisher.  Aborting...
 	fi
