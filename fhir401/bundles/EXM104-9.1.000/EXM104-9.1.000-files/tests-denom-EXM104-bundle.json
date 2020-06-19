@@ -5,49 +5,71 @@
   "entry": [
     {
       "resource": {
-        "resourceType": "Condition",
-        "id": "denom-EXM104-1",
+        "resourceType": "Patient",
+        "id": "denom-EXM104",
         "meta": {
           "profile": [
-            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
           ]
         },
-        "verificationStatus": {
-          "coding": [
-            {
-              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
-              "code": "confirmed",
-              "display": "Confirmed"
-            }
-          ]
-        },
-        "category": [
+        "extension": [
           {
-            "coding": [
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+            "extension": [
               {
-                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
-                "code": "encounter-diagnosis",
-                "display": "Encounter Diagnosis"
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2054-5",
+                  "display": "Black or African American"
+                }
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2135-2",
+                  "display": "Hispanic or Latino"
+                }
               }
             ]
           }
         ],
-        "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "116288000",
-              "display": "Paralytic stroke (disorder)"
-            }
-          ]
-        },
-        "subject": {
-          "reference": "Patient/denom-EXM104"
-        }
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR",
+                  "display": "Medical Record Number"
+                }
+              ]
+            },
+            "system": "http://hospital.smarthealthit.org",
+            "value": "9999999910"
+          }
+        ],
+        "name": [
+          {
+            "family": "Jones",
+            "given": [
+              "Rick"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1955-11-05"
       },
       "request": {
         "method": "PUT",
-        "url": "Condition/denom-EXM104-1"
+        "url": "Patient/denom-EXM104"
       }
     },
     {
@@ -104,6 +126,53 @@
       "request": {
         "method": "PUT",
         "url": "Encounter/denom-EXM104-2"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "denom-EXM104-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "116288000",
+              "display": "Paralytic stroke (disorder)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/denom-EXM104"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/denom-EXM104-1"
       }
     },
     {
@@ -444,75 +513,6 @@
       "request": {
         "method": "PUT",
         "url": "MeasureReport/measurereport-denom-EXM104"
-      }
-    },
-    {
-      "resource": {
-        "resourceType": "Patient",
-        "id": "denom-EXM104",
-        "meta": {
-          "profile": [
-            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
-          ]
-        },
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
-            "extension": [
-              {
-                "url": "ombCategory",
-                "valueCoding": {
-                  "system": "urn:oid:2.16.840.1.113883.6.238",
-                  "code": "2054-5",
-                  "display": "Black or African American"
-                }
-              }
-            ]
-          },
-          {
-            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
-            "extension": [
-              {
-                "url": "ombCategory",
-                "valueCoding": {
-                  "system": "urn:oid:2.16.840.1.113883.6.238",
-                  "code": "2135-2",
-                  "display": "Hispanic or Latino"
-                }
-              }
-            ]
-          }
-        ],
-        "identifier": [
-          {
-            "use": "usual",
-            "type": {
-              "coding": [
-                {
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                  "code": "MR",
-                  "display": "Medical Record Number"
-                }
-              ]
-            },
-            "system": "http://hospital.smarthealthit.org",
-            "value": "9999999910"
-          }
-        ],
-        "name": [
-          {
-            "family": "Jones",
-            "given": [
-              "Rick"
-            ]
-          }
-        ],
-        "gender": "male",
-        "birthDate": "1955-11-05"
-      },
-      "request": {
-        "method": "PUT",
-        "url": "Patient/denom-EXM104"
       }
     }
   ]
