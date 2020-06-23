@@ -22,17 +22,8 @@ include SupplementalDataElements version '2.0.0' called SDE
 
 codesystem "SNOMEDCT:2017-09": 'http://snomed.info/sct/731000124108' version 'http://snomed.info/sct/731000124108/version/201709'
 
-valueset "ONC Administrative Sex": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1'
-valueset "Race": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.836'
-valueset "Ethnicity": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.837'
-valueset "Payer": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591'
-valueset "Female": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.560.100.2'
-valueset "Home Healthcare Services": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1016'
 valueset "Hysterectomy with No Residual Cervix": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1014'
-valueset "Office Visit": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001'
 valueset "Pap Test": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1017'
-valueset "Preventive Care Services - Established Office Visit, 18 and Up": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1025'
-valueset "Preventive Care Services-Initial Office Visit, 18 and Up": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1023'
 valueset "HPV Test": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.110.12.1059'
 
 code "Congenital absence of cervix (disorder)": '37687000' from "SNOMEDCT:2017-09" display 'Congenital absence of cervix (disorder)'
@@ -77,7 +68,7 @@ define "Absence of Cervix":
 
 define "Numerator":
 	exists "Cervical Cytology Within 3 Years"
-		or exists "HPV Test Within 5 Years fpr Women Age 30 and Older"
+		or exists "HPV Test Within 5 Years for Women Age 30 and Older"
 
 define "Cervical Cytology Within 3 Years":
 	[Observation: "Pap Test"] CervicalCytology
@@ -85,7 +76,7 @@ define "Cervical Cytology Within 3 Years":
 			and CervicalCytology.status in { 'final', 'amended', 'corrected', 'preliminary' }
 		  and Global."Normalize Interval"(CervicalCytology.effective) ends 3 years or less on or before end of "Measurement Period"
 
-define "HPV Test Within 5 Years fpr Women Age 30 and Older":
+define "HPV Test Within 5 Years for Women Age 30 and Older":
 	[Observation: "HPV Test"] HPVTest
       where HPVTest.value is not null
         and HPVTest.status in { 'final', 'amended', 'corrected', 'preliminary' }
