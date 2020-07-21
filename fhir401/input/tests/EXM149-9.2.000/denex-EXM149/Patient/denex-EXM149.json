@@ -1,0 +1,212 @@
+{
+  "resourceType": "Patient",
+  "id": "denex-EXM149",
+  "meta": {
+    "versionId": "4",
+    "lastUpdated": "2020-05-11T12:21:03.332-07:00",
+    "profile": [
+      "http://hl7.org/fhir/us/eLTSS/StructureDefinition/Patient-eltss"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n            <p><b>Person Information</b></p>\n\t\t\t<blockquote>\n\t\t\t\t<p><b>Name:</b> Betsy Smith-Johnson</p>\n\t\t\t\t<p><b>Identifier | Type:</b> 123456ABC | MRN</p>\n\t\t\t\t<p><b>Phone:</b> (210) 222-1111</p>\n\t\t\t\t<p><b>Date of Birth:</b> 1950-11-01</p>\n\t\t\t\t<p><b>Address:</b> 111 Maple Ct, San Antonio, TX 78212</p>\n\t\t\t\t<p><b>Emergency Contact Name:</b> Charles Johnson</p>\n\t\t\t\t<p><b>Emergency Contact Relationship:</b> son</p>\n\t\t\t\t<p><b>Emergency Contact Phone Number:</b> (210) 222-3333</p>\n\t\t\t</blockquote>\n          </div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+      "extension": [
+        {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2054-5",
+            "display": "Black or African American"
+          }
+        }
+      ]
+    }
+  ],
+  "identifier": [
+    {
+      "fhir_comments": [
+        "  [eLTSS Person Identifier] & [eLTSS Person Identifier Type]   "
+      ],
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR",
+            "display": "Medical record number"
+          }
+        ]
+      },
+      "system": "http://www.example.org/Codesystem",
+      "value": "123456ABC"
+    }
+  ],
+  "name": [
+    {
+      "fhir_comments": [
+        "   [eLTSS Person Name]   "
+      ],
+      "text": "Betsy Smith-Johnson",
+      "family": "Smith-Johnson",
+      "given": [
+        "Betsy"
+      ]
+    }
+  ],
+  "telecom": [
+    {
+      "fhir_comments": [
+        "   [eLTSS Person Phone Number]   "
+      ],
+      "system": "phone",
+      "value": "(210)222-1111",
+      "use": "mobile"
+    }
+  ],
+  "gender": "female",
+  "birthDate": "1950-11-01",
+  "_birthDate": {
+    "fhir_comments": [
+      "   [eLTSS Person Date of Birth]   "
+    ]
+  },
+  "address": [
+    {
+      "fhir_comments": [
+        "   [eLTSS Person Address]   "
+      ],
+      "text": "111 Maple Ct, San Antonio, TX 78212",
+      "line": [
+        "111 Maple Ct"
+      ],
+      "city": "San Antonio",
+      "district": "Bexar",
+      "state": "TX",
+      "postalCode": "78212"
+    }
+  ],
+  "maritalStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+        "code": "U",
+        "display": "Unmarried"
+      }
+    ],
+    "text": "Not Married"
+  },
+  "contact": [
+    {
+      "fhir_comments": [
+        "   [eLTSS Emergency Contact Name] & [eLTSS Emergency Contact Relationship] & [eLTSS Emergency Contact Phone Number]  "
+      ],
+      "relationship": [
+        {
+          "coding": [
+            {
+              "fhir_comments": [
+                "  code value indicates emergency contact  "
+              ],
+              "system": "http://terminology.hl7.org/fhir/v2-0131",
+              "code": "C",
+              "display": "Emergency Contact"
+            }
+          ]
+        },
+        {
+          "coding": [
+            {
+              "fhir_comments": [
+                "  code value indicates guardian  "
+              ],
+              "system": "http://terminology.hl7.org/fhir/v3-RoleCode",
+              "code": "GUARD",
+              "display": "guardian"
+            }
+          ]
+        },
+        {
+          "coding": [
+            {
+              "fhir_comments": [
+                "  code value indicates son  "
+              ],
+              "system": "http://terminology.hl7.org/fhir/v3-RoleCode",
+              "code": "SONC",
+              "display": "son"
+            }
+          ]
+        }
+      ],
+      "name": {
+        "text": "Charles Johnson",
+        "family": "Johnson",
+        "given": [
+          "Charles"
+        ]
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "(210) 222-3333"
+        }
+      ],
+      "address": {
+        "text": "100 Montana St., San Antonio, TX 78203"
+      }
+    },
+    {
+      "fhir_comments": [
+        "   Daughter name, address and phone number  "
+      ],
+      "relationship": [
+        {
+          "coding": [
+            {
+              "fhir_comments": [
+                "  code value indicates daughter  "
+              ],
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+              "code": "DAUC",
+              "display": "Daughter"
+            }
+          ]
+        }
+      ],
+      "name": {
+        "text": "Debra Johnson",
+        "family": "Johnson",
+        "given": [
+          "Debra"
+        ]
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "(410) 444-5555"
+        }
+      ],
+      "address": {
+        "text": "333 W. Camden St., Baltimore, MD 21201"
+      }
+    }
+  ],
+  "communication": [
+    {
+      "language": {
+        "coding": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.1.11.11526",
+            "code": "en",
+            "display": "English"
+          }
+        ]
+      },
+      "preferred": true
+    }
+  ]
+}

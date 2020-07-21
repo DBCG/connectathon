@@ -1,0 +1,45 @@
+{
+  "resourceType": "Observation",
+  "id": "denex-EXM149-5",
+  "meta": {
+    "profile": [
+      "http://pacioproject.org/StructureDefinition/pacio-fs"
+    ]
+  },
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneReason",
+      "valueCodeableConcept" : {
+        "coding" : [
+          {
+            "system" : "http://snomed.info/sct",
+            "code" : "105480006",
+            "display" : "Refusal of treatment by patient (situation)"
+          }
+        ]
+      }
+    }
+  ],
+  "modifierExtension" : [
+    {
+      "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDone",
+      "valueBoolean" : true
+    }
+  ],
+  "subject": {
+    "reference": "Patient/denex-EXM149"
+  },
+  "status": "final",
+  "effectiveDateTime": "2019-09-09T15:00:00-05:00",
+  "code": {
+    "coding": [
+      {
+        "code": "71492-3",
+        "display": "Total score [SLUMS]",
+        "system": "http://loinc.org"
+      }
+    ],
+    "text": "Total score [SLUMS]"
+  },
+  "valueInteger": "10"
+}
