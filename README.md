@@ -25,7 +25,7 @@ docker run -p 8080:8080 contentgroup/cqf-ruler:develop
 
 http://cqm-sandbox.alphora.com/cqf-ruler-r4/fhir/
 The sandbox will be using the contentgroup/cqf-ruler:develop Docker Container which is appropriate for FHIR R4.0.1 work.
-A sandbox willl not be provided for FHIR3 or FHIR4.  Please use the appropriate container to host your own instance.
+A sandbox will not be provided for FHIR3 or FHIR4.  Please use the appropriate container to host your own instance.
 
 ## Measure Reporting Scenarios
 ```
