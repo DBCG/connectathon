@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "> Cloning FHIR Generated Patients..."
-git clone --single-branch --branch exm_506-recalculate https://github.com/projecttacoma/fhir-patient-generator.git
+git clone --single-branch --branch add-measure-version https://github.com/projecttacoma/fhir-patient-generator.git
 
 echo "> Fetching CQF-tooling JAR"
 ./travis/download_cqf_tooling.sh

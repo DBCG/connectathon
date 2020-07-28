@@ -7,7 +7,7 @@ Resources for use at HL7/CMS FHIR Connectathon, Clinical Reasoning Track.
 
 * CQF-Ruler Docker Container:
 
-Select a Docker Container that is appropriate for the verion of FHIR you are working with:
+Select a Docker Container that is appropriate for the version of FHIR you are working with:
 
 DSTU3/R4
 ```
@@ -24,7 +24,7 @@ docker run -p 8080:8080 contentgroup/cqf-ruler:develop
 * Sandbox:
 
 http://cqm-sandbox.alphora.com/cqf-ruler-r4/fhir/
-The sandbox will be using the contentgroup/cqf-ruler:develop Docker Container which is approprioate for FHIR R4.0.1 work.
+The sandbox will be using the contentgroup/cqf-ruler:develop Docker Container which is appropriate for FHIR R4.0.1 work.
 A sandbox willl not be provided for FHIR3 or FHIR4.  Please use the appropriate container to host your own instance.
 
 ## Measure Reporting Scenarios
