@@ -18,7 +18,7 @@ async function calculateMeasuresAndCompare() {
   // if we are testing only one measure check it exists in both test data and cqf-ruler
   if (onlyMeasureExmId &&
     (!cqfMeasures.some((cqfMeasure) => cqfMeasure.exmId == onlyMeasureExmId) ||
-    !testPatientMeasures.some((testMeasure) => testMeasure.exmId == onlyMeasureExmId))) {
+    !testPatientMeasures.some((testMeasure) => testMeasure.exmId.includes(onlyMeasureExmId)))) {
       throw new Error(`Measure ${onlyMeasureExmId} was not found in cqf-ruler or in test data and was the only measure requested.`)
   }
 
@@ -28,7 +28,7 @@ async function calculateMeasuresAndCompare() {
   // Iterate over test data measures
   for (let testPatientMeasure of testPatientMeasures) {
     // Skip if we are in run one mode and this is not the only one we should run
-    if (onlyMeasureExmId && testPatientMeasure.exmId != onlyMeasureExmId) continue;
+    if (onlyMeasureExmId && !testPatientMeasure.exmId.includes(onlyMeasureExmId)) continue;
 
     // Check if there is a MeasureReport to compare to
     if (!testPatientMeasure.measureReportPath) {
@@ -43,7 +43,7 @@ async function calculateMeasuresAndCompare() {
     }
 
     // Grab the corresponding information about the cqf-ruler measure
-    let cqfMeasure = cqfMeasures.find((measure) => measure.exmId == testPatientMeasure.exmId);
+    let cqfMeasure = cqfMeasures.find((measure) =>testPatientMeasure.exmId.includes(measure.exmId));
     if (!cqfMeasure) {
       console.log(`Measure ${testPatientMeasure.exmId} not found in cqf-ruler. Skipping.`);
       continue;
@@ -54,18 +54,18 @@ async function calculateMeasuresAndCompare() {
     let bundleResourceInfos = await testDataHelpers.loadTestDataFolder(testPatientMeasure.path);
 
     // Execute the measure, i.e. get the MeasureReport from cqf-ruler
-    let report = await fhirInteractions.getMeasureReport(cqfMeasure.id)
+    let report = await fhirInteractions.getMeasureReport(cqfMeasure.id);
     // Load the reference report from the test data
     let referenceReport = await testDataHelpers.loadReferenceMeasureReport(testPatientMeasure.measureReportPath);
 
     // Compare measure reports and get the list of information about patients with discrepancies
-    let badPatients = measureReportCompare.compareMeasureReports(referenceReport, report)
+    let badPatients = measureReportCompare.compareMeasureReports(referenceReport, report);
 
     // Add to the measure info to print at the end
     measureDiffInfo.push({
       exmId: testPatientMeasure.exmId,
       badPatients: badPatients
-    })
+    });
 
     // Clean up the test patients so they don't pollute the next test.
     console.log(`Removing test data for ${testPatientMeasure.exmId}`);
@@ -95,7 +95,7 @@ calculateMeasuresAndCompare()
         measureDiff.badPatients.forEach((patient) => {
           console.log(`|- ${patient.patientName}`);
           patient.issues.forEach((issue) => {
-            console.log(`|   ${issue}`)
+            console.log(`|   ${issue}`);
           });
         });
 

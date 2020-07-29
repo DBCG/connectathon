@@ -26,6 +26,7 @@ async function getTestMeasureList() {
   let measureDirInfo = applicableMeasuresDirs.map((measureDir) => {
     /** @type {TestMeasureInfo} */
     let testDirInfo = {
+      /** TODO: maybe format measure directory into simple, non-versioned id???*/
       exmId: measureDir,
       path: `./fhir-patient-generator/${measureDir}/patients-r4`
     };
