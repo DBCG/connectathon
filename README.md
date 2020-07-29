@@ -1,6 +1,6 @@
 # HL7 CMS/FHIR Connectathon
 
-Resources for use at HL7/CMS FHIR Connectathon, Clinical Reasoning Track.
+Resources for use at HL7/CMS FHIR Connectathon, Clinical Reasoning Track. 
 
 * [Track Description](https://confluence.hl7.org/display/FHIR/2020-05+Clinical+Reasoning)
 * [Zulip Stream](https://chat.fhir.org/#narrow/stream/179207-connectathon-mgmt/topic/Clinical.20Reasoning.20Track)
