@@ -26,8 +26,8 @@ async function getTestMeasureList() {
   let measureDirInfo = applicableMeasuresDirs.map((measureDir) => {
     /** @type {TestMeasureInfo} */
     let testDirInfo = {
-      /** TODO: maybe format measure directory into simple, non-versioned id???*/
-      exmId: measureDir,
+      // format exmId into simple, non-versioned id
+      exmId: measureDir.includes('-') ? measureDir.split('-')[0] : measureDir,
       path: `./fhir-patient-generator/${measureDir}/patients-r4`
     };
     let measureReportFile = fs.readdirSync(testDirInfo.path).find((filename) => { return filename.includes('measure-report.json')});
