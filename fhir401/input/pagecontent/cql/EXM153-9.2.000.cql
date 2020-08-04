@@ -148,7 +148,7 @@ define "Procedures Identifying Sexual Activity":
 define "Denominator":
 "Initial Population"
 
-define "Denominator Exclusion":
+define "Denominator Exclusions":
 (exists ("Pregnancy Test Exclusion")
       and not exists ("Diagnoses Identifying Sexual Activity")
       and not exists ("Active Contraceptive Medications")
