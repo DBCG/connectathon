@@ -1,4 +1,4 @@
-library EXM506 version '3.0.000'
+library EXM506 version '2.2.000'
 
 using FHIR version '4.0.1'
 
