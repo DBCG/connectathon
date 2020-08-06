@@ -6,7 +6,7 @@
     {
       "resource": {
         "resourceType": "Encounter",
-        "id": "numer_strat3-EXM74-Encounter",
+        "id": "numer-strat3-EXM74-Encounter",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
@@ -30,7 +30,7 @@
           }
         ],
         "subject": {
-          "reference": "Patient/numer_strat3-EXM74"
+          "reference": "Patient/numer-strat3-EXM74"
         },
         "period": {
           "start": "2019-08-21T08:00:00-07:00",
@@ -39,13 +39,45 @@
       },
       "request": {
         "method": "PUT",
-        "url": "Encounter/numer_strat3-EXM74-Encounter"
+        "url": "Encounter/numer-strat3-EXM74-Encounter"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "numer-strat3-EXM74-Procedure",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "35889000",
+              "display": "Topical application of fluoride excluding prophylaxis, child (procedure)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/numer-strat3-EXM74"
+        },
+        "performedPeriod": {
+          "start": "2019-08-21T08:05:00-07:00",
+          "end": "2019-08-21T08:10:00-07:00"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Procedure/numer-strat3-EXM74-Procedure"
       }
     },
     {
       "resource": {
         "resourceType": "Patient",
-        "id": "numer_strat3-EXM74",
+        "id": "numer-strat3-EXM74",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
@@ -108,39 +140,7 @@
       },
       "request": {
         "method": "PUT",
-        "url": "Patient/numer_strat3-EXM74"
-      }
-    },
-    {
-      "resource": {
-        "resourceType": "Procedure",
-        "id": "numer_strat3-EXM74-Procedure",
-        "meta": {
-          "profile": [
-            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
-          ]
-        },
-        "status": "completed",
-        "code": {
-          "coding": [
-            {
-              "system": "http://snomed.info/sct",
-              "code": "35889000",
-              "display": "Topical application of fluoride excluding prophylaxis, child (procedure)"
-            }
-          ]
-        },
-        "subject": {
-          "reference": "Patient/numer_strat3-EXM74"
-        },
-        "performedPeriod": {
-          "start": "2019-08-21T08:05:00-07:00",
-          "end": "2019-08-21T08:10:00-07:00"
-        }
-      },
-      "request": {
-        "method": "PUT",
-        "url": "Procedure/numer_strat3-EXM74-Procedure"
+        "url": "Patient/numer-strat3-EXM74"
       }
     }
   ]
