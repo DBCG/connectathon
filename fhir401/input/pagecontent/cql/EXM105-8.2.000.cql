@@ -1,4 +1,4 @@
-library EXM105 version '9.1.000'
+library EXM105 version '8.2.000'
 
 /*
 Based on CMS105v8 - Discharged on Statin Medication
