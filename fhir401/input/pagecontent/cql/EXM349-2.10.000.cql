@@ -1,4 +1,4 @@
-library EXM349 version '3.0.000'
+library EXM349 version '2.10.000'
 
 using FHIR version '4.0.1'
 
@@ -23,6 +23,7 @@ valueset "Race": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.83
 code "HIV 1 and 2 tests - Meaningful Use set": '75622-1' from "LOINC" display 'HIV 1 and 2 tests - Meaningful Use set'
 
 parameter "Measurement Period" Interval<DateTime>
+	default Interval[@2019-01-01T00:00:00.0, @2020-01-01T00:00:00.0)
 
 context Patient
 
