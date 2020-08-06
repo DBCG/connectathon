@@ -1,4 +1,4 @@
-library EXM125 version '8.0.000'
+library EXM125 version '7.3.000'
 
 /*
 Based on CMS125v7 - Breast Cancer Screening
