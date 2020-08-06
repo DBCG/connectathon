@@ -1,4 +1,4 @@
-library EXM130 version '8.0.000'
+library EXM130 version '7.3.000'
 
 /*
 Based on CMS130v7 - Colorectal Cancer Screening
