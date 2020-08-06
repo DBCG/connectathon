@@ -1,4 +1,4 @@
-library EXM108 version '9.2.000'
+library EXM108 version '8.3.000'
 //for 2020 reporting year. QDM to QI-4
 //Venous Thromboembolism Prophylaxis
 //Author: TJC
