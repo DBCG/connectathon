@@ -71,7 +71,7 @@ define "Initial Population":
     and exists ("Qualifying Encounters")
         and (exists ("Assessments Identifying Sexual Activity")
             or exists ("Diagnoses Identifying Sexual Activity")
-            or exists ("Active Contraceptive Medications")
+            //or exists ("Active Contraceptive Medications")
             or exists ("Ordered Contraceptive Medications")
             or exists ("Laboratory Tests Identifying Sexual Activity")
             or exists ("Diagnostic Studies Identifying Sexual Activity")
@@ -106,10 +106,13 @@ define "Diagnoses Identifying Sexual Activity":
     where SexualActivityDiagnosis.verificationStatus ~ ToConcept(Global."confirmed")
         and Global."Prevalence Period"(SexualActivityDiagnosis) overlaps "Measurement Period"
 
+// MedicationStatement changed to MedicationUsage in R5, so this cannot be referenced until a publisher issue is addressed
+/*
 define "Active Contraceptive Medications":
 ["MedicationStatement": "Contraceptive Medications"] ActiveContraceptives
     where ActiveContraceptives.status = 'active'
     and Global."Normalize Interval"(ActiveContraceptives.effective) overlaps "Measurement Period"
+*/
 
 define "Ordered Contraceptive Medications":
 ["MedicationRequest": "Contraceptive Medications"] OrderedContraceptives
@@ -148,10 +151,10 @@ define "Procedures Identifying Sexual Activity":
 define "Denominator":
 "Initial Population"
 
-define "Denominator Exclusion":
+define "Denominator Exclusions":
 (exists ("Pregnancy Test Exclusion")
       and not exists ("Diagnoses Identifying Sexual Activity")
-      and not exists ("Active Contraceptive Medications")
+      //and not exists ("Active Contraceptive Medications")
       and not exists ("Laboratory Tests Identifying Sexual Activity But Not Pregnancy")
       and not exists ("Procedures Identifying Sexual Activity")
       and not exists ("Assessments Identifying Sexual Activity")
