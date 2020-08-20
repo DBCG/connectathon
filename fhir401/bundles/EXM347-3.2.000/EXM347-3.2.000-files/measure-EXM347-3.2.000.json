@@ -1,0 +1,147 @@
+{
+  "resourceType": "Measure",
+  "id": "measure-EXM347-3.2.000",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2020-08-18",
+    "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm" ]
+  },
+  "text": {
+    "status": "generated"
+  },
+  "extension": [ {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
+    "valueCode": "boolean"
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+    "valueReference": {
+      "reference": "#cqf-tooling"
+    }
+  } ],
+  "url": "http://hl7.org/fhir/us/cqfmeasures/Measure/measure-EXM347-FHIR",
+  "identifier": [ {
+    "use": "official",
+    "system": "http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/cms",
+    "value": "529"
+  } ],
+  "version": "3.2.000",
+  "name": "EXM347",
+  "status": "draft",
+  "experimental": true,
+  "useContext": [ {
+    "code": {
+      "code": "program"
+    },
+    "valueCodeableConcept": {
+      "text": "eligible-provider"
+    }
+  } ],
+  "jurisdiction": [ {
+    "coding": [ {
+      "system": "urn:iso:std:iso:3166",
+      "code": "US"
+    } ]
+  } ],
+  "effectivePeriod": {
+    "start": "2020-01-01",
+    "end": "2020-12-31"
+  },
+  "topic": [ {
+    "coding": [ {
+      "system": "http://loinc.org",
+      "code": "57024-2",
+      "display": "Health Quality Measure Document"
+    } ]
+  } ],
+  "library": [ "http://hl7.org/fhir/us/draftmeasures/Library/library-EXM347-3.2.000" ],
+  "disclaimer": "The performance Measure is not a clinical guideline and does not establish a standard of medical care, and has not been tested for all potential applications.\n\nTHE MEASURE AND SPECIFICATIONS ARE PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND.\n \nDue to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM].",
+  "scoring": {
+    "coding": [ {
+      "system": "http://hl7.org/fhir/measure-scoring",
+      "code": "proportion"
+    } ]
+  },
+  "group": [ {
+    "id": "PopulationGroup3",
+    "population": [ {
+      "code": {
+        "coding": [ {
+          "code": "initial-population"
+        } ]
+      },
+      "criteria": {
+        "language": "text/cql",
+        "expression": "Initial Population"
+      }
+    }, {
+      "code": {
+        "coding": [ {
+          "code": "numerator"
+        } ]
+      },
+      "criteria": {
+        "language": "text/cql",
+        "expression": "Numerator"
+      }
+    }, {
+      "code": {
+        "coding": [ {
+          "code": "denominator"
+        } ]
+      },
+      "criteria": {
+        "language": "text/cql",
+        "expression": "Denominator 3"
+      }
+    }, {
+      "code": {
+        "coding": [ {
+          "code": "denominator-exclusion"
+        } ]
+      },
+      "criteria": {
+        "language": "text/cql",
+        "expression": "Denominator Exclusions"
+      }
+    }, {
+      "code": {
+        "coding": [ {
+          "code": "denominator-exception"
+        } ]
+      },
+      "criteria": {
+        "language": "text/cql",
+        "expression": "Denominator Exceptions 3"
+      }
+    } ]
+  } ],
+  "supplementalData": [ {
+    "usage": [ {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/measure-data-usage",
+        "code": "supplemental-data"
+      } ]
+    } ]
+  }, {
+    "usage": [ {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/measure-data-usage",
+        "code": "supplemental-data"
+      } ]
+    } ]
+  }, {
+    "usage": [ {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/measure-data-usage",
+        "code": "supplemental-data"
+      } ]
+    } ]
+  }, {
+    "usage": [ {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/measure-data-usage",
+        "code": "supplemental-data"
+      } ]
+    } ]
+  } ]
+}
