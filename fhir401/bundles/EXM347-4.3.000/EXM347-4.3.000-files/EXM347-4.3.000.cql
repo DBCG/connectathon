@@ -1,4 +1,4 @@
-library EXM347 version '3.2.000'
+library EXM347 version '4.3.000'
 
 using FHIR version '4.0.1'
 
@@ -59,12 +59,11 @@ define "Denominator Exceptions":
      or exists "Adverse Reaction to Statin"
      or exists "Allergy or Intolerance to Statin"
 
+define "Denominator Exceptions 2":
+ "Denominator Exceptions"
+
 define "Denominator Exceptions 3":
- "Patient Has Order for or Receiving Hospice Care or Palliative Care"
-     or "Has ESRD"
-     or "Has Hepatitis or Liver Disease"
-     or exists "Adverse Reaction to Statin"
-     or exists "Allergy or Intolerance to Statin"
+ "Denominator Exceptions"
      or "Most Recent LDL Result Within 3 Years is Less Than 70"
 
 define "Most Recent LDL": //This definition is only used in "Last LDL Less Than 70", which is not used anywhere
@@ -101,11 +100,11 @@ define "Adverse Reaction to Statin":
 
 define "Allergy or Intolerance to Statin":
  [AllergyIntolerance: "Statin Allergen"] StatinAllergyIntolerance
-     where Global."Normalize Interval"(StatinAllergyIntolerance.onset) overlaps "Measurement Period"
+     where Global."Normalize Interval"(StatinAllergyIntolerance.onset) starts before end of "Measurement Period"
 
 define "Breastfeeding At Any Time During the Measurement Period":
  [Condition: "Breastfeeding"] Breastfeed
-     where Global."Normalize Interval"(Breastfeed.onset) overlaps "Measurement Period"
+     where Global."Prevalence Period"(Breastfeed) overlaps "Measurement Period"
 
 define "Current or Prior LDL Result Greater Than or Equal To 190":
  [Observation: "LDL Cholesterol"] LDL
@@ -116,14 +115,14 @@ define "Current or Prior LDL Result Greater Than or Equal To 190":
 
 define "Has ESRD":
  exists ( [Condition: "End Stage Renal Disease"] ESRD
-       where Global."Normalize Interval"(ESRD.onset) overlaps "Measurement Period"
+       where Global."Prevalence Period"(ESRD) overlaps "Measurement Period"
    )
 
 define "Has Hepatitis or Liver Disease":
  exists ( ( [Condition: "Hepatitis A"]
        union [Condition: "Hepatitis B"]
        union [Condition: "Liver Disease"] ) HepatitisLiverDisease
-       where Global."Normalize Interval"(HepatitisLiverDisease.onset) overlaps "Measurement Period"
+       where Global."Prevalence Period"(HepatitisLiverDisease) overlaps "Measurement Period"
    )
 
 define "Highest LDL Result Within 3 Years is Greater Than or Equal To 70 and Less Than 190":
@@ -170,7 +169,7 @@ define "Most Recent LDL Result Within 3 Years is Less Than 70":
 
 define "Pregnant At Any Time During the Measurement Period":
  [Condition: "Pregnancy or Other Related Diagnoses"] Pregnancy
-     where Global."Normalize Interval"(Pregnancy.onset) overlaps "Measurement Period"
+     where Global."Prevalence Period"(Pregnancy) overlaps "Measurement Period"
 
 define "Qualifying Encounter During Measurement Period":
  ( [Encounter: "Annual Wellness Visit"]
@@ -206,7 +205,7 @@ define "Denominator Exclusions":
  exists ( ( [Condition: "Rhabdomyolysis"]
        union [Condition: "Breastfeeding"]
        union [Condition: "Pregnancy or Other Related Diagnoses"] ) ExclusionDiagnosis
-       where Global."Normalize Interval"(ExclusionDiagnosis.onset) overlaps "Measurement Period"
+       where Global."Prevalence Period"(ExclusionDiagnosis) overlaps "Measurement Period"
    )
 
 define "Initial Population":
@@ -215,7 +214,7 @@ define "Initial Population":
 
 define "Has Diabetes":
  exists ( [Condition: "Diabetes"] Diabetes
-       where Global."Normalize Interval"(Diabetes.onset) starts before end of "Measurement Period"
+       where Global."Prevalence Period"(Diabetes) starts before end of "Measurement Period"
    )
 
 define "Patients Age 21 or Over at Start of Measurement Period":
@@ -258,7 +257,7 @@ define "Currently Taking Statin Therapy Through the End of the Measurement Perio
 
 define "Has Hypercholesterolemia":
  exists ([Condition: "Hypercholesterolemia"] Hypercholesterolemia
-       where Global."Normalize Interval"(Hypercholesterolemia.onset) starts before
+       where Global."Prevalence Period"(Hypercholesterolemia) starts before
        end of "Measurement Period")
 
 define "ASCVD Diagnosis or Procedure Before End of Measurement Period":
@@ -267,7 +266,7 @@ define "ASCVD Diagnosis or Procedure Before End of Measurement Period":
        union [Condition: "Atherosclerosis and Peripheral Arterial Disease"]
        union [Condition: "Ischemic Heart Disease or Other Related Diagnoses"]
        union [Condition: "Stable and Unstable Angina"] ) ASCVDDiagnosis
-       where Global."Normalize Interval"(ASCVDDiagnosis.onset) starts before
+       where Global."Prevalence Period"(ASCVDDiagnosis) starts before
        end of "Measurement Period"
    )
      union ( ( [Procedure: "PCI"]
