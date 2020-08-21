@@ -1,0 +1,151 @@
+{
+  "resourceType": "Bundle",
+  "id": "tests-numer2-EXM347-bundle",
+  "type": "transaction",
+  "entry": [ {
+    "resource": {
+      "resourceType": "Condition",
+      "id": "numer2-EXM347-Condition",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition" ]
+      },
+      "verificationStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+          "code": "confirmed",
+          "display": "Confirmed"
+        } ]
+      },
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "13644009",
+          "display": "Hypercholesterolemia (disorder)"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/numer2-EXM347"
+      },
+      "onsetDateTime": "2019-01-01T08:30:00"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Condition/numer2-EXM347-Condition"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Encounter",
+      "id": "numer2-EXM347-Encounter",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter" ]
+      },
+      "status": "finished",
+      "class": {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "AMB",
+        "display": "ambulatory"
+      },
+      "type": [ {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "185465003",
+          "display": "Weekend visit (procedure)"
+        } ]
+      } ],
+      "subject": {
+        "reference": "Patient/numer2-EXM347"
+      },
+      "period": {
+        "start": "2019-01-16T08:30:00",
+        "end": "2019-01-20T08:45:00"
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Encounter/numer2-EXM347-Encounter"
+    }
+  }, {
+    "resource": {
+      "resourceType": "MedicationRequest",
+      "id": "numer2-EXM347-2",
+      "status": "completed",
+      "intent": "order",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+          "code": "discharge",
+          "display": "Discharge"
+        } ]
+      } ],
+      "medicationCodeableConcept": {
+        "coding": [ {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "1944264",
+          "display": "simvastatin 8 MG/ML Oral Suspension"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/numer2-EXM347"
+      },
+      "encounter": {
+        "reference": "Encounter/numer2-EXM347-1"
+      },
+      "authoredOn": "2019-06-01T08:30:00"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "MedicationRequest/numer2-EXM347-2"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Patient",
+      "id": "numer2-EXM347",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient" ]
+      },
+      "extension": [ {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [ {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2106-3",
+            "display": "White"
+          }
+        } ]
+      }, {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [ {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2186-5",
+            "display": "Not Hispanic or Latino"
+          }
+        } ]
+      } ],
+      "identifier": [ {
+        "use": "usual",
+        "type": {
+          "coding": [ {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR",
+            "display": "Medical Record Number"
+          } ]
+        },
+        "system": "http://hospital.smarthealthit.org",
+        "value": "9999999911"
+      } ],
+      "name": [ {
+        "family": "Pass",
+        "given": [ "John" ]
+      } ],
+      "gender": "male",
+      "birthDate": "1964-06-30"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Patient/numer2-EXM347"
+    }
+  } ]
+}
