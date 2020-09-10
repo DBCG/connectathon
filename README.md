@@ -27,6 +27,10 @@ http://cqm-sandbox.alphora.com/cqf-ruler-r4/fhir/
 The sandbox will be using the contentgroup/cqf-ruler:develop Docker Container which is approprioate for FHIR R4.0.1 work.
 A sandbox willl not be provided for FHIR3 or FHIR4.  Please use the appropriate container to host your own instance.
 
+* Postman Scripts:
+
+[FHIR401](fhir401/docs/FHIR401.postman_collection.json)
+
 ## Measure Reporting Scenarios
 ```
 Note: each FHIR version has been implemented as a separate IG.  Folder structures have changed to match.
@@ -411,7 +415,7 @@ Individual bundles:
 * [Numerator Test Bundle](fhir401/bundles/EXM349-2.1.000/EXM349-2.1.000-files/tests-numer-EXM349-bundle.json)
     * Numerator Patient ID: numer-EXM349
 
-### Safe Use of Opiods - Concurrent Prescribing - EXM506
+### Safe Use of Opioids - Concurrent Prescribing - EXM506
 
 #### FHIR3
 
