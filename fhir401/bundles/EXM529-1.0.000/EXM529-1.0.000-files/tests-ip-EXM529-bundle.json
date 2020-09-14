@@ -4,36 +4,6 @@
   "type": "transaction",
   "entry": [ {
     "resource": {
-      "resourceType": "Coverage",
-      "id": "ip-EXM529-Coverage",
-      "status": "active",
-      "type": {
-        "coding": [ {
-          "system": "http://www.nlm.nih.gov/research/umls/sop",
-          "code": "1",
-          "display": "MEDICARE"
-        } ]
-      },
-      "policyHolder": {
-        "reference": "Patient/ip-EXM529"
-      },
-      "beneficiary": {
-        "reference": "Patient/ip-EXM529"
-      },
-      "period": {
-        "start": "2018-05-30T00:00:00-00:00",
-        "end": "2020-05-31T00:00:00-00:00"
-      },
-      "payor": [ {
-        "reference": "Patient/ip-EXM529"
-      } ]
-    },
-    "request": {
-      "method": "PUT",
-      "url": "Coverage/ip-EXM529-Coverage"
-    }
-  }, {
-    "resource": {
       "resourceType": "Encounter",
       "id": "ip-EXM529-Enc1",
       "meta": {
@@ -98,234 +68,6 @@
     }
   }, {
     "resource": {
-      "resourceType": "Observation",
-      "id": "ip-EXM529-ObsCreat1",
-      "meta": {
-        "profile": [ "http://hl7.org/fhir/observation" ]
-      },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "http://loinc.org",
-          "code": "14682-9",
-          "display": "Creatinine [Moles/volume] in Serum or Plasma"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/ip-EXM529"
-      },
-      "issued": "2019-02-16T00:15:00",
-      "valueQuantity": {
-        "value": 122,
-        "unit": "umol/L",
-        "system": "http://snomed.info/sct",
-        "code": "258814008"
-      }
-    },
-    "request": {
-      "method": "PUT",
-      "url": "Observation/ip-EXM529-ObsCreat1"
-    }
-  }, {
-    "resource": {
-      "resourceType": "Observation",
-      "id": "ip-EXM529-ObsCreat2",
-      "meta": {
-        "profile": [ "http://hl7.org/fhir/observation" ]
-      },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "http://loinc.org",
-          "code": "14682-9",
-          "display": "Creatinine [Moles/volume] in Serum or Plasma"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/ip-EXM529"
-      },
-      "issued": "2019-02-16T00:10:00",
-      "valueQuantity": {
-        "value": 122,
-        "unit": "umol/L",
-        "system": "http://snomed.info/sct",
-        "code": "258814008"
-      }
-    },
-    "request": {
-      "method": "PUT",
-      "url": "Observation/ip-EXM529-ObsCreat2"
-    }
-  }, {
-    "resource": {
-      "resourceType": "Observation",
-      "id": "ip-EXM529-ObsHR1",
-      "meta": {
-        "profile": [ "http://hl7.org/fhir/observation" ]
-      },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "http://loinc.org",
-          "code": "8867-4",
-          "display": "Heart rate"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/ip-EXM529"
-      },
-      "effectiveDateTime": "2019-02-16T00:20:00",
-      "valueQuantity": {
-        "value": 65,
-        "unit": "bpm"
-      }
-    },
-    "request": {
-      "method": "PUT",
-      "url": "Observation/ip-EXM529-ObsHR1"
-    }
-  }, {
-    "resource": {
-      "resourceType": "Observation",
-      "id": "ip-EXM529-ObsHR2",
-      "meta": {
-        "profile": [ "http://hl7.org/fhir/observation" ]
-      },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "http://loinc.org",
-          "code": "8867-4",
-          "display": "Heart rate"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/ip-EXM529"
-      },
-      "effectiveDateTime": "2019-01-16T00:10:00",
-      "valueQuantity": {
-        "value": 80,
-        "unit": "bpm"
-      }
-    },
-    "request": {
-      "method": "PUT",
-      "url": "Observation/ip-EXM529-ObsHR2"
-    }
-  }, {
-    "resource": {
-      "resourceType": "Observation",
-      "id": "ip-EXM529-ObsHR3",
-      "meta": {
-        "profile": [ "http://hl7.org/fhir/observation" ]
-      },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "http://loinc.org",
-          "code": "8867-4",
-          "display": "Heart rate"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/ip-EXM529"
-      },
-      "effectiveDateTime": "2019-01-16T00:15:00",
-      "valueQuantity": {
-        "value": 82,
-        "unit": "bpm"
-      }
-    },
-    "request": {
-      "method": "PUT",
-      "url": "Observation/ip-EXM529-ObsHR3"
-    }
-  }, {
-    "resource": {
-      "resourceType": "Observation",
-      "id": "ip-EXM529-ObsWeight1",
-      "meta": {
-        "profile": [ "http://hl7.org/fhir/observation" ]
-      },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "http://loinc.org",
-          "code": "29463-7",
-          "display": "Body weight"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/ip-EXM529"
-      },
-      "effectiveDateTime": "2019-01-16T00:16:00",
-      "valueQuantity": {
-        "value": 150,
-        "unit": "lbs"
-      }
-    },
-    "request": {
-      "method": "PUT",
-      "url": "Observation/ip-EXM529-ObsWeight1"
-    }
-  }, {
-    "resource": {
-      "resourceType": "Observation",
-      "id": "ip-EXM529-ObsWeight2",
-      "meta": {
-        "profile": [ "http://hl7.org/fhir/observation" ]
-      },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "http://loinc.org",
-          "code": "29463-7",
-          "display": "Body weight"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/ip-EXM529"
-      },
-      "effectiveDateTime": "2019-01-16T00:12:00",
-      "valueQuantity": {
-        "value": 152,
-        "unit": "lbs"
-      }
-    },
-    "request": {
-      "method": "PUT",
-      "url": "Observation/ip-EXM529-ObsWeight2"
-    }
-  }, {
-    "resource": {
-      "resourceType": "Observation",
-      "id": "ip-EXM529-ObsWeight2",
-      "meta": {
-        "profile": [ "http://hl7.org/fhir/observation" ]
-      },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "http://loinc.org",
-          "code": "29463-7",
-          "display": "Body weight"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/ip-EXM529"
-      },
-      "effectiveDateTime": "2019-02-16T00:20:00",
-      "valueQuantity": {
-        "value": 148,
-        "unit": "lbs"
-      }
-    },
-    "request": {
-      "method": "PUT",
-      "url": "Observation/ip-EXM529-ObsWeight2"
-    }
-  }, {
-    "resource": {
       "resourceType": "Patient",
       "id": "ip-EXM529",
       "meta": {
@@ -374,6 +116,264 @@
     "request": {
       "method": "PUT",
       "url": "Patient/ip-EXM529"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Coverage",
+      "id": "ip-EXM529-Coverage",
+      "status": "active",
+      "type": {
+        "coding": [ {
+          "system": "http://www.nlm.nih.gov/research/umls/sop",
+          "code": "1",
+          "display": "MEDICARE"
+        } ]
+      },
+      "policyHolder": {
+        "reference": "Patient/ip-EXM529"
+      },
+      "beneficiary": {
+        "reference": "Patient/ip-EXM529"
+      },
+      "period": {
+        "start": "2018-05-30T00:00:00-00:00",
+        "end": "2020-05-31T00:00:00-00:00"
+      },
+      "payor": [ {
+        "reference": "Patient/ip-EXM529"
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Coverage/ip-EXM529-Coverage"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Observation",
+      "id": "ip-EXM529-ObsWeight1",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/observation" ]
+      },
+      "status": "final",
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "29463-7",
+          "display": "Body weight"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/ip-EXM529"
+      },
+      "effectiveDateTime": "2019-01-16T00:16:00",
+      "valueQuantity": {
+        "value": 150,
+        "unit": "lbs"
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Observation/ip-EXM529-ObsWeight1"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Observation",
+      "id": "ip-EXM529-ObsHR3",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/observation" ]
+      },
+      "status": "final",
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "8867-4",
+          "display": "Heart rate"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/ip-EXM529"
+      },
+      "effectiveDateTime": "2019-01-16T00:15:00",
+      "valueQuantity": {
+        "value": 82,
+        "unit": "bpm"
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Observation/ip-EXM529-ObsHR3"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Observation",
+      "id": "ip-EXM529-ObsCreat2",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/observation" ]
+      },
+      "status": "final",
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "14682-9",
+          "display": "Creatinine [Moles/volume] in Serum or Plasma"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/ip-EXM529"
+      },
+      "issued": "2019-02-16T00:10:00",
+      "valueQuantity": {
+        "value": 122,
+        "unit": "umol/L",
+        "system": "http://snomed.info/sct",
+        "code": "258814008"
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Observation/ip-EXM529-ObsCreat2"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Observation",
+      "id": "ip-EXM529-ObsHR2",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/observation" ]
+      },
+      "status": "final",
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "8867-4",
+          "display": "Heart rate"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/ip-EXM529"
+      },
+      "effectiveDateTime": "2019-01-16T00:10:00",
+      "valueQuantity": {
+        "value": 80,
+        "unit": "bpm"
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Observation/ip-EXM529-ObsHR2"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Observation",
+      "id": "ip-EXM529-ObsCreat1",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/observation" ]
+      },
+      "status": "final",
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "14682-9",
+          "display": "Creatinine [Moles/volume] in Serum or Plasma"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/ip-EXM529"
+      },
+      "issued": "2019-02-16T00:15:00",
+      "valueQuantity": {
+        "value": 122,
+        "unit": "umol/L",
+        "system": "http://snomed.info/sct",
+        "code": "258814008"
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Observation/ip-EXM529-ObsCreat1"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Observation",
+      "id": "ip-EXM529-ObsHR1",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/observation" ]
+      },
+      "status": "final",
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "8867-4",
+          "display": "Heart rate"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/ip-EXM529"
+      },
+      "effectiveDateTime": "2019-02-16T00:20:00",
+      "valueQuantity": {
+        "value": 65,
+        "unit": "bpm"
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Observation/ip-EXM529-ObsHR1"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Observation",
+      "id": "ip-EXM529-ObsWeight2",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/observation" ]
+      },
+      "status": "final",
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "29463-7",
+          "display": "Body weight"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/ip-EXM529"
+      },
+      "effectiveDateTime": "2019-02-16T00:20:00",
+      "valueQuantity": {
+        "value": 148,
+        "unit": "lbs"
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Observation/ip-EXM529-ObsWeight2"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Observation",
+      "id": "ip-EXM529-ObsWeight2",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/observation" ]
+      },
+      "status": "final",
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "29463-7",
+          "display": "Body weight"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/ip-EXM529"
+      },
+      "effectiveDateTime": "2019-01-16T00:12:00",
+      "valueQuantity": {
+        "value": 152,
+        "unit": "lbs"
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Observation/ip-EXM529-ObsWeight2"
     }
   } ]
 }

@@ -4,38 +4,6 @@
   "type": "transaction",
   "entry": [ {
     "resource": {
-      "resourceType": "Encounter",
-      "id": "numer-EXM124-2",
-      "meta": {
-        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter" ]
-      },
-      "status": "finished",
-      "class": {
-        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-        "code": "AMB",
-        "display": "ambulatory"
-      },
-      "type": [ {
-        "coding": [ {
-          "system": "http://www.ama-assn.org/go/cpt",
-          "code": "99201",
-          "display": "Office or other outpatient visit for the evaluation and management of a new patient, which requires these 3 key components: A problem focused history; A problem focused examination; Straightforward medical decision making. Counseling and/or coordination of care with other physicians, other qualified health care professionals, or agencies are provided consistent with the nature of the problem(s) and the patient's and/or family's needs. Usually, the presenting problem(s) are self limited or minor. Typically, 10 minutes are spent face-to-face with the patient and/or family."
-        } ]
-      } ],
-      "subject": {
-        "reference": "Patient/numer-EXM124"
-      },
-      "period": {
-        "start": "2019-01-01T00:00:00.0",
-        "end": "2019-01-02T00:00:00.0"
-      }
-    },
-    "request": {
-      "method": "PUT",
-      "url": "Encounter/numer-EXM124-2"
-    }
-  }, {
-    "resource": {
       "resourceType": "MeasureReport",
       "id": "measurereport-numer-EXM124",
       "contained": [ {
@@ -254,28 +222,35 @@
     }
   }, {
     "resource": {
-      "resourceType": "Observation",
-      "id": "numer-EXM124-3",
+      "resourceType": "Encounter",
+      "id": "numer-EXM124-2",
       "meta": {
-        "profile": [ "http://hl7.org/fhir/observation" ]
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter" ]
       },
-      "status": "final",
-      "code": {
+      "status": "finished",
+      "class": {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "AMB",
+        "display": "ambulatory"
+      },
+      "type": [ {
         "coding": [ {
-          "system": "http://loinc.org",
-          "code": "10524-7",
-          "display": "Microscopic observation [Identifier] in Cervix by Cyto stain"
+          "system": "http://www.ama-assn.org/go/cpt",
+          "code": "99201",
+          "display": "Office or other outpatient visit for the evaluation and management of a new patient, which requires these 3 key components: A problem focused history; A problem focused examination; Straightforward medical decision making. Counseling and/or coordination of care with other physicians, other qualified health care professionals, or agencies are provided consistent with the nature of the problem(s) and the patient's and/or family's needs. Usually, the presenting problem(s) are self limited or minor. Typically, 10 minutes are spent face-to-face with the patient and/or family."
         } ]
-      },
+      } ],
       "subject": {
         "reference": "Patient/numer-EXM124"
       },
-      "effectiveDateTime": "2019-11-01T00:00:00",
-      "valueBoolean": true
+      "period": {
+        "start": "2019-01-01T00:00:00.0",
+        "end": "2019-01-02T00:00:00.0"
+      }
     },
     "request": {
       "method": "PUT",
-      "url": "Observation/numer-EXM124-3"
+      "url": "Encounter/numer-EXM124-2"
     }
   }, {
     "resource": {
@@ -327,6 +302,31 @@
     "request": {
       "method": "PUT",
       "url": "Patient/numer-EXM124"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Observation",
+      "id": "numer-EXM124-3",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/observation" ]
+      },
+      "status": "final",
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "10524-7",
+          "display": "Microscopic observation [Identifier] in Cervix by Cyto stain"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/numer-EXM124"
+      },
+      "effectiveDateTime": "2019-11-01T00:00:00",
+      "valueBoolean": true
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Observation/numer-EXM124-3"
     }
   } ]
 }

@@ -4,42 +4,21 @@
   "type": "transaction",
   "entry": [ {
     "resource": {
-      "resourceType": "Encounter",
-      "id": "measure-strat1-excl-EXM111-Enc-Admit",
-      "meta": {
-        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter" ]
-      },
-      "status": "finished",
-      "class": {
-        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-        "code": "IMP",
-        "display": "inpatient encounter"
-      },
+      "resourceType": "Location",
+      "id": "measure-strat1-excl-EXM111-Location",
+      "status": "active",
+      "name": "St. Dougs EmUrgency Care",
       "type": [ {
         "coding": [ {
           "system": "http://snomed.info/sct",
-          "code": "183452005",
-          "display": "Emergency Hospital Admission (procedure)"
+          "code": "4525004",
+          "display": "Emergency department patient visit (procedure)"
         } ]
-      } ],
-      "subject": {
-        "reference": "Patient/measure-strat1-excl-EXM111"
-      },
-      "period": {
-        "start": "2019-06-15T10:00:00-00:00",
-        "end": "2019-06-17T10:00:00-00:00"
-      },
-      "location": [ {
-        "status": "completed",
-        "period": {
-          "start": "2019-06-15T05:00:00-00:00",
-          "end": "2019-06-15T10:00:00-00:00"
-        }
       } ]
     },
     "request": {
       "method": "PUT",
-      "url": "Encounter/measure-strat1-excl-EXM111-Enc-Admit"
+      "url": "Location/measure-strat1-excl-EXM111-Location"
     }
   }, {
     "resource": {
@@ -89,58 +68,42 @@
     }
   }, {
     "resource": {
-      "resourceType": "Location",
-      "id": "measure-strat1-excl-EXM111-Location",
-      "status": "active",
-      "name": "St. Dougs EmUrgency Care",
+      "resourceType": "Encounter",
+      "id": "measure-strat1-excl-EXM111-Enc-Admit",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter" ]
+      },
+      "status": "finished",
+      "class": {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "IMP",
+        "display": "inpatient encounter"
+      },
       "type": [ {
         "coding": [ {
           "system": "http://snomed.info/sct",
-          "code": "4525004",
-          "display": "Emergency department patient visit (procedure)"
+          "code": "183452005",
+          "display": "Emergency Hospital Admission (procedure)"
         } ]
+      } ],
+      "subject": {
+        "reference": "Patient/measure-strat1-excl-EXM111"
+      },
+      "period": {
+        "start": "2019-06-15T10:00:00-00:00",
+        "end": "2019-06-17T10:00:00-00:00"
+      },
+      "location": [ {
+        "status": "completed",
+        "period": {
+          "start": "2019-06-15T05:00:00-00:00",
+          "end": "2019-06-15T10:00:00-00:00"
+        }
       } ]
     },
     "request": {
       "method": "PUT",
-      "url": "Location/measure-strat1-excl-EXM111-Location"
-    }
-  }, {
-    "resource": {
-      "resourceType": "Observation",
-      "id": "measure-strat1-excl-EXM111-observation",
-      "meta": {
-        "profile": [ "http://hl7.org/fhir/observation" ]
-      },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "http://loinc.org",
-          "code": "28568-4",
-          "display": "Physician Emergency Department Note"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/measure-strat1-excl-EXM111"
-      },
-      "encounter": {
-        "reference": "Encounter/measure-strat1-excl-EXM111-Enc-EDVisit"
-      },
-      "effectivePeriod": {
-        "start": "2019-06-15T07:00:00-00:00",
-        "end": "2019-06-15T07:15:00-00:00"
-      },
-      "valueCodeableConcept": {
-        "coding": [ {
-          "system": "http://snomed.info/sct",
-          "code": "183767005",
-          "display": "Listed for admission to hospital (finding)"
-        } ]
-      }
-    },
-    "request": {
-      "method": "PUT",
-      "url": "Observation/measure-strat1-excl-EXM111-observation"
+      "url": "Encounter/measure-strat1-excl-EXM111-Enc-Admit"
     }
   }, {
     "resource": {
@@ -217,6 +180,43 @@
     "request": {
       "method": "PUT",
       "url": "ServiceRequest/measure-strat1-excl-EXM111-ServiceRequest"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Observation",
+      "id": "measure-strat1-excl-EXM111-observation",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/observation" ]
+      },
+      "status": "final",
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "28568-4",
+          "display": "Physician Emergency Department Note"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/measure-strat1-excl-EXM111"
+      },
+      "encounter": {
+        "reference": "Encounter/measure-strat1-excl-EXM111-Enc-EDVisit"
+      },
+      "effectivePeriod": {
+        "start": "2019-06-15T07:00:00-00:00",
+        "end": "2019-06-15T07:15:00-00:00"
+      },
+      "valueCodeableConcept": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "183767005",
+          "display": "Listed for admission to hospital (finding)"
+        } ]
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Observation/measure-strat1-excl-EXM111-observation"
     }
   } ]
 }

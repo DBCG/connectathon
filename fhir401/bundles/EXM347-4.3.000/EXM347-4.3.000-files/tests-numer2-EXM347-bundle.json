@@ -4,36 +4,6 @@
   "type": "transaction",
   "entry": [ {
     "resource": {
-      "resourceType": "Condition",
-      "id": "numer2-EXM347-Condition",
-      "meta": {
-        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition" ]
-      },
-      "verificationStatus": {
-        "coding": [ {
-          "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
-          "code": "confirmed",
-          "display": "Confirmed"
-        } ]
-      },
-      "code": {
-        "coding": [ {
-          "system": "http://snomed.info/sct",
-          "code": "13644009",
-          "display": "Hypercholesterolemia (disorder)"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/numer2-EXM347"
-      },
-      "onsetDateTime": "2019-01-01T08:30:00"
-    },
-    "request": {
-      "method": "PUT",
-      "url": "Condition/numer2-EXM347-Condition"
-    }
-  }, {
-    "resource": {
       "resourceType": "Encounter",
       "id": "numer2-EXM347-Encounter",
       "meta": {
@@ -66,35 +36,33 @@
     }
   }, {
     "resource": {
-      "resourceType": "MedicationRequest",
-      "id": "numer2-EXM347-2",
-      "status": "completed",
-      "intent": "order",
-      "category": [ {
+      "resourceType": "Condition",
+      "id": "numer2-EXM347-Condition",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition" ]
+      },
+      "verificationStatus": {
         "coding": [ {
-          "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
-          "code": "discharge",
-          "display": "Discharge"
+          "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+          "code": "confirmed",
+          "display": "Confirmed"
         } ]
-      } ],
-      "medicationCodeableConcept": {
+      },
+      "code": {
         "coding": [ {
-          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-          "code": "1944264",
-          "display": "simvastatin 8 MG/ML Oral Suspension"
+          "system": "http://snomed.info/sct",
+          "code": "13644009",
+          "display": "Hypercholesterolemia (disorder)"
         } ]
       },
       "subject": {
         "reference": "Patient/numer2-EXM347"
       },
-      "encounter": {
-        "reference": "Encounter/numer2-EXM347-1"
-      },
-      "authoredOn": "2019-06-01T08:30:00"
+      "onsetDateTime": "2019-01-01T08:30:00"
     },
     "request": {
       "method": "PUT",
-      "url": "MedicationRequest/numer2-EXM347-2"
+      "url": "Condition/numer2-EXM347-Condition"
     }
   }, {
     "resource": {
@@ -146,6 +114,38 @@
     "request": {
       "method": "PUT",
       "url": "Patient/numer2-EXM347"
+    }
+  }, {
+    "resource": {
+      "resourceType": "MedicationRequest",
+      "id": "numer2-EXM347-2",
+      "status": "completed",
+      "intent": "order",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+          "code": "discharge",
+          "display": "Discharge"
+        } ]
+      } ],
+      "medicationCodeableConcept": {
+        "coding": [ {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "1944264",
+          "display": "simvastatin 8 MG/ML Oral Suspension"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/numer2-EXM347"
+      },
+      "encounter": {
+        "reference": "Encounter/numer2-EXM347-1"
+      },
+      "authoredOn": "2019-06-01T08:30:00"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "MedicationRequest/numer2-EXM347-2"
     }
   } ]
 }
