@@ -1,6 +1,8 @@
 # MITRE Test Patient Bundles
 
-This directory includes various FHIR STU3 Bundles, generated with [Synthea](https://github.com/projecttacoma/synthea/) for various FHIR Measures. All of the modules used to generate this data can be viewed in our [Synthea repository](https://github.com/projecttacoma/synthea/), and the verification of the populations was done with our [fhir-bundle-calculator utility](https://github.com/projecttacoma/fhir-bundle-calculator/).
+This directory includes various FHIR STU3 Bundles, generated with [Synthea](https://github.com/projecttacoma/synthea/) for various FHIR Measures. All of the modules used to generate this data can be viewed in our [Synthea repository](https://github.com/projecttacoma/synthea/tree/abacus/src/main/resources/modules), and the verification of the populations was done with our [fhir-bundle-calculator utility](https://github.com/projecttacoma/fhir-bundle-calculator/).
+
+Synthea modules that were built specifically for the measures will have the measure name in them(e.g. https://github.com/projecttacoma/synthea/blob/abacus/src/main/resources/modules/EXM130-8.0.000-r4.json). You can view them graphically by going to https://synthetichealth.github.io/module-builder/ and pasting the desired module JSON in.
 
 ## Currently Supported Measures
 
