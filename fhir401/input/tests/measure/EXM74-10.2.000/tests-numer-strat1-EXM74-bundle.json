@@ -1,0 +1,116 @@
+{
+  "resourceType": "Bundle",
+  "id": "tests-numer-strat1-EXM74-bundle",
+  "type": "transaction",
+  "entry": [ {
+    "resource": {
+      "resourceType": "Encounter",
+      "id": "numer-strat1-EXM74-Encounter",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter" ]
+      },
+      "status": "finished",
+      "class": {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "IMP",
+        "display": "inpatient encounter"
+      },
+      "type": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/CD2",
+          "code": "D0120",
+          "display": "periodic oral evaluation - established patient"
+        } ]
+      } ],
+      "subject": {
+        "reference": "Patient/numer-strat1-EXM74"
+      },
+      "period": {
+        "start": "2019-08-21T08:00:00-07:00",
+        "end": "2019-08-21T08:15:00-07:00"
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Encounter/numer-strat1-EXM74-Encounter"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Patient",
+      "id": "numer-strat1-EXM74",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient" ]
+      },
+      "extension": [ {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [ {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2106-3",
+            "display": "White"
+          }
+        } ]
+      }, {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [ {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2186-5",
+            "display": "Not Hispanic or Latino"
+          }
+        } ]
+      } ],
+      "identifier": [ {
+        "use": "usual",
+        "type": {
+          "coding": [ {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR",
+            "display": "Medical Record Number"
+          } ]
+        },
+        "system": "http://hospital.smarthealthit.org",
+        "value": "9999999911"
+      } ],
+      "name": [ {
+        "family": "Jones",
+        "given": [ "Louise" ]
+      } ],
+      "gender": "female",
+      "birthDate": "2017-11-21"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Patient/numer-strat1-EXM74"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Procedure",
+      "id": "numer-strat1-EXM74-Procedure",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure" ]
+      },
+      "status": "completed",
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "35889000",
+          "display": "Topical application of fluoride excluding prophylaxis, child (procedure)"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/numer-strat1-EXM74"
+      },
+      "performedPeriod": {
+        "start": "2019-08-21T08:05:00-07:00",
+        "end": "2019-08-21T08:10:00-07:00"
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Procedure/numer-strat1-EXM74-Procedure"
+    }
+  } ]
+}
