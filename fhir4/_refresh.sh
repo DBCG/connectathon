@@ -2,6 +2,7 @@
 #DO NOT EDIT WITH WINDOWS
 tooling_jar=tooling-1.1.1-SNAPSHOT-jar-with-dependencies.jar
 input_cache_path=./input-cache
+
 set -e
 echo Checking internet connection...
 wget -q --spider tx.fhir.org
@@ -15,11 +16,11 @@ else
 fi
 
 echo "$fsoption"
+echo "ig_resource_path:" "$ig_resource_path"
 
 tooling=$input_cache_path/$tooling_jar
 if test -f "$tooling"; then
 	java -jar $tooling -RefreshIG -ip="$PWD" -iv=fhir4 -t -d -p -v $fsoption
-
 else
 	tooling=../$tooling_jar
 	echo $tooling
