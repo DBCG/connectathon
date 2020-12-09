@@ -2,10 +2,10 @@
 #DO NOT EDIT WITH WINDOWS
 #exit 1
 
-r=snapshots
+r=releases
 g=org.opencds.cqf
 a=tooling
-v=1.3.0-SNAPSHOT
+v=1.3.0
 c=jar-with-dependencies
 
 dlurl='https://oss.sonatype.org/service/local/artifact/maven/redirect?r='${r}'&g='${g}'&a='${a}'&v='${v}'&c='${c}''
@@ -13,7 +13,7 @@ dlurl='https://oss.sonatype.org/service/local/artifact/maven/redirect?r='${r}'&g
 echo ${dlurl}
 
 input_cache_path=./input-cache/
-tooling_jar=tooling-1.3.0-SNAPSHOT-jar-with-dependencies.jar
+tooling_jar=tooling-1.3.0-jar-with-dependencies.jar
 
 set -e
 if ! type "curl" > /dev/null; then
