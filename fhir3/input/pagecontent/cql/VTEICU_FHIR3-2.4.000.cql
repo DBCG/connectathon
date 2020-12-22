@@ -26,7 +26,7 @@ parameter "Measurement Period" Interval<DateTime>
 context Patient
 
 define function "ToDate"(Value DateTime):
-	DateTime(year from Value, month from Value, day from Value, 0, 0, 0, 0, timezone from Value)
+	DateTime(year from Value, month from Value, day from Value, 0, 0, 0, 0, timezoneoffset from Value)
 
 define function "CalendarDayOfOrDayAfter"(StartValue DateTime):
 	Interval[StartValue, ToDate(StartValue + 2 days))
