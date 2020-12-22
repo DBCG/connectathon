@@ -153,7 +153,7 @@ define "Numerator":
 	difference in days between start of Value and end of Value
 
 define function "Global.ToDate"(Value DateTime):
-DateTime(year from Value, month from Value, day from Value, 0, 0, 0, 0, timezone from Value)
+DateTime(year from Value, month from Value, day from Value, 0, 0, 0, 0, timezoneoffset from Value)
 
 define function "Global.CalendarAgeInYearsAt"(BirthDateTime DateTime, AsOf DateTime):
       years between ToDate(BirthDateTime)and ToDate(AsOf) */

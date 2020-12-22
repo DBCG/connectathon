@@ -36,7 +36,7 @@ define "Inpatient Encounter":
 			and EncounterInpatient.period ends during "Measurement Period"
 
 define function "ToDate"(Value DateTime):
-	DateTime(year from Value, month from Value, day from Value, 0, 0, 0, 0, timezone from Value)
+	DateTime(year from Value, month from Value, day from Value, 0, 0, 0, 0, timezoneoffset from Value)
 
 define function "CalendarAgeInDaysAt"(BirthDateTime DateTime, AsOf DateTime):
 	days between ToDate(BirthDateTime)and ToDate(AsOf)
