@@ -1,0 +1,1412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1">
+   <identifier id="EXM105_FHIR3" version="7.0.0"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localId="1" locator="7:1-7:26" localIdentifier="FHIR" uri="http://hl7.org/fhir" version="3.0.0"/>
+   </usings>
+   <includes>
+      <def localId="2" locator="9:1-9:35" localIdentifier="FHIRHelpers" path="FHIRHelpers" version="3.0.0"/>
+      <def localId="3" locator="10:1-10:70" localIdentifier="Global" path="MATGlobalCommonFunctions_FHIR3" version="4.0.000"/>
+      <def localId="4" locator="11:1-11:54" localIdentifier="TJC" path="TJCOverall_FHIR3" version="3.6.000"/>
+      <def localId="5" locator="12:1-12:65" localIdentifier="SDE" path="SupplementalDataElements_FHIR3" version="1.0.0"/>
+   </includes>
+   <parameters>
+      <def localId="43" locator="48:1-48:114" name="Measurement Period" accessLevel="Public">
+         <default localId="40" locator="48:59-48:114" lowClosed="true" highClosed="false" xsi:type="Interval">
+            <low localId="38" locator="48:68-48:89" xsi:type="DateTime">
+               <year valueType="t:Integer" value="2019" xsi:type="Literal"/>
+               <month valueType="t:Integer" value="1" xsi:type="Literal"/>
+               <day valueType="t:Integer" value="1" xsi:type="Literal"/>
+               <hour valueType="t:Integer" value="0" xsi:type="Literal"/>
+               <minute valueType="t:Integer" value="0" xsi:type="Literal"/>
+               <second valueType="t:Integer" value="0" xsi:type="Literal"/>
+               <millisecond valueType="t:Integer" value="0" xsi:type="Literal"/>
+            </low>
+            <high localId="39" locator="48:92-48:113" xsi:type="DateTime">
+               <year valueType="t:Integer" value="2020" xsi:type="Literal"/>
+               <month valueType="t:Integer" value="1" xsi:type="Literal"/>
+               <day valueType="t:Integer" value="1" xsi:type="Literal"/>
+               <hour valueType="t:Integer" value="0" xsi:type="Literal"/>
+               <minute valueType="t:Integer" value="0" xsi:type="Literal"/>
+               <second valueType="t:Integer" value="0" xsi:type="Literal"/>
+               <millisecond valueType="t:Integer" value="0" xsi:type="Literal"/>
+            </high>
+         </default>
+         <parameterTypeSpecifier localId="42" locator="48:32-48:49" xsi:type="IntervalTypeSpecifier">
+            <pointType localId="41" locator="48:41-48:48" name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+         </parameterTypeSpecifier>
+      </def>
+   </parameters>
+   <codeSystems>
+      <def localId="6" locator="14:1-14:38" name="LOINC" id="http://loinc.org" accessLevel="Public"/>
+      <def localId="7" locator="15:1-15:60" name="SNOMEDCT" id="http://snomed.info/sct/731000124108" accessLevel="Public"/>
+      <def localId="8" locator="16:1-16:65" name="Diagnosis Role" id="http://hl7.org/fhir/diagnosis-role" accessLevel="Public"/>
+      <def localId="9" locator="17:1-17:64" name="RequestIntent" id="http://hl7.org/fhir/request-intent" accessLevel="Public"/>
+   </codeSystems>
+   <valueSets>
+      <def localId="10" locator="19:1-19:100" name="Encounter Inpatient" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307" accessLevel="Public"/>
+      <def localId="11" locator="20:1-20:117" name="Non-Elective Inpatient Encounter" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.424" accessLevel="Public"/>
+      <def localId="12" locator="21:1-21:100" name="Ischemic Stroke" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.247" accessLevel="Public"/>
+      <def localId="13" locator="22:1-22:103" name="Hemorrhagic Stroke" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.212" accessLevel="Public"/>
+      <def localId="14" locator="23:1-23:94" name="Comfort Measures" id="http://cts.nlm.nih.gov/fhir/ValueSet/1.3.6.1.4.1.33895.1.3.0.45" accessLevel="Public"/>
+      <def localId="15" locator="24:1-24:111" name="Emergency Department Visit" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292" accessLevel="Public"/>
+      <def localId="16" locator="25:1-25:112" name="Left Against Medical Advice" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.308" accessLevel="Public"/>
+      <def localId="17" locator="26:1-26:136" name="Discharged to Health Care Facility for Hospice Care" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.207" accessLevel="Public"/>
+      <def localId="18" locator="27:1-27:100" name="Patient Expired" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.309" accessLevel="Public"/>
+      <def localId="19" locator="28:1-28:116" name="Discharge To Acute Care Facility" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.87" accessLevel="Public"/>
+      <def localId="20" locator="29:1-29:120" name="Discharged to Home for Hospice Care" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.209" accessLevel="Public"/>
+      <def localId="21" locator="30:1-30:97" name="ONC Administrative Sex" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1" accessLevel="Public"/>
+      <def localId="22" locator="31:1-31:82" name="Race" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.836" accessLevel="Public"/>
+      <def localId="23" locator="32:1-32:87" name="Ethnicity" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.837" accessLevel="Public"/>
+      <def localId="24" locator="33:1-33:84" name="Payer" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591" accessLevel="Public"/>
+      <def localId="25" locator="34:1-34:90" name="LDL-c" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.215" accessLevel="Public"/>
+      <def localId="26" locator="35:1-35:99" name="Medical Reason" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.473" accessLevel="Public"/>
+      <def localId="27" locator="36:1-36:99" name="Patient Refusal" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.93" accessLevel="Public"/>
+      <def localId="28" locator="37:1-37:100" name="Statin Allergen" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.423" accessLevel="Public"/>
+      <def localId="29" locator="38:1-38:95" name="Statin Grouper" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.19" accessLevel="Public"/>
+   </valueSets>
+   <codes>
+      <def localId="31" locator="41:1-41:61" name="Birthdate" id="21112-8" display="Birth date" accessLevel="Public">
+         <codeSystem localId="30" locator="41:34-41:40" name="LOINC"/>
+      </def>
+      <def localId="33" locator="42:1-42:55" name="Dead" id="419099009" display="Dead" accessLevel="Public">
+         <codeSystem localId="32" locator="42:31-42:40" name="SNOMEDCT"/>
+      </def>
+      <def localId="35" locator="45:1-45:65" name="Billing" id="billing" display="Billing" accessLevel="Public">
+         <codeSystem localId="34" locator="45:32-45:47" name="Diagnosis Role"/>
+      </def>
+      <def localId="37" locator="46:1-46:58" name="Order" id="order" display="Order" accessLevel="Public">
+         <codeSystem localId="36" locator="46:28-46:42" name="RequestIntent"/>
+      </def>
+   </codes>
+   <statements>
+      <def locator="50:1-50:15" name="Patient" context="Patient">
+         <expression xsi:type="SingletonFrom">
+            <operand locator="50:1-50:15" dataType="fhir:Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def localId="61" locator="65:1-69:67" name="Non Elective Inpatient Encounter" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="61">
+               <a:s>define &quot;Non Elective Inpatient Encounter&quot;:&#xd;
+	</a:s>
+               <a:s r="60">
+                  <a:s>
+                     <a:s r="45">
+                        <a:s r="44">
+                           <a:s r="44">
+                              <a:s>[&quot;Encounter&quot;: </a:s>
+                              <a:s>
+                                 <a:s>&quot;Non-Elective Inpatient Encounter&quot;</a:s>
+                              </a:s>
+                              <a:s>]</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> NonElectiveEncounter</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+		//where &quot;LengthInDays&quot;(NonElectiveEncounter.period)&lt;= 120&#xd;
+		</a:s>
+                  <a:s r="59">
+                     <a:s>where </a:s>
+                     <a:s r="59">
+                        <a:s r="54">
+                           <a:s r="52">
+                              <a:s>days between </a:s>
+                              <a:s r="48">
+                                 <a:s r="47">
+                                    <a:s r="46">
+                                       <a:s>NonElectiveEncounter</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="47">
+                                       <a:s>period</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="48">
+                                    <a:s>&quot;start&quot;</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> and </a:s>
+                              <a:s r="51">
+                                 <a:s r="50">
+                                    <a:s r="49">
+                                       <a:s>NonElectiveEncounter</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="50">
+                                       <a:s>period</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="51">
+                                    <a:s>&quot;end&quot;</a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s r="53"> &lt;= 120</a:s>
+                        </a:s>
+                        <a:s>&#xd;
+			and </a:s>
+                        <a:s r="58">
+                           <a:s r="56">
+                              <a:s r="55">
+                                 <a:s>NonElectiveEncounter</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="56">
+                                 <a:s>period</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s r="58"> ends during </a:s>
+                           <a:s r="57">
+                              <a:s>&quot;Measurement Period&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="60" locator="66:2-69:67" xsi:type="Query">
+            <source localId="45" locator="66:2-66:71" alias="NonElectiveEncounter">
+               <expression localId="44" locator="66:2-66:50" dataType="fhir:Encounter" codeProperty="type" xsi:type="Retrieve">
+                  <codes locator="66:16-66:49" name="Non-Elective Inpatient Encounter" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where localId="59" locator="68:3-69:67" xsi:type="And">
+               <operand localId="54" locator="68:9-68:101" xsi:type="LessOrEqual">
+                  <operand localId="52" locator="68:9-68:94" precision="Day" xsi:type="DurationBetween">
+                     <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand localId="48" locator="68:22-68:56" path="start" xsi:type="Property">
+                           <source localId="47" locator="68:22-68:48" path="period" scope="NonElectiveEncounter" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                     <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand localId="51" locator="68:62-68:94" path="end" xsi:type="Property">
+                           <source localId="50" locator="68:62-68:88" path="period" scope="NonElectiveEncounter" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                  </operand>
+                  <operand localId="53" locator="68:99-68:101" valueType="t:Integer" value="120" xsi:type="Literal"/>
+               </operand>
+               <operand localId="58" locator="69:8-69:67" xsi:type="In">
+                  <operand locator="69:36-69:39" xsi:type="End">
+                     <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand localId="56" locator="69:8-69:34" path="period" scope="NonElectiveEncounter" xsi:type="Property"/>
+                     </operand>
+                  </operand>
+                  <operand localId="57" locator="69:48-69:67" name="Measurement Period" xsi:type="ParameterRef"/>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="65" locator="60:1-61:56" name="All Stroke Encounter" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="65">
+               <a:s>define &quot;All Stroke Encounter&quot;:&#xd;
+	</a:s>
+               <a:s r="64">
+                  <a:s>
+                     <a:s r="63">
+                        <a:s r="62">
+                           <a:s>
+                              <a:s>&quot;Non Elective Inpatient Encounter&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> NonElectiveEncounter</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="64" locator="61:2-61:56" xsi:type="Query">
+            <source localId="63" locator="61:2-61:56" alias="NonElectiveEncounter">
+               <expression localId="62" locator="61:2-61:35" name="Non Elective Inpatient Encounter" xsi:type="ExpressionRef"/>
+            </source>
+         </expression>
+      </def>
+      <def localId="78" locator="55:1-58:64" name="Encounter with Principal Diagnosis and Age" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="78">
+               <a:s>define &quot;Encounter with Principal Diagnosis and Age&quot;:&#xd;
+	</a:s>
+               <a:s r="77">
+                  <a:s>
+                     <a:s r="67">
+                        <a:s r="66">
+                           <a:s>
+                              <a:s>&quot;All Stroke Encounter&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> AllStrokeEncounter</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+		</a:s>
+                  <a:s r="76">
+                     <a:s>with </a:s>
+                     <a:s r="69">
+                        <a:s r="68">
+                           <a:s r="68">
+                              <a:s>[&quot;Patient&quot;]</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> BirthDate</a:s>
+                     </a:s>
+                     <a:s>&#xd;
+			such that </a:s>
+                     <a:s r="75">
+                        <a:s r="73">
+                           <a:s>AgeInYearsAt(</a:s>
+                           <a:s r="72">
+                              <a:s r="71">
+                                 <a:s r="70">
+                                    <a:s>AllStrokeEncounter</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="71">
+                                    <a:s>period</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="72">
+                                 <a:s>start</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>)</a:s>
+                        </a:s>
+                        <a:s r="74"> >= 18</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="77" locator="56:2-58:64" xsi:type="Query">
+            <source localId="67" locator="56:2-56:42" alias="AllStrokeEncounter">
+               <expression localId="66" locator="56:2-56:23" name="All Stroke Encounter" xsi:type="ExpressionRef"/>
+            </source>
+            <relationship localId="76" locator="57:3-58:64" alias="BirthDate" xsi:type="With">
+               <expression localId="68" locator="57:8-57:18" dataType="fhir:Patient" xsi:type="Retrieve"/>
+               <suchThat localId="75" locator="58:14-58:64" xsi:type="GreaterOrEqual">
+                  <operand localId="73" locator="58:14-58:58" precision="Year" xsi:type="CalculateAgeAt">
+                     <operand xsi:type="ToDateTime">
+                        <operand path="birthDate.value" xsi:type="Property">
+                           <source name="Patient" xsi:type="ExpressionRef"/>
+                        </operand>
+                     </operand>
+                     <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand localId="72" locator="58:27-58:57" path="start" xsi:type="Property">
+                           <source localId="71" locator="58:27-58:51" path="period" scope="AllStrokeEncounter" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                  </operand>
+                  <operand localId="74" locator="58:63-58:64" valueType="t:Integer" value="18" xsi:type="Literal"/>
+               </suchThat>
+            </relationship>
+         </expression>
+      </def>
+      <def localId="80" locator="52:1-53:45" name="Initial Population" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="80">
+               <a:s>define &quot;Initial Population&quot;:&#xd;
+	</a:s>
+               <a:s r="79">
+                  <a:s>&quot;Encounter with Principal Diagnosis and Age&quot;</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="79" locator="53:2-53:45" name="Encounter with Principal Diagnosis and Age" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="83" locator="85:1-86:32" name="Denominator" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="83">
+               <a:s>define &quot;Denominator&quot;:&#xd;
+	</a:s>
+               <a:s r="82">
+                  <a:s r="81">
+                     <a:s>TJC</a:s>
+                  </a:s>
+                  <a:s>.</a:s>
+                  <a:s r="82">
+                     <a:s>&quot;Ischemic Stroke Encounter&quot;</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="82" locator="86:2-86:32" name="Ischemic Stroke Encounter" libraryName="TJC" xsi:type="ExpressionRef"/>
+      </def>
+      <def localId="85" locator="89:1-90:42" name="Statin Allergy" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="85">
+               <a:s>define &quot;Statin Allergy&quot;:&#xd;
+	</a:s>
+               <a:s r="84">
+                  <a:s>[&quot;AllergyIntolerance&quot;: </a:s>
+                  <a:s>
+                     <a:s>&quot;Statin Allergen&quot;</a:s>
+                  </a:s>
+                  <a:s>]</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="84" locator="90:2-90:42" dataType="fhir:AllergyIntolerance" codeProperty="code" xsi:type="Retrieve">
+            <codes locator="90:25-90:41" name="Statin Allergen" xsi:type="ValueSetRef"/>
+         </expression>
+      </def>
+      <def localId="89" locator="97:1-98:62" name="Ischemic Stroke Encounter" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="89">
+               <a:s>define &quot;Ischemic Stroke Encounter&quot;:&#xd;
+	</a:s>
+               <a:s r="88">
+                  <a:s>
+                     <a:s r="87">
+                        <a:s r="86">
+                           <a:s>
+                              <a:s>&quot;Encounter with Principal Diagnosis and Age&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> EncounterWithAge</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="88" locator="98:2-98:62" xsi:type="Query">
+            <source localId="87" locator="98:2-98:62" alias="EncounterWithAge">
+               <expression localId="86" locator="98:2-98:45" name="Encounter with Principal Diagnosis and Age" xsi:type="ExpressionRef"/>
+            </source>
+         </expression>
+      </def>
+      <def localId="106" locator="102:1-105:30" name="Statin at Discharge" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="106">
+               <a:s>define &quot;Statin at Discharge&quot;:&#xd;
+	</a:s>
+               <a:s r="105">
+                  <a:s>
+                     <a:s r="93">
+                        <a:s r="92">
+                           <a:s r="92">
+                              <a:s>[&quot;MedicationRequest&quot;]</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> Statin</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+		</a:s>
+                  <a:s r="104">
+                     <a:s>where </a:s>
+                     <a:s r="104">
+                        <a:s r="99">
+                           <a:s r="97">
+                              <a:s>(</a:s>
+                              <a:s r="97">
+                                 <a:s r="95">
+                                    <a:s r="94">
+                                       <a:s>Statin</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="95">
+                                       <a:s>medication</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> as </a:s>
+                                 <a:s r="96">
+                                    <a:s>CodeableConcept</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>)</a:s>
+                           </a:s>
+                           <a:s> in </a:s>
+                           <a:s r="98">
+                              <a:s>&quot;Statin Grouper&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>&#xd;
+			and </a:s>
+                        <a:s r="103">
+                           <a:s r="101">
+                              <a:s r="100">
+                                 <a:s>Statin</a:s>
+                              </a:s>
+                              <a:s>.</a:s>
+                              <a:s r="101">
+                                 <a:s>intent</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> = </a:s>
+                           <a:s r="102">
+                              <a:s>'order'</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="105" locator="103:2-105:30" xsi:type="Query">
+            <source localId="93" locator="103:2-103:29" alias="Statin">
+               <expression localId="92" locator="103:2-103:22" dataType="fhir:MedicationRequest" xsi:type="Retrieve"/>
+            </source>
+            <where localId="104" locator="104:3-105:30" xsi:type="And">
+               <operand localId="99" locator="104:9-104:66" xsi:type="InValueSet">
+                  <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand localId="97" locator="104:9-104:46" strict="false" xsi:type="As">
+                        <operand localId="95" locator="104:10-104:26" path="medication" scope="Statin" xsi:type="Property"/>
+                        <asTypeSpecifier localId="96" locator="104:31-104:45" name="fhir:CodeableConcept" xsi:type="NamedTypeSpecifier"/>
+                     </operand>
+                  </code>
+                  <valueset localId="98" locator="104:51-104:66" name="Statin Grouper"/>
+               </operand>
+               <operand localId="103" locator="105:8-105:30" xsi:type="Equal">
+                  <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand localId="101" locator="105:8-105:20" path="intent" scope="Statin" xsi:type="Property"/>
+                  </operand>
+                  <operand localId="102" locator="105:24-105:30" valueType="t:String" value="order" xsi:type="Literal"/>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="116" locator="92:1-95:77" name="Numerator" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="116">
+               <a:s>define &quot;Numerator&quot;:&#xd;
+	</a:s>
+               <a:s r="115">
+                  <a:s>
+                     <a:s r="91">
+                        <a:s r="90">
+                           <a:s>
+                              <a:s>&quot;Ischemic Stroke Encounter&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> IschemicStrokeEncounter</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+		</a:s>
+                  <a:s r="114">
+                     <a:s>with </a:s>
+                     <a:s r="108">
+                        <a:s r="107">
+                           <a:s>
+                              <a:s>&quot;Statin at Discharge&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> DischargeStatin</a:s>
+                     </a:s>
+                     <a:s>&#xd;
+			such that </a:s>
+                     <a:s r="113">
+                        <a:s r="110">
+                           <a:s r="109">
+                              <a:s>DischargeStatin</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="110">
+                              <a:s>authoredOn</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s r="113"> during </a:s>
+                        <a:s r="112">
+                           <a:s r="111">
+                              <a:s>IschemicStrokeEncounter</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="112">
+                              <a:s>period</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="115" locator="93:2-95:77" xsi:type="Query">
+            <source localId="91" locator="93:2-93:52" alias="IschemicStrokeEncounter">
+               <expression localId="90" locator="93:2-93:28" name="Ischemic Stroke Encounter" xsi:type="ExpressionRef"/>
+            </source>
+            <relationship localId="114" locator="94:3-95:77" alias="DischargeStatin" xsi:type="With">
+               <expression localId="107" locator="94:8-94:28" name="Statin at Discharge" xsi:type="ExpressionRef"/>
+               <suchThat localId="113" locator="95:14-95:77" xsi:type="In">
+                  <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand localId="110" locator="95:14-95:39" path="authoredOn" scope="DischargeStatin" xsi:type="Property"/>
+                  </operand>
+                  <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand localId="112" locator="95:48-95:77" path="period" scope="IschemicStrokeEncounter" xsi:type="Property"/>
+                  </operand>
+               </suchThat>
+            </relationship>
+         </expression>
+      </def>
+      <def localId="138" locator="108:1-112:63" name="Statin Not Given at Discharge" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="138">
+               <a:s>define &quot;Statin Not Given at Discharge&quot;:&#xd;
+	</a:s>
+               <a:s r="137">
+                  <a:s>
+                     <a:s r="118">
+                        <a:s r="117">
+                           <a:s r="117">
+                              <a:s>[&quot;MedicationRequest&quot;]</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> NoStatin</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+		</a:s>
+                  <a:s r="136">
+                     <a:s>where </a:s>
+                     <a:s r="136">
+                        <a:s r="124">
+                           <a:s r="122">
+                              <a:s>(</a:s>
+                              <a:s r="122">
+                                 <a:s r="120">
+                                    <a:s r="119">
+                                       <a:s>NoStatin</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="120">
+                                       <a:s>medication</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> as </a:s>
+                                 <a:s r="121">
+                                    <a:s>CodeableConcept</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>)</a:s>
+                           </a:s>
+                           <a:s> in </a:s>
+                           <a:s r="123">
+                              <a:s>&quot;Statin Grouper&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>&#xd;
+			and </a:s>
+                        <a:s r="135">
+                           <a:s>(</a:s>
+                           <a:s r="135">
+                              <a:s r="129">
+                                 <a:s r="127">
+                                    <a:s>singleton from </a:s>
+                                    <a:s r="126">
+                                       <a:s r="125">
+                                          <a:s>NoStatin</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="126">
+                                          <a:s>reasonCode</a:s>
+                                       </a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> in </a:s>
+                                 <a:s r="128">
+                                    <a:s>&quot;Medical Reason&quot;</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>&#xd;
+				or </a:s>
+                              <a:s r="134">
+                                 <a:s r="132">
+                                    <a:s>singleton from </a:s>
+                                    <a:s r="131">
+                                       <a:s r="130">
+                                          <a:s>NoStatin</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="131">
+                                          <a:s>reasonCode</a:s>
+                                       </a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> in </a:s>
+                                 <a:s r="133">
+                                    <a:s>&quot;Patient Refusal&quot;</a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>)</a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="137" locator="109:2-112:63" xsi:type="Query">
+            <source localId="118" locator="109:2-109:31" alias="NoStatin">
+               <expression localId="117" locator="109:2-109:22" dataType="fhir:MedicationRequest" xsi:type="Retrieve"/>
+            </source>
+            <where localId="136" locator="110:3-112:63" xsi:type="And">
+               <operand localId="124" locator="110:9-110:68" xsi:type="InValueSet">
+                  <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand localId="122" locator="110:9-110:48" strict="false" xsi:type="As">
+                        <operand localId="120" locator="110:10-110:28" path="medication" scope="NoStatin" xsi:type="Property"/>
+                        <asTypeSpecifier localId="121" locator="110:33-110:47" name="fhir:CodeableConcept" xsi:type="NamedTypeSpecifier"/>
+                     </operand>
+                  </code>
+                  <valueset localId="123" locator="110:53-110:68" name="Statin Grouper"/>
+               </operand>
+               <operand localId="135" locator="111:8-112:63" xsi:type="Or">
+                  <operand localId="129" locator="111:9-111:62" xsi:type="InValueSet">
+                     <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand localId="127" locator="111:9-111:42" xsi:type="SingletonFrom">
+                           <operand localId="126" locator="111:24-111:42" path="reasonCode" scope="NoStatin" xsi:type="Property"/>
+                        </operand>
+                     </code>
+                     <valueset localId="128" locator="111:47-111:62" name="Medical Reason"/>
+                  </operand>
+                  <operand localId="134" locator="112:8-112:62" xsi:type="InValueSet">
+                     <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand localId="132" locator="112:8-112:41" xsi:type="SingletonFrom">
+                           <operand localId="131" locator="112:23-112:41" path="reasonCode" scope="NoStatin" xsi:type="Property"/>
+                        </operand>
+                     </code>
+                     <valueset localId="133" locator="112:46-112:62" name="Patient Refusal"/>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="165" locator="120:1-125:8" name="Encounter with Max LDL less than 70 mg per dL" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="165">
+               <a:s>define &quot;Encounter with Max LDL less than 70 mg per dL&quot;:&#xd;
+	</a:s>
+               <a:s r="164">
+                  <a:s>
+                     <a:s r="140">
+                        <a:s r="139">
+                           <a:s>
+                              <a:s>&quot;Ischemic Stroke Encounter&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> IschemicStrokeEncounter</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+		</a:s>
+                  <a:s r="163">
+                     <a:s>where </a:s>
+                     <a:s r="163">
+                        <a:s r="161">
+                           <a:s>Max(</a:s>
+                           <a:s r="160">
+                              <a:s>
+                                 <a:s r="142">
+                                    <a:s r="141">
+                                       <a:s r="141">
+                                          <a:s>[&quot;Observation&quot;: </a:s>
+                                          <a:s>
+                                             <a:s>&quot;LDL-c&quot;</a:s>
+                                          </a:s>
+                                          <a:s>]</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s> Ldl</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>&#xd;
+				</a:s>
+                              <a:s r="154">
+                                 <a:s>where </a:s>
+                                 <a:s r="154">
+                                    <a:s r="144">
+                                       <a:s r="143">
+                                          <a:s>Ldl</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="144">
+                                          <a:s>issued</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s r="154"> during </a:s>
+                                    <a:s r="153">
+                                       <a:s>Interval[</a:s>
+                                       <a:s r="149">
+                                          <a:s r="147">
+                                             <a:s r="146">
+                                                <a:s r="145">
+                                                   <a:s>IschemicStrokeEncounter</a:s>
+                                                </a:s>
+                                                <a:s>.</a:s>
+                                                <a:s r="146">
+                                                   <a:s>period</a:s>
+                                                </a:s>
+                                             </a:s>
+                                             <a:s>.</a:s>
+                                             <a:s r="147">
+                                                <a:s>start</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s> - </a:s>
+                                          <a:s r="148">
+                                             <a:s>30 days</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>,</a:s>
+                                       <a:s r="152">
+                                          <a:s r="151">
+                                             <a:s r="150">
+                                                <a:s>IschemicStrokeEncounter</a:s>
+                                             </a:s>
+                                             <a:s>.</a:s>
+                                             <a:s r="151">
+                                                <a:s>period</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="152">
+                                             <a:s>end</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>]</a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>&#xd;
+				</a:s>
+                              <a:s r="159">
+                                 <a:s>return </a:s>
+                                 <a:s r="158">
+                                    <a:s>(</a:s>
+                                    <a:s r="158">
+                                       <a:s r="156">
+                                          <a:s r="155">
+                                             <a:s>Ldl</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="156">
+                                             <a:s>value</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s> as </a:s>
+                                       <a:s r="157">
+                                          <a:s>Quantity</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>)</a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>&#xd;
+		)</a:s>
+                        </a:s>
+                        <a:s r="162"> &lt; 70</a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="164" locator="121:2-125:8" xsi:type="Query">
+            <source localId="140" locator="121:2-121:52" alias="IschemicStrokeEncounter">
+               <expression localId="139" locator="121:2-121:28" name="Ischemic Stroke Encounter" xsi:type="ExpressionRef"/>
+            </source>
+            <where localId="163" locator="122:3-125:8" xsi:type="Less">
+               <operand localId="161" locator="122:9-125:3" xsi:type="Max">
+                  <source xsi:type="Query">
+                     <source alias="X">
+                        <expression localId="160" locator="122:13-124:34" xsi:type="Query">
+                           <source localId="142" locator="122:13-122:40" alias="Ldl">
+                              <expression localId="141" locator="122:13-122:36" dataType="fhir:Observation" codeProperty="code" xsi:type="Retrieve">
+                                 <codes locator="122:29-122:35" name="LDL-c" xsi:type="ValueSetRef"/>
+                              </expression>
+                           </source>
+                           <where localId="154" locator="123:5-123:119" xsi:type="In">
+                              <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand localId="144" locator="123:11-123:20" path="issued" scope="Ldl" xsi:type="Property"/>
+                              </operand>
+                              <operand localId="153" locator="123:29-123:119" lowClosed="true" highClosed="true" xsi:type="Interval">
+                                 <low localId="149" locator="123:38-123:83" xsi:type="Subtract">
+                                    <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                       <operand localId="147" locator="123:38-123:73" path="start" xsi:type="Property">
+                                          <source localId="146" locator="123:38-123:67" path="period" scope="IschemicStrokeEncounter" xsi:type="Property"/>
+                                       </operand>
+                                    </operand>
+                                    <operand localId="148" locator="123:77-123:83" value="30" unit="days" xsi:type="Quantity"/>
+                                 </low>
+                                 <high name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                    <operand localId="152" locator="123:85-123:118" path="end" xsi:type="Property">
+                                       <source localId="151" locator="123:85-123:114" path="period" scope="IschemicStrokeEncounter" xsi:type="Property"/>
+                                    </operand>
+                                 </high>
+                              </operand>
+                           </where>
+                           <return localId="159" locator="124:5-124:34">
+                              <expression localId="158" locator="124:12-124:34" strict="false" xsi:type="As">
+                                 <operand localId="156" locator="124:13-124:21" path="value" scope="Ldl" xsi:type="Property"/>
+                                 <asTypeSpecifier localId="157" locator="124:26-124:33" name="fhir:Quantity" xsi:type="NamedTypeSpecifier"/>
+                              </expression>
+                           </return>
+                        </expression>
+                     </source>
+                     <return distinct="false">
+                        <expression name="ToQuantity" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand name="X" xsi:type="AliasRef"/>
+                        </expression>
+                     </return>
+                  </source>
+               </operand>
+               <operand xsi:type="ToQuantity">
+                  <operand localId="162" locator="125:7-125:8" valueType="t:Integer" value="70" xsi:type="Literal"/>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="181" locator="127:1-133:55" name="Denominator Exception" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="181">
+               <a:s>define &quot;Denominator Exception&quot;:&#xd;
+	</a:s>
+               <a:s r="180">
+                  <a:s r="176">
+                     <a:s>(</a:s>
+                     <a:s r="176">
+                        <a:s>
+                           <a:s r="167">
+                              <a:s r="166">
+                                 <a:s>
+                                    <a:s>&quot;Ischemic Stroke Encounter&quot;</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> IschemicStrokeEncounter</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>&#xd;
+		</a:s>
+                        <a:s r="175">
+                           <a:s>with </a:s>
+                           <a:s r="169">
+                              <a:s r="168">
+                                 <a:s>
+                                    <a:s>&quot;Statin Not Given at Discharge&quot;</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> NoDischargeStatin</a:s>
+                           </a:s>
+                           <a:s>&#xd;
+			such that </a:s>
+                           <a:s r="174">
+                              <a:s r="171">
+                                 <a:s r="170">
+                                    <a:s>NoDischargeStatin</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="171">
+                                    <a:s>authoredOn</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s r="174"> during </a:s>
+                              <a:s r="173">
+                                 <a:s r="172">
+                                    <a:s>IschemicStrokeEncounter</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="173">
+                                    <a:s>period</a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>&#xd;
+	)</a:s>
+                  </a:s>
+                  <a:s>&#xd;
+	union&#xd;
+	</a:s>
+                  <a:s r="179">
+                     <a:s>(</a:s>
+                     <a:s r="179">
+                        <a:s>
+                           <a:s r="178">
+                              <a:s r="177">
+                                 <a:s>
+                                    <a:s>&quot;Ischemic Stroke Encounter&quot;</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> IschemicStrokeEncounter</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s> )</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="180" locator="128:2-133:55" xsi:type="Union">
+            <operand localId="176" locator="128:2-131:2" xsi:type="Query">
+               <source localId="167" locator="128:3-128:53" alias="IschemicStrokeEncounter">
+                  <expression localId="166" locator="128:3-128:29" name="Ischemic Stroke Encounter" xsi:type="ExpressionRef"/>
+               </source>
+               <relationship localId="175" locator="129:3-130:79" alias="NoDischargeStatin" xsi:type="With">
+                  <expression localId="168" locator="129:8-129:38" name="Statin Not Given at Discharge" xsi:type="ExpressionRef"/>
+                  <suchThat localId="174" locator="130:14-130:79" xsi:type="In">
+                     <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand localId="171" locator="130:14-130:41" path="authoredOn" scope="NoDischargeStatin" xsi:type="Property"/>
+                     </operand>
+                     <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand localId="173" locator="130:50-130:79" path="period" scope="IschemicStrokeEncounter" xsi:type="Property"/>
+                     </operand>
+                  </suchThat>
+               </relationship>
+            </operand>
+            <operand localId="179" locator="133:2-133:55" xsi:type="Query">
+               <source localId="178" locator="133:3-133:53" alias="IschemicStrokeEncounter">
+                  <expression localId="177" locator="133:3-133:29" name="Ischemic Stroke Encounter" xsi:type="ExpressionRef"/>
+               </source>
+            </operand>
+         </expression>
+      </def>
+      <def localId="214" locator="142:1-149:2" name="Ischemic Stroke Encounters with Discharge Status" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="214">
+               <a:s>define &quot;Ischemic Stroke Encounters with Discharge Status&quot;:&#xd;
+	</a:s>
+               <a:s r="213">
+                  <a:s>(</a:s>
+                  <a:s r="213">
+                     <a:s>
+                        <a:s r="183">
+                           <a:s r="182">
+                              <a:s>
+                                 <a:s>&quot;Ischemic Stroke Encounter&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s> IschemicStrokeEncounter</a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>&#xd;
+		</a:s>
+                     <a:s r="212">
+                        <a:s>where </a:s>
+                        <a:s r="212">
+                           <a:s r="206">
+                              <a:s r="200">
+                                 <a:s r="194">
+                                    <a:s r="188">
+                                       <a:s r="186">
+                                          <a:s r="185">
+                                             <a:s r="184">
+                                                <a:s>IschemicStrokeEncounter</a:s>
+                                             </a:s>
+                                             <a:s>.</a:s>
+                                             <a:s r="185">
+                                                <a:s>hospitalization</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="186">
+                                             <a:s>dischargeDisposition</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s> in </a:s>
+                                       <a:s r="187">
+                                          <a:s>&quot;Discharge To Acute Care Facility&quot;</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>&#xd;
+			or </a:s>
+                                    <a:s r="193">
+                                       <a:s r="191">
+                                          <a:s r="190">
+                                             <a:s r="189">
+                                                <a:s>IschemicStrokeEncounter</a:s>
+                                             </a:s>
+                                             <a:s>.</a:s>
+                                             <a:s r="190">
+                                                <a:s>hospitalization</a:s>
+                                             </a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="191">
+                                             <a:s>dischargeDisposition</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s> in </a:s>
+                                       <a:s r="192">
+                                          <a:s>&quot;Left Against Medical Advice&quot;</a:s>
+                                       </a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>&#xd;
+			or </a:s>
+                                 <a:s r="199">
+                                    <a:s r="197">
+                                       <a:s r="196">
+                                          <a:s r="195">
+                                             <a:s>IschemicStrokeEncounter</a:s>
+                                          </a:s>
+                                          <a:s>.</a:s>
+                                          <a:s r="196">
+                                             <a:s>hospitalization</a:s>
+                                          </a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="197">
+                                          <a:s>dischargeDisposition</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s> in </a:s>
+                                    <a:s r="198">
+                                       <a:s>&quot;Patient Expired&quot;</a:s>
+                                    </a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s>&#xd;
+			or </a:s>
+                              <a:s r="205">
+                                 <a:s r="203">
+                                    <a:s r="202">
+                                       <a:s r="201">
+                                          <a:s>IschemicStrokeEncounter</a:s>
+                                       </a:s>
+                                       <a:s>.</a:s>
+                                       <a:s r="202">
+                                          <a:s>hospitalization</a:s>
+                                       </a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="203">
+                                       <a:s>dischargeDisposition</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s> in </a:s>
+                                 <a:s r="204">
+                                    <a:s>&quot;Discharged to Home for Hospice Care&quot;</a:s>
+                                 </a:s>
+                              </a:s>
+                           </a:s>
+                           <a:s>&#xd;
+			or </a:s>
+                           <a:s r="211">
+                              <a:s r="209">
+                                 <a:s r="208">
+                                    <a:s r="207">
+                                       <a:s>IschemicStrokeEncounter</a:s>
+                                    </a:s>
+                                    <a:s>.</a:s>
+                                    <a:s r="208">
+                                       <a:s>hospitalization</a:s>
+                                    </a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="209">
+                                    <a:s>dischargeDisposition</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> in </a:s>
+                              <a:s r="210">
+                                 <a:s>&quot;Discharged to Health Care Facility for Hospice Care&quot;</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+	)</a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="213" locator="143:2-149:2" xsi:type="Query">
+            <source localId="183" locator="143:3-143:53" alias="IschemicStrokeEncounter">
+               <expression localId="182" locator="143:3-143:29" name="Ischemic Stroke Encounter" xsi:type="ExpressionRef"/>
+            </source>
+            <where localId="212" locator="144:3-148:123" xsi:type="Or">
+               <operand localId="206" locator="144:9-147:107" xsi:type="Or">
+                  <operand localId="200" locator="144:9-146:87" xsi:type="Or">
+                     <operand localId="194" locator="144:9-145:99" xsi:type="Or">
+                        <operand localId="188" locator="144:9-144:106" xsi:type="InValueSet">
+                           <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand localId="186" locator="144:9-144:68" path="dischargeDisposition" xsi:type="Property">
+                                 <source localId="185" locator="144:9-144:47" path="hospitalization" scope="IschemicStrokeEncounter" xsi:type="Property"/>
+                              </operand>
+                           </code>
+                           <valueset localId="187" locator="144:73-144:106" name="Discharge To Acute Care Facility"/>
+                        </operand>
+                        <operand localId="193" locator="145:7-145:99" xsi:type="InValueSet">
+                           <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand localId="191" locator="145:7-145:66" path="dischargeDisposition" xsi:type="Property">
+                                 <source localId="190" locator="145:7-145:45" path="hospitalization" scope="IschemicStrokeEncounter" xsi:type="Property"/>
+                              </operand>
+                           </code>
+                           <valueset localId="192" locator="145:71-145:99" name="Left Against Medical Advice"/>
+                        </operand>
+                     </operand>
+                     <operand localId="199" locator="146:7-146:87" xsi:type="InValueSet">
+                        <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand localId="197" locator="146:7-146:66" path="dischargeDisposition" xsi:type="Property">
+                              <source localId="196" locator="146:7-146:45" path="hospitalization" scope="IschemicStrokeEncounter" xsi:type="Property"/>
+                           </operand>
+                        </code>
+                        <valueset localId="198" locator="146:71-146:87" name="Patient Expired"/>
+                     </operand>
+                  </operand>
+                  <operand localId="205" locator="147:7-147:107" xsi:type="InValueSet">
+                     <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand localId="203" locator="147:7-147:66" path="dischargeDisposition" xsi:type="Property">
+                           <source localId="202" locator="147:7-147:45" path="hospitalization" scope="IschemicStrokeEncounter" xsi:type="Property"/>
+                        </operand>
+                     </code>
+                     <valueset localId="204" locator="147:71-147:107" name="Discharged to Home for Hospice Care"/>
+                  </operand>
+               </operand>
+               <operand localId="211" locator="148:7-148:123" xsi:type="InValueSet">
+                  <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand localId="209" locator="148:7-148:66" path="dischargeDisposition" xsi:type="Property">
+                        <source localId="208" locator="148:7-148:45" path="hospitalization" scope="IschemicStrokeEncounter" xsi:type="Property"/>
+                     </operand>
+                  </code>
+                  <valueset localId="210" locator="148:71-148:123" name="Discharged to Health Care Facility for Hospice Care"/>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def localId="233" locator="165:1-170:50" name="Intervention Comfort Measures" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="233">
+               <a:s>define &quot;Intervention Comfort Measures&quot;:&#xd;
+	</a:s>
+               <a:s r="232">
+                  <a:s r="224">
+                     <a:s>(</a:s>
+                     <a:s r="224">
+                        <a:s>
+                           <a:s r="219">
+                              <a:s r="218">
+                                 <a:s r="218">
+                                    <a:s>[&quot;ProcedureRequest&quot;: </a:s>
+                                    <a:s>
+                                       <a:s>&quot;Comfort Measures&quot;</a:s>
+                                    </a:s>
+                                    <a:s>]</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> P</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>&#xd;
+		</a:s>
+                        <a:s r="223">
+                           <a:s>where </a:s>
+                           <a:s r="223">
+                              <a:s r="221">
+                                 <a:s r="220">
+                                    <a:s>P</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="221">
+                                    <a:s>intent</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> = </a:s>
+                              <a:s r="222">
+                                 <a:s>'order'</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>)</a:s>
+                  </a:s>
+                  <a:s>&#xd;
+		union&#xd;
+		</a:s>
+                  <a:s r="231">
+                     <a:s>(</a:s>
+                     <a:s r="231">
+                        <a:s>
+                           <a:s r="226">
+                              <a:s r="225">
+                                 <a:s r="225">
+                                    <a:s>[&quot;Procedure&quot;: </a:s>
+                                    <a:s>
+                                       <a:s>&quot;Comfort Measures&quot;</a:s>
+                                    </a:s>
+                                    <a:s>]</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> IntervetionPerformed</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s>&#xd;
+		</a:s>
+                        <a:s r="230">
+                           <a:s>where </a:s>
+                           <a:s r="230">
+                              <a:s r="228">
+                                 <a:s r="227">
+                                    <a:s>IntervetionPerformed</a:s>
+                                 </a:s>
+                                 <a:s>.</a:s>
+                                 <a:s r="228">
+                                    <a:s>status</a:s>
+                                 </a:s>
+                              </a:s>
+                              <a:s> = </a:s>
+                              <a:s r="229">
+                                 <a:s>'completed'</a:s>
+                              </a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                     <a:s>)</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="232" locator="166:2-170:50" xsi:type="Union">
+            <operand xsi:type="As">
+               <operand localId="224" locator="166:2-167:27" xsi:type="Query">
+                  <source localId="219" locator="166:3-166:44" alias="P">
+                     <expression localId="218" locator="166:3-166:42" dataType="fhir:ProcedureRequest" codeProperty="code" xsi:type="Retrieve">
+                        <codes locator="166:24-166:41" name="Comfort Measures" xsi:type="ValueSetRef"/>
+                     </expression>
+                  </source>
+                  <where localId="223" locator="167:3-167:26" xsi:type="Equal">
+                     <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand localId="221" locator="167:9-167:16" path="intent" scope="P" xsi:type="Property"/>
+                     </operand>
+                     <operand localId="222" locator="167:20-167:26" valueType="t:String" value="order" xsi:type="Literal"/>
+                  </where>
+               </operand>
+               <asTypeSpecifier xsi:type="ListTypeSpecifier">
+                  <elementType xsi:type="ChoiceTypeSpecifier">
+                     <choice name="fhir:Procedure" xsi:type="NamedTypeSpecifier"/>
+                     <choice name="fhir:ProcedureRequest" xsi:type="NamedTypeSpecifier"/>
+                  </elementType>
+               </asTypeSpecifier>
+            </operand>
+            <operand xsi:type="As">
+               <operand localId="231" locator="169:3-170:50" xsi:type="Query">
+                  <source localId="226" locator="169:4-169:57" alias="IntervetionPerformed">
+                     <expression localId="225" locator="169:4-169:36" dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                        <codes locator="169:18-169:35" name="Comfort Measures" xsi:type="ValueSetRef"/>
+                     </expression>
+                  </source>
+                  <where localId="230" locator="170:3-170:49" xsi:type="Equal">
+                     <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand localId="228" locator="170:9-170:35" path="status" scope="IntervetionPerformed" xsi:type="Property"/>
+                     </operand>
+                     <operand localId="229" locator="170:39-170:49" valueType="t:String" value="completed" xsi:type="Literal"/>
+                  </where>
+               </operand>
+               <asTypeSpecifier xsi:type="ListTypeSpecifier">
+                  <elementType xsi:type="ChoiceTypeSpecifier">
+                     <choice name="fhir:Procedure" xsi:type="NamedTypeSpecifier"/>
+                     <choice name="fhir:ProcedureRequest" xsi:type="NamedTypeSpecifier"/>
+                  </elementType>
+               </asTypeSpecifier>
+            </operand>
+         </expression>
+      </def>
+      <def localId="244" locator="152:1-155:95" name="Comfort Measures during Hospitalization" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="244">
+               <a:s>define &quot;Comfort Measures during Hospitalization&quot;:&#xd;
+	</a:s>
+               <a:s r="243">
+                  <a:s>
+                     <a:s r="217">
+                        <a:s r="216">
+                           <a:s>
+                              <a:s>&quot;Ischemic Stroke Encounter&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> IschemicStrokeEncounter</a:s>
+                     </a:s>
+                  </a:s>
+                  <a:s>&#xd;
+		</a:s>
+                  <a:s r="242">
+                     <a:s>with </a:s>
+                     <a:s r="235">
+                        <a:s r="234">
+                           <a:s>
+                              <a:s>&quot;Intervention Comfort Measures&quot;</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s> ComfortMeasure</a:s>
+                     </a:s>
+                     <a:s>&#xd;
+			such that </a:s>
+                     <a:s r="241">
+                        <a:s r="237">
+                           <a:s r="236">
+                              <a:s>ComfortMeasure</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="237">
+                              <a:s>authoredOn</a:s>
+                           </a:s>
+                        </a:s>
+                        <a:s r="241"> during </a:s>
+                        <a:s r="240">
+                           <a:s r="238">
+                              <a:s>Global</a:s>
+                           </a:s>
+                           <a:s>.</a:s>
+                           <a:s r="240">
+                              <a:s>&quot;Hospitalization&quot;(</a:s>
+                              <a:s r="239">
+                                 <a:s>IschemicStrokeEncounter</a:s>
+                              </a:s>
+                              <a:s>)</a:s>
+                           </a:s>
+                        </a:s>
+                     </a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="243" locator="153:2-155:95" xsi:type="Query">
+            <source localId="217" locator="153:2-153:52" alias="IschemicStrokeEncounter">
+               <expression localId="216" locator="153:2-153:28" name="Ischemic Stroke Encounter" xsi:type="ExpressionRef"/>
+            </source>
+            <relationship localId="242" locator="154:3-155:95" alias="ComfortMeasure" xsi:type="With">
+               <expression localId="234" locator="154:8-154:38" name="Intervention Comfort Measures" xsi:type="ExpressionRef"/>
+               <suchThat localId="241" locator="155:14-155:95" xsi:type="In">
+                  <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand localId="237" locator="155:14-155:38" path="authoredOn" scope="ComfortMeasure" xsi:type="Property"/>
+                  </operand>
+                  <operand localId="240" locator="155:47-155:95" name="Hospitalization" libraryName="Global" xsi:type="FunctionRef">
+                     <operand localId="239" locator="155:72-155:94" name="IschemicStrokeEncounter" xsi:type="AliasRef"/>
+                  </operand>
+               </suchThat>
+            </relationship>
+         </expression>
+      </def>
+      <def localId="247" locator="137:1-140:42" name="Denominator Exclusion" context="Patient" accessLevel="Public">
+         <annotation xsi:type="a:Annotation">
+            <a:s r="247">
+               <a:s>define &quot;Denominator Exclusion&quot;:&#xd;
+	</a:s>
+               <a:s r="246">
+                  <a:s r="215">
+                     <a:s>&quot;Ischemic Stroke Encounters with Discharge Status&quot;</a:s>
+                  </a:s>
+                  <a:s>&#xd;
+	union&#xd;
+	</a:s>
+                  <a:s r="245">
+                     <a:s>&quot;Comfort Measures during Hospitalization&quot;</a:s>
+                  </a:s>
+               </a:s>
+            </a:s>
+         </annotation>
+         <expression localId="246" locator="138:2-140:42" xsi:type="Union">
+            <operand localId="215" locator="138:2-138:51" name="Ischemic Stroke Encounters with Discharge Status" xsi:type="ExpressionRef"/>
+            <operand localId="245" locator="140:2-140:42" name="Comfort Measures during Hospitalization" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+   </statements>
+</library>

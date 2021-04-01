@@ -1,0 +1,28 @@
+{
+  "resourceType": "Library",
+  "id": "library-VTEICU-FHIR3-3.1.000",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><table class=\"grid dict\"><tr><th scope=\"row\"><b>Id: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">library-VTEICU-FHIR3-3.1.000</td></tr><tr><th scope=\"row\"><b>Type: </b></th><td style=\"padding-right: 25px;\"> Logic Library </td></tr><tr><th scope=\"row\"><b>Version: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">3.1.000</td></tr><tr><th scope=\"row\"><b>Status: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\">active</td></tr><tr style=\"vertical-align: top;\"><th rowspan=\"2\" scope=\"row\"><b>Related: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>depends-on</span></p><p style=\"margin-bottom: 5px;\"><b>Resource: </b><br/><span><span style=\"padding-left: 25px;\"><b>reference: </b><span>Library/library-FHIRHelpers-3.0.0</span></span></span></p></td></tr><tr style=\"vertical-align: top;\"><td style=\"padding-left: 25px; padding-right: 25px;\"><p style=\"margin-bottom: 5px;\"><b>type: </b><span>depends-on</span></p><p style=\"margin-bottom: 5px;\"><b>Resource: </b><br/><span><span style=\"padding-left: 25px;\"><b>reference: </b><span>Library/library-MATGlobalCommonFunctions-FHIR3-4.0.000</span></span></span></p></td></tr><tr style=\"vertical-align: top;\"><th scope=\"row\"><b>Content: </b></th><td style=\"padding-left: 25px; padding-right: 25px;\"><b>type: </b><span>text/cql</span></td></tr><tr><td colspan=\"2\" style=\"padding-left: 25px; padding-right: 25px;\"><pre><code class=\"language-cql\">library VTEICU_FHIR3 version '3.1.000'\n\nusing FHIR version '3.0.0'\n\ninclude FHIRHelpers version '3.0.0' called FHIRHelpers\ninclude MATGlobalCommonFunctions_FHIR3 version '4.0.000' called Global\n\nvalueset &quot;Intensive Care Unit&quot;: 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.23'\n\nparameter &quot;Measurement Period&quot; Interval&lt;DateTime&gt;\n\ncontext Patient\n\ndefine function &quot;FromDayOfStartOfHospitalizationToDayAfterAdmission&quot;(Encounter FHIR.Encounter ):\n\tInterval[Global.&quot;ToDate&quot;(start of Global.&quot;HospitalizationWithObservation&quot;(Encounter)), Global.&quot;ToDate&quot;(start of Encounter.period + 2 days))\n\ndefine function &quot;StartOfFirstICU&quot;(Encounter FHIR.Encounter ):\n\tstart of &quot;FirstICULocationPeriod&quot;(Encounter)\n\ndefine function &quot;FromDayOfStartOfHospitalizationToDayAfterFirstICU&quot;(Encounter FHIR.Encounter ):\n\tInterval[Global.&quot;ToDate&quot;(start of Global.&quot;HospitalizationWithObservation&quot;(Encounter)), Global.&quot;ToDate&quot;(StartOfFirstICU(Encounter)+ 2 days))\n\ndefine function &quot;FirstICULocationPeriod&quot;(Encounter FHIR.Encounter ):\n\t&quot;FirstInpatientIntensiveCareUnit&quot;(Encounter).period\n\ndefine function &quot;FirstInpatientIntensiveCareUnit&quot;(Encounter FHIR.Encounter ):\n\tFirst((Encounter.location)HospitalLocation\n\t\t\twhere Global.GetLocation(HospitalLocation.location).type in &quot;Intensive Care Unit&quot;\n\t\t\t\tand HospitalLocation.period during Encounter.period\n\t\t\tsort by start of period\n\t)\n</code></pre>\n                    \n                    \n                </td>\n            </tr>\n        \n    </table>\n</div>"
+  },
+  "extension": [ {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+    "valueReference": {
+      "reference": "cqf-tooling"
+    }
+  } ],
+  "version": "3.1.000",
+  "name": "VTEICU_FHIR3",
+  "status": "active",
+  "experimental": true,
+  "type": {
+    "coding": [ {
+      "system": "http://hl7.org/fhir/codesystem-library-type.html",
+      "code": "logic-library"
+    } ]
+  },
+  "content": [ {
+    "contentType": "text/cql",
+    "data": "bGlicmFyeSBWVEVJQ1VfRkhJUjMgdmVyc2lvbiAnMy4xLjAwMCcKCnVzaW5nIEZISVIgdmVyc2lvbiAnMy4wLjAnCgppbmNsdWRlIEZISVJIZWxwZXJzIHZlcnNpb24gJzMuMC4wJyBjYWxsZWQgRkhJUkhlbHBlcnMKaW5jbHVkZSBNQVRHbG9iYWxDb21tb25GdW5jdGlvbnNfRkhJUjMgdmVyc2lvbiAnNC4wLjAwMCcgY2FsbGVkIEdsb2JhbAoKdmFsdWVzZXQgIkludGVuc2l2ZSBDYXJlIFVuaXQiOiAnaHR0cDovL2N0cy5ubG0ubmloLmdvdi9maGlyL1ZhbHVlU2V0LzIuMTYuODQwLjEuMTEzNzYyLjEuNC4xMTEwLjIzJwoKcGFyYW1ldGVyICJNZWFzdXJlbWVudCBQZXJpb2QiIEludGVydmFsPERhdGVUaW1lPgoKY29udGV4dCBQYXRpZW50CgpkZWZpbmUgZnVuY3Rpb24gIkZyb21EYXlPZlN0YXJ0T2ZIb3NwaXRhbGl6YXRpb25Ub0RheUFmdGVyQWRtaXNzaW9uIihFbmNvdW50ZXIgRkhJUi5FbmNvdW50ZXIgKToKCUludGVydmFsW0dsb2JhbC4iVG9EYXRlIihzdGFydCBvZiBHbG9iYWwuIkhvc3BpdGFsaXphdGlvbldpdGhPYnNlcnZhdGlvbiIoRW5jb3VudGVyKSksIEdsb2JhbC4iVG9EYXRlIihzdGFydCBvZiBFbmNvdW50ZXIucGVyaW9kICsgMiBkYXlzKSkKCmRlZmluZSBmdW5jdGlvbiAiU3RhcnRPZkZpcnN0SUNVIihFbmNvdW50ZXIgRkhJUi5FbmNvdW50ZXIgKToKCXN0YXJ0IG9mICJGaXJzdElDVUxvY2F0aW9uUGVyaW9kIihFbmNvdW50ZXIpCgpkZWZpbmUgZnVuY3Rpb24gIkZyb21EYXlPZlN0YXJ0T2ZIb3NwaXRhbGl6YXRpb25Ub0RheUFmdGVyRmlyc3RJQ1UiKEVuY291bnRlciBGSElSLkVuY291bnRlciApOgoJSW50ZXJ2YWxbR2xvYmFsLiJUb0RhdGUiKHN0YXJ0IG9mIEdsb2JhbC4iSG9zcGl0YWxpemF0aW9uV2l0aE9ic2VydmF0aW9uIihFbmNvdW50ZXIpKSwgR2xvYmFsLiJUb0RhdGUiKFN0YXJ0T2ZGaXJzdElDVShFbmNvdW50ZXIpKyAyIGRheXMpKQoKZGVmaW5lIGZ1bmN0aW9uICJGaXJzdElDVUxvY2F0aW9uUGVyaW9kIihFbmNvdW50ZXIgRkhJUi5FbmNvdW50ZXIgKToKCSJGaXJzdElucGF0aWVudEludGVuc2l2ZUNhcmVVbml0IihFbmNvdW50ZXIpLnBlcmlvZAoKZGVmaW5lIGZ1bmN0aW9uICJGaXJzdElucGF0aWVudEludGVuc2l2ZUNhcmVVbml0IihFbmNvdW50ZXIgRkhJUi5FbmNvdW50ZXIgKToKCUZpcnN0KChFbmNvdW50ZXIubG9jYXRpb24pSG9zcGl0YWxMb2NhdGlvbgoJCQl3aGVyZSBHbG9iYWwuR2V0TG9jYXRpb24oSG9zcGl0YWxMb2NhdGlvbi5sb2NhdGlvbikudHlwZSBpbiAiSW50ZW5zaXZlIENhcmUgVW5pdCIKCQkJCWFuZCBIb3NwaXRhbExvY2F0aW9uLnBlcmlvZCBkdXJpbmcgRW5jb3VudGVyLnBlcmlvZAoJCQlzb3J0IGJ5IHN0YXJ0IG9mIHBlcmlvZAoJKQo="
+  } ]
+}

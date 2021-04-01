@@ -1,0 +1,78 @@
+{
+  "resourceType": "Bundle",
+  "id": "Jaime-Figueroa-Frost-434-Encounter-4744",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-4744",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-4744",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "outpatient",
+          "display": "outpatient"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "185345009",
+                "display": "Encounter for symptom"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-434",
+          "display": "Jaime Figueroa Frost"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2019-08-12T01:00:00-04:00",
+              "end": "2019-08-12T01:00:00-04:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-382",
+              "display": "Billy Dorsey Weiss MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2019-08-12T01:00:00-04:00",
+          "end": "2019-08-12T01:00:00-04:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-269",
+              "display": "Franklin Medical Home"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1106",
+          "display": "Franklin Medical Home"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-4744"
+      }
+    }
+  ]
+}

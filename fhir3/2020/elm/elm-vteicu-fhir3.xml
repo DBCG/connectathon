@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1">
+   <identifier id="VTEICU_FHIR3" version="2.4.000"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localIdentifier="FHIR" uri="http://hl7.org/fhir" version="3.0.0"/>
+   </usings>
+   <includes>
+      <def localIdentifier="FHIRHelpers" path="FHIRHelpers" version="3.0.0"/>
+      <def localIdentifier="Common" path="MATGlobalCommonFunctions_FHIR3" version="2.0.000"/>
+   </includes>
+   <parameters>
+      <def name="Measurement Period" accessLevel="Public">
+         <parameterTypeSpecifier xsi:type="IntervalTypeSpecifier">
+            <pointType name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+         </parameterTypeSpecifier>
+      </def>
+   </parameters>
+   <codeSystems>
+      <def name="LOINC:2.46" id="http://loinc.org" version="urn:hl7:version:2.46" accessLevel="Public"/>
+      <def name="SNOMEDCT:2016-03" id="http://snomed.info/sct/731000124108" version="http://snomed.info/sct/731000124108/version/201603" accessLevel="Public"/>
+   </codeSystems>
+   <valueSets>
+      <def name="Intensive Care Unit" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.23" accessLevel="Public"/>
+   </valueSets>
+   <codes>
+      <def name="Birthdate" id="21112-8" display="Birth date" accessLevel="Public">
+         <codeSystem name="LOINC:2.46"/>
+      </def>
+      <def name="Dead" id="419099009" display="Dead" accessLevel="Public">
+         <codeSystem name="SNOMEDCT:2016-03"/>
+      </def>
+   </codes>
+   <statements>
+      <def name="Patient" context="Patient">
+         <expression xsi:type="SingletonFrom">
+            <operand dataType="fhir:Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def name="ToDate" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <expression xsi:type="DateTime">
+            <year precision="Year" xsi:type="DateTimeComponentFrom">
+               <operand name="Value" xsi:type="OperandRef"/>
+            </year>
+            <month precision="Month" xsi:type="DateTimeComponentFrom">
+               <operand name="Value" xsi:type="OperandRef"/>
+            </month>
+            <day precision="Day" xsi:type="DateTimeComponentFrom">
+               <operand name="Value" xsi:type="OperandRef"/>
+            </day>
+            <hour valueType="t:Integer" value="0" xsi:type="Literal"/>
+            <minute valueType="t:Integer" value="0" xsi:type="Literal"/>
+            <second valueType="t:Integer" value="0" xsi:type="Literal"/>
+            <millisecond valueType="t:Integer" value="0" xsi:type="Literal"/>
+            <timezoneOffset xsi:type="TimezoneFrom">
+               <operand name="Value" xsi:type="OperandRef"/>
+            </timezoneOffset>
+         </expression>
+         <operand name="Value">
+            <operandTypeSpecifier name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+      </def>
+      <def name="CalendarDayOfOrDayAfter" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <expression lowClosed="true" highClosed="false" xsi:type="Interval">
+            <low name="StartValue" xsi:type="OperandRef"/>
+            <high name="ToDate" xsi:type="FunctionRef">
+               <operand xsi:type="Add">
+                  <operand name="StartValue" xsi:type="OperandRef"/>
+                  <operand value="2" unit="days" xsi:type="Quantity"/>
+               </operand>
+            </high>
+         </expression>
+         <operand name="StartValue">
+            <operandTypeSpecifier name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+      </def>
+      <def name="First Intensive Care Unit" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <expression xsi:type="First">
+            <source xsi:type="Query">
+               <source alias="L">
+                  <expression path="location" xsi:type="Property">
+                     <source name="Encounter" xsi:type="OperandRef"/>
+                  </expression>
+               </source>
+               <where xsi:type="And">
+                  <operand xsi:type="InValueSet">
+                     <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand path="type" xsi:type="Property">
+                           <source name="GetLocation" libraryName="Common" xsi:type="FunctionRef">
+                              <operand path="location" scope="L" xsi:type="Property"/>
+                           </source>
+                        </operand>
+                     </code>
+                     <valueset name="Intensive Care Unit"/>
+                  </operand>
+                  <operand xsi:type="IncludedIn">
+                     <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand path="period" scope="L" xsi:type="Property"/>
+                     </operand>
+                     <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand path="period" xsi:type="Property">
+                           <source name="Encounter" xsi:type="OperandRef"/>
+                        </operand>
+                     </operand>
+                  </operand>
+               </where>
+               <sort>
+                  <by direction="asc" xsi:type="ByExpression">
+                     <expression xsi:type="Start">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand name="period" xsi:type="IdentifierRef"/>
+                        </operand>
+                     </expression>
+                  </by>
+               </sort>
+            </source>
+         </expression>
+         <operand name="Encounter">
+            <operandTypeSpecifier name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+      </def>
+      <def name="Start of First ICU" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <expression xsi:type="Start">
+            <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+               <operand path="period" xsi:type="Property">
+                  <source name="First Intensive Care Unit" xsi:type="FunctionRef">
+                     <operand name="Encounter" xsi:type="OperandRef"/>
+                  </source>
+               </operand>
+            </operand>
+         </expression>
+         <operand name="Encounter">
+            <operandTypeSpecifier name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+      </def>
+   </statements>
+</library>

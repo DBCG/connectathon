@@ -1,0 +1,2784 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1">
+   <annotation startLine="152" startChar="5" endLine="152" endChar="61" message="Could not resolve code path code for the type of the retrieve FHIR.DeviceUseStatement." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
+   <annotation startLine="152" startChar="5" endLine="152" endChar="61" message="Could not resolve membership operator for terminology target of the retrieve." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
+   <annotation startLine="153" startChar="11" endLine="153" endChar="92" message="Could not resolve code path code for the type of the retrieve FHIR.DeviceUseStatement." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
+   <annotation startLine="153" startChar="11" endLine="153" endChar="92" message="Could not resolve membership operator for terminology target of the retrieve." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
+   <annotation startLine="154" startChar="11" endLine="154" endChar="81" message="Could not resolve code path code for the type of the retrieve FHIR.DeviceUseStatement." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
+   <annotation startLine="154" startChar="11" endLine="154" endChar="81" message="Could not resolve membership operator for terminology target of the retrieve." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
+   <annotation startLine="336" startChar="5" endLine="336" endChar="86" message="Could not resolve code path code for the type of the retrieve FHIR.DeviceUseStatement." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
+   <annotation startLine="336" startChar="5" endLine="336" endChar="86" message="Could not resolve membership operator for terminology target of the retrieve." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
+   <annotation startLine="337" startChar="11" endLine="337" endChar="67" message="Could not resolve code path code for the type of the retrieve FHIR.DeviceUseStatement." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
+   <annotation startLine="337" startChar="11" endLine="337" endChar="67" message="Could not resolve membership operator for terminology target of the retrieve." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
+   <annotation startLine="338" startChar="11" endLine="338" endChar="81" message="Could not resolve code path code for the type of the retrieve FHIR.DeviceUseStatement." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
+   <annotation startLine="338" startChar="11" endLine="338" endChar="81" message="Could not resolve membership operator for terminology target of the retrieve." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
+   <annotation startLine="522" startChar="4" endLine="522" endChar="53" message="Could not resolve membership operator for terminology target of the retrieve." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
+   <identifier id="EXM108_FHIR3" version="7.4.000"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localIdentifier="FHIR" uri="http://hl7.org/fhir" version="3.0.0"/>
+   </usings>
+   <includes>
+      <def localIdentifier="FHIRHelpers" path="FHIRHelpers" version="3.0.0"/>
+      <def localIdentifier="Global" path="MATGlobalCommonFunctions_FHIR3" version="2.0.000"/>
+      <def localIdentifier="VTEICU" path="VTEICU_FHIR3" version="2.4.000"/>
+      <def localIdentifier="SDE" path="SupplementalDataElements_FHIR3" version="1.0.0"/>
+   </includes>
+   <codeSystems>
+      <def name="SNOMEDCT" id="http://snomed.info/sct/731000124108" accessLevel="Public"/>
+      <def name="LOINC" id="http://loinc.org" accessLevel="Public"/>
+      <def name="RequestIntent" id="http://hl7.org/fhir/request-intent" accessLevel="Public"/>
+   </codeSystems>
+   <valueSets>
+      <def name="ONC Administrative Sex" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1" accessLevel="Public"/>
+      <def name="Race" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.836" accessLevel="Public"/>
+      <def name="Ethnicity" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.837" accessLevel="Public"/>
+      <def name="Payer" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591" accessLevel="Public"/>
+      <def name="Atrial Fibrillation/Flutter" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.202" accessLevel="Public"/>
+      <def name="Comfort Measures" id="http://cts.nlm.nih.gov/fhir/ValueSet/1.3.6.1.4.1.33895.1.3.0.45" accessLevel="Public"/>
+      <def name="Direct Thrombin Inhibitor" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.205" accessLevel="Public"/>
+      <def name="Emergency Department Visit" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292" accessLevel="Public"/>
+      <def name="General or Neuraxial Anesthesia" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.1743" accessLevel="Public"/>
+      <def name="General Surgery" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.255" accessLevel="Public"/>
+      <def name="Glycoprotein IIb/IIIa Inhibitors" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.41" accessLevel="Public"/>
+      <def name="Graduated compression stockings (GCS)" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.256" accessLevel="Public"/>
+      <def name="Gynecological Surgery" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.257" accessLevel="Public"/>
+      <def name="Hemorrhagic Stroke" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.212" accessLevel="Public"/>
+      <def name="Hip Fracture Surgery" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.258" accessLevel="Public"/>
+      <def name="Hip Replacement Surgery" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.259" accessLevel="Public"/>
+      <def name="Injectable Factor Xa Inhibitor for VTE Prophylaxis" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.211" accessLevel="Public"/>
+      <def name="INR" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.213" accessLevel="Public"/>
+      <def name="Intermittent pneumatic compression devices (IPC)" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.214" accessLevel="Public"/>
+      <def name="Intracranial Neurosurgery" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.260" accessLevel="Public"/>
+      <def name="Intravenous route" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.222" accessLevel="Public"/>
+      <def name="Ischemic Stroke" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.247" accessLevel="Public"/>
+      <def name="Knee Replacement Surgery" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.261" accessLevel="Public"/>
+      <def name="Low Dose Unfractionated Heparin for VTE Prophylaxis" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.39" accessLevel="Public"/>
+      <def name="Low Molecular Weight Heparin for VTE Prophylaxis" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.219" accessLevel="Public"/>
+      <def name="Low Risk" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.400" accessLevel="Public"/>
+      <def name="Medical Reason" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.473" accessLevel="Public"/>
+      <def name="Mental Health Diagnoses" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.105.12.1004" accessLevel="Public"/>
+      <def name="Obstetrics" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.263" accessLevel="Public"/>
+      <def name="Obstetrics VTE" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.264" accessLevel="Public"/>
+      <def name="Oral Factor Xa Inhibitor for VTE Prophylaxis or VTE Treatment" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.134" accessLevel="Public"/>
+      <def name="Patient Refusal" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.93" accessLevel="Public"/>
+      <def name="Subcutaneous route" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.223" accessLevel="Public"/>
+      <def name="Unfractionated Heparin" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.218" accessLevel="Public"/>
+      <def name="Urological Surgery" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.272" accessLevel="Public"/>
+      <def name="Venous foot pumps (VFP)" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.230" accessLevel="Public"/>
+      <def name="Venous Thromboembolism" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.279" accessLevel="Public"/>
+      <def name="Warfarin" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.232" accessLevel="Public"/>
+      <def name="Intensive Care Unit" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.23" accessLevel="Public"/>
+   </valueSets>
+   <codes>
+      <def name="Risk for venous thromboembolism" id="72136-5" display="Risk for venous thromboembolism" accessLevel="Public">
+         <codeSystem name="LOINC"/>
+      </def>
+      <def name="Principal" id="63161005" display="Principal (qualifier value)" accessLevel="Public">
+         <codeSystem name="SNOMEDCT"/>
+      </def>
+      <def name="Order" id="order" display="Order" accessLevel="Public">
+         <codeSystem name="RequestIntent"/>
+      </def>
+   </codes>
+   <statements>
+      <def name="Patient" context="Patient">
+         <expression xsi:type="SingletonFrom">
+            <operand dataType="fhir:Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def name="SDE Ethnicity" context="Patient" accessLevel="Public">
+         <expression name="SDE Ethnicity" libraryName="SDE" xsi:type="ExpressionRef"/>
+      </def>
+      <def name="SDE Payer" context="Patient" accessLevel="Public">
+         <expression name="SDE Payer" libraryName="SDE" xsi:type="ExpressionRef"/>
+      </def>
+      <def name="SDE Race" context="Patient" accessLevel="Public">
+         <expression name="SDE Race" libraryName="SDE" xsi:type="ExpressionRef"/>
+      </def>
+      <def name="SDE Sex" context="Patient" accessLevel="Public">
+         <expression name="SDE Sex" libraryName="SDE" xsi:type="ExpressionRef"/>
+      </def>
+      <def name="Admission Without VTE or Obstetrical Conditions" context="Patient" accessLevel="Public">
+         <expression xsi:type="Intersect">
+            <operand xsi:type="Query">
+               <source alias="InpatientEncounter">
+                  <expression name="Inpatient Encounter" libraryName="Global" xsi:type="ExpressionRef"/>
+               </source>
+               <where xsi:type="Not">
+                  <operand xsi:type="Or">
+                     <operand xsi:type="Or">
+                        <operand xsi:type="AnyInValueSet">
+                           <codes xsi:type="Query">
+                              <source alias="X">
+                                 <expression xsi:type="Query">
+                                    <source alias="$this">
+                                       <expression name="EncounterDiagnosis" libraryName="Global" xsi:type="FunctionRef">
+                                          <operand name="InpatientEncounter" xsi:type="AliasRef"/>
+                                       </expression>
+                                    </source>
+                                    <where xsi:type="Not">
+                                       <operand xsi:type="IsNull">
+                                          <operand path="code" xsi:type="Property">
+                                             <source name="$this" xsi:type="AliasRef"/>
+                                          </operand>
+                                       </operand>
+                                    </where>
+                                    <return>
+                                       <expression path="code" xsi:type="Property">
+                                          <source name="$this" xsi:type="AliasRef"/>
+                                       </expression>
+                                    </return>
+                                 </expression>
+                              </source>
+                              <return distinct="false">
+                                 <expression name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                    <operand name="X" xsi:type="AliasRef"/>
+                                 </expression>
+                              </return>
+                           </codes>
+                           <valueset name="Obstetrics"/>
+                        </operand>
+                        <operand xsi:type="AnyInValueSet">
+                           <codes xsi:type="Query">
+                              <source alias="X">
+                                 <expression xsi:type="Query">
+                                    <source alias="$this">
+                                       <expression name="EncounterDiagnosis" libraryName="Global" xsi:type="FunctionRef">
+                                          <operand name="InpatientEncounter" xsi:type="AliasRef"/>
+                                       </expression>
+                                    </source>
+                                    <where xsi:type="Not">
+                                       <operand xsi:type="IsNull">
+                                          <operand path="code" xsi:type="Property">
+                                             <source name="$this" xsi:type="AliasRef"/>
+                                          </operand>
+                                       </operand>
+                                    </where>
+                                    <return>
+                                       <expression path="code" xsi:type="Property">
+                                          <source name="$this" xsi:type="AliasRef"/>
+                                       </expression>
+                                    </return>
+                                 </expression>
+                              </source>
+                              <return distinct="false">
+                                 <expression name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                    <operand name="X" xsi:type="AliasRef"/>
+                                 </expression>
+                              </return>
+                           </codes>
+                           <valueset name="Venous Thromboembolism"/>
+                        </operand>
+                     </operand>
+                     <operand xsi:type="AnyInValueSet">
+                        <codes xsi:type="Query">
+                           <source alias="X">
+                              <expression xsi:type="Query">
+                                 <source alias="$this">
+                                    <expression name="EncounterDiagnosis" libraryName="Global" xsi:type="FunctionRef">
+                                       <operand name="InpatientEncounter" xsi:type="AliasRef"/>
+                                    </expression>
+                                 </source>
+                                 <where xsi:type="Not">
+                                    <operand xsi:type="IsNull">
+                                       <operand path="code" xsi:type="Property">
+                                          <source name="$this" xsi:type="AliasRef"/>
+                                       </operand>
+                                    </operand>
+                                 </where>
+                                 <return>
+                                    <expression path="code" xsi:type="Property">
+                                       <source name="$this" xsi:type="AliasRef"/>
+                                    </expression>
+                                 </return>
+                              </expression>
+                           </source>
+                           <return distinct="false">
+                              <expression name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand name="X" xsi:type="AliasRef"/>
+                              </expression>
+                           </return>
+                        </codes>
+                        <valueset name="Obstetrics VTE"/>
+                     </operand>
+                  </operand>
+               </where>
+            </operand>
+            <operand xsi:type="Query">
+               <source alias="InpatientEncounter">
+                  <expression name="Inpatient Encounter" libraryName="Global" xsi:type="ExpressionRef"/>
+               </source>
+               <relationship alias="Diagnosis" xsi:type="Without">
+                  <expression xsi:type="Union">
+                     <operand xsi:type="Union">
+                        <operand dataType="fhir:Condition" codeProperty="code" xsi:type="Retrieve">
+                           <codes name="Obstetrics" xsi:type="ValueSetRef"/>
+                        </operand>
+                        <operand dataType="fhir:Condition" codeProperty="code" xsi:type="Retrieve">
+                           <codes name="Venous Thromboembolism" xsi:type="ValueSetRef"/>
+                        </operand>
+                     </operand>
+                     <operand dataType="fhir:Condition" codeProperty="code" xsi:type="Retrieve">
+                        <codes name="Obstetrics VTE" xsi:type="ValueSetRef"/>
+                     </operand>
+                  </expression>
+                  <suchThat xsi:type="And">
+                     <operand xsi:type="And">
+                        <operand xsi:type="Equal">
+                           <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="clinicalStatus" scope="Diagnosis" xsi:type="Property"/>
+                           </operand>
+                           <operand valueType="t:String" value="active" xsi:type="Literal"/>
+                        </operand>
+                        <operand xsi:type="Equal">
+                           <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="verificationStatus" scope="Diagnosis" xsi:type="Property"/>
+                           </operand>
+                           <operand valueType="t:String" value="confirmed" xsi:type="Literal"/>
+                        </operand>
+                     </operand>
+                     <operand xsi:type="IncludedIn">
+                        <operand name="Normalize Onset" libraryName="Global" xsi:type="FunctionRef">
+                           <operand path="onset" scope="Diagnosis" xsi:type="Property"/>
+                        </operand>
+                        <operand xsi:type="Interval">
+                           <low xsi:type="As">
+                              <operand path="low" xsi:type="Property">
+                                 <source name="Hospitalization" libraryName="Global" xsi:type="FunctionRef">
+                                    <operand name="InpatientEncounter" xsi:type="AliasRef"/>
+                                 </source>
+                              </operand>
+                              <asTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                                 <choice name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+                                 <choice name="fhir:decimal" xsi:type="NamedTypeSpecifier"/>
+                                 <choice name="t:String" xsi:type="NamedTypeSpecifier"/>
+                              </asTypeSpecifier>
+                           </low>
+                           <lowClosedExpression path="lowClosed" xsi:type="Property">
+                              <source name="Hospitalization" libraryName="Global" xsi:type="FunctionRef">
+                                 <operand name="InpatientEncounter" xsi:type="AliasRef"/>
+                              </source>
+                           </lowClosedExpression>
+                           <high xsi:type="As">
+                              <operand path="high" xsi:type="Property">
+                                 <source name="Hospitalization" libraryName="Global" xsi:type="FunctionRef">
+                                    <operand name="InpatientEncounter" xsi:type="AliasRef"/>
+                                 </source>
+                              </operand>
+                              <asTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                                 <choice name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+                                 <choice name="fhir:decimal" xsi:type="NamedTypeSpecifier"/>
+                                 <choice name="t:String" xsi:type="NamedTypeSpecifier"/>
+                              </asTypeSpecifier>
+                           </high>
+                           <highClosedExpression path="highClosed" xsi:type="Property">
+                              <source name="Hospitalization" libraryName="Global" xsi:type="FunctionRef">
+                                 <operand name="InpatientEncounter" xsi:type="AliasRef"/>
+                              </source>
+                           </highClosedExpression>
+                        </operand>
+                     </operand>
+                  </suchThat>
+               </relationship>
+            </operand>
+         </expression>
+      </def>
+      <def name="Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" context="Patient" accessLevel="Public">
+         <expression xsi:type="Intersect">
+            <operand xsi:type="Query">
+               <source alias="InpatientEncounter">
+                  <expression name="Inpatient Encounter" libraryName="Global" xsi:type="ExpressionRef"/>
+               </source>
+               <relationship alias="BirthDate" xsi:type="With">
+                  <expression dataType="fhir:Patient" xsi:type="Retrieve"/>
+                  <suchThat xsi:type="GreaterOrEqual">
+                     <operand name="CalendarAgeInYearsAt" libraryName="Global" xsi:type="FunctionRef">
+                        <operand xsi:type="ToDateTime">
+                           <operand name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="birthDate" scope="BirthDate" xsi:type="Property"/>
+                           </operand>
+                        </operand>
+                        <operand xsi:type="Start">
+                           <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="period" scope="InpatientEncounter" xsi:type="Property"/>
+                           </operand>
+                        </operand>
+                     </operand>
+                     <operand valueType="t:Integer" value="18" xsi:type="Literal"/>
+                  </suchThat>
+               </relationship>
+            </operand>
+            <operand name="Admission Without VTE or Obstetrical Conditions" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def name="Initial Population" context="Patient" accessLevel="Public">
+         <expression name="Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" xsi:type="ExpressionRef"/>
+      </def>
+      <def name="Denominator" context="Patient" accessLevel="Public">
+         <expression name="Initial Population" xsi:type="ExpressionRef"/>
+      </def>
+      <def name="ED Visit" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="EDVisit">
+               <expression dataType="fhir:Encounter" codeProperty="type" xsi:type="Retrieve">
+                  <codes name="Emergency Department Visit" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where xsi:type="Equal">
+               <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                  <operand path="status" scope="EDVisit" xsi:type="Property"/>
+               </operand>
+               <operand valueType="t:String" value="finished" xsi:type="Literal"/>
+            </where>
+         </expression>
+      </def>
+      <def name="GetExtension" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <expression xsi:type="SingletonFrom">
+            <operand xsi:type="Query">
+               <source alias="E">
+                  <expression name="Extensions" xsi:type="OperandRef"/>
+               </source>
+               <where xsi:type="Equal">
+                  <operand path="url" scope="E" xsi:type="Property"/>
+                  <operand name="URL" xsi:type="OperandRef"/>
+               </where>
+               <return>
+                  <expression name="E" xsi:type="AliasRef"/>
+               </return>
+            </operand>
+         </expression>
+         <operand name="Extensions">
+            <operandTypeSpecifier xsi:type="ListTypeSpecifier">
+               <elementType name="fhir:Extension" xsi:type="NamedTypeSpecifier"/>
+            </operandTypeSpecifier>
+         </operand>
+         <operand name="URL">
+            <operandTypeSpecifier name="t:String" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+      </def>
+      <def name="No VTE Prophylaxis Device Applied or Ordered" context="Patient" accessLevel="Public">
+         <expression xsi:type="Union">
+            <operand xsi:type="As">
+               <operand xsi:type="Query">
+                  <source alias="D">
+                     <expression xsi:type="Union">
+                        <operand xsi:type="Union">
+                           <operand dataType="fhir:DeviceUseStatement" codeProperty="code" xsi:type="Retrieve">
+                              <codes name="Venous foot pumps (VFP)" xsi:type="ValueSetRef"/>
+                           </operand>
+                           <operand dataType="fhir:DeviceUseStatement" codeProperty="code" xsi:type="Retrieve">
+                              <codes name="Intermittent pneumatic compression devices (IPC)" xsi:type="ValueSetRef"/>
+                           </operand>
+                        </operand>
+                        <operand dataType="fhir:DeviceUseStatement" codeProperty="code" xsi:type="Retrieve">
+                           <codes name="Graduated compression stockings (GCS)" xsi:type="ValueSetRef"/>
+                        </operand>
+                     </expression>
+                  </source>
+                  <where xsi:type="IsTrue">
+                     <operand name="ToBoolean" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand asType="fhir:boolean" xsi:type="As">
+                           <operand path="value" xsi:type="Property">
+                              <source name="GetExtension" xsi:type="FunctionRef">
+                                 <operand path="extension" scope="D" xsi:type="Property"/>
+                                 <operand valueType="t:String" value="http://example.org/fhir/extensions/notDone" xsi:type="Literal"/>
+                              </source>
+                           </operand>
+                        </operand>
+                     </operand>
+                  </where>
+               </operand>
+               <asTypeSpecifier xsi:type="ListTypeSpecifier">
+                  <elementType xsi:type="ChoiceTypeSpecifier">
+                     <choice name="fhir:DeviceRequest" xsi:type="NamedTypeSpecifier"/>
+                     <choice name="fhir:DeviceUseStatement" xsi:type="NamedTypeSpecifier"/>
+                  </elementType>
+               </asTypeSpecifier>
+            </operand>
+            <operand xsi:type="As">
+               <operand xsi:type="Query">
+                  <source alias="D">
+                     <expression xsi:type="Union">
+                        <operand xsi:type="Union">
+                           <operand dataType="fhir:DeviceRequest" codeProperty="code" xsi:type="Retrieve">
+                              <codes name="Venous foot pumps (VFP)" xsi:type="ValueSetRef"/>
+                           </operand>
+                           <operand dataType="fhir:DeviceRequest" codeProperty="code" xsi:type="Retrieve">
+                              <codes name="Intermittent pneumatic compression devices (IPC)" xsi:type="ValueSetRef"/>
+                           </operand>
+                        </operand>
+                        <operand dataType="fhir:DeviceRequest" codeProperty="code" xsi:type="Retrieve">
+                           <codes name="Graduated compression stockings (GCS)" xsi:type="ValueSetRef"/>
+                        </operand>
+                     </expression>
+                  </source>
+                  <where xsi:type="And">
+                     <operand xsi:type="Equivalent">
+                        <operand name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand path="intent" scope="D" xsi:type="Property"/>
+                        </operand>
+                        <operand xsi:type="ToConcept">
+                           <operand name="Order" xsi:type="CodeRef"/>
+                        </operand>
+                     </operand>
+                     <operand xsi:type="IsTrue">
+                        <operand name="ToBoolean" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand asType="fhir:boolean" xsi:type="As">
+                              <operand path="value" xsi:type="Property">
+                                 <source name="GetExtension" xsi:type="FunctionRef">
+                                    <operand path="extension" scope="D" xsi:type="Property"/>
+                                    <operand valueType="t:String" value="http://example.org/fhir/extensions/doNotPerform" xsi:type="Literal"/>
+                                 </source>
+                              </operand>
+                           </operand>
+                        </operand>
+                     </operand>
+                  </where>
+               </operand>
+               <asTypeSpecifier xsi:type="ListTypeSpecifier">
+                  <elementType xsi:type="ChoiceTypeSpecifier">
+                     <choice name="fhir:DeviceRequest" xsi:type="NamedTypeSpecifier"/>
+                     <choice name="fhir:DeviceUseStatement" xsi:type="NamedTypeSpecifier"/>
+                  </elementType>
+               </asTypeSpecifier>
+            </operand>
+         </expression>
+      </def>
+      <def name="No VTE Prophylaxis Device Due to Medical Reason During ED Visit" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="QualifyingEncounter">
+               <expression name="Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" xsi:type="ExpressionRef"/>
+            </source>
+            <source alias="EDVisit">
+               <expression name="ED Visit" xsi:type="ExpressionRef"/>
+            </source>
+            <source alias="NoVTEDevice">
+               <expression name="No VTE Prophylaxis Device Applied or Ordered" xsi:type="ExpressionRef"/>
+            </source>
+            <where xsi:type="And">
+               <operand xsi:type="And">
+                  <operand xsi:type="In">
+                     <operand xsi:type="End">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand path="period" scope="EDVisit" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                     <operand lowClosed="true" highClosed="true" xsi:type="Interval">
+                        <low xsi:type="Subtract">
+                           <operand xsi:type="Start">
+                              <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand path="period" scope="QualifyingEncounter" xsi:type="Property"/>
+                              </operand>
+                           </operand>
+                           <operand value="1" unit="hour" xsi:type="Quantity"/>
+                        </low>
+                        <high xsi:type="Start">
+                           <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="period" scope="QualifyingEncounter" xsi:type="Property"/>
+                           </operand>
+                        </high>
+                     </operand>
+                  </operand>
+                  <operand xsi:type="InValueSet">
+                     <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand xsi:type="SingletonFrom">
+                           <operand path="reasonCode" scope="NoVTEDevice" xsi:type="Property"/>
+                        </operand>
+                     </code>
+                     <valueset name="Medical Reason"/>
+                  </operand>
+               </operand>
+               <operand xsi:type="In">
+                  <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand xsi:type="Coalesce">
+                        <operand path="authoredOn" scope="NoVTEDevice" xsi:type="Property"/>
+                        <operand path="recordedOn" scope="NoVTEDevice" xsi:type="Property"/>
+                     </operand>
+                  </operand>
+                  <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand path="period" scope="EDVisit" xsi:type="Property"/>
+                  </operand>
+               </operand>
+            </where>
+            <return distinct="true">
+               <expression xsi:type="Tuple">
+                  <element name="QualifyingEncounter">
+                     <value name="QualifyingEncounter" xsi:type="AliasRef"/>
+                  </element>
+                  <element name="EDVisit">
+                     <value name="EDVisit" xsi:type="AliasRef"/>
+                  </element>
+                  <element name="NoVTEDevice">
+                     <value name="NoVTEDevice" xsi:type="AliasRef"/>
+                  </element>
+               </expression>
+            </return>
+         </expression>
+      </def>
+      <def name="No VTE Prophylaxis Device Due to Medical Reason on Day of or Day After Admission" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="QualifyingEncounter">
+               <expression name="Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" xsi:type="ExpressionRef"/>
+            </source>
+            <source alias="NoVTEDevice">
+               <expression name="No VTE Prophylaxis Device Applied or Ordered" xsi:type="ExpressionRef"/>
+            </source>
+            <where xsi:type="And">
+               <operand xsi:type="InValueSet">
+                  <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand xsi:type="SingletonFrom">
+                        <operand path="reasonCode" scope="NoVTEDevice" xsi:type="Property"/>
+                     </operand>
+                  </code>
+                  <valueset name="Medical Reason"/>
+               </operand>
+               <operand xsi:type="In">
+                  <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand xsi:type="Coalesce">
+                        <operand path="authoredOn" scope="NoVTEDevice" xsi:type="Property"/>
+                        <operand path="recordedOn" scope="NoVTEDevice" xsi:type="Property"/>
+                     </operand>
+                  </operand>
+                  <operand name="CalendarDayOfOrDayAfter" libraryName="VTEICU" xsi:type="FunctionRef">
+                     <operand xsi:type="Start">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand path="period" scope="QualifyingEncounter" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                  </operand>
+               </operand>
+            </where>
+            <return distinct="true">
+               <expression xsi:type="Tuple">
+                  <element name="QualifyingEncounter">
+                     <value name="QualifyingEncounter" xsi:type="AliasRef"/>
+                  </element>
+                  <element name="NoVTEDevice">
+                     <value name="NoVTEDevice" xsi:type="AliasRef"/>
+                  </element>
+               </expression>
+            </return>
+         </expression>
+      </def>
+      <def name="No VTE Prophylaxis Medication Administered or Ordered" context="Patient" accessLevel="Public">
+         <expression xsi:type="Union">
+            <operand xsi:type="As">
+               <operand xsi:type="Query">
+                  <source alias="MedicationAdm">
+                     <expression xsi:type="Union">
+                        <operand xsi:type="Union">
+                           <operand dataType="fhir:MedicationAdministration" codeProperty="medication" xsi:type="Retrieve">
+                              <codes name="Low Dose Unfractionated Heparin for VTE Prophylaxis" xsi:type="ValueSetRef"/>
+                           </operand>
+                           <operand dataType="fhir:MedicationAdministration" codeProperty="medication" xsi:type="Retrieve">
+                              <codes name="Low Molecular Weight Heparin for VTE Prophylaxis" xsi:type="ValueSetRef"/>
+                           </operand>
+                        </operand>
+                        <operand xsi:type="Union">
+                           <operand dataType="fhir:MedicationAdministration" codeProperty="medication" xsi:type="Retrieve">
+                              <codes name="Injectable Factor Xa Inhibitor for VTE Prophylaxis" xsi:type="ValueSetRef"/>
+                           </operand>
+                           <operand dataType="fhir:MedicationAdministration" codeProperty="medication" xsi:type="Retrieve">
+                              <codes name="Warfarin" xsi:type="ValueSetRef"/>
+                           </operand>
+                        </operand>
+                     </expression>
+                  </source>
+                  <where xsi:type="IsTrue">
+                     <operand name="ToBoolean" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand path="notGiven" scope="MedicationAdm" xsi:type="Property"/>
+                     </operand>
+                  </where>
+               </operand>
+               <asTypeSpecifier xsi:type="ListTypeSpecifier">
+                  <elementType xsi:type="ChoiceTypeSpecifier">
+                     <choice name="fhir:MedicationRequest" xsi:type="NamedTypeSpecifier"/>
+                     <choice name="fhir:MedicationAdministration" xsi:type="NamedTypeSpecifier"/>
+                  </elementType>
+               </asTypeSpecifier>
+            </operand>
+            <operand xsi:type="As">
+               <operand xsi:type="Query">
+                  <source alias="MedicationOrder">
+                     <expression xsi:type="Union">
+                        <operand xsi:type="Union">
+                           <operand dataType="fhir:MedicationRequest" codeProperty="medication" xsi:type="Retrieve">
+                              <codes name="Low Dose Unfractionated Heparin for VTE Prophylaxis" xsi:type="ValueSetRef"/>
+                           </operand>
+                           <operand dataType="fhir:MedicationRequest" codeProperty="medication" xsi:type="Retrieve">
+                              <codes name="Low Molecular Weight Heparin for VTE Prophylaxis" xsi:type="ValueSetRef"/>
+                           </operand>
+                        </operand>
+                        <operand xsi:type="Union">
+                           <operand dataType="fhir:MedicationRequest" codeProperty="medication" xsi:type="Retrieve">
+                              <codes name="Injectable Factor Xa Inhibitor for VTE Prophylaxis" xsi:type="ValueSetRef"/>
+                           </operand>
+                           <operand dataType="fhir:MedicationRequest" codeProperty="medication" xsi:type="Retrieve">
+                              <codes name="Warfarin" xsi:type="ValueSetRef"/>
+                           </operand>
+                        </operand>
+                     </expression>
+                  </source>
+                  <where xsi:type="And">
+                     <operand xsi:type="Equal">
+                        <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand path="intent" scope="MedicationOrder" xsi:type="Property"/>
+                        </operand>
+                        <operand valueType="t:String" value="order" xsi:type="Literal"/>
+                     </operand>
+                     <operand xsi:type="IsTrue">
+                        <operand name="ToBoolean" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand asType="fhir:boolean" xsi:type="As">
+                              <operand path="value" xsi:type="Property">
+                                 <source name="GetExtension" xsi:type="FunctionRef">
+                                    <operand path="extension" scope="MedicationOrder" xsi:type="Property"/>
+                                    <operand valueType="t:String" value="http://example.org/fhir/extensions/doNotPerform" xsi:type="Literal"/>
+                                 </source>
+                              </operand>
+                           </operand>
+                        </operand>
+                     </operand>
+                  </where>
+               </operand>
+               <asTypeSpecifier xsi:type="ListTypeSpecifier">
+                  <elementType xsi:type="ChoiceTypeSpecifier">
+                     <choice name="fhir:MedicationRequest" xsi:type="NamedTypeSpecifier"/>
+                     <choice name="fhir:MedicationAdministration" xsi:type="NamedTypeSpecifier"/>
+                  </elementType>
+               </asTypeSpecifier>
+            </operand>
+         </expression>
+      </def>
+      <def name="No VTE Prophylaxis Medication Due to Medical Reason During ED Visit" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="QualifyingEncounter">
+               <expression name="Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" xsi:type="ExpressionRef"/>
+            </source>
+            <source alias="EDVisit">
+               <expression name="ED Visit" xsi:type="ExpressionRef"/>
+            </source>
+            <source alias="NoVTEMedication">
+               <expression name="No VTE Prophylaxis Medication Administered or Ordered" xsi:type="ExpressionRef"/>
+            </source>
+            <where xsi:type="And">
+               <operand xsi:type="And">
+                  <operand xsi:type="In">
+                     <operand xsi:type="End">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand path="period" scope="EDVisit" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                     <operand lowClosed="true" highClosed="true" xsi:type="Interval">
+                        <low xsi:type="Subtract">
+                           <operand xsi:type="Start">
+                              <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand path="period" scope="QualifyingEncounter" xsi:type="Property"/>
+                              </operand>
+                           </operand>
+                           <operand value="1" unit="hour" xsi:type="Quantity"/>
+                        </low>
+                        <high xsi:type="Start">
+                           <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="period" scope="QualifyingEncounter" xsi:type="Property"/>
+                           </operand>
+                        </high>
+                     </operand>
+                  </operand>
+                  <operand xsi:type="InValueSet">
+                     <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand xsi:type="SingletonFrom">
+                           <operand path="reasonCode" scope="NoVTEMedication" xsi:type="Property"/>
+                        </operand>
+                     </code>
+                     <valueset name="Medical Reason"/>
+                  </operand>
+               </operand>
+               <operand xsi:type="In">
+                  <operand xsi:type="Coalesce">
+                     <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand path="authoredOn" scope="NoVTEMedication" xsi:type="Property"/>
+                     </operand>
+                     <operand xsi:type="Start">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand asType="fhir:Period" xsi:type="As">
+                              <operand path="effective" scope="NoVTEMedication" xsi:type="Property"/>
+                           </operand>
+                        </operand>
+                     </operand>
+                  </operand>
+                  <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand path="period" scope="EDVisit" xsi:type="Property"/>
+                  </operand>
+               </operand>
+            </where>
+            <return>
+               <expression name="QualifyingEncounter" xsi:type="AliasRef"/>
+            </return>
+         </expression>
+      </def>
+      <def name="No VTE Prophylaxis Medication Due to Medical Reason on Day of or Day After Admission" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="QualifyingEncounter">
+               <expression name="Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" xsi:type="ExpressionRef"/>
+            </source>
+            <source alias="NoVTEMedication">
+               <expression name="No VTE Prophylaxis Medication Administered or Ordered" xsi:type="ExpressionRef"/>
+            </source>
+            <where xsi:type="And">
+               <operand xsi:type="InValueSet">
+                  <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand xsi:type="SingletonFrom">
+                        <operand path="reasonCode" scope="NoVTEMedication" xsi:type="Property"/>
+                     </operand>
+                  </code>
+                  <valueset name="Medical Reason"/>
+               </operand>
+               <operand xsi:type="In">
+                  <operand xsi:type="Coalesce">
+                     <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand path="authoredOn" scope="NoVTEMedication" xsi:type="Property"/>
+                     </operand>
+                     <operand xsi:type="Start">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand asType="fhir:Period" xsi:type="As">
+                              <operand path="effective" scope="NoVTEMedication" xsi:type="Property"/>
+                           </operand>
+                        </operand>
+                     </operand>
+                  </operand>
+                  <operand name="CalendarDayOfOrDayAfter" libraryName="VTEICU" xsi:type="FunctionRef">
+                     <operand xsi:type="Start">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand path="period" scope="QualifyingEncounter" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                  </operand>
+               </operand>
+            </where>
+            <return>
+               <expression name="QualifyingEncounter" xsi:type="AliasRef"/>
+            </return>
+         </expression>
+      </def>
+      <def name="No VTE Prophylaxis Device Due to Medical Reason on Day of or Day After Procedure" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="QualifyingEncounter">
+               <expression name="Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" xsi:type="ExpressionRef"/>
+            </source>
+            <source alias="AnesthesiaProcedure">
+               <expression dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                  <codes name="General or Neuraxial Anesthesia" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <source alias="NoVTEDevice">
+               <expression name="No VTE Prophylaxis Device Applied or Ordered" xsi:type="ExpressionRef"/>
+            </source>
+            <where xsi:type="And">
+               <operand xsi:type="And">
+                  <operand xsi:type="And">
+                     <operand xsi:type="AnyInValueSet">
+                        <codes xsi:type="Query">
+                           <source alias="X">
+                              <expression path="reasonCode" scope="NoVTEDevice" xsi:type="Property"/>
+                           </source>
+                           <return distinct="false">
+                              <expression name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand name="X" xsi:type="AliasRef"/>
+                              </expression>
+                           </return>
+                        </codes>
+                        <valueset name="Medical Reason"/>
+                     </operand>
+                     <operand xsi:type="Equal">
+                        <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand path="status" scope="AnesthesiaProcedure" xsi:type="Property"/>
+                        </operand>
+                        <operand valueType="t:String" value="completed" xsi:type="Literal"/>
+                     </operand>
+                  </operand>
+                  <operand precision="Day" xsi:type="SameAs">
+                     <operand xsi:type="End">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand asType="fhir:Period" xsi:type="As">
+                              <operand path="performed" scope="AnesthesiaProcedure" xsi:type="Property"/>
+                           </operand>
+                        </operand>
+                     </operand>
+                     <operand xsi:type="Add">
+                        <operand xsi:type="Start">
+                           <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="period" scope="QualifyingEncounter" xsi:type="Property"/>
+                           </operand>
+                        </operand>
+                        <operand value="1" unit="day" xsi:type="Quantity"/>
+                     </operand>
+                  </operand>
+               </operand>
+               <operand xsi:type="In">
+                  <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand xsi:type="Coalesce">
+                        <operand path="authoredOn" scope="NoVTEDevice" xsi:type="Property"/>
+                        <operand path="recordedOn" scope="NoVTEDevice" xsi:type="Property"/>
+                     </operand>
+                  </operand>
+                  <operand name="CalendarDayOfOrDayAfter" libraryName="VTEICU" xsi:type="FunctionRef">
+                     <operand xsi:type="End">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand asType="fhir:Period" xsi:type="As">
+                              <operand path="performed" scope="AnesthesiaProcedure" xsi:type="Property"/>
+                           </operand>
+                        </operand>
+                     </operand>
+                  </operand>
+               </operand>
+            </where>
+            <return>
+               <expression name="QualifyingEncounter" xsi:type="AliasRef"/>
+            </return>
+         </expression>
+      </def>
+      <def name="No VTE Prophylaxis Medication Due to Medical Reason on Day of or Day After Procedure" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="QualifyingEncounter">
+               <expression name="Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" xsi:type="ExpressionRef"/>
+            </source>
+            <source alias="AnesthesiaProcedure">
+               <expression dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                  <codes name="General or Neuraxial Anesthesia" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <source alias="NoVTEMedication">
+               <expression name="No VTE Prophylaxis Medication Administered or Ordered" xsi:type="ExpressionRef"/>
+            </source>
+            <where xsi:type="And">
+               <operand xsi:type="And">
+                  <operand xsi:type="And">
+                     <operand xsi:type="AnyInValueSet">
+                        <codes xsi:type="Query">
+                           <source alias="X">
+                              <expression path="reasonCode" scope="NoVTEMedication" xsi:type="Property"/>
+                           </source>
+                           <return distinct="false">
+                              <expression name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand name="X" xsi:type="AliasRef"/>
+                              </expression>
+                           </return>
+                        </codes>
+                        <valueset name="Medical Reason"/>
+                     </operand>
+                     <operand xsi:type="Equal">
+                        <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand path="status" scope="AnesthesiaProcedure" xsi:type="Property"/>
+                        </operand>
+                        <operand valueType="t:String" value="completed" xsi:type="Literal"/>
+                     </operand>
+                  </operand>
+                  <operand precision="Day" xsi:type="SameAs">
+                     <operand xsi:type="End">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand asType="fhir:Period" xsi:type="As">
+                              <operand path="performed" scope="AnesthesiaProcedure" xsi:type="Property"/>
+                           </operand>
+                        </operand>
+                     </operand>
+                     <operand xsi:type="Add">
+                        <operand xsi:type="Start">
+                           <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="period" scope="QualifyingEncounter" xsi:type="Property"/>
+                           </operand>
+                        </operand>
+                        <operand value="1" unit="day" xsi:type="Quantity"/>
+                     </operand>
+                  </operand>
+               </operand>
+               <operand xsi:type="In">
+                  <operand xsi:type="Coalesce">
+                     <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand path="authoredOn" scope="NoVTEMedication" xsi:type="Property"/>
+                     </operand>
+                     <operand xsi:type="Start">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand asType="fhir:Period" xsi:type="As">
+                              <operand path="effective" scope="NoVTEMedication" xsi:type="Property"/>
+                           </operand>
+                        </operand>
+                     </operand>
+                  </operand>
+                  <operand name="CalendarDayOfOrDayAfter" libraryName="VTEICU" xsi:type="FunctionRef">
+                     <operand xsi:type="End">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand asType="fhir:Period" xsi:type="As">
+                              <operand path="performed" scope="AnesthesiaProcedure" xsi:type="Property"/>
+                           </operand>
+                        </operand>
+                     </operand>
+                  </operand>
+               </operand>
+            </where>
+            <return>
+               <expression name="QualifyingEncounter" xsi:type="AliasRef"/>
+            </return>
+         </expression>
+      </def>
+      <def name="Encounter Less Than 2 Days" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="QualifyingEncounter">
+               <expression name="Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" xsi:type="ExpressionRef"/>
+            </source>
+            <where xsi:type="Less">
+               <operand name="LengthInDays" libraryName="Global" xsi:type="FunctionRef">
+                  <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand path="period" scope="QualifyingEncounter" xsi:type="Property"/>
+                  </operand>
+               </operand>
+               <operand valueType="t:Integer" value="2" xsi:type="Literal"/>
+            </where>
+         </expression>
+      </def>
+      <def name="SCIP VTE Selected Surgery" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="P">
+               <expression xsi:type="Union">
+                  <operand xsi:type="Union">
+                     <operand xsi:type="Union">
+                        <operand xsi:type="Union">
+                           <operand dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                              <codes name="General Surgery" xsi:type="ValueSetRef"/>
+                           </operand>
+                           <operand dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                              <codes name="Gynecological Surgery" xsi:type="ValueSetRef"/>
+                           </operand>
+                        </operand>
+                        <operand xsi:type="Union">
+                           <operand dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                              <codes name="Hip Fracture Surgery" xsi:type="ValueSetRef"/>
+                           </operand>
+                           <operand dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                              <codes name="Hip Replacement Surgery" xsi:type="ValueSetRef"/>
+                           </operand>
+                        </operand>
+                     </operand>
+                     <operand xsi:type="Union">
+                        <operand dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                           <codes name="Intracranial Neurosurgery" xsi:type="ValueSetRef"/>
+                        </operand>
+                        <operand dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                           <codes name="Knee Replacement Surgery" xsi:type="ValueSetRef"/>
+                        </operand>
+                     </operand>
+                  </operand>
+                  <operand dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                     <codes name="Urological Surgery" xsi:type="ValueSetRef"/>
+                  </operand>
+               </expression>
+            </source>
+            <where xsi:type="Equal">
+               <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                  <operand path="status" scope="P" xsi:type="Property"/>
+               </operand>
+               <operand valueType="t:String" value="completed" xsi:type="Literal"/>
+            </where>
+         </expression>
+      </def>
+      <def name="Intervention Comfort Measures" context="Patient" accessLevel="Public">
+         <expression xsi:type="Union">
+            <operand xsi:type="As">
+               <operand xsi:type="Query">
+                  <source alias="P">
+                     <expression dataType="fhir:ProcedureRequest" codeProperty="code" xsi:type="Retrieve">
+                        <codes name="Comfort Measures" xsi:type="ValueSetRef"/>
+                     </expression>
+                  </source>
+                  <where xsi:type="Equal">
+                     <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand path="intent" scope="P" xsi:type="Property"/>
+                     </operand>
+                     <operand valueType="t:String" value="order" xsi:type="Literal"/>
+                  </where>
+               </operand>
+               <asTypeSpecifier xsi:type="ListTypeSpecifier">
+                  <elementType xsi:type="ChoiceTypeSpecifier">
+                     <choice name="fhir:Procedure" xsi:type="NamedTypeSpecifier"/>
+                     <choice name="fhir:ProcedureRequest" xsi:type="NamedTypeSpecifier"/>
+                  </elementType>
+               </asTypeSpecifier>
+            </operand>
+            <operand xsi:type="As">
+               <operand xsi:type="Query">
+                  <source alias="IntervetionPerformed">
+                     <expression dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                        <codes name="Comfort Measures" xsi:type="ValueSetRef"/>
+                     </expression>
+                  </source>
+                  <where xsi:type="Equal">
+                     <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand path="status" scope="IntervetionPerformed" xsi:type="Property"/>
+                     </operand>
+                     <operand valueType="t:String" value="completed" xsi:type="Literal"/>
+                  </where>
+               </operand>
+               <asTypeSpecifier xsi:type="ListTypeSpecifier">
+                  <elementType xsi:type="ChoiceTypeSpecifier">
+                     <choice name="fhir:Procedure" xsi:type="NamedTypeSpecifier"/>
+                     <choice name="fhir:ProcedureRequest" xsi:type="NamedTypeSpecifier"/>
+                  </elementType>
+               </asTypeSpecifier>
+            </operand>
+         </expression>
+      </def>
+      <def name="Intervention Comfort Measures on Day of or Day After Start of Hospitalization" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="QualifyingEncounter">
+               <expression name="Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" xsi:type="ExpressionRef"/>
+            </source>
+            <relationship alias="ComfortMeasure" xsi:type="With">
+               <expression name="Intervention Comfort Measures" xsi:type="ExpressionRef"/>
+               <suchThat precision="Day" xsi:type="In">
+                  <operand xsi:type="Coalesce">
+                     <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand path="authoredOn" scope="ComfortMeasure" xsi:type="Property"/>
+                     </operand>
+                     <operand xsi:type="Start">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand asType="fhir:Period" xsi:type="As">
+                              <operand path="performed" scope="ComfortMeasure" xsi:type="Property"/>
+                           </operand>
+                        </operand>
+                     </operand>
+                  </operand>
+                  <operand lowClosed="true" highClosed="true" xsi:type="Interval">
+                     <low xsi:type="Start">
+                        <operand name="Hospitalization" libraryName="Global" xsi:type="FunctionRef">
+                           <operand name="QualifyingEncounter" xsi:type="AliasRef"/>
+                        </operand>
+                     </low>
+                     <high xsi:type="Add">
+                        <operand xsi:type="Start">
+                           <operand name="Hospitalization" libraryName="Global" xsi:type="FunctionRef">
+                              <operand name="QualifyingEncounter" xsi:type="AliasRef"/>
+                           </operand>
+                        </operand>
+                        <operand value="1" unit="day" xsi:type="Quantity"/>
+                     </high>
+                  </operand>
+               </suchThat>
+            </relationship>
+         </expression>
+      </def>
+      <def name="Intervention Comfort Measures on Day of or Day After Procedure" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="QualifyingEncounter">
+               <expression name="Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" xsi:type="ExpressionRef"/>
+            </source>
+            <source alias="AnesthesiaProcedure">
+               <expression dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                  <codes name="General or Neuraxial Anesthesia" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <source alias="ComfortMeasure">
+               <expression name="Intervention Comfort Measures" xsi:type="ExpressionRef"/>
+            </source>
+            <where xsi:type="And">
+               <operand xsi:type="And">
+                  <operand xsi:type="Equal">
+                     <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand path="status" scope="AnesthesiaProcedure" xsi:type="Property"/>
+                     </operand>
+                     <operand valueType="t:String" value="completed" xsi:type="Literal"/>
+                  </operand>
+                  <operand precision="Day" xsi:type="SameAs">
+                     <operand xsi:type="End">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand asType="fhir:Period" xsi:type="As">
+                              <operand path="performed" scope="AnesthesiaProcedure" xsi:type="Property"/>
+                           </operand>
+                        </operand>
+                     </operand>
+                     <operand xsi:type="Add">
+                        <operand xsi:type="Start">
+                           <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="period" scope="QualifyingEncounter" xsi:type="Property"/>
+                           </operand>
+                        </operand>
+                        <operand value="1" unit="day" xsi:type="Quantity"/>
+                     </operand>
+                  </operand>
+               </operand>
+               <operand precision="Day" xsi:type="In">
+                  <operand xsi:type="Coalesce">
+                     <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand path="authoredOn" scope="ComfortMeasure" xsi:type="Property"/>
+                     </operand>
+                     <operand xsi:type="Start">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand asType="fhir:Period" xsi:type="As">
+                              <operand path="performed" scope="ComfortMeasure" xsi:type="Property"/>
+                           </operand>
+                        </operand>
+                     </operand>
+                  </operand>
+                  <operand lowClosed="true" highClosed="true" xsi:type="Interval">
+                     <low xsi:type="End">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand asType="fhir:Period" xsi:type="As">
+                              <operand path="performed" scope="AnesthesiaProcedure" xsi:type="Property"/>
+                           </operand>
+                        </operand>
+                     </low>
+                     <high xsi:type="Add">
+                        <operand xsi:type="End">
+                           <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand asType="fhir:Period" xsi:type="As">
+                                 <operand path="performed" scope="AnesthesiaProcedure" xsi:type="Property"/>
+                              </operand>
+                           </operand>
+                        </operand>
+                        <operand value="1" unit="day" xsi:type="Quantity"/>
+                     </high>
+                  </operand>
+               </operand>
+            </where>
+            <return distinct="true">
+               <expression xsi:type="Tuple">
+                  <element name="QualifyingEncounter">
+                     <value name="QualifyingEncounter" xsi:type="AliasRef"/>
+                  </element>
+                  <element name="AnesthesiaProcedure">
+                     <value name="AnesthesiaProcedure" xsi:type="AliasRef"/>
+                  </element>
+                  <element name="ComfortMeasure">
+                     <value name="ComfortMeasure" xsi:type="AliasRef"/>
+                  </element>
+               </expression>
+            </return>
+         </expression>
+      </def>
+      <def name="VTE Prophylaxis by Medication Administered or Device Applied" context="Patient" accessLevel="Public">
+         <expression xsi:type="Union">
+            <operand xsi:type="As">
+               <operand xsi:type="Union">
+                  <operand xsi:type="Union">
+                     <operand xsi:type="Query">
+                        <source alias="VTEMedication">
+                           <expression dataType="fhir:MedicationAdministration" codeProperty="medication" xsi:type="Retrieve">
+                              <codes name="Low Dose Unfractionated Heparin for VTE Prophylaxis" xsi:type="ValueSetRef"/>
+                           </expression>
+                        </source>
+                        <where xsi:type="And">
+                           <operand xsi:type="Equal">
+                              <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand path="status" scope="VTEMedication" xsi:type="Property"/>
+                              </operand>
+                              <operand valueType="t:String" value="completed" xsi:type="Literal"/>
+                           </operand>
+                           <operand xsi:type="InValueSet">
+                              <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand path="route" xsi:type="Property">
+                                    <source path="dosage" scope="VTEMedication" xsi:type="Property"/>
+                                 </operand>
+                              </code>
+                              <valueset name="Subcutaneous route"/>
+                           </operand>
+                        </where>
+                     </operand>
+                     <operand dataType="fhir:MedicationAdministration" codeProperty="medication" xsi:type="Retrieve">
+                        <codes name="Low Molecular Weight Heparin for VTE Prophylaxis" xsi:type="ValueSetRef"/>
+                     </operand>
+                  </operand>
+                  <operand xsi:type="Union">
+                     <operand dataType="fhir:MedicationAdministration" codeProperty="medication" xsi:type="Retrieve">
+                        <codes name="Injectable Factor Xa Inhibitor for VTE Prophylaxis" xsi:type="ValueSetRef"/>
+                     </operand>
+                     <operand dataType="fhir:MedicationAdministration" codeProperty="medication" xsi:type="Retrieve">
+                        <codes name="Warfarin" xsi:type="ValueSetRef"/>
+                     </operand>
+                  </operand>
+               </operand>
+               <asTypeSpecifier xsi:type="ListTypeSpecifier">
+                  <elementType xsi:type="ChoiceTypeSpecifier">
+                     <choice name="fhir:DeviceUseStatement" xsi:type="NamedTypeSpecifier"/>
+                     <choice name="fhir:MedicationAdministration" xsi:type="NamedTypeSpecifier"/>
+                  </elementType>
+               </asTypeSpecifier>
+            </operand>
+            <operand xsi:type="As">
+               <operand xsi:type="Query">
+                  <source alias="DeviceApplied">
+                     <expression xsi:type="Union">
+                        <operand xsi:type="Union">
+                           <operand dataType="fhir:DeviceUseStatement" codeProperty="code" xsi:type="Retrieve">
+                              <codes name="Intermittent pneumatic compression devices (IPC)" xsi:type="ValueSetRef"/>
+                           </operand>
+                           <operand dataType="fhir:DeviceUseStatement" codeProperty="code" xsi:type="Retrieve">
+                              <codes name="Venous foot pumps (VFP)" xsi:type="ValueSetRef"/>
+                           </operand>
+                        </operand>
+                        <operand dataType="fhir:DeviceUseStatement" codeProperty="code" xsi:type="Retrieve">
+                           <codes name="Graduated compression stockings (GCS)" xsi:type="ValueSetRef"/>
+                        </operand>
+                     </expression>
+                  </source>
+                  <where xsi:type="Equal">
+                     <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand path="status" scope="DeviceApplied" xsi:type="Property"/>
+                     </operand>
+                     <operand valueType="t:String" value="completed" xsi:type="Literal"/>
+                  </where>
+               </operand>
+               <asTypeSpecifier xsi:type="ListTypeSpecifier">
+                  <elementType xsi:type="ChoiceTypeSpecifier">
+                     <choice name="fhir:DeviceUseStatement" xsi:type="NamedTypeSpecifier"/>
+                     <choice name="fhir:MedicationAdministration" xsi:type="NamedTypeSpecifier"/>
+                  </elementType>
+               </asTypeSpecifier>
+            </operand>
+         </expression>
+      </def>
+      <def name="VTE Prophylaxis Received on Day of or Day After Admission or Procedure" context="Patient" accessLevel="Public">
+         <expression xsi:type="Union">
+            <operand xsi:type="Query">
+               <source alias="QualifyingEncounter">
+                  <expression name="Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" xsi:type="ExpressionRef"/>
+               </source>
+               <source alias="HasVTEProphylaxis">
+                  <expression name="VTE Prophylaxis by Medication Administered or Device Applied" xsi:type="ExpressionRef"/>
+               </source>
+               <where xsi:type="In">
+                  <operand xsi:type="Coalesce">
+                     <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand path="recordedOn" scope="HasVTEProphylaxis" xsi:type="Property"/>
+                     </operand>
+                     <operand xsi:type="Start">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand asType="fhir:Period" xsi:type="As">
+                              <operand path="effective" scope="HasVTEProphylaxis" xsi:type="Property"/>
+                           </operand>
+                        </operand>
+                     </operand>
+                  </operand>
+                  <operand name="CalendarDayOfOrDayAfter" libraryName="VTEICU" xsi:type="FunctionRef">
+                     <operand xsi:type="Start">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand path="period" scope="QualifyingEncounter" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                  </operand>
+               </where>
+               <return>
+                  <expression name="QualifyingEncounter" xsi:type="AliasRef"/>
+               </return>
+            </operand>
+            <operand xsi:type="Query">
+               <source alias="QualifyingEncounter">
+                  <expression name="Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" xsi:type="ExpressionRef"/>
+               </source>
+               <source alias="AnesthesiaProcedure">
+                  <expression dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                     <codes name="General or Neuraxial Anesthesia" xsi:type="ValueSetRef"/>
+                  </expression>
+               </source>
+               <source alias="HasVTEProphylaxis">
+                  <expression name="VTE Prophylaxis by Medication Administered or Device Applied" xsi:type="ExpressionRef"/>
+               </source>
+               <where xsi:type="And">
+                  <operand precision="Day" xsi:type="SameAs">
+                     <operand xsi:type="End">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand asType="fhir:Period" xsi:type="As">
+                              <operand path="performed" scope="AnesthesiaProcedure" xsi:type="Property"/>
+                           </operand>
+                        </operand>
+                     </operand>
+                     <operand xsi:type="Add">
+                        <operand xsi:type="Start">
+                           <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="period" scope="QualifyingEncounter" xsi:type="Property"/>
+                           </operand>
+                        </operand>
+                        <operand value="1" unit="day" xsi:type="Quantity"/>
+                     </operand>
+                  </operand>
+                  <operand xsi:type="In">
+                     <operand xsi:type="Coalesce">
+                        <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand path="recordedOn" scope="HasVTEProphylaxis" xsi:type="Property"/>
+                        </operand>
+                        <operand xsi:type="Start">
+                           <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand asType="fhir:Period" xsi:type="As">
+                                 <operand path="effective" scope="HasVTEProphylaxis" xsi:type="Property"/>
+                              </operand>
+                           </operand>
+                        </operand>
+                     </operand>
+                     <operand name="CalendarDayOfOrDayAfter" libraryName="VTEICU" xsi:type="FunctionRef">
+                        <operand xsi:type="End">
+                           <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand asType="fhir:Period" xsi:type="As">
+                                 <operand path="performed" scope="AnesthesiaProcedure" xsi:type="Property"/>
+                              </operand>
+                           </operand>
+                        </operand>
+                     </operand>
+                  </operand>
+               </where>
+               <return>
+                  <expression name="QualifyingEncounter" xsi:type="AliasRef"/>
+               </return>
+            </operand>
+         </expression>
+      </def>
+      <def name="Medication Oral Factor Xa Inhibitor Administered on Day of or Day After Admission or Procedure" context="Patient" accessLevel="Public">
+         <expression xsi:type="Union">
+            <operand xsi:type="Query">
+               <source alias="QualifyingEncounter">
+                  <expression name="Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" xsi:type="ExpressionRef"/>
+               </source>
+               <source alias="FactorXaMedication">
+                  <expression dataType="fhir:MedicationAdministration" codeProperty="medication" xsi:type="Retrieve">
+                     <codes name="Oral Factor Xa Inhibitor for VTE Prophylaxis or VTE Treatment" xsi:type="ValueSetRef"/>
+                  </expression>
+               </source>
+               <where xsi:type="In">
+                  <operand xsi:type="Start">
+                     <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand asType="fhir:Period" xsi:type="As">
+                           <operand path="effective" scope="FactorXaMedication" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                  </operand>
+                  <operand name="CalendarDayOfOrDayAfter" libraryName="VTEICU" xsi:type="FunctionRef">
+                     <operand xsi:type="Start">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand path="period" scope="QualifyingEncounter" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                  </operand>
+               </where>
+               <return>
+                  <expression name="QualifyingEncounter" xsi:type="AliasRef"/>
+               </return>
+            </operand>
+            <operand xsi:type="Query">
+               <source alias="QualifyingEncounter">
+                  <expression name="Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" xsi:type="ExpressionRef"/>
+               </source>
+               <source alias="AnesthesiaProcedure">
+                  <expression dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                     <codes name="General or Neuraxial Anesthesia" xsi:type="ValueSetRef"/>
+                  </expression>
+               </source>
+               <source alias="FactorXaMedication">
+                  <expression dataType="fhir:MedicationAdministration" codeProperty="medication" xsi:type="Retrieve">
+                     <codes name="Oral Factor Xa Inhibitor for VTE Prophylaxis or VTE Treatment" xsi:type="ValueSetRef"/>
+                  </expression>
+               </source>
+               <where xsi:type="And">
+                  <operand xsi:type="And">
+                     <operand xsi:type="Equal">
+                        <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand path="status" scope="AnesthesiaProcedure" xsi:type="Property"/>
+                        </operand>
+                        <operand valueType="t:String" value="completed" xsi:type="Literal"/>
+                     </operand>
+                     <operand precision="Day" xsi:type="SameAs">
+                        <operand xsi:type="End">
+                           <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand asType="fhir:Period" xsi:type="As">
+                                 <operand path="performed" scope="AnesthesiaProcedure" xsi:type="Property"/>
+                              </operand>
+                           </operand>
+                        </operand>
+                        <operand xsi:type="Add">
+                           <operand xsi:type="Start">
+                              <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand path="period" scope="QualifyingEncounter" xsi:type="Property"/>
+                              </operand>
+                           </operand>
+                           <operand value="1" unit="day" xsi:type="Quantity"/>
+                        </operand>
+                     </operand>
+                  </operand>
+                  <operand xsi:type="In">
+                     <operand xsi:type="Start">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand asType="fhir:Period" xsi:type="As">
+                              <operand path="effective" scope="FactorXaMedication" xsi:type="Property"/>
+                           </operand>
+                        </operand>
+                     </operand>
+                     <operand name="CalendarDayOfOrDayAfter" libraryName="VTEICU" xsi:type="FunctionRef">
+                        <operand xsi:type="End">
+                           <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand asType="fhir:Period" xsi:type="As">
+                                 <operand path="performed" scope="AnesthesiaProcedure" xsi:type="Property"/>
+                              </operand>
+                           </operand>
+                        </operand>
+                     </operand>
+                  </operand>
+               </where>
+               <return>
+                  <expression name="QualifyingEncounter" xsi:type="AliasRef"/>
+               </return>
+            </operand>
+         </expression>
+      </def>
+      <def name="Encounter With Prior or Present Diagnosis of Atrial Fibrillation or VTE" context="Patient" accessLevel="Public">
+         <expression xsi:type="Union">
+            <operand xsi:type="Union">
+               <operand xsi:type="Query">
+                  <source alias="QualifyingEncounter">
+                     <expression name="Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" xsi:type="ExpressionRef"/>
+                  </source>
+                  <relationship alias="AtrialFibrillation" xsi:type="With">
+                     <expression dataType="fhir:Condition" codeProperty="code" xsi:type="Retrieve">
+                        <codes name="Atrial Fibrillation/Flutter" xsi:type="ValueSetRef"/>
+                     </expression>
+                     <suchThat xsi:type="And">
+                        <operand xsi:type="And">
+                           <operand xsi:type="Equal">
+                              <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand path="clinicalStatus" scope="AtrialFibrillation" xsi:type="Property"/>
+                              </operand>
+                              <operand valueType="t:String" value="active" xsi:type="Literal"/>
+                           </operand>
+                           <operand xsi:type="Equal">
+                              <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand path="verificationStatus" scope="AtrialFibrillation" xsi:type="Property"/>
+                              </operand>
+                              <operand valueType="t:String" value="confirmed" xsi:type="Literal"/>
+                           </operand>
+                        </operand>
+                        <operand xsi:type="SameOrBefore">
+                           <operand name="Normalize Onset" libraryName="Global" xsi:type="FunctionRef">
+                              <operand path="onset" scope="AtrialFibrillation" xsi:type="Property"/>
+                           </operand>
+                           <operand lowClosed="true" highClosed="true" xsi:type="Interval">
+                              <low xsi:type="As">
+                                 <operand xsi:type="End">
+                                    <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                       <operand path="period" scope="QualifyingEncounter" xsi:type="Property"/>
+                                    </operand>
+                                 </operand>
+                                 <asTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                                    <choice name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+                                    <choice name="fhir:decimal" xsi:type="NamedTypeSpecifier"/>
+                                    <choice name="t:String" xsi:type="NamedTypeSpecifier"/>
+                                 </asTypeSpecifier>
+                              </low>
+                              <high xsi:type="As">
+                                 <operand xsi:type="End">
+                                    <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                       <operand path="period" scope="QualifyingEncounter" xsi:type="Property"/>
+                                    </operand>
+                                 </operand>
+                                 <asTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                                    <choice name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+                                    <choice name="fhir:decimal" xsi:type="NamedTypeSpecifier"/>
+                                    <choice name="t:String" xsi:type="NamedTypeSpecifier"/>
+                                 </asTypeSpecifier>
+                              </high>
+                           </operand>
+                        </operand>
+                     </suchThat>
+                  </relationship>
+               </operand>
+               <operand xsi:type="Query">
+                  <source alias="QualifyingEncounter">
+                     <expression name="Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" xsi:type="ExpressionRef"/>
+                  </source>
+                  <where xsi:type="AnyInValueSet">
+                     <codes xsi:type="Query">
+                        <source alias="X">
+                           <expression xsi:type="Query">
+                              <source alias="$this">
+                                 <expression name="EncounterDiagnosis" libraryName="Global" xsi:type="FunctionRef">
+                                    <operand name="QualifyingEncounter" xsi:type="AliasRef"/>
+                                 </expression>
+                              </source>
+                              <where xsi:type="Not">
+                                 <operand xsi:type="IsNull">
+                                    <operand path="code" xsi:type="Property">
+                                       <source name="$this" xsi:type="AliasRef"/>
+                                    </operand>
+                                 </operand>
+                              </where>
+                              <return>
+                                 <expression path="code" xsi:type="Property">
+                                    <source name="$this" xsi:type="AliasRef"/>
+                                 </expression>
+                              </return>
+                           </expression>
+                        </source>
+                        <return distinct="false">
+                           <expression name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand name="X" xsi:type="AliasRef"/>
+                           </expression>
+                        </return>
+                     </codes>
+                     <valueset name="Atrial Fibrillation/Flutter"/>
+                  </where>
+               </operand>
+            </operand>
+            <operand xsi:type="Query">
+               <source alias="QualifyingEncounter">
+                  <expression name="Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" xsi:type="ExpressionRef"/>
+               </source>
+               <relationship alias="VTEDiagnosis" xsi:type="With">
+                  <expression dataType="fhir:Condition" codeProperty="code" xsi:type="Retrieve">
+                     <codes name="Venous Thromboembolism" xsi:type="ValueSetRef"/>
+                  </expression>
+                  <suchThat xsi:type="And">
+                     <operand xsi:type="And">
+                        <operand xsi:type="In">
+                           <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="clinicalStatus" scope="VTEDiagnosis" xsi:type="Property"/>
+                           </operand>
+                           <operand xsi:type="List">
+                              <element valueType="t:String" value="inactive" xsi:type="Literal"/>
+                              <element valueType="t:String" value="remission" xsi:type="Literal"/>
+                              <element valueType="t:String" value="resolved" xsi:type="Literal"/>
+                           </operand>
+                        </operand>
+                        <operand xsi:type="Equal">
+                           <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="verificationStatus" scope="VTEDiagnosis" xsi:type="Property"/>
+                           </operand>
+                           <operand valueType="t:String" value="confirmed" xsi:type="Literal"/>
+                        </operand>
+                     </operand>
+                     <operand xsi:type="Before">
+                        <operand name="Normalize Onset" libraryName="Global" xsi:type="FunctionRef">
+                           <operand path="onset" scope="VTEDiagnosis" xsi:type="Property"/>
+                        </operand>
+                        <operand lowClosed="true" highClosed="true" xsi:type="Interval">
+                           <low xsi:type="As">
+                              <operand xsi:type="Start">
+                                 <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                    <operand path="period" scope="QualifyingEncounter" xsi:type="Property"/>
+                                 </operand>
+                              </operand>
+                              <asTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                                 <choice name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+                                 <choice name="fhir:decimal" xsi:type="NamedTypeSpecifier"/>
+                                 <choice name="t:String" xsi:type="NamedTypeSpecifier"/>
+                              </asTypeSpecifier>
+                           </low>
+                           <high xsi:type="As">
+                              <operand xsi:type="Start">
+                                 <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                    <operand path="period" scope="QualifyingEncounter" xsi:type="Property"/>
+                                 </operand>
+                              </operand>
+                              <asTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                                 <choice name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+                                 <choice name="fhir:decimal" xsi:type="NamedTypeSpecifier"/>
+                                 <choice name="t:String" xsi:type="NamedTypeSpecifier"/>
+                              </asTypeSpecifier>
+                           </high>
+                        </operand>
+                     </operand>
+                  </suchThat>
+               </relationship>
+            </operand>
+         </expression>
+      </def>
+      <def name="Encounter With ICU Location Stay 1 Day or More" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="QualifyingEncounter">
+               <expression name="Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" xsi:type="ExpressionRef"/>
+            </source>
+            <where xsi:type="Exists">
+               <operand xsi:type="Query">
+                  <source alias="Location">
+                     <expression path="location" scope="QualifyingEncounter" xsi:type="Property"/>
+                  </source>
+                  <where xsi:type="And">
+                     <operand xsi:type="And">
+                        <operand xsi:type="InValueSet">
+                           <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="type" xsi:type="Property">
+                                 <source name="GetLocation" libraryName="Global" xsi:type="FunctionRef">
+                                    <operand path="location" scope="Location" xsi:type="Property"/>
+                                 </source>
+                              </operand>
+                           </code>
+                           <valueset name="Intensive Care Unit"/>
+                        </operand>
+                        <operand xsi:type="GreaterOrEqual">
+                           <operand name="LengthInDays" libraryName="Global" xsi:type="FunctionRef">
+                              <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand path="period" scope="Location" xsi:type="Property"/>
+                              </operand>
+                           </operand>
+                           <operand valueType="t:Integer" value="1" xsi:type="Literal"/>
+                        </operand>
+                     </operand>
+                     <operand xsi:type="In">
+                        <operand xsi:type="Start">
+                           <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="period" scope="Location" xsi:type="Property"/>
+                           </operand>
+                        </operand>
+                        <operand name="CalendarDayOfOrDayAfter" libraryName="VTEICU" xsi:type="FunctionRef">
+                           <operand xsi:type="Start">
+                              <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand path="period" scope="QualifyingEncounter" xsi:type="Property"/>
+                              </operand>
+                           </operand>
+                        </operand>
+                     </operand>
+                  </where>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="Encounter With Principal Diagnosis of Mental Disorder or Stroke" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="QualifyingEncounter">
+               <expression name="Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" xsi:type="ExpressionRef"/>
+            </source>
+            <where xsi:type="Or">
+               <operand xsi:type="Or">
+                  <operand xsi:type="InValueSet">
+                     <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand path="code" xsi:type="Property">
+                           <source name="PrincipalDiagnosis" libraryName="Global" xsi:type="FunctionRef">
+                              <operand name="QualifyingEncounter" xsi:type="AliasRef"/>
+                           </source>
+                        </operand>
+                     </code>
+                     <valueset name="Mental Health Diagnoses"/>
+                  </operand>
+                  <operand xsi:type="InValueSet">
+                     <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand path="code" xsi:type="Property">
+                           <source name="PrincipalDiagnosis" libraryName="Global" xsi:type="FunctionRef">
+                              <operand name="QualifyingEncounter" xsi:type="AliasRef"/>
+                           </source>
+                        </operand>
+                     </code>
+                     <valueset name="Hemorrhagic Stroke"/>
+                  </operand>
+               </operand>
+               <operand xsi:type="InValueSet">
+                  <code name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand path="code" xsi:type="Property">
+                        <source name="PrincipalDiagnosis" libraryName="Global" xsi:type="FunctionRef">
+                           <operand name="QualifyingEncounter" xsi:type="AliasRef"/>
+                        </source>
+                     </operand>
+                  </code>
+                  <valueset name="Ischemic Stroke"/>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="Encounter With Principal Procedure of SCIP VTE Selected Surgery" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="QualifyingEncounter">
+               <expression name="Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" xsi:type="ExpressionRef"/>
+            </source>
+            <relationship alias="SelectedProcedure" xsi:type="With">
+               <expression xsi:type="Query">
+                  <source alias="Procedure">
+                     <expression name="SCIP VTE Selected Surgery" xsi:type="ExpressionRef"/>
+                  </source>
+                  <where xsi:type="Equivalent">
+                     <operand name="ToCode" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand asType="fhir:Coding" xsi:type="As">
+                           <operand path="value" xsi:type="Property">
+                              <source name="GetExtension" xsi:type="FunctionRef">
+                                 <operand path="extension" scope="Procedure" xsi:type="Property"/>
+                                 <operand valueType="t:String" value="http://example.org/StructureDefinition/ordinality" xsi:type="Literal"/>
+                              </source>
+                           </operand>
+                        </operand>
+                     </operand>
+                     <operand name="Principal" xsi:type="CodeRef"/>
+                  </where>
+               </expression>
+               <suchThat xsi:type="IncludedIn">
+                  <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand asType="fhir:Period" xsi:type="As">
+                        <operand path="performed" scope="SelectedProcedure" xsi:type="Property"/>
+                     </operand>
+                  </operand>
+                  <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand path="period" scope="QualifyingEncounter" xsi:type="Property"/>
+                  </operand>
+               </suchThat>
+            </relationship>
+         </expression>
+      </def>
+      <def name="Denominator Exclusions" context="Patient" accessLevel="Public">
+         <expression xsi:type="Union">
+            <operand xsi:type="As">
+               <operand xsi:type="Union">
+                  <operand xsi:type="Union">
+                     <operand name="Encounter Less Than 2 Days" xsi:type="ExpressionRef"/>
+                     <operand name="Encounter With ICU Location Stay 1 Day or More" xsi:type="ExpressionRef"/>
+                  </operand>
+                  <operand xsi:type="Union">
+                     <operand name="Encounter With Principal Diagnosis of Mental Disorder or Stroke" xsi:type="ExpressionRef"/>
+                     <operand name="Encounter With Principal Procedure of SCIP VTE Selected Surgery" xsi:type="ExpressionRef"/>
+                  </operand>
+               </operand>
+               <asTypeSpecifier xsi:type="ListTypeSpecifier">
+                  <elementType xsi:type="ChoiceTypeSpecifier">
+                     <choice name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                     <choice xsi:type="TupleTypeSpecifier">
+                        <element name="QualifyingEncounter">
+                           <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                        <element name="AnesthesiaProcedure">
+                           <type name="fhir:Procedure" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                        <element name="ComfortMeasure">
+                           <type xsi:type="ChoiceTypeSpecifier">
+                              <choice name="fhir:Procedure" xsi:type="NamedTypeSpecifier"/>
+                              <choice name="fhir:ProcedureRequest" xsi:type="NamedTypeSpecifier"/>
+                           </type>
+                        </element>
+                     </choice>
+                  </elementType>
+               </asTypeSpecifier>
+            </operand>
+            <operand xsi:type="As">
+               <operand xsi:type="Union">
+                  <operand xsi:type="As">
+                     <operand name="Intervention Comfort Measures on Day of or Day After Start of Hospitalization" xsi:type="ExpressionRef"/>
+                     <asTypeSpecifier xsi:type="ListTypeSpecifier">
+                        <elementType xsi:type="ChoiceTypeSpecifier">
+                           <choice name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                           <choice xsi:type="TupleTypeSpecifier">
+                              <element name="QualifyingEncounter">
+                                 <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                              </element>
+                              <element name="AnesthesiaProcedure">
+                                 <type name="fhir:Procedure" xsi:type="NamedTypeSpecifier"/>
+                              </element>
+                              <element name="ComfortMeasure">
+                                 <type xsi:type="ChoiceTypeSpecifier">
+                                    <choice name="fhir:Procedure" xsi:type="NamedTypeSpecifier"/>
+                                    <choice name="fhir:ProcedureRequest" xsi:type="NamedTypeSpecifier"/>
+                                 </type>
+                              </element>
+                           </choice>
+                        </elementType>
+                     </asTypeSpecifier>
+                  </operand>
+                  <operand xsi:type="As">
+                     <operand name="Intervention Comfort Measures on Day of or Day After Procedure" xsi:type="ExpressionRef"/>
+                     <asTypeSpecifier xsi:type="ListTypeSpecifier">
+                        <elementType xsi:type="ChoiceTypeSpecifier">
+                           <choice name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                           <choice xsi:type="TupleTypeSpecifier">
+                              <element name="QualifyingEncounter">
+                                 <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                              </element>
+                              <element name="AnesthesiaProcedure">
+                                 <type name="fhir:Procedure" xsi:type="NamedTypeSpecifier"/>
+                              </element>
+                              <element name="ComfortMeasure">
+                                 <type xsi:type="ChoiceTypeSpecifier">
+                                    <choice name="fhir:Procedure" xsi:type="NamedTypeSpecifier"/>
+                                    <choice name="fhir:ProcedureRequest" xsi:type="NamedTypeSpecifier"/>
+                                 </type>
+                              </element>
+                           </choice>
+                        </elementType>
+                     </asTypeSpecifier>
+                  </operand>
+               </operand>
+               <asTypeSpecifier xsi:type="ListTypeSpecifier">
+                  <elementType xsi:type="ChoiceTypeSpecifier">
+                     <choice name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                     <choice xsi:type="TupleTypeSpecifier">
+                        <element name="QualifyingEncounter">
+                           <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                        <element name="AnesthesiaProcedure">
+                           <type name="fhir:Procedure" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                        <element name="ComfortMeasure">
+                           <type xsi:type="ChoiceTypeSpecifier">
+                              <choice name="fhir:Procedure" xsi:type="NamedTypeSpecifier"/>
+                              <choice name="fhir:ProcedureRequest" xsi:type="NamedTypeSpecifier"/>
+                           </type>
+                        </element>
+                     </choice>
+                  </elementType>
+               </asTypeSpecifier>
+            </operand>
+         </expression>
+      </def>
+      <def name="Encounter With Prior or Present Procedure of Hip or Knee Replacement Surgery" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="QualifyingEncounter">
+               <expression name="Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" xsi:type="ExpressionRef"/>
+            </source>
+            <relationship alias="HipKneeProcedure" xsi:type="With">
+               <expression xsi:type="Union">
+                  <operand dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                     <codes name="Hip Replacement Surgery" xsi:type="ValueSetRef"/>
+                  </operand>
+                  <operand dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                     <codes name="Knee Replacement Surgery" xsi:type="ValueSetRef"/>
+                  </operand>
+               </expression>
+               <suchThat xsi:type="And">
+                  <operand xsi:type="Equal">
+                     <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand path="status" scope="HipKneeProcedure" xsi:type="Property"/>
+                     </operand>
+                     <operand valueType="t:String" value="completed" xsi:type="Literal"/>
+                  </operand>
+                  <operand xsi:type="SameOrBefore">
+                     <operand xsi:type="Start">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand asType="fhir:Period" xsi:type="As">
+                              <operand path="performed" scope="HipKneeProcedure" xsi:type="Property"/>
+                           </operand>
+                        </operand>
+                     </operand>
+                     <operand xsi:type="End">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand path="period" scope="QualifyingEncounter" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                  </operand>
+               </suchThat>
+            </relationship>
+         </expression>
+      </def>
+      <def name="Is In Low Risk for VTE or On Anticoagulant" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="VTERiskAssessment">
+               <expression dataType="fhir:Observation" codeProperty="code" xsi:type="Retrieve">
+                  <codes xsi:type="ToList">
+                     <operand name="Risk for venous thromboembolism" xsi:type="CodeRef"/>
+                  </codes>
+               </expression>
+            </source>
+            <where xsi:type="InValueSet">
+               <code name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                  <operand asType="fhir:string" xsi:type="As">
+                     <operand path="value" scope="VTERiskAssessment" xsi:type="Property"/>
+                  </operand>
+               </code>
+               <valueset name="Low Risk"/>
+            </where>
+         </expression>
+      </def>
+      <def name="Low Risk for VTE or Anticoagulant Administered During ED Visit" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="QualifyingEncounter">
+               <expression name="Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" xsi:type="ExpressionRef"/>
+            </source>
+            <source alias="EDVisit">
+               <expression name="ED Visit" xsi:type="ExpressionRef"/>
+            </source>
+            <source alias="VTERiskAssessment">
+               <expression name="Is In Low Risk for VTE or On Anticoagulant" xsi:type="ExpressionRef"/>
+            </source>
+            <where xsi:type="And">
+               <operand xsi:type="In">
+                  <operand xsi:type="End">
+                     <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand path="period" scope="EDVisit" xsi:type="Property"/>
+                     </operand>
+                  </operand>
+                  <operand lowClosed="true" highClosed="true" xsi:type="Interval">
+                     <low xsi:type="Subtract">
+                        <operand xsi:type="Start">
+                           <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="period" scope="QualifyingEncounter" xsi:type="Property"/>
+                           </operand>
+                        </operand>
+                        <operand value="1" unit="hour" xsi:type="Quantity"/>
+                     </low>
+                     <high xsi:type="Start">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand path="period" scope="QualifyingEncounter" xsi:type="Property"/>
+                        </operand>
+                     </high>
+                  </operand>
+               </operand>
+               <operand xsi:type="In">
+                  <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand path="issued" scope="VTERiskAssessment" xsi:type="Property"/>
+                  </operand>
+                  <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand path="period" scope="EDVisit" xsi:type="Property"/>
+                  </operand>
+               </operand>
+            </where>
+            <return>
+               <expression name="QualifyingEncounter" xsi:type="AliasRef"/>
+            </return>
+         </expression>
+      </def>
+      <def name="Low Risk for VTE or Anticoagulant Administered on Day of or Day After Admission" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="QualifyingEncounter">
+               <expression name="Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" xsi:type="ExpressionRef"/>
+            </source>
+            <relationship alias="VTERiskAssessment" xsi:type="With">
+               <expression name="Is In Low Risk for VTE or On Anticoagulant" xsi:type="ExpressionRef"/>
+               <suchThat xsi:type="In">
+                  <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand path="issued" scope="VTERiskAssessment" xsi:type="Property"/>
+                  </operand>
+                  <operand name="CalendarDayOfOrDayAfter" libraryName="VTEICU" xsi:type="FunctionRef">
+                     <operand xsi:type="Start">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand path="period" scope="QualifyingEncounter" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                  </operand>
+               </suchThat>
+            </relationship>
+         </expression>
+      </def>
+      <def name="Low Risk for VTE or Anticoagulant Administered on Day of or Day After Procedure" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="QualifyingEncounter">
+               <expression name="Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" xsi:type="ExpressionRef"/>
+            </source>
+            <source alias="AnesthesiaProcedure">
+               <expression dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                  <codes name="General or Neuraxial Anesthesia" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <source alias="VTERiskAssessment">
+               <expression name="Is In Low Risk for VTE or On Anticoagulant" xsi:type="ExpressionRef"/>
+            </source>
+            <where xsi:type="And">
+               <operand precision="Day" xsi:type="SameAs">
+                  <operand xsi:type="End">
+                     <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand asType="fhir:Period" xsi:type="As">
+                           <operand path="performed" scope="AnesthesiaProcedure" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                  </operand>
+                  <operand xsi:type="Add">
+                     <operand xsi:type="Start">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand path="period" scope="QualifyingEncounter" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                     <operand value="1" unit="day" xsi:type="Quantity"/>
+                  </operand>
+               </operand>
+               <operand xsi:type="In">
+                  <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand path="issued" scope="VTERiskAssessment" xsi:type="Property"/>
+                  </operand>
+                  <operand name="CalendarDayOfOrDayAfter" libraryName="VTEICU" xsi:type="FunctionRef">
+                     <operand xsi:type="End">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand asType="fhir:Period" xsi:type="As">
+                              <operand path="performed" scope="AnesthesiaProcedure" xsi:type="Property"/>
+                           </operand>
+                        </operand>
+                     </operand>
+                  </operand>
+               </operand>
+            </where>
+            <return>
+               <expression name="QualifyingEncounter" xsi:type="AliasRef"/>
+            </return>
+         </expression>
+      </def>
+      <def name="Low Risk for VTE or Anticoagulant Administered" context="Patient" accessLevel="Public">
+         <expression xsi:type="Union">
+            <operand xsi:type="Union">
+               <operand name="Low Risk for VTE or Anticoagulant Administered During ED Visit" xsi:type="ExpressionRef"/>
+               <operand name="Low Risk for VTE or Anticoagulant Administered on Day of or Day After Admission" xsi:type="ExpressionRef"/>
+            </operand>
+            <operand name="Low Risk for VTE or Anticoagulant Administered on Day of or Day After Procedure" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def name="No VTE Prophylaxis Due to Medical Reason" context="Patient" accessLevel="Public">
+         <expression xsi:type="Union">
+            <operand xsi:type="As">
+               <operand xsi:type="Union">
+                  <operand xsi:type="As">
+                     <operand xsi:type="Intersect">
+                        <operand xsi:type="As">
+                           <operand name="No VTE Prophylaxis Medication Due to Medical Reason During ED Visit" xsi:type="ExpressionRef"/>
+                           <asTypeSpecifier xsi:type="ListTypeSpecifier">
+                              <elementType xsi:type="ChoiceTypeSpecifier">
+                                 <choice xsi:type="TupleTypeSpecifier">
+                                    <element name="QualifyingEncounter">
+                                       <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                                    </element>
+                                    <element name="EDVisit">
+                                       <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                                    </element>
+                                    <element name="NoVTEDevice">
+                                       <type xsi:type="ChoiceTypeSpecifier">
+                                          <choice name="fhir:DeviceRequest" xsi:type="NamedTypeSpecifier"/>
+                                          <choice name="fhir:DeviceUseStatement" xsi:type="NamedTypeSpecifier"/>
+                                       </type>
+                                    </element>
+                                 </choice>
+                                 <choice name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                              </elementType>
+                           </asTypeSpecifier>
+                        </operand>
+                        <operand xsi:type="As">
+                           <operand name="No VTE Prophylaxis Device Due to Medical Reason During ED Visit" xsi:type="ExpressionRef"/>
+                           <asTypeSpecifier xsi:type="ListTypeSpecifier">
+                              <elementType xsi:type="ChoiceTypeSpecifier">
+                                 <choice xsi:type="TupleTypeSpecifier">
+                                    <element name="QualifyingEncounter">
+                                       <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                                    </element>
+                                    <element name="EDVisit">
+                                       <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                                    </element>
+                                    <element name="NoVTEDevice">
+                                       <type xsi:type="ChoiceTypeSpecifier">
+                                          <choice name="fhir:DeviceRequest" xsi:type="NamedTypeSpecifier"/>
+                                          <choice name="fhir:DeviceUseStatement" xsi:type="NamedTypeSpecifier"/>
+                                       </type>
+                                    </element>
+                                 </choice>
+                                 <choice name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                              </elementType>
+                           </asTypeSpecifier>
+                        </operand>
+                     </operand>
+                     <asTypeSpecifier xsi:type="ListTypeSpecifier">
+                        <elementType xsi:type="ChoiceTypeSpecifier">
+                           <choice xsi:type="TupleTypeSpecifier">
+                              <element name="QualifyingEncounter">
+                                 <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                              </element>
+                              <element name="EDVisit">
+                                 <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                              </element>
+                              <element name="NoVTEDevice">
+                                 <type xsi:type="ChoiceTypeSpecifier">
+                                    <choice name="fhir:DeviceRequest" xsi:type="NamedTypeSpecifier"/>
+                                    <choice name="fhir:DeviceUseStatement" xsi:type="NamedTypeSpecifier"/>
+                                 </type>
+                              </element>
+                           </choice>
+                           <choice name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                           <choice xsi:type="TupleTypeSpecifier">
+                              <element name="QualifyingEncounter">
+                                 <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                              </element>
+                              <element name="NoVTEDevice">
+                                 <type xsi:type="ChoiceTypeSpecifier">
+                                    <choice name="fhir:DeviceRequest" xsi:type="NamedTypeSpecifier"/>
+                                    <choice name="fhir:DeviceUseStatement" xsi:type="NamedTypeSpecifier"/>
+                                 </type>
+                              </element>
+                           </choice>
+                        </elementType>
+                     </asTypeSpecifier>
+                  </operand>
+                  <operand xsi:type="As">
+                     <operand xsi:type="Intersect">
+                        <operand xsi:type="As">
+                           <operand name="No VTE Prophylaxis Medication Due to Medical Reason on Day of or Day After Admission" xsi:type="ExpressionRef"/>
+                           <asTypeSpecifier xsi:type="ListTypeSpecifier">
+                              <elementType xsi:type="ChoiceTypeSpecifier">
+                                 <choice name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                                 <choice xsi:type="TupleTypeSpecifier">
+                                    <element name="QualifyingEncounter">
+                                       <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                                    </element>
+                                    <element name="NoVTEDevice">
+                                       <type xsi:type="ChoiceTypeSpecifier">
+                                          <choice name="fhir:DeviceRequest" xsi:type="NamedTypeSpecifier"/>
+                                          <choice name="fhir:DeviceUseStatement" xsi:type="NamedTypeSpecifier"/>
+                                       </type>
+                                    </element>
+                                 </choice>
+                              </elementType>
+                           </asTypeSpecifier>
+                        </operand>
+                        <operand xsi:type="As">
+                           <operand name="No VTE Prophylaxis Device Due to Medical Reason on Day of or Day After Admission" xsi:type="ExpressionRef"/>
+                           <asTypeSpecifier xsi:type="ListTypeSpecifier">
+                              <elementType xsi:type="ChoiceTypeSpecifier">
+                                 <choice name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                                 <choice xsi:type="TupleTypeSpecifier">
+                                    <element name="QualifyingEncounter">
+                                       <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                                    </element>
+                                    <element name="NoVTEDevice">
+                                       <type xsi:type="ChoiceTypeSpecifier">
+                                          <choice name="fhir:DeviceRequest" xsi:type="NamedTypeSpecifier"/>
+                                          <choice name="fhir:DeviceUseStatement" xsi:type="NamedTypeSpecifier"/>
+                                       </type>
+                                    </element>
+                                 </choice>
+                              </elementType>
+                           </asTypeSpecifier>
+                        </operand>
+                     </operand>
+                     <asTypeSpecifier xsi:type="ListTypeSpecifier">
+                        <elementType xsi:type="ChoiceTypeSpecifier">
+                           <choice xsi:type="TupleTypeSpecifier">
+                              <element name="QualifyingEncounter">
+                                 <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                              </element>
+                              <element name="EDVisit">
+                                 <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                              </element>
+                              <element name="NoVTEDevice">
+                                 <type xsi:type="ChoiceTypeSpecifier">
+                                    <choice name="fhir:DeviceRequest" xsi:type="NamedTypeSpecifier"/>
+                                    <choice name="fhir:DeviceUseStatement" xsi:type="NamedTypeSpecifier"/>
+                                 </type>
+                              </element>
+                           </choice>
+                           <choice name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                           <choice xsi:type="TupleTypeSpecifier">
+                              <element name="QualifyingEncounter">
+                                 <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                              </element>
+                              <element name="NoVTEDevice">
+                                 <type xsi:type="ChoiceTypeSpecifier">
+                                    <choice name="fhir:DeviceRequest" xsi:type="NamedTypeSpecifier"/>
+                                    <choice name="fhir:DeviceUseStatement" xsi:type="NamedTypeSpecifier"/>
+                                 </type>
+                              </element>
+                           </choice>
+                        </elementType>
+                     </asTypeSpecifier>
+                  </operand>
+               </operand>
+               <asTypeSpecifier xsi:type="ListTypeSpecifier">
+                  <elementType xsi:type="ChoiceTypeSpecifier">
+                     <choice xsi:type="TupleTypeSpecifier">
+                        <element name="QualifyingEncounter">
+                           <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                        <element name="EDVisit">
+                           <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                        <element name="NoVTEDevice">
+                           <type xsi:type="ChoiceTypeSpecifier">
+                              <choice name="fhir:DeviceRequest" xsi:type="NamedTypeSpecifier"/>
+                              <choice name="fhir:DeviceUseStatement" xsi:type="NamedTypeSpecifier"/>
+                           </type>
+                        </element>
+                     </choice>
+                     <choice name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                     <choice xsi:type="TupleTypeSpecifier">
+                        <element name="QualifyingEncounter">
+                           <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                        <element name="NoVTEDevice">
+                           <type xsi:type="ChoiceTypeSpecifier">
+                              <choice name="fhir:DeviceRequest" xsi:type="NamedTypeSpecifier"/>
+                              <choice name="fhir:DeviceUseStatement" xsi:type="NamedTypeSpecifier"/>
+                           </type>
+                        </element>
+                     </choice>
+                  </elementType>
+               </asTypeSpecifier>
+            </operand>
+            <operand xsi:type="As">
+               <operand xsi:type="Intersect">
+                  <operand name="No VTE Prophylaxis Medication Due to Medical Reason on Day of or Day After Procedure" xsi:type="ExpressionRef"/>
+                  <operand name="No VTE Prophylaxis Device Due to Medical Reason on Day of or Day After Procedure" xsi:type="ExpressionRef"/>
+               </operand>
+               <asTypeSpecifier xsi:type="ListTypeSpecifier">
+                  <elementType xsi:type="ChoiceTypeSpecifier">
+                     <choice xsi:type="TupleTypeSpecifier">
+                        <element name="QualifyingEncounter">
+                           <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                        <element name="EDVisit">
+                           <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                        <element name="NoVTEDevice">
+                           <type xsi:type="ChoiceTypeSpecifier">
+                              <choice name="fhir:DeviceRequest" xsi:type="NamedTypeSpecifier"/>
+                              <choice name="fhir:DeviceUseStatement" xsi:type="NamedTypeSpecifier"/>
+                           </type>
+                        </element>
+                     </choice>
+                     <choice name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                     <choice xsi:type="TupleTypeSpecifier">
+                        <element name="QualifyingEncounter">
+                           <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                        <element name="NoVTEDevice">
+                           <type xsi:type="ChoiceTypeSpecifier">
+                              <choice name="fhir:DeviceRequest" xsi:type="NamedTypeSpecifier"/>
+                              <choice name="fhir:DeviceUseStatement" xsi:type="NamedTypeSpecifier"/>
+                           </type>
+                        </element>
+                     </choice>
+                  </elementType>
+               </asTypeSpecifier>
+            </operand>
+         </expression>
+      </def>
+      <def name="No VTE Prophylaxis Medication or Device Due to Patient Refusal" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="NoVTEProphylaxis">
+               <expression xsi:type="Union">
+                  <operand xsi:type="As">
+                     <operand name="No VTE Prophylaxis Medication Administered or Ordered" xsi:type="ExpressionRef"/>
+                     <asTypeSpecifier xsi:type="ListTypeSpecifier">
+                        <elementType xsi:type="ChoiceTypeSpecifier">
+                           <choice name="fhir:DeviceRequest" xsi:type="NamedTypeSpecifier"/>
+                           <choice name="fhir:MedicationRequest" xsi:type="NamedTypeSpecifier"/>
+                           <choice name="fhir:DeviceUseStatement" xsi:type="NamedTypeSpecifier"/>
+                           <choice name="fhir:MedicationAdministration" xsi:type="NamedTypeSpecifier"/>
+                        </elementType>
+                     </asTypeSpecifier>
+                  </operand>
+                  <operand xsi:type="As">
+                     <operand name="No VTE Prophylaxis Device Applied or Ordered" xsi:type="ExpressionRef"/>
+                     <asTypeSpecifier xsi:type="ListTypeSpecifier">
+                        <elementType xsi:type="ChoiceTypeSpecifier">
+                           <choice name="fhir:DeviceRequest" xsi:type="NamedTypeSpecifier"/>
+                           <choice name="fhir:MedicationRequest" xsi:type="NamedTypeSpecifier"/>
+                           <choice name="fhir:DeviceUseStatement" xsi:type="NamedTypeSpecifier"/>
+                           <choice name="fhir:MedicationAdministration" xsi:type="NamedTypeSpecifier"/>
+                        </elementType>
+                     </asTypeSpecifier>
+                  </operand>
+               </expression>
+            </source>
+            <where xsi:type="InValueSet">
+               <code xsi:type="Case">
+                  <caseItem>
+                     <when isType="fhir:base64Binary" xsi:type="Is">
+                        <operand path="value" xsi:type="Property">
+                           <source name="GetExtension" xsi:type="FunctionRef">
+                              <operand path="extension" scope="NoVTEProphylaxis" xsi:type="Property"/>
+                              <operand valueType="t:String" value="http://example.org/StructureDefinition/notDoneReason" xsi:type="Literal"/>
+                           </source>
+                        </operand>
+                     </when>
+                     <then name="Tobase64Binary" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand asType="fhir:base64Binary" xsi:type="As">
+                           <operand path="value" xsi:type="Property">
+                              <source name="GetExtension" xsi:type="FunctionRef">
+                                 <operand path="extension" scope="NoVTEProphylaxis" xsi:type="Property"/>
+                                 <operand valueType="t:String" value="http://example.org/StructureDefinition/notDoneReason" xsi:type="Literal"/>
+                              </source>
+                           </operand>
+                        </operand>
+                     </then>
+                  </caseItem>
+                  <caseItem>
+                     <when isType="fhir:code" xsi:type="Is">
+                        <operand path="value" xsi:type="Property">
+                           <source name="GetExtension" xsi:type="FunctionRef">
+                              <operand path="extension" scope="NoVTEProphylaxis" xsi:type="Property"/>
+                              <operand valueType="t:String" value="http://example.org/StructureDefinition/notDoneReason" xsi:type="Literal"/>
+                           </source>
+                        </operand>
+                     </when>
+                     <then name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand asType="fhir:code" xsi:type="As">
+                           <operand path="value" xsi:type="Property">
+                              <source name="GetExtension" xsi:type="FunctionRef">
+                                 <operand path="extension" scope="NoVTEProphylaxis" xsi:type="Property"/>
+                                 <operand valueType="t:String" value="http://example.org/StructureDefinition/notDoneReason" xsi:type="Literal"/>
+                              </source>
+                           </operand>
+                        </operand>
+                     </then>
+                  </caseItem>
+                  <caseItem>
+                     <when isType="fhir:id" xsi:type="Is">
+                        <operand path="value" xsi:type="Property">
+                           <source name="GetExtension" xsi:type="FunctionRef">
+                              <operand path="extension" scope="NoVTEProphylaxis" xsi:type="Property"/>
+                              <operand valueType="t:String" value="http://example.org/StructureDefinition/notDoneReason" xsi:type="Literal"/>
+                           </source>
+                        </operand>
+                     </when>
+                     <then name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand asType="fhir:id" xsi:type="As">
+                           <operand path="value" xsi:type="Property">
+                              <source name="GetExtension" xsi:type="FunctionRef">
+                                 <operand path="extension" scope="NoVTEProphylaxis" xsi:type="Property"/>
+                                 <operand valueType="t:String" value="http://example.org/StructureDefinition/notDoneReason" xsi:type="Literal"/>
+                              </source>
+                           </operand>
+                        </operand>
+                     </then>
+                  </caseItem>
+                  <caseItem>
+                     <when isType="fhir:markdown" xsi:type="Is">
+                        <operand path="value" xsi:type="Property">
+                           <source name="GetExtension" xsi:type="FunctionRef">
+                              <operand path="extension" scope="NoVTEProphylaxis" xsi:type="Property"/>
+                              <operand valueType="t:String" value="http://example.org/StructureDefinition/notDoneReason" xsi:type="Literal"/>
+                           </source>
+                        </operand>
+                     </when>
+                     <then name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand asType="fhir:markdown" xsi:type="As">
+                           <operand path="value" xsi:type="Property">
+                              <source name="GetExtension" xsi:type="FunctionRef">
+                                 <operand path="extension" scope="NoVTEProphylaxis" xsi:type="Property"/>
+                                 <operand valueType="t:String" value="http://example.org/StructureDefinition/notDoneReason" xsi:type="Literal"/>
+                              </source>
+                           </operand>
+                        </operand>
+                     </then>
+                  </caseItem>
+                  <caseItem>
+                     <when isType="fhir:oid" xsi:type="Is">
+                        <operand path="value" xsi:type="Property">
+                           <source name="GetExtension" xsi:type="FunctionRef">
+                              <operand path="extension" scope="NoVTEProphylaxis" xsi:type="Property"/>
+                              <operand valueType="t:String" value="http://example.org/StructureDefinition/notDoneReason" xsi:type="Literal"/>
+                           </source>
+                        </operand>
+                     </when>
+                     <then name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand asType="fhir:oid" xsi:type="As">
+                           <operand path="value" xsi:type="Property">
+                              <source name="GetExtension" xsi:type="FunctionRef">
+                                 <operand path="extension" scope="NoVTEProphylaxis" xsi:type="Property"/>
+                                 <operand valueType="t:String" value="http://example.org/StructureDefinition/notDoneReason" xsi:type="Literal"/>
+                              </source>
+                           </operand>
+                        </operand>
+                     </then>
+                  </caseItem>
+                  <caseItem>
+                     <when isType="fhir:string" xsi:type="Is">
+                        <operand path="value" xsi:type="Property">
+                           <source name="GetExtension" xsi:type="FunctionRef">
+                              <operand path="extension" scope="NoVTEProphylaxis" xsi:type="Property"/>
+                              <operand valueType="t:String" value="http://example.org/StructureDefinition/notDoneReason" xsi:type="Literal"/>
+                           </source>
+                        </operand>
+                     </when>
+                     <then name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand asType="fhir:string" xsi:type="As">
+                           <operand path="value" xsi:type="Property">
+                              <source name="GetExtension" xsi:type="FunctionRef">
+                                 <operand path="extension" scope="NoVTEProphylaxis" xsi:type="Property"/>
+                                 <operand valueType="t:String" value="http://example.org/StructureDefinition/notDoneReason" xsi:type="Literal"/>
+                              </source>
+                           </operand>
+                        </operand>
+                     </then>
+                  </caseItem>
+                  <caseItem>
+                     <when isType="fhir:uri" xsi:type="Is">
+                        <operand path="value" xsi:type="Property">
+                           <source name="GetExtension" xsi:type="FunctionRef">
+                              <operand path="extension" scope="NoVTEProphylaxis" xsi:type="Property"/>
+                              <operand valueType="t:String" value="http://example.org/StructureDefinition/notDoneReason" xsi:type="Literal"/>
+                           </source>
+                        </operand>
+                     </when>
+                     <then name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand asType="fhir:uri" xsi:type="As">
+                           <operand path="value" xsi:type="Property">
+                              <source name="GetExtension" xsi:type="FunctionRef">
+                                 <operand path="extension" scope="NoVTEProphylaxis" xsi:type="Property"/>
+                                 <operand valueType="t:String" value="http://example.org/StructureDefinition/notDoneReason" xsi:type="Literal"/>
+                              </source>
+                           </operand>
+                        </operand>
+                     </then>
+                  </caseItem>
+                  <else resultTypeName="t:String" xsi:type="Null"/>
+               </code>
+               <valueset name="Patient Refusal"/>
+            </where>
+         </expression>
+      </def>
+      <def name="No VTE Prophylaxis Due to Patient Refusal During ED Visit" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="QualifyingEncounter">
+               <expression name="Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" xsi:type="ExpressionRef"/>
+            </source>
+            <source alias="EDVisit">
+               <expression name="ED Visit" xsi:type="ExpressionRef"/>
+            </source>
+            <source alias="PatientRefusal">
+               <expression name="No VTE Prophylaxis Medication or Device Due to Patient Refusal" xsi:type="ExpressionRef"/>
+            </source>
+            <where xsi:type="And">
+               <operand xsi:type="In">
+                  <operand xsi:type="End">
+                     <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand path="period" scope="EDVisit" xsi:type="Property"/>
+                     </operand>
+                  </operand>
+                  <operand lowClosed="true" highClosed="true" xsi:type="Interval">
+                     <low xsi:type="Subtract">
+                        <operand xsi:type="Start">
+                           <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="period" scope="QualifyingEncounter" xsi:type="Property"/>
+                           </operand>
+                        </operand>
+                        <operand value="1" unit="hour" xsi:type="Quantity"/>
+                     </low>
+                     <high xsi:type="Start">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand path="period" scope="QualifyingEncounter" xsi:type="Property"/>
+                        </operand>
+                     </high>
+                  </operand>
+               </operand>
+               <operand xsi:type="In">
+                  <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand xsi:type="Coalesce">
+                        <operand asType="fhir:dateTime" xsi:type="As">
+                           <operand path="effective" scope="PatientRefusal" xsi:type="Property"/>
+                        </operand>
+                        <operand path="authoredOn" scope="PatientRefusal" xsi:type="Property"/>
+                        <operand path="recordedOn" scope="PatientRefusal" xsi:type="Property"/>
+                     </operand>
+                  </operand>
+                  <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand path="period" scope="EDVisit" xsi:type="Property"/>
+                  </operand>
+               </operand>
+            </where>
+            <return>
+               <expression name="QualifyingEncounter" xsi:type="AliasRef"/>
+            </return>
+         </expression>
+      </def>
+      <def name="No VTE Prophylaxis Due to Patient Refusal on Day of or Day After Admission" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="QualifyingEncounter">
+               <expression name="Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" xsi:type="ExpressionRef"/>
+            </source>
+            <source alias="PatientRefusal">
+               <expression name="No VTE Prophylaxis Medication or Device Due to Patient Refusal" xsi:type="ExpressionRef"/>
+            </source>
+            <where xsi:type="In">
+               <operand xsi:type="Coalesce">
+                  <operand xsi:type="Start">
+                     <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand asType="fhir:Period" xsi:type="As">
+                           <operand path="effective" scope="PatientRefusal" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                  </operand>
+                  <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand path="authoredOn" scope="PatientRefusal" xsi:type="Property"/>
+                  </operand>
+                  <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand path="recordedOn" scope="PatientRefusal" xsi:type="Property"/>
+                  </operand>
+               </operand>
+               <operand name="CalendarDayOfOrDayAfter" libraryName="VTEICU" xsi:type="FunctionRef">
+                  <operand xsi:type="Start">
+                     <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand path="period" scope="QualifyingEncounter" xsi:type="Property"/>
+                     </operand>
+                  </operand>
+               </operand>
+            </where>
+            <return>
+               <expression name="QualifyingEncounter" xsi:type="AliasRef"/>
+            </return>
+         </expression>
+      </def>
+      <def name="No VTE Prophylaxis Due to Patient Refusal on Day of or Day After Procedure" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="QualifyingEncounter">
+               <expression name="Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" xsi:type="ExpressionRef"/>
+            </source>
+            <source alias="AnesthesiaProcedure">
+               <expression dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                  <codes name="General or Neuraxial Anesthesia" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <source alias="PatientRefusal">
+               <expression name="No VTE Prophylaxis Medication or Device Due to Patient Refusal" xsi:type="ExpressionRef"/>
+            </source>
+            <where xsi:type="And">
+               <operand precision="Day" xsi:type="SameAs">
+                  <operand xsi:type="End">
+                     <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand asType="fhir:Period" xsi:type="As">
+                           <operand path="performed" scope="AnesthesiaProcedure" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                  </operand>
+                  <operand xsi:type="Add">
+                     <operand xsi:type="Start">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand path="period" scope="QualifyingEncounter" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                     <operand value="1" unit="day" xsi:type="Quantity"/>
+                  </operand>
+               </operand>
+               <operand xsi:type="In">
+                  <operand xsi:type="Coalesce">
+                     <operand xsi:type="Start">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand asType="fhir:Period" xsi:type="As">
+                              <operand path="effective" scope="PatientRefusal" xsi:type="Property"/>
+                           </operand>
+                        </operand>
+                     </operand>
+                     <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand path="authoredOn" scope="PatientRefusal" xsi:type="Property"/>
+                     </operand>
+                     <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand path="recordedOn" scope="PatientRefusal" xsi:type="Property"/>
+                     </operand>
+                  </operand>
+                  <operand name="CalendarDayOfOrDayAfter" libraryName="VTEICU" xsi:type="FunctionRef">
+                     <operand xsi:type="End">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand asType="fhir:Period" xsi:type="As">
+                              <operand path="performed" scope="AnesthesiaProcedure" xsi:type="Property"/>
+                           </operand>
+                        </operand>
+                     </operand>
+                  </operand>
+               </operand>
+            </where>
+            <return>
+               <expression name="QualifyingEncounter" xsi:type="AliasRef"/>
+            </return>
+         </expression>
+      </def>
+      <def name="No VTE Prophylaxis Due to Patient Refusal" context="Patient" accessLevel="Public">
+         <expression xsi:type="Union">
+            <operand xsi:type="Union">
+               <operand name="No VTE Prophylaxis Due to Patient Refusal During ED Visit" xsi:type="ExpressionRef"/>
+               <operand name="No VTE Prophylaxis Due to Patient Refusal on Day of or Day After Admission" xsi:type="ExpressionRef"/>
+            </operand>
+            <operand name="No VTE Prophylaxis Due to Patient Refusal on Day of or Day After Procedure" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def name="Numerator" context="Patient" accessLevel="Public">
+         <expression xsi:type="Union">
+            <operand xsi:type="As">
+               <operand xsi:type="Union">
+                  <operand xsi:type="As">
+                     <operand xsi:type="Union">
+                        <operand name="VTE Prophylaxis Received on Day of or Day After Admission or Procedure" xsi:type="ExpressionRef"/>
+                        <operand xsi:type="Intersect">
+                           <operand name="Medication Oral Factor Xa Inhibitor Administered on Day of or Day After Admission or Procedure" xsi:type="ExpressionRef"/>
+                           <operand xsi:type="Union">
+                              <operand name="Encounter With Prior or Present Diagnosis of Atrial Fibrillation or VTE" xsi:type="ExpressionRef"/>
+                              <operand name="Encounter With Prior or Present Procedure of Hip or Knee Replacement Surgery" xsi:type="ExpressionRef"/>
+                           </operand>
+                        </operand>
+                     </operand>
+                     <asTypeSpecifier xsi:type="ListTypeSpecifier">
+                        <elementType xsi:type="ChoiceTypeSpecifier">
+                           <choice xsi:type="TupleTypeSpecifier">
+                              <element name="QualifyingEncounter">
+                                 <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                              </element>
+                              <element name="EDVisit">
+                                 <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                              </element>
+                              <element name="NoVTEDevice">
+                                 <type xsi:type="ChoiceTypeSpecifier">
+                                    <choice name="fhir:DeviceRequest" xsi:type="NamedTypeSpecifier"/>
+                                    <choice name="fhir:DeviceUseStatement" xsi:type="NamedTypeSpecifier"/>
+                                 </type>
+                              </element>
+                           </choice>
+                           <choice name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                           <choice xsi:type="TupleTypeSpecifier">
+                              <element name="QualifyingEncounter">
+                                 <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                              </element>
+                              <element name="NoVTEDevice">
+                                 <type xsi:type="ChoiceTypeSpecifier">
+                                    <choice name="fhir:DeviceRequest" xsi:type="NamedTypeSpecifier"/>
+                                    <choice name="fhir:DeviceUseStatement" xsi:type="NamedTypeSpecifier"/>
+                                 </type>
+                              </element>
+                           </choice>
+                        </elementType>
+                     </asTypeSpecifier>
+                  </operand>
+                  <operand xsi:type="As">
+                     <operand xsi:type="Union">
+                        <operand xsi:type="As">
+                           <operand name="Low Risk for VTE or Anticoagulant Administered" xsi:type="ExpressionRef"/>
+                           <asTypeSpecifier xsi:type="ListTypeSpecifier">
+                              <elementType xsi:type="ChoiceTypeSpecifier">
+                                 <choice xsi:type="TupleTypeSpecifier">
+                                    <element name="QualifyingEncounter">
+                                       <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                                    </element>
+                                    <element name="EDVisit">
+                                       <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                                    </element>
+                                    <element name="NoVTEDevice">
+                                       <type xsi:type="ChoiceTypeSpecifier">
+                                          <choice name="fhir:DeviceRequest" xsi:type="NamedTypeSpecifier"/>
+                                          <choice name="fhir:DeviceUseStatement" xsi:type="NamedTypeSpecifier"/>
+                                       </type>
+                                    </element>
+                                 </choice>
+                                 <choice name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                                 <choice xsi:type="TupleTypeSpecifier">
+                                    <element name="QualifyingEncounter">
+                                       <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                                    </element>
+                                    <element name="NoVTEDevice">
+                                       <type xsi:type="ChoiceTypeSpecifier">
+                                          <choice name="fhir:DeviceRequest" xsi:type="NamedTypeSpecifier"/>
+                                          <choice name="fhir:DeviceUseStatement" xsi:type="NamedTypeSpecifier"/>
+                                       </type>
+                                    </element>
+                                 </choice>
+                              </elementType>
+                           </asTypeSpecifier>
+                        </operand>
+                        <operand xsi:type="As">
+                           <operand name="No VTE Prophylaxis Due to Medical Reason" xsi:type="ExpressionRef"/>
+                           <asTypeSpecifier xsi:type="ListTypeSpecifier">
+                              <elementType xsi:type="ChoiceTypeSpecifier">
+                                 <choice xsi:type="TupleTypeSpecifier">
+                                    <element name="QualifyingEncounter">
+                                       <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                                    </element>
+                                    <element name="EDVisit">
+                                       <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                                    </element>
+                                    <element name="NoVTEDevice">
+                                       <type xsi:type="ChoiceTypeSpecifier">
+                                          <choice name="fhir:DeviceRequest" xsi:type="NamedTypeSpecifier"/>
+                                          <choice name="fhir:DeviceUseStatement" xsi:type="NamedTypeSpecifier"/>
+                                       </type>
+                                    </element>
+                                 </choice>
+                                 <choice name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                                 <choice xsi:type="TupleTypeSpecifier">
+                                    <element name="QualifyingEncounter">
+                                       <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                                    </element>
+                                    <element name="NoVTEDevice">
+                                       <type xsi:type="ChoiceTypeSpecifier">
+                                          <choice name="fhir:DeviceRequest" xsi:type="NamedTypeSpecifier"/>
+                                          <choice name="fhir:DeviceUseStatement" xsi:type="NamedTypeSpecifier"/>
+                                       </type>
+                                    </element>
+                                 </choice>
+                              </elementType>
+                           </asTypeSpecifier>
+                        </operand>
+                     </operand>
+                     <asTypeSpecifier xsi:type="ListTypeSpecifier">
+                        <elementType xsi:type="ChoiceTypeSpecifier">
+                           <choice xsi:type="TupleTypeSpecifier">
+                              <element name="QualifyingEncounter">
+                                 <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                              </element>
+                              <element name="EDVisit">
+                                 <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                              </element>
+                              <element name="NoVTEDevice">
+                                 <type xsi:type="ChoiceTypeSpecifier">
+                                    <choice name="fhir:DeviceRequest" xsi:type="NamedTypeSpecifier"/>
+                                    <choice name="fhir:DeviceUseStatement" xsi:type="NamedTypeSpecifier"/>
+                                 </type>
+                              </element>
+                           </choice>
+                           <choice name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                           <choice xsi:type="TupleTypeSpecifier">
+                              <element name="QualifyingEncounter">
+                                 <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                              </element>
+                              <element name="NoVTEDevice">
+                                 <type xsi:type="ChoiceTypeSpecifier">
+                                    <choice name="fhir:DeviceRequest" xsi:type="NamedTypeSpecifier"/>
+                                    <choice name="fhir:DeviceUseStatement" xsi:type="NamedTypeSpecifier"/>
+                                 </type>
+                              </element>
+                           </choice>
+                        </elementType>
+                     </asTypeSpecifier>
+                  </operand>
+               </operand>
+               <asTypeSpecifier xsi:type="ListTypeSpecifier">
+                  <elementType xsi:type="ChoiceTypeSpecifier">
+                     <choice xsi:type="TupleTypeSpecifier">
+                        <element name="QualifyingEncounter">
+                           <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                        <element name="EDVisit">
+                           <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                        <element name="NoVTEDevice">
+                           <type xsi:type="ChoiceTypeSpecifier">
+                              <choice name="fhir:DeviceRequest" xsi:type="NamedTypeSpecifier"/>
+                              <choice name="fhir:DeviceUseStatement" xsi:type="NamedTypeSpecifier"/>
+                           </type>
+                        </element>
+                     </choice>
+                     <choice name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                     <choice xsi:type="TupleTypeSpecifier">
+                        <element name="QualifyingEncounter">
+                           <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                        <element name="NoVTEDevice">
+                           <type xsi:type="ChoiceTypeSpecifier">
+                              <choice name="fhir:DeviceRequest" xsi:type="NamedTypeSpecifier"/>
+                              <choice name="fhir:DeviceUseStatement" xsi:type="NamedTypeSpecifier"/>
+                           </type>
+                        </element>
+                     </choice>
+                  </elementType>
+               </asTypeSpecifier>
+            </operand>
+            <operand xsi:type="As">
+               <operand name="No VTE Prophylaxis Due to Patient Refusal" xsi:type="ExpressionRef"/>
+               <asTypeSpecifier xsi:type="ListTypeSpecifier">
+                  <elementType xsi:type="ChoiceTypeSpecifier">
+                     <choice xsi:type="TupleTypeSpecifier">
+                        <element name="QualifyingEncounter">
+                           <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                        <element name="EDVisit">
+                           <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                        <element name="NoVTEDevice">
+                           <type xsi:type="ChoiceTypeSpecifier">
+                              <choice name="fhir:DeviceRequest" xsi:type="NamedTypeSpecifier"/>
+                              <choice name="fhir:DeviceUseStatement" xsi:type="NamedTypeSpecifier"/>
+                           </type>
+                        </element>
+                     </choice>
+                     <choice name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                     <choice xsi:type="TupleTypeSpecifier">
+                        <element name="QualifyingEncounter">
+                           <type name="fhir:Encounter" xsi:type="NamedTypeSpecifier"/>
+                        </element>
+                        <element name="NoVTEDevice">
+                           <type xsi:type="ChoiceTypeSpecifier">
+                              <choice name="fhir:DeviceRequest" xsi:type="NamedTypeSpecifier"/>
+                              <choice name="fhir:DeviceUseStatement" xsi:type="NamedTypeSpecifier"/>
+                           </type>
+                        </element>
+                     </choice>
+                  </elementType>
+               </asTypeSpecifier>
+            </operand>
+         </expression>
+      </def>
+   </statements>
+</library>

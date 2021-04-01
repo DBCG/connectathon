@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1">
+   <annotation startLine="93" startChar="2" endLine="93" endChar="56" message="Could not resolve membership operator for terminology target of the retrieve." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
+   <identifier id="EXM124_FHIR3" version="7.2.000"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localIdentifier="FHIR" uri="http://hl7.org/fhir" version="3.0.0"/>
+   </usings>
+   <includes>
+      <def localIdentifier="Global" path="MATGlobalCommonFunctions_FHIR3" version="2.0.000"/>
+      <def localIdentifier="AdultOutpatientEncounters" path="AdultOutpatientEncounters_FHIR3" version="1.1.000"/>
+      <def localIdentifier="Hospice" path="Hospice_FHIR3" version="1.0.000"/>
+      <def localIdentifier="FHIRHelpers" path="FHIRHelpers" version="3.0.0"/>
+      <def localIdentifier="SDE" path="SupplementalDataElements_FHIR3" version="1.0.0"/>
+   </includes>
+   <parameters>
+      <def name="Measurement Period" accessLevel="Public">
+         <parameterTypeSpecifier xsi:type="IntervalTypeSpecifier">
+            <pointType name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+         </parameterTypeSpecifier>
+      </def>
+   </parameters>
+   <codeSystems>
+      <def name="SNOMEDCT:2017-09" id="http://snomed.info/sct/731000124108" version="http://snomed.info/sct/731000124108/version/201709" accessLevel="Public"/>
+   </codeSystems>
+   <valueSets>
+      <def name="ONC Administrative Sex" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1" accessLevel="Public"/>
+      <def name="Race" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.836" accessLevel="Public"/>
+      <def name="Ethnicity" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.837" accessLevel="Public"/>
+      <def name="Payer" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591" accessLevel="Public"/>
+      <def name="Female" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.560.100.2" accessLevel="Public"/>
+      <def name="Home Healthcare Services" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1016" accessLevel="Public"/>
+      <def name="Hysterectomy with No Residual Cervix" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1014" accessLevel="Public"/>
+      <def name="Office Visit" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001" accessLevel="Public"/>
+      <def name="Pap Test" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1017" accessLevel="Public"/>
+      <def name="Preventive Care Services - Established Office Visit, 18 and Up" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1025" accessLevel="Public"/>
+      <def name="Preventive Care Services-Initial Office Visit, 18 and Up" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1023" accessLevel="Public"/>
+      <def name="HPV Test" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.110.12.1059" accessLevel="Public"/>
+   </valueSets>
+   <codes>
+      <def name="Congenital absence of cervix (disorder)" id="37687000" display="Congenital absence of cervix (disorder)" accessLevel="Public">
+         <codeSystem name="SNOMEDCT:2017-09"/>
+      </def>
+   </codes>
+   <statements>
+      <def name="Patient" context="Patient">
+         <expression xsi:type="SingletonFrom">
+            <operand dataType="fhir:Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def name="SDE Ethnicity" context="Patient" accessLevel="Public">
+         <expression name="SDE Ethnicity" libraryName="SDE" xsi:type="ExpressionRef"/>
+      </def>
+      <def name="SDE Payer" context="Patient" accessLevel="Public">
+         <expression name="SDE Payer" libraryName="SDE" xsi:type="ExpressionRef"/>
+      </def>
+      <def name="SDE Race" context="Patient" accessLevel="Public">
+         <expression name="SDE Race" libraryName="SDE" xsi:type="ExpressionRef"/>
+      </def>
+      <def name="SDE Sex" context="Patient" accessLevel="Public">
+         <expression name="SDE Sex" libraryName="SDE" xsi:type="ExpressionRef"/>
+      </def>
+      <def name="Pap Test with Results" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="PapTest">
+               <expression dataType="fhir:Observation" codeProperty="code" xsi:type="Retrieve">
+                  <codes name="Pap Test" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where xsi:type="And">
+               <operand xsi:type="Not">
+                  <operand xsi:type="IsNull">
+                     <operand path="value" scope="PapTest" xsi:type="Property"/>
+                  </operand>
+               </operand>
+               <operand xsi:type="In">
+                  <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand path="status" scope="PapTest" xsi:type="Property"/>
+                  </operand>
+                  <operand xsi:type="List">
+                     <element valueType="t:String" value="final" xsi:type="Literal"/>
+                     <element valueType="t:String" value="amended" xsi:type="Literal"/>
+                     <element valueType="t:String" value="corrected" xsi:type="Literal"/>
+                     <element valueType="t:String" value="preliminary" xsi:type="Literal"/>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="Pap Test Within 3 Years" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="PapTest">
+               <expression name="Pap Test with Results" xsi:type="ExpressionRef"/>
+            </source>
+            <where xsi:type="In">
+               <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                  <operand asType="fhir:dateTime" xsi:type="As">
+                     <operand path="effective" scope="PapTest" xsi:type="Property"/>
+                  </operand>
+               </operand>
+               <operand lowClosed="true" highClosed="false" xsi:type="Interval">
+                  <low xsi:type="Subtract">
+                     <operand xsi:type="End">
+                        <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                     </operand>
+                     <operand value="3" unit="years" xsi:type="Quantity"/>
+                  </low>
+                  <high xsi:type="End">
+                     <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                  </high>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="PapTest Within 5 Years" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="PapTestOver30YearsOld">
+               <expression name="Pap Test with Results" xsi:type="ExpressionRef"/>
+            </source>
+            <where xsi:type="And">
+               <operand xsi:type="GreaterOrEqual">
+                  <operand name="CalendarAgeInYearsAt" libraryName="Global" xsi:type="FunctionRef">
+                     <operand xsi:type="ToDateTime">
+                        <operand name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand path="birthDate" xsi:type="Property">
+                              <source name="Patient" xsi:type="ExpressionRef"/>
+                           </operand>
+                        </operand>
+                     </operand>
+                     <operand xsi:type="Start">
+                        <operand name="Get Choice Interval - dateTime or Period" libraryName="Global" xsi:type="FunctionRef">
+                           <operand path="effective" scope="PapTestOver30YearsOld" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                  </operand>
+                  <operand valueType="t:Integer" value="30" xsi:type="Literal"/>
+               </operand>
+               <operand xsi:type="In">
+                  <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand asType="fhir:dateTime" xsi:type="As">
+                        <operand path="effective" scope="PapTestOver30YearsOld" xsi:type="Property"/>
+                     </operand>
+                  </operand>
+                  <operand lowClosed="true" highClosed="false" xsi:type="Interval">
+                     <low xsi:type="Subtract">
+                        <operand xsi:type="End">
+                           <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                        </operand>
+                        <operand value="5" unit="years" xsi:type="Quantity"/>
+                     </low>
+                     <high xsi:type="End">
+                        <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                     </high>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="Pap Test With HPV Within 5 Years" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="PapTestOver30YearsOld">
+               <expression name="PapTest Within 5 Years" xsi:type="ExpressionRef"/>
+            </source>
+            <relationship alias="HPVTest" xsi:type="With">
+               <expression dataType="fhir:Observation" codeProperty="code" xsi:type="Retrieve">
+                  <codes name="HPV Test" xsi:type="ValueSetRef"/>
+               </expression>
+               <suchThat xsi:type="And">
+                  <operand xsi:type="And">
+                     <operand xsi:type="Not">
+                        <operand xsi:type="IsNull">
+                           <operand path="value" scope="HPVTest" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                     <operand xsi:type="Or">
+                        <operand precision="Day" xsi:type="In">
+                           <operand xsi:type="Start">
+                              <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand asType="fhir:Period" xsi:type="As">
+                                    <operand path="effective" scope="HPVTest" xsi:type="Property"/>
+                                 </operand>
+                              </operand>
+                           </operand>
+                           <operand lowClosed="true" highClosed="true" xsi:type="Interval">
+                              <low xsi:type="Subtract">
+                                 <operand xsi:type="Start">
+                                    <operand name="Get Choice Interval - dateTime or Period" libraryName="Global" xsi:type="FunctionRef">
+                                       <operand path="effective" scope="PapTestOver30YearsOld" xsi:type="Property"/>
+                                    </operand>
+                                 </operand>
+                                 <operand value="1" unit="day" xsi:type="Quantity"/>
+                              </low>
+                              <high xsi:type="Start">
+                                 <operand name="Get Choice Interval - dateTime or Period" libraryName="Global" xsi:type="FunctionRef">
+                                    <operand path="effective" scope="PapTestOver30YearsOld" xsi:type="Property"/>
+                                 </operand>
+                              </high>
+                           </operand>
+                        </operand>
+                        <operand precision="Day" xsi:type="In">
+                           <operand xsi:type="Start">
+                              <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand asType="fhir:Period" xsi:type="As">
+                                    <operand path="effective" scope="HPVTest" xsi:type="Property"/>
+                                 </operand>
+                              </operand>
+                           </operand>
+                           <operand lowClosed="true" highClosed="false" xsi:type="Interval">
+                              <low xsi:type="Start">
+                                 <operand name="Get Choice Interval - dateTime or Period" libraryName="Global" xsi:type="FunctionRef">
+                                    <operand path="effective" scope="PapTestOver30YearsOld" xsi:type="Property"/>
+                                 </operand>
+                              </low>
+                              <high xsi:type="Add">
+                                 <operand xsi:type="Start">
+                                    <operand name="Get Choice Interval - dateTime or Period" libraryName="Global" xsi:type="FunctionRef">
+                                       <operand path="effective" scope="PapTestOver30YearsOld" xsi:type="Property"/>
+                                    </operand>
+                                 </operand>
+                                 <operand value="1" unit="day" xsi:type="Quantity"/>
+                              </high>
+                           </operand>
+                        </operand>
+                     </operand>
+                  </operand>
+                  <operand xsi:type="In">
+                     <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand path="status" scope="HPVTest" xsi:type="Property"/>
+                     </operand>
+                     <operand xsi:type="List">
+                        <element valueType="t:String" value="final" xsi:type="Literal"/>
+                        <element valueType="t:String" value="amended" xsi:type="Literal"/>
+                        <element valueType="t:String" value="corrected" xsi:type="Literal"/>
+                        <element valueType="t:String" value="preliminary" xsi:type="Literal"/>
+                     </operand>
+                  </operand>
+               </suchThat>
+            </relationship>
+         </expression>
+      </def>
+      <def name="Numerator" context="Patient" accessLevel="Public">
+         <expression xsi:type="Or">
+            <operand xsi:type="Exists">
+               <operand name="Pap Test Within 3 Years" xsi:type="ExpressionRef"/>
+            </operand>
+            <operand xsi:type="Exists">
+               <operand name="Pap Test With HPV Within 5 Years" xsi:type="ExpressionRef"/>
+            </operand>
+         </expression>
+      </def>
+      <def name="Initial Population" context="Patient" accessLevel="Public">
+         <expression xsi:type="And">
+            <operand xsi:type="And">
+               <operand xsi:type="Equal">
+                  <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand path="gender" xsi:type="Property">
+                        <source name="Patient" xsi:type="ExpressionRef"/>
+                     </operand>
+                  </operand>
+                  <operand valueType="t:String" value="female" xsi:type="Literal"/>
+               </operand>
+               <operand xsi:type="In">
+                  <operand name="CalendarAgeInYearsAt" libraryName="Global" xsi:type="FunctionRef">
+                     <operand xsi:type="ToDateTime">
+                        <operand name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand path="birthDate" xsi:type="Property">
+                              <source name="Patient" xsi:type="ExpressionRef"/>
+                           </operand>
+                        </operand>
+                     </operand>
+                     <operand xsi:type="Start">
+                        <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                     </operand>
+                  </operand>
+                  <operand lowClosed="true" highClosed="true" xsi:type="Interval">
+                     <low valueType="t:Integer" value="23" xsi:type="Literal"/>
+                     <high valueType="t:Integer" value="64" xsi:type="Literal"/>
+                  </operand>
+               </operand>
+            </operand>
+            <operand xsi:type="Exists">
+               <operand name="Qualifying Encounters" libraryName="AdultOutpatientEncounters" xsi:type="FunctionRef">
+                  <operand name="Measurement Period" xsi:type="ParameterRef"/>
+               </operand>
+            </operand>
+         </expression>
+      </def>
+      <def name="Denominator" context="Patient" accessLevel="Public">
+         <expression name="Initial Population" xsi:type="ExpressionRef"/>
+      </def>
+      <def name="Surgical Absence of Cervix" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="NoCervixHysterectomy">
+               <expression dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                  <codes name="Hysterectomy with No Residual Cervix" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where xsi:type="And">
+               <operand xsi:type="Before">
+                  <operand xsi:type="End">
+                     <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand asType="fhir:Period" xsi:type="As">
+                           <operand path="performed" scope="NoCervixHysterectomy" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                  </operand>
+                  <operand xsi:type="End">
+                     <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                  </operand>
+               </operand>
+               <operand xsi:type="Equal">
+                  <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand path="status" scope="NoCervixHysterectomy" xsi:type="Property"/>
+                  </operand>
+                  <operand valueType="t:String" value="completed" xsi:type="Literal"/>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="Absence of Cervix" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="NoCervixBirth">
+               <expression dataType="fhir:Condition" codeProperty="code" xsi:type="Retrieve">
+                  <codes xsi:type="ToList">
+                     <operand name="Congenital absence of cervix (disorder)" xsi:type="CodeRef"/>
+                  </codes>
+               </expression>
+            </source>
+            <where xsi:type="And">
+               <operand xsi:type="Before">
+                  <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand strict="false" xsi:type="As">
+                        <operand path="onset" scope="NoCervixBirth" xsi:type="Property"/>
+                        <asTypeSpecifier name="fhir:dateTime" xsi:type="NamedTypeSpecifier"/>
+                     </operand>
+                  </operand>
+                  <operand xsi:type="End">
+                     <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                  </operand>
+               </operand>
+               <operand xsi:type="Equal">
+                  <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand path="clinicalStatus" scope="NoCervixBirth" xsi:type="Property"/>
+                  </operand>
+                  <operand valueType="t:String" value="active" xsi:type="Literal"/>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="Denominator Exclusion" context="Patient" accessLevel="Public">
+         <expression xsi:type="Or">
+            <operand xsi:type="Or">
+               <operand name="Has Hospice" libraryName="Hospice" xsi:type="FunctionRef">
+                  <operand name="Measurement Period" xsi:type="ParameterRef"/>
+               </operand>
+               <operand xsi:type="Exists">
+                  <operand name="Surgical Absence of Cervix" xsi:type="ExpressionRef"/>
+               </operand>
+            </operand>
+            <operand xsi:type="Exists">
+               <operand name="Absence of Cervix" xsi:type="ExpressionRef"/>
+            </operand>
+         </expression>
+      </def>
+   </statements>
+</library>

@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1">
+   <identifier id="EXM130_FHIR3" version="7.2.000"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localIdentifier="FHIR" uri="http://hl7.org/fhir" version="3.0.0"/>
+   </usings>
+   <includes>
+      <def localIdentifier="AdultOutpatientEncounters" path="AdultOutpatientEncounters_FHIR3" version="1.1.000"/>
+      <def localIdentifier="Global" path="MATGlobalCommonFunctions_FHIR3" version="2.0.000"/>
+      <def localIdentifier="Hospice" path="Hospice_FHIR3" version="1.0.000"/>
+      <def localIdentifier="FHIRHelpers" path="FHIRHelpers" version="3.0.0"/>
+      <def localIdentifier="SDE" path="SupplementalDataElements_FHIR3" version="1.0.0"/>
+   </includes>
+   <parameters>
+      <def name="Measurement Period" accessLevel="Public">
+         <parameterTypeSpecifier xsi:type="IntervalTypeSpecifier">
+            <pointType name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+         </parameterTypeSpecifier>
+      </def>
+   </parameters>
+   <valueSets>
+      <def name="ONC Administrative Sex" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1" accessLevel="Public"/>
+      <def name="Race" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.836" accessLevel="Public"/>
+      <def name="Ethnicity" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.837" accessLevel="Public"/>
+      <def name="Payer" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591" accessLevel="Public"/>
+      <def name="Colonoscopy" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1020" accessLevel="Public"/>
+      <def name="Fecal Occult Blood Test (FOBT)" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1011" accessLevel="Public"/>
+      <def name="Flexible Sigmoidoscopy" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1010" accessLevel="Public"/>
+      <def name="Malignant Neoplasm of Colon" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1001" accessLevel="Public"/>
+      <def name="Total Colectomy" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1019" accessLevel="Public"/>
+      <def name="FIT DNA" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1039" accessLevel="Public"/>
+      <def name="CT Colonography" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.108.12.1038" accessLevel="Public"/>
+   </valueSets>
+   <statements>
+      <def name="Patient" context="Patient">
+         <expression xsi:type="SingletonFrom">
+            <operand dataType="fhir:Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def name="SDE Ethnicity" context="Patient" accessLevel="Public">
+         <expression name="SDE Ethnicity" libraryName="SDE" xsi:type="ExpressionRef"/>
+      </def>
+      <def name="SDE Payer" context="Patient" accessLevel="Public">
+         <expression name="SDE Payer" libraryName="SDE" xsi:type="ExpressionRef"/>
+      </def>
+      <def name="SDE Race" context="Patient" accessLevel="Public">
+         <expression name="SDE Race" libraryName="SDE" xsi:type="ExpressionRef"/>
+      </def>
+      <def name="SDE Sex" context="Patient" accessLevel="Public">
+         <expression name="SDE Sex" libraryName="SDE" xsi:type="ExpressionRef"/>
+      </def>
+      <def name="Denominator" context="Patient" accessLevel="Public">
+         <expression valueType="t:Boolean" value="true" xsi:type="Literal"/>
+      </def>
+      <def name="Flexible Sigmoidoscopy Performed" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="FlexibleSigmoidoscopy">
+               <expression dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                  <codes name="Flexible Sigmoidoscopy" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where xsi:type="And">
+               <operand xsi:type="Equal">
+                  <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand path="status" scope="FlexibleSigmoidoscopy" xsi:type="Property"/>
+                  </operand>
+                  <operand valueType="t:String" value="completed" xsi:type="Literal"/>
+               </operand>
+               <operand xsi:type="In">
+                  <operand xsi:type="End">
+                     <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand asType="fhir:Period" xsi:type="As">
+                           <operand path="performed" scope="FlexibleSigmoidoscopy" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                  </operand>
+                  <operand lowClosed="true" highClosed="true" xsi:type="Interval">
+                     <low xsi:type="Subtract">
+                        <operand xsi:type="End">
+                           <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                        </operand>
+                        <operand value="5" unit="years" xsi:type="Quantity"/>
+                     </low>
+                     <high xsi:type="End">
+                        <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                     </high>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="CT Colonography Performed" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="Colonography">
+               <expression dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                  <codes name="CT Colonography" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where xsi:type="And">
+               <operand xsi:type="Equal">
+                  <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand path="status" scope="Colonography" xsi:type="Property"/>
+                  </operand>
+                  <operand valueType="t:String" value="completed" xsi:type="Literal"/>
+               </operand>
+               <operand xsi:type="In">
+                  <operand xsi:type="End">
+                     <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand asType="fhir:Period" xsi:type="As">
+                           <operand path="performed" scope="Colonography" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                  </operand>
+                  <operand lowClosed="true" highClosed="true" xsi:type="Interval">
+                     <low xsi:type="Subtract">
+                        <operand xsi:type="End">
+                           <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                        </operand>
+                        <operand value="5" unit="years" xsi:type="Quantity"/>
+                     </low>
+                     <high xsi:type="End">
+                        <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                     </high>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="Total Colectomy Performed" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="Colectomy">
+               <expression dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                  <codes name="Total Colectomy" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where xsi:type="And">
+               <operand xsi:type="Equal">
+                  <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand path="status" scope="Colectomy" xsi:type="Property"/>
+                  </operand>
+                  <operand valueType="t:String" value="completed" xsi:type="Literal"/>
+               </operand>
+               <operand xsi:type="SameOrBefore">
+                  <operand xsi:type="Start">
+                     <operand name="Get Choice Interval - dateTime or Period" libraryName="Global" xsi:type="FunctionRef">
+                        <operand path="performed" scope="Colectomy" xsi:type="Property"/>
+                     </operand>
+                  </operand>
+                  <operand xsi:type="End">
+                     <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="Malignant Neoplasm" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="ColorectalCancer">
+               <expression dataType="fhir:Condition" codeProperty="code" xsi:type="Retrieve">
+                  <codes name="Malignant Neoplasm of Colon" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where xsi:type="SameOrBefore">
+               <operand asType="t:DateTime" xsi:type="As">
+                  <operand xsi:type="Start">
+                     <operand name="Normalize Onset" libraryName="Global" xsi:type="FunctionRef">
+                        <operand path="onset" scope="ColorectalCancer" xsi:type="Property"/>
+                     </operand>
+                  </operand>
+               </operand>
+               <operand xsi:type="End">
+                  <operand name="Measurement Period" xsi:type="ParameterRef"/>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="Fecal Occult Blood Test Performed" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="FecalOccultResult">
+               <expression dataType="fhir:Observation" codeProperty="code" xsi:type="Retrieve">
+                  <codes name="Fecal Occult Blood Test (FOBT)" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where xsi:type="And">
+               <operand xsi:type="And">
+                  <operand xsi:type="In">
+                     <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand path="status" scope="FecalOccultResult" xsi:type="Property"/>
+                     </operand>
+                     <operand xsi:type="List">
+                        <element valueType="t:String" value="final" xsi:type="Literal"/>
+                        <element valueType="t:String" value="amended" xsi:type="Literal"/>
+                        <element valueType="t:String" value="corrected" xsi:type="Literal"/>
+                        <element valueType="t:String" value="preliminary" xsi:type="Literal"/>
+                     </operand>
+                  </operand>
+                  <operand xsi:type="Not">
+                     <operand xsi:type="IsNull">
+                        <operand path="value" scope="FecalOccultResult" xsi:type="Property"/>
+                     </operand>
+                  </operand>
+               </operand>
+               <operand precision="Day" xsi:type="IncludedIn">
+                  <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand asType="fhir:Period" xsi:type="As">
+                        <operand path="effective" scope="FecalOccultResult" xsi:type="Property"/>
+                     </operand>
+                  </operand>
+                  <operand name="Measurement Period" xsi:type="ParameterRef"/>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="Fecal Immunochemical Test DNA" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="FitDNA">
+               <expression dataType="fhir:Observation" codeProperty="code" xsi:type="Retrieve">
+                  <codes name="FIT DNA" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where xsi:type="And">
+               <operand xsi:type="Not">
+                  <operand xsi:type="IsNull">
+                     <operand path="value" scope="FitDNA" xsi:type="Property"/>
+                  </operand>
+               </operand>
+               <operand precision="Day" xsi:type="In">
+                  <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand asType="fhir:dateTime" xsi:type="As">
+                        <operand path="effective" scope="FitDNA" xsi:type="Property"/>
+                     </operand>
+                  </operand>
+                  <operand lowClosed="true" highClosed="true" xsi:type="Interval">
+                     <low xsi:type="Subtract">
+                        <operand xsi:type="End">
+                           <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                        </operand>
+                        <operand value="3" unit="years" xsi:type="Quantity"/>
+                     </low>
+                     <high xsi:type="End">
+                        <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                     </high>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="Colonoscopy Performed" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="Colonoscopy">
+               <expression dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                  <codes name="Colonoscopy" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where xsi:type="And">
+               <operand xsi:type="Equal">
+                  <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand path="status" scope="Colonoscopy" xsi:type="Property"/>
+                  </operand>
+                  <operand valueType="t:String" value="completed" xsi:type="Literal"/>
+               </operand>
+               <operand xsi:type="In">
+                  <operand xsi:type="End">
+                     <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand asType="fhir:Period" xsi:type="As">
+                           <operand path="performed" scope="Colonoscopy" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                  </operand>
+                  <operand lowClosed="true" highClosed="true" xsi:type="Interval">
+                     <low xsi:type="Subtract">
+                        <operand xsi:type="End">
+                           <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                        </operand>
+                        <operand value="10" unit="years" xsi:type="Quantity"/>
+                     </low>
+                     <high xsi:type="End">
+                        <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                     </high>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="Numerator" context="Patient" accessLevel="Public">
+         <expression xsi:type="Or">
+            <operand xsi:type="Or">
+               <operand xsi:type="Or">
+                  <operand xsi:type="Or">
+                     <operand xsi:type="Exists">
+                        <operand name="Colonoscopy Performed" xsi:type="ExpressionRef"/>
+                     </operand>
+                     <operand xsi:type="Exists">
+                        <operand name="Fecal Occult Blood Test Performed" xsi:type="ExpressionRef"/>
+                     </operand>
+                  </operand>
+                  <operand xsi:type="Exists">
+                     <operand name="Flexible Sigmoidoscopy Performed" xsi:type="ExpressionRef"/>
+                  </operand>
+               </operand>
+               <operand xsi:type="Exists">
+                  <operand name="Fecal Immunochemical Test DNA" xsi:type="ExpressionRef"/>
+               </operand>
+            </operand>
+            <operand xsi:type="Exists">
+               <operand name="CT Colonography Performed" xsi:type="ExpressionRef"/>
+            </operand>
+         </expression>
+      </def>
+      <def name="Denominator Exclusion" context="Patient" accessLevel="Public">
+         <expression xsi:type="Or">
+            <operand xsi:type="Or">
+               <operand name="Has Hospice" libraryName="Hospice" xsi:type="FunctionRef">
+                  <operand name="Measurement Period" xsi:type="ParameterRef"/>
+               </operand>
+               <operand xsi:type="Exists">
+                  <operand name="Malignant Neoplasm" xsi:type="ExpressionRef"/>
+               </operand>
+            </operand>
+            <operand xsi:type="Exists">
+               <operand name="Total Colectomy Performed" xsi:type="ExpressionRef"/>
+            </operand>
+         </expression>
+      </def>
+      <def name="Initial Population" context="Patient" accessLevel="Public">
+         <expression xsi:type="And">
+            <operand xsi:type="In">
+               <operand name="CalendarAgeInYearsAt" libraryName="Global" xsi:type="FunctionRef">
+                  <operand xsi:type="ToDateTime">
+                     <operand name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand path="birthDate" xsi:type="Property">
+                           <source name="Patient" xsi:type="ExpressionRef"/>
+                        </operand>
+                     </operand>
+                  </operand>
+                  <operand xsi:type="Start">
+                     <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                  </operand>
+               </operand>
+               <operand lowClosed="true" highClosed="true" xsi:type="Interval">
+                  <low valueType="t:Integer" value="50" xsi:type="Literal"/>
+                  <high valueType="t:Integer" value="75" xsi:type="Literal"/>
+               </operand>
+            </operand>
+            <operand xsi:type="Exists">
+               <operand name="Qualifying Encounters" libraryName="AdultOutpatientEncounters" xsi:type="FunctionRef">
+                  <operand name="Measurement Period" xsi:type="ParameterRef"/>
+               </operand>
+            </operand>
+         </expression>
+      </def>
+   </statements>
+</library>

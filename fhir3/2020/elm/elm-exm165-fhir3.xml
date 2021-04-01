@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1">
+   <annotation startLine="100" startChar="2" endLine="100" endChar="34" message="Could not resolve membership operator for terminology target of the retrieve." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
+   <annotation startLine="117" startChar="2" endLine="117" endChar="34" message="Could not resolve membership operator for terminology target of the retrieve." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
+   <identifier id="EXM165_FHIR3" version="8.5.000"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localIdentifier="FHIR" uri="http://hl7.org/fhir" version="3.0.0"/>
+   </usings>
+   <includes>
+      <def localIdentifier="FHIRHelpers" path="FHIRHelpers" version="3.0.0"/>
+      <def localIdentifier="Common" path="MATGlobalCommonFunctions_FHIR3" version="2.0.000"/>
+      <def localIdentifier="AdultOutpatientEncounters" path="AdultOutpatientEncounters_FHIR3" version="1.1.000"/>
+      <def localIdentifier="SDE" path="SupplementalDataElements_FHIR3" version="1.0.0"/>
+      <def localIdentifier="Hospice" path="Hospice_FHIR3" version="1.0.000"/>
+      <def localIdentifier="FrailtyLTI" path="AdvancedIllnessandFrailtyExclusion_FHIR3" version="4.0.000"/>
+   </includes>
+   <parameters>
+      <def name="Measurement Period" accessLevel="Public">
+         <parameterTypeSpecifier xsi:type="IntervalTypeSpecifier">
+            <pointType name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+         </parameterTypeSpecifier>
+      </def>
+   </parameters>
+   <codeSystems>
+      <def name="LOINC" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.6.1" accessLevel="Public"/>
+   </codeSystems>
+   <valueSets>
+      <def name="Chronic Kidney Disease, Stage 5" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1002" accessLevel="Public"/>
+      <def name="Dialysis Services" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.109.12.1013" accessLevel="Public"/>
+      <def name="ED" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1085" accessLevel="Public"/>
+      <def name="Encounter Inpatient" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307" accessLevel="Public"/>
+      <def name="End Stage Renal Disease" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.353" accessLevel="Public"/>
+      <def name="ESRD Monthly Outpatient Services" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.109.12.1014" accessLevel="Public"/>
+      <def name="Essential Hypertension" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.104.12.1011" accessLevel="Public"/>
+      <def name="Ethnicity" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.837" accessLevel="Public"/>
+      <def name="Kidney Transplant" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.109.12.1012" accessLevel="Public"/>
+      <def name="Kidney Transplant Recipient" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.109.12.1029" accessLevel="Public"/>
+      <def name="ONC Administrative Sex" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1" accessLevel="Public"/>
+      <def name="Payer" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591" accessLevel="Public"/>
+      <def name="Pregnancy" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.378" accessLevel="Public"/>
+      <def name="Race" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.836" accessLevel="Public"/>
+      <def name="Vascular Access for Dialysis" id="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.109.12.1011" accessLevel="Public"/>
+   </valueSets>
+   <codes>
+      <def name="Birth date" id="21112-8" display="Birth date" accessLevel="Public">
+         <codeSystem name="LOINC"/>
+      </def>
+      <def name="Blood pressure" id="85354-9" display="blood pressure" accessLevel="Public">
+         <codeSystem name="LOINC"/>
+      </def>
+      <def name="Diastolic blood pressure" id="8462-4" display="Diastolic blood pressure" accessLevel="Public">
+         <codeSystem name="LOINC"/>
+      </def>
+      <def name="Systolic blood pressure" id="8480-6" display="Systolic blood pressure" accessLevel="Public">
+         <codeSystem name="LOINC"/>
+      </def>
+   </codes>
+   <statements>
+      <def name="Patient" context="Patient">
+         <expression xsi:type="SingletonFrom">
+            <operand dataType="fhir:Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def name="SDE Ethnicity" context="Patient" accessLevel="Public">
+         <expression name="SDE Ethnicity" libraryName="SDE" xsi:type="ExpressionRef"/>
+      </def>
+      <def name="SDE Payer" context="Patient" accessLevel="Public">
+         <expression name="SDE Payer" libraryName="SDE" xsi:type="ExpressionRef"/>
+      </def>
+      <def name="SDE Race" context="Patient" accessLevel="Public">
+         <expression name="SDE Race" libraryName="SDE" xsi:type="ExpressionRef"/>
+      </def>
+      <def name="SDE Sex" context="Patient" accessLevel="Public">
+         <expression name="SDE Sex" libraryName="SDE" xsi:type="ExpressionRef"/>
+      </def>
+      <def name="Qualifying Diastolic Blood Pressure Reading" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="BloodPressure">
+               <expression dataType="fhir:Observation" codeProperty="code" xsi:type="Retrieve">
+                  <codes xsi:type="ToList">
+                     <operand name="Blood pressure" xsi:type="CodeRef"/>
+                  </codes>
+               </expression>
+            </source>
+            <where xsi:type="And">
+               <operand xsi:type="And">
+                  <operand xsi:type="In">
+                     <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand path="status" scope="BloodPressure" xsi:type="Property"/>
+                     </operand>
+                     <operand xsi:type="List">
+                        <element valueType="t:String" value="final" xsi:type="Literal"/>
+                        <element valueType="t:String" value="amended" xsi:type="Literal"/>
+                     </operand>
+                  </operand>
+                  <operand xsi:type="IncludedIn">
+                     <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand asType="fhir:Period" xsi:type="As">
+                           <operand path="effective" scope="BloodPressure" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                     <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                  </operand>
+               </operand>
+               <operand xsi:type="Exists">
+                  <operand xsi:type="Query">
+                     <source alias="DiastolicBP">
+                        <expression path="component" scope="BloodPressure" xsi:type="Property"/>
+                     </source>
+                     <where xsi:type="And">
+                        <operand xsi:type="Equivalent">
+                           <operand name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="code" scope="DiastolicBP" xsi:type="Property"/>
+                           </operand>
+                           <operand xsi:type="ToConcept">
+                              <operand name="Diastolic blood pressure" xsi:type="CodeRef"/>
+                           </operand>
+                        </operand>
+                        <operand xsi:type="Equal">
+                           <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="unit" xsi:type="Property">
+                                 <source path="value" scope="DiastolicBP" xsi:type="Property"/>
+                              </operand>
+                           </operand>
+                           <operand valueType="t:String" value="mm[Hg]" xsi:type="Literal"/>
+                        </operand>
+                     </where>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="GetEncounter" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <expression xsi:type="SingletonFrom">
+            <operand dataType="fhir:Encounter" codeProperty="id" xsi:type="Retrieve">
+               <codes xsi:type="ToList">
+                  <operand name="GetId" libraryName="Common" xsi:type="FunctionRef">
+                     <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand path="reference" xsi:type="Property">
+                           <source name="reference" xsi:type="OperandRef"/>
+                        </operand>
+                     </operand>
+                  </operand>
+               </codes>
+            </operand>
+         </expression>
+         <operand name="reference">
+            <operandTypeSpecifier name="fhir:Reference" xsi:type="NamedTypeSpecifier"/>
+         </operand>
+      </def>
+      <def name="Qualifying Systolic Blood Pressure Reading" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="BloodPressure">
+               <expression dataType="fhir:Observation" codeProperty="code" xsi:type="Retrieve">
+                  <codes xsi:type="ToList">
+                     <operand name="Blood pressure" xsi:type="CodeRef"/>
+                  </codes>
+               </expression>
+            </source>
+            <where xsi:type="And">
+               <operand xsi:type="And">
+                  <operand xsi:type="And">
+                     <operand xsi:type="In">
+                        <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand path="status" scope="BloodPressure" xsi:type="Property"/>
+                        </operand>
+                        <operand xsi:type="List">
+                           <element valueType="t:String" value="final" xsi:type="Literal"/>
+                           <element valueType="t:String" value="amended" xsi:type="Literal"/>
+                        </operand>
+                     </operand>
+                     <operand xsi:type="IncludedIn">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand asType="fhir:Period" xsi:type="As">
+                              <operand path="effective" scope="BloodPressure" xsi:type="Property"/>
+                           </operand>
+                        </operand>
+                        <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                     </operand>
+                  </operand>
+                  <operand xsi:type="Not">
+                     <operand xsi:type="In">
+                        <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand path="code" xsi:type="Property">
+                              <source path="class" xsi:type="Property">
+                                 <source name="GetEncounter" xsi:type="FunctionRef">
+                                    <operand path="context" scope="BloodPressure" xsi:type="Property"/>
+                                 </source>
+                              </source>
+                           </operand>
+                        </operand>
+                        <operand xsi:type="List">
+                           <element valueType="t:String" value="EMER" xsi:type="Literal"/>
+                           <element valueType="t:String" value="IMP" xsi:type="Literal"/>
+                           <element valueType="t:String" value="ACUTE" xsi:type="Literal"/>
+                           <element valueType="t:String" value="NONAC" xsi:type="Literal"/>
+                           <element valueType="t:String" value="PRENC" xsi:type="Literal"/>
+                           <element valueType="t:String" value="SS" xsi:type="Literal"/>
+                        </operand>
+                     </operand>
+                  </operand>
+               </operand>
+               <operand xsi:type="Exists">
+                  <operand xsi:type="Query">
+                     <source alias="SystolicBP">
+                        <expression path="component" scope="BloodPressure" xsi:type="Property"/>
+                     </source>
+                     <where xsi:type="And">
+                        <operand xsi:type="Equivalent">
+                           <operand name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="code" scope="SystolicBP" xsi:type="Property"/>
+                           </operand>
+                           <operand xsi:type="ToConcept">
+                              <operand name="Systolic blood pressure" xsi:type="CodeRef"/>
+                           </operand>
+                        </operand>
+                        <operand xsi:type="Equal">
+                           <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="unit" xsi:type="Property">
+                                 <source path="value" scope="SystolicBP" xsi:type="Property"/>
+                              </operand>
+                           </operand>
+                           <operand valueType="t:String" value="mm[Hg]" xsi:type="Literal"/>
+                        </operand>
+                     </where>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="Blood Pressure Days" context="Patient" accessLevel="Public">
+         <expression xsi:type="Intersect">
+            <operand xsi:type="Query">
+               <source alias="DBPExam">
+                  <expression name="Qualifying Diastolic Blood Pressure Reading" xsi:type="ExpressionRef"/>
+               </source>
+               <return>
+                  <expression xsi:type="DateFrom">
+                     <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand asType="fhir:dateTime" xsi:type="As">
+                           <operand path="effective" scope="DBPExam" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                  </expression>
+               </return>
+            </operand>
+            <operand xsi:type="Query">
+               <source alias="SBPExam">
+                  <expression name="Qualifying Systolic Blood Pressure Reading" xsi:type="ExpressionRef"/>
+               </source>
+               <return>
+                  <expression xsi:type="DateFrom">
+                     <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand asType="fhir:dateTime" xsi:type="As">
+                           <operand path="effective" scope="SBPExam" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                  </expression>
+               </return>
+            </operand>
+         </expression>
+      </def>
+      <def name="Most Recent Blood Pressure Day" context="Patient" accessLevel="Public">
+         <expression xsi:type="Max">
+            <source name="Blood Pressure Days" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def name="Lowest Diastolic Reading on Most Recent Blood Pressure Day" context="Patient" accessLevel="Public">
+         <expression xsi:type="First">
+            <source xsi:type="Query">
+               <source alias="DBPReading">
+                  <expression name="Qualifying Diastolic Blood Pressure Reading" xsi:type="ExpressionRef"/>
+               </source>
+               <where precision="Day" xsi:type="SameAs">
+                  <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand asType="fhir:dateTime" xsi:type="As">
+                        <operand path="effective" scope="DBPReading" xsi:type="Property"/>
+                     </operand>
+                  </operand>
+                  <operand xsi:type="ToDateTime">
+                     <operand name="Most Recent Blood Pressure Day" xsi:type="ExpressionRef"/>
+                  </operand>
+               </where>
+               <return>
+                  <expression xsi:type="SingletonFrom">
+                     <operand xsi:type="Query">
+                        <source alias="C">
+                           <expression path="component" scope="DBPReading" xsi:type="Property"/>
+                        </source>
+                        <where xsi:type="Equivalent">
+                           <operand name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="code" scope="C" xsi:type="Property"/>
+                           </operand>
+                           <operand xsi:type="ToConcept">
+                              <operand name="Diastolic blood pressure" xsi:type="CodeRef"/>
+                           </operand>
+                        </where>
+                        <return>
+                           <expression strict="false" xsi:type="As">
+                              <operand path="value" scope="C" xsi:type="Property"/>
+                              <asTypeSpecifier name="fhir:Quantity" xsi:type="NamedTypeSpecifier"/>
+                           </expression>
+                        </return>
+                     </operand>
+                  </expression>
+               </return>
+               <sort>
+                  <by direction="ascending" xsi:type="ByDirection"/>
+               </sort>
+            </source>
+         </expression>
+      </def>
+      <def name="Has Diastolic Blood Pressure Less Than 90" context="Patient" accessLevel="Public">
+         <expression xsi:type="Less">
+            <operand name="ToDecimal" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+               <operand path="value" xsi:type="Property">
+                  <source name="Lowest Diastolic Reading on Most Recent Blood Pressure Day" xsi:type="ExpressionRef"/>
+               </operand>
+            </operand>
+            <operand xsi:type="ToDecimal">
+               <operand valueType="t:Integer" value="90" xsi:type="Literal"/>
+            </operand>
+         </expression>
+      </def>
+      <def name="Lowest Systolic Reading on Most Recent Blood Pressure Day" context="Patient" accessLevel="Public">
+         <expression xsi:type="First">
+            <source xsi:type="Query">
+               <source alias="SBPReading">
+                  <expression name="Qualifying Systolic Blood Pressure Reading" xsi:type="ExpressionRef"/>
+               </source>
+               <where precision="Day" xsi:type="SameAs">
+                  <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand asType="fhir:dateTime" xsi:type="As">
+                        <operand path="effective" scope="SBPReading" xsi:type="Property"/>
+                     </operand>
+                  </operand>
+                  <operand xsi:type="ToDateTime">
+                     <operand name="Most Recent Blood Pressure Day" xsi:type="ExpressionRef"/>
+                  </operand>
+               </where>
+               <return>
+                  <expression xsi:type="SingletonFrom">
+                     <operand xsi:type="Query">
+                        <source alias="C">
+                           <expression path="component" scope="SBPReading" xsi:type="Property"/>
+                        </source>
+                        <where xsi:type="Equivalent">
+                           <operand name="ToConcept" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="code" scope="C" xsi:type="Property"/>
+                           </operand>
+                           <operand xsi:type="ToConcept">
+                              <operand name="Systolic blood pressure" xsi:type="CodeRef"/>
+                           </operand>
+                        </where>
+                        <return>
+                           <expression strict="false" xsi:type="As">
+                              <operand path="value" scope="C" xsi:type="Property"/>
+                              <asTypeSpecifier name="fhir:Quantity" xsi:type="NamedTypeSpecifier"/>
+                           </expression>
+                        </return>
+                     </operand>
+                  </expression>
+               </return>
+               <sort>
+                  <by direction="ascending" xsi:type="ByDirection"/>
+               </sort>
+            </source>
+         </expression>
+      </def>
+      <def name="Has Systolic Blood Pressure Less Than 140" context="Patient" accessLevel="Public">
+         <expression xsi:type="Less">
+            <operand name="ToDecimal" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+               <operand path="value" xsi:type="Property">
+                  <source name="Lowest Systolic Reading on Most Recent Blood Pressure Day" xsi:type="ExpressionRef"/>
+               </operand>
+            </operand>
+            <operand xsi:type="ToDecimal">
+               <operand valueType="t:Integer" value="140" xsi:type="Literal"/>
+            </operand>
+         </expression>
+      </def>
+      <def name="Numerator" context="Patient" accessLevel="Public">
+         <expression xsi:type="And">
+            <operand name="Has Diastolic Blood Pressure Less Than 90" xsi:type="ExpressionRef"/>
+            <operand name="Has Systolic Blood Pressure Less Than 140" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def name="Essential Hypertension Diagnosis" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="Hypertension">
+               <expression dataType="fhir:Condition" codeProperty="code" xsi:type="Retrieve">
+                  <codes name="Essential Hypertension" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where xsi:type="And">
+               <operand xsi:type="Equal">
+                  <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand path="verificationStatus" scope="Hypertension" xsi:type="Property"/>
+                  </operand>
+                  <operand valueType="t:String" value="confirmed" xsi:type="Literal"/>
+               </operand>
+               <operand xsi:type="Or">
+                  <operand xsi:type="In">
+                     <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand path="assertedDate" scope="Hypertension" xsi:type="Property"/>
+                     </operand>
+                     <operand lowClosed="true" highClosed="true" xsi:type="Interval">
+                        <low xsi:type="Start">
+                           <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                        </low>
+                        <high xsi:type="Add">
+                           <operand xsi:type="Start">
+                              <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                           </operand>
+                           <operand value="6" unit="months" xsi:type="Quantity"/>
+                        </high>
+                     </operand>
+                  </operand>
+                  <operand xsi:type="Before">
+                     <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand path="assertedDate" scope="Hypertension" xsi:type="Property"/>
+                     </operand>
+                     <operand xsi:type="End">
+                        <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                     </operand>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="Initial Population" context="Patient" accessLevel="Public">
+         <expression xsi:type="And">
+            <operand xsi:type="And">
+               <operand xsi:type="And">
+                  <operand xsi:type="GreaterOrEqual">
+                     <operand name="CalendarAgeInYearsAt" libraryName="Common" xsi:type="FunctionRef">
+                        <operand xsi:type="ToDateTime">
+                           <operand name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="birthDate" xsi:type="Property">
+                                 <source name="Patient" xsi:type="ExpressionRef"/>
+                              </operand>
+                           </operand>
+                        </operand>
+                        <operand xsi:type="End">
+                           <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                        </operand>
+                     </operand>
+                     <operand valueType="t:Integer" value="18" xsi:type="Literal"/>
+                  </operand>
+                  <operand xsi:type="LessOrEqual">
+                     <operand name="CalendarAgeInYearsAt" libraryName="Common" xsi:type="FunctionRef">
+                        <operand xsi:type="ToDateTime">
+                           <operand name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="birthDate" xsi:type="Property">
+                                 <source name="Patient" xsi:type="ExpressionRef"/>
+                              </operand>
+                           </operand>
+                        </operand>
+                        <operand xsi:type="End">
+                           <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                        </operand>
+                     </operand>
+                     <operand valueType="t:Integer" value="85" xsi:type="Literal"/>
+                  </operand>
+               </operand>
+               <operand xsi:type="Exists">
+                  <operand name="Essential Hypertension Diagnosis" xsi:type="ExpressionRef"/>
+               </operand>
+            </operand>
+            <operand xsi:type="Exists">
+               <operand name="Qualifying Encounters" libraryName="AdultOutpatientEncounters" xsi:type="FunctionRef">
+                  <operand name="Measurement Period" xsi:type="ParameterRef"/>
+               </operand>
+            </operand>
+         </expression>
+      </def>
+      <def name="Pregnancy Or Renal Diagnosis Exclusions" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="PregnancyESRDDiagnosis">
+               <expression xsi:type="Union">
+                  <operand xsi:type="Union">
+                     <operand dataType="fhir:Condition" codeProperty="code" xsi:type="Retrieve">
+                        <codes name="Pregnancy" xsi:type="ValueSetRef"/>
+                     </operand>
+                     <operand dataType="fhir:Condition" codeProperty="code" xsi:type="Retrieve">
+                        <codes name="End Stage Renal Disease" xsi:type="ValueSetRef"/>
+                     </operand>
+                  </operand>
+                  <operand xsi:type="Union">
+                     <operand dataType="fhir:Condition" codeProperty="code" xsi:type="Retrieve">
+                        <codes name="Kidney Transplant Recipient" xsi:type="ValueSetRef"/>
+                     </operand>
+                     <operand dataType="fhir:Condition" codeProperty="code" xsi:type="Retrieve">
+                        <codes name="Chronic Kidney Disease, Stage 5" xsi:type="ValueSetRef"/>
+                     </operand>
+                  </operand>
+               </expression>
+            </source>
+            <where xsi:type="And">
+               <operand xsi:type="Equal">
+                  <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand path="verificationStatus" scope="PregnancyESRDDiagnosis" xsi:type="Property"/>
+                  </operand>
+                  <operand valueType="t:String" value="confirmed" xsi:type="Literal"/>
+               </operand>
+               <operand xsi:type="Before">
+                  <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand path="assertedDate" scope="PregnancyESRDDiagnosis" xsi:type="Property"/>
+                  </operand>
+                  <operand xsi:type="End">
+                     <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="Denominator" context="Patient" accessLevel="Public">
+         <expression name="Initial Population" xsi:type="ExpressionRef"/>
+      </def>
+      <def name="End Stage Renal Disease Encounter" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="ESRDEncounter">
+               <expression dataType="fhir:Encounter" codeProperty="type" xsi:type="Retrieve">
+                  <codes name="ESRD Monthly Outpatient Services" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where xsi:type="And">
+               <operand xsi:type="In">
+                  <operand path="value" xsi:type="Property">
+                     <source path="status" scope="ESRDEncounter" xsi:type="Property"/>
+                  </operand>
+                  <operand xsi:type="List">
+                     <element valueType="t:String" value="planned" xsi:type="Literal"/>
+                     <element valueType="t:String" value="arrived" xsi:type="Literal"/>
+                     <element valueType="t:String" value="triaged" xsi:type="Literal"/>
+                     <element valueType="t:String" value="in-progress" xsi:type="Literal"/>
+                     <element valueType="t:String" value="onleave" xsi:type="Literal"/>
+                     <element valueType="t:String" value="finished" xsi:type="Literal"/>
+                  </operand>
+               </operand>
+               <operand xsi:type="Before">
+                  <operand xsi:type="Start">
+                     <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand path="period" scope="ESRDEncounter" xsi:type="Property"/>
+                     </operand>
+                  </operand>
+                  <operand xsi:type="End">
+                     <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="End Stage Renal Disease Procedures" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="ESRDProcedure">
+               <expression xsi:type="Union">
+                  <operand xsi:type="Union">
+                     <operand dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                        <codes name="Vascular Access for Dialysis" xsi:type="ValueSetRef"/>
+                     </operand>
+                     <operand dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                        <codes name="Kidney Transplant" xsi:type="ValueSetRef"/>
+                     </operand>
+                  </operand>
+                  <operand dataType="fhir:Procedure" codeProperty="code" xsi:type="Retrieve">
+                     <codes name="Dialysis Services" xsi:type="ValueSetRef"/>
+                  </operand>
+               </expression>
+            </source>
+            <where xsi:type="And">
+               <operand xsi:type="Equal">
+                  <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand path="status" scope="ESRDProcedure" xsi:type="Property"/>
+                  </operand>
+                  <operand valueType="t:String" value="completed" xsi:type="Literal"/>
+               </operand>
+               <operand xsi:type="Before">
+                  <operand xsi:type="Start">
+                     <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                        <operand asType="fhir:Period" xsi:type="As">
+                           <operand path="performed" scope="ESRDProcedure" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                  </operand>
+                  <operand xsi:type="End">
+                     <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                  </operand>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="Denominator Exclusions" context="Patient" accessLevel="Public">
+         <expression xsi:type="Or">
+            <operand xsi:type="Or">
+               <operand xsi:type="Or">
+                  <operand xsi:type="Or">
+                     <operand name="Has Hospice" libraryName="Hospice" xsi:type="FunctionRef">
+                        <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                     </operand>
+                     <operand xsi:type="Exists">
+                        <operand name="Pregnancy Or Renal Diagnosis Exclusions" xsi:type="ExpressionRef"/>
+                     </operand>
+                  </operand>
+                  <operand xsi:type="Or">
+                     <operand xsi:type="Exists">
+                        <operand name="End Stage Renal Disease Procedures" xsi:type="ExpressionRef"/>
+                     </operand>
+                     <operand xsi:type="Exists">
+                        <operand name="End Stage Renal Disease Encounter" xsi:type="ExpressionRef"/>
+                     </operand>
+                  </operand>
+               </operand>
+               <operand xsi:type="And">
+                  <operand xsi:type="GreaterOrEqual">
+                     <operand name="CalendarAgeInYearsAt" libraryName="Common" xsi:type="FunctionRef">
+                        <operand xsi:type="ToDateTime">
+                           <operand name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="birthDate" xsi:type="Property">
+                                 <source name="Patient" xsi:type="ExpressionRef"/>
+                              </operand>
+                           </operand>
+                        </operand>
+                        <operand xsi:type="Start">
+                           <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                        </operand>
+                     </operand>
+                     <operand valueType="t:Integer" value="65" xsi:type="Literal"/>
+                  </operand>
+                  <operand name="Has Spent More Than 90 Days in Long Term Care" libraryName="FrailtyLTI" xsi:type="ExpressionRef"/>
+               </operand>
+            </operand>
+            <operand name="Advanced Illness and Frailty Exclusion Including Over Age 80" libraryName="FrailtyLTI" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+   </statements>
+</library>
