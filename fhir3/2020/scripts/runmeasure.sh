@@ -21,7 +21,7 @@ curl "$BASE_URL/Measure/$MEASURE/\$evaluate-measure?reportType=patient-list&peri
 -o "$directory/$MEASURE-$YEAR.json"
 
 
-# http://localhost:8080/cqf-ruler/baseDstu3/Measure/measure-col/$evaluate-measure?reportType=patient-list&periodStart=2017-01-01&periodEnd=2017-12-31&_format=json
+# http://localhost:8080/cqf-ruler/baseDstu3/Measure/col/$evaluate-measure?reportType=patient-list&periodStart=2017-01-01&periodEnd=2017-12-31&_format=json
 
-# http://localhost:8080/cqf-ruler/baseDstu3/Measure/measure-col/$evaluate-measure?patient=Patient-487&periodStart=2017-01-01&periodEnd=2017-12-31&_format=json
+# http://localhost:8080/cqf-ruler/baseDstu3/Measure/col/$evaluate-measure?patient=Patient-487&periodStart=2017-01-01&periodEnd=2017-12-31&_format=json
 

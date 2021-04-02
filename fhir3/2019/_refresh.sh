@@ -21,13 +21,13 @@ echo "$fsoption"
 
 tooling=$input_cache_path/$tooling_jar
 if test -f "$tooling"; then
-	java -jar $tooling -RefreshIG -ini="$PWD"/ig.ini -t -d -p -v
+	java -jar $tooling -RefreshIG -ini="$PWD"/ig.ini -t -d -p -v # $fsoption
 	#java -jar $tooling -RefreshIG -ini="$PWD"/ig.ini -mtrp="$measure_to_refresh_path" -t -d -p -v $fsoption
 else
 	tooling=../$tooling_jar
 	echo $tooling
 	if test -f "$tooling"; then
-	    java -jar $tooling -RefreshIG -ini="$PWD"/ig.ini -t -d -p -v
+	    java -jar $tooling -RefreshIG -ini="$PWD"/ig.ini -t -d -p -v # $fsoption
 	    #java -jar $tooling -RefreshIG -ini="$PWD"/ig.ini -mtrp="$measure_to_refresh_path" -t -d -p -v $fsoption
 	else
 		echo IG Refresh NOT FOUND in input-cache or parent folder.  Please run _updateRefreshIG.  Aborting...
