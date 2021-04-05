@@ -32,11 +32,11 @@ define function "Has Hospice"(MeasurementPeriod Interval<DateTime>):
 			    )
 				and DischargeHospice.period ends during day of MeasurementPeriod
 	)
-    or exists (
-        [ProcedureRequest: "Hospice care ambulatory"] HospiceOrder
-            where HospiceOrder.intent = 'order'
-                and HospiceOrder.authoredOn in day of MeasurementPeriod
-    )
+//    or exists (
+//        [ProcedureRequest: "Hospice care ambulatory"] HospiceOrder
+//            where HospiceOrder.intent = 'order'
+//                and HospiceOrder.authoredOn in day of MeasurementPeriod
+//    )
     or exists (
         [Procedure: "Hospice care ambulatory"] HospicePerformed
             where HospicePerformed.status = 'completed'

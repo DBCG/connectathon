@@ -41,8 +41,8 @@ valueset "Discharge To Acute Care Facility": 'http://cts.nlm.nih.gov/fhir/ValueS
 valueset "Discharged to Home for Hospice Care": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.209'
 
 
-code "Birthdate": '21112-8' from "LOINC" display 'Birth date'
-code "Dead": '419099009' from "SNOMEDCT" display 'Dead'
+code "Birthdate": '21112-8' from "LOINC:2.46" display 'Birth date'
+code "Dead": '419099009' from "SNOMEDCT:2016-03" display 'Dead'
 
 parameter "Measurement Period" Interval<DateTime>
 
@@ -50,9 +50,9 @@ context Patient
 
 // refence VTE for order and Procedure
 define "Intervention Comfort Measures":
-	(["ProcedureRequest": "Comfort Measures"] P
-		where P.intent = 'order')
-		union
+//	(["ProcedureRequest": "Comfort Measures"] P
+//		where P.intent = 'order')
+//		union
 		(["Procedure": "Comfort Measures"] InterventionPerformed
 		where InterventionPerformed.status = 'completed')
 
