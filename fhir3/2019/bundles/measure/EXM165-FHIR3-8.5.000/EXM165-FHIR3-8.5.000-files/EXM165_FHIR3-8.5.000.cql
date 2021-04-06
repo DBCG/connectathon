@@ -176,7 +176,7 @@ define "Essential Hypertension Diagnosis":
     )
 
 define "Denominator Exclusion":
-	false;
+	false
 
 /*
 // TODO: Translate exclusions
