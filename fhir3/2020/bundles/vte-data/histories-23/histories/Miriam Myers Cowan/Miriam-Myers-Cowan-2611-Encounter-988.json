@@ -1,0 +1,939 @@
+{
+  "resourceType": "Bundle",
+  "id": "Miriam-Myers-Cowan-2611-Encounter-988",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-988",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-988",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "outpatient",
+          "display": "outpatient"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "185349003",
+                "display": "Wellness Visit"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-2611",
+          "display": "Miriam Myers Cowan"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2020-10-28T01:00:00-04:00",
+              "end": "2020-10-30T00:00:00-04:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-2545",
+              "display": "Jorge Everett Mercado MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2020-10-28T01:00:00-04:00",
+          "end": "2020-10-30T00:00:00-04:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-257",
+              "display": "Down East Family Medicine"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1065",
+          "display": "Down East Family Medicine"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-988"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Immunization/Immunization-129026",
+      "resource": {
+        "resourceType": "Immunization",
+        "id": "Immunization-129026",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "4287562c-859f-4693-a635-cbb47df14816"
+          }
+        ],
+        "status": "completed",
+        "notGiven": false,
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "140",
+              "display": "Influenza, seasonal, injectable, preservative free"
+            }
+          ]
+        },
+        "patient": {
+          "reference": "Patient/Patient-2611",
+          "display": "Miriam Myers Cowan"
+        },
+        "date": "2020-10-28T01:00:00-04:00",
+        "primarySource": true,
+        "location": {
+          "reference": "Location/Location-257",
+          "display": "Down East Family Medicine"
+        },
+        "practitioner": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-2545",
+              "display": "Jorge Everett Mercado MD"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Immunization/Immunization-129026"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162424",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-162424",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "999e9558-83e2-4355-99b9-e1eb559c97c5"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8302-2",
+              "display": "Body Height"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2611",
+          "display": "Miriam Myers Cowan"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-988",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2020-10-30T00:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2545",
+            "display": "Jorge Everett Mercado MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 168,
+          "unit": "cm"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162424"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162425",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-162425",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "f9bb4954-534f-441d-bdc0-84f579107dea"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "29463-7",
+              "display": "Body Weight"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2611",
+          "display": "Miriam Myers Cowan"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-988",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2020-10-30T00:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2545",
+            "display": "Jorge Everett Mercado MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 83.9,
+          "unit": "kg"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162425"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162426",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-162426",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "5b499278-d57e-4546-ac5c-85d3cfc3e6c0"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "39156-5",
+              "display": "Body Mass Index"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2611",
+          "display": "Miriam Myers Cowan"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-988",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2020-10-30T00:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2545",
+            "display": "Jorge Everett Mercado MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 29.8,
+          "unit": "kg/m2"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162426"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162427",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-162427",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "20a427a3-d655-4abb-9118-383c8abfb1a0"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic Blood Pressure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2611",
+          "display": "Miriam Myers Cowan"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-988",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2020-10-30T00:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2545",
+            "display": "Jorge Everett Mercado MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 130,
+          "unit": "mmHg"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162427"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162428",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-162428",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "a991065f-4182-43a0-8102-8f28e45667c4"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8462-4",
+              "display": "Diastolic Blood Pressure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2611",
+          "display": "Miriam Myers Cowan"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-988",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2020-10-30T00:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2545",
+            "display": "Jorge Everett Mercado MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 74,
+          "unit": "mmHg"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162428"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162429",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-162429",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "93e9cc97-f1c7-4b54-9172-6fc686db2ee3"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "55284-4",
+              "display": "Blood Pressure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2611",
+          "display": "Miriam Myers Cowan"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-988",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2020-10-30T00:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2545",
+            "display": "Jorge Everett Mercado MD"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162429"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162430",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-162430",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "a9509dac-03f4-4bd9-8105-2472dcb56566"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4548-4",
+              "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2611",
+          "display": "Miriam Myers Cowan"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-988",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2020-10-30T00:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2545",
+            "display": "Jorge Everett Mercado MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 5.0,
+          "unit": "%"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162430"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162440",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-162440",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "377eb13c-fd5a-442e-b39c-1ba85c69d9bc"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "51990-0",
+              "display": "Basic Metabolic Panel"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2611",
+          "display": "Miriam Myers Cowan"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-988",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2020-10-30T00:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2545",
+            "display": "Jorge Everett Mercado MD"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "2339-0",
+                  "display": "Glucose"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 65,
+              "unit": "mg/dL"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "6299-2",
+                  "display": "Urea Nitrogen"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 10.9,
+              "unit": "mg/dL"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "38483-4",
+                  "display": "Creatinine"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 1.3,
+              "unit": "mg/dL"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "49765-1",
+                  "display": "Calcium"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 3.1,
+              "unit": "mmol/L"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "2947-0",
+                  "display": "Sodium"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 143,
+              "unit": "mmol/L"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "6298-4",
+                  "display": "Potassium"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 3.6,
+              "unit": "mmol/L"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "2069-3",
+                  "display": "Chloride"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 106,
+              "unit": "mmol/L"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "20565-8",
+                  "display": "Carbon Dioxide"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 21,
+              "unit": "mmol/L"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "33914-3",
+                  "display": "Estimated Glomerular Filtration Rate"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 43.39,
+              "unit": "mL/min/{1.73_m2}"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162440"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162445",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-162445",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "eef84492-6d85-49d0-8687-c1f3a1bb0955"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "57698-3",
+              "display": "Lipid Panel"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2611",
+          "display": "Miriam Myers Cowan"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-988",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2020-10-30T00:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2545",
+            "display": "Jorge Everett Mercado MD"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "2093-3",
+                  "display": "Total Cholesterol"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 143,
+              "unit": "mg/dL"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "2571-8",
+                  "display": "Triglycerides"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 36,
+              "unit": "mg/dL"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "18262-6",
+                  "display": "Low Density Lipoprotein Cholesterol"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 91,
+              "unit": "mg/dL"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "2085-9",
+                  "display": "High Density Lipoprotein Cholesterol"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 44,
+              "unit": "mg/dL"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162445"
+      }
+    }
+  ]
+}

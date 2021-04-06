@@ -1,0 +1,310 @@
+{
+  "resourceType": "Bundle",
+  "id": "Maureen-Mabel-Cardenas-465-Encounter-752",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-752",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-752",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "outpatient",
+          "display": "outpatient"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "185345009",
+                "display": "Encounter for symptom"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-465",
+          "display": "Maureen Mabel Cardenas"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2017-03-03T00:00:00-05:00",
+              "end": "2017-03-03T00:00:00-05:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-340",
+              "display": "Earl Saunders Moody MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2017-03-03T00:00:00-05:00",
+          "end": "2017-03-03T00:00:00-05:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-257",
+              "display": "Down East Family Medicine"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1065",
+          "display": "Down East Family Medicine"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-752"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-41247",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-41247",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "d850f403-a3f6-4761-9e34-dc669744481c"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://www.cms.gov/Medicare/Coding/MedHCPCSGenInfo",
+              "code": "G8431",
+              "display": "Screening for depression is documented as being positive and a follow-up plan is documented (G8431)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-465",
+          "display": "Maureen Mabel Cardenas"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-752",
+          "display": "Wellness_Encounter"
+        },
+        "effectiveDateTime": "2017-03-03T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-340",
+            "display": "Earl Saunders Moody MD"
+          }
+        ],
+        "valueString": "POSITIVE"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-41247"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Condition/Condition-41250",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "Condition-41250",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-condition"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "20ee13b2-5523-4001-8b14-24d884e8cd43"
+          }
+        ],
+        "clinicalStatus": "active",
+        "verificationStatus": "confirmed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "310496002",
+              "display": "Moderate depression (disorder)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-465",
+          "display": "Maureen Mabel Cardenas"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-752",
+          "display": "Wellness_Encounter"
+        },
+        "onsetDateTime": "2017-03-03T00:00:00-05:00",
+        "assertedDate": "2017-03-03T00:00:00-05:00",
+        "asserter": {
+          "reference": "Practitioner/Practitioner-340",
+          "display": "Earl Saunders Moody MD"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Condition/Condition-41250"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationRequest/MedicationRequest-41252",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "MedicationRequest-41252",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-medicationrequest"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "31720763-1305-4489-ac56-bf3aa9ce61d5"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "687025",
+              "display": "24 HR Alprazolam 0.5 MG Extended Release Oral Tablet [Xanax]"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-465",
+          "display": "Maureen Mabel Cardenas"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-752",
+          "display": "Wellness_Encounter"
+        },
+        "authoredOn": "2017-03-03T00:00:00-05:00",
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "310496002",
+                "display": "Moderate depression (disorder)"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationRequest/MedicationRequest-41252"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-41253",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "DiagnosticReport-41253",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-diagnosticreport"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "a068b7ab-50f6-4142-9195-c19aa03428e7"
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "718636001",
+              "display": "Minimal depression (disorder)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-465",
+          "display": "Maureen Mabel Cardenas"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-752",
+          "display": "Wellness_Encounter"
+        },
+        "effectivePeriod": {
+          "start": "2017-03-03T00:00:00-05:00",
+          "end": "2017-03-03T00:00:00-05:00"
+        },
+        "issued": "2017-03-03T00:00:00.000-05:00"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-41253"
+      }
+    }
+  ]
+}

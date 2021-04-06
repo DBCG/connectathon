@@ -1,0 +1,594 @@
+{
+  "resourceType": "Bundle",
+  "id": "Melissa-Gilbert-Downs-2680-Encounter-444",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-444",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-444",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "outpatient",
+          "display": "outpatient"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "170258001",
+                "display": "Wellness Visit"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-2680",
+          "display": "Melissa Gilbert Downs"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2018-01-07T00:00:00-05:00",
+              "end": "2018-01-12T00:00:00-05:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-2526",
+              "display": "Samantha Andrea Weber MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2018-01-07T00:00:00-05:00",
+          "end": "2018-01-12T00:00:00-05:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-252",
+              "display": "Dickerson Clinic"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1060",
+          "display": "Dickerson Clinic"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-444"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Immunization/Immunization-34485",
+      "resource": {
+        "resourceType": "Immunization",
+        "id": "Immunization-34485",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "7f845aaa-d657-4c93-92cc-8aee715bf101"
+          }
+        ],
+        "status": "completed",
+        "notGiven": false,
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "140",
+              "display": "Influenza, seasonal, injectable, preservative free"
+            }
+          ]
+        },
+        "patient": {
+          "reference": "Patient/Patient-2680",
+          "display": "Melissa Gilbert Downs"
+        },
+        "date": "2018-01-07T00:00:00-05:00",
+        "primarySource": true,
+        "location": {
+          "reference": "Location/Location-252",
+          "display": "Dickerson Clinic"
+        },
+        "practitioner": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-2526",
+              "display": "Samantha Andrea Weber MD"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Immunization/Immunization-34485"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Immunization/Immunization-34486",
+      "resource": {
+        "resourceType": "Immunization",
+        "id": "Immunization-34486",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "5dac04f4-6695-495e-9004-bc3524d39cff"
+          }
+        ],
+        "status": "completed",
+        "notGiven": false,
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "62",
+              "display": "HPV, quadrivalent"
+            }
+          ]
+        },
+        "patient": {
+          "reference": "Patient/Patient-2680",
+          "display": "Melissa Gilbert Downs"
+        },
+        "date": "2018-01-07T00:00:00-05:00",
+        "primarySource": true,
+        "location": {
+          "reference": "Location/Location-252",
+          "display": "Dickerson Clinic"
+        },
+        "practitioner": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-2526",
+              "display": "Samantha Andrea Weber MD"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Immunization/Immunization-34486"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-68005",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-68005",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "a87ffb0d-9e2e-4c82-b03c-97afb23ae79a"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8302-2",
+              "display": "Body Height"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2680",
+          "display": "Melissa Gilbert Downs"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-444",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2018-01-12T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2526",
+            "display": "Samantha Andrea Weber MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 167,
+          "unit": "cm"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-68005"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-68006",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-68006",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "5635d82e-ff34-447d-a0a6-ed110d56f31d"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "29463-7",
+              "display": "Body Weight"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2680",
+          "display": "Melissa Gilbert Downs"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-444",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2018-01-12T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2526",
+            "display": "Samantha Andrea Weber MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 54.2,
+          "unit": "kg"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-68006"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-68007",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-68007",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "78856a76-0994-4204-a036-3a278571cc81"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "39156-5",
+              "display": "Body Mass Index"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2680",
+          "display": "Melissa Gilbert Downs"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-444",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2018-01-12T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2526",
+            "display": "Samantha Andrea Weber MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 19.4,
+          "unit": "kg/m2"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-68007"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-68008",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-68008",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "10d861d8-94e0-4ca4-9607-1053de264c73"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic Blood Pressure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2680",
+          "display": "Melissa Gilbert Downs"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-444",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2018-01-12T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2526",
+            "display": "Samantha Andrea Weber MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 134,
+          "unit": "mmHg"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-68008"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-68009",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-68009",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "52b6812e-8594-4f65-b6e9-bc05795237bb"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8462-4",
+              "display": "Diastolic Blood Pressure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2680",
+          "display": "Melissa Gilbert Downs"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-444",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2018-01-12T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2526",
+            "display": "Samantha Andrea Weber MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 75,
+          "unit": "mmHg"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-68009"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-68010",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-68010",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "07e2182c-7143-4876-bf8d-41ffd5b921d4"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "55284-4",
+              "display": "Blood Pressure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2680",
+          "display": "Melissa Gilbert Downs"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-444",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2018-01-12T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2526",
+            "display": "Samantha Andrea Weber MD"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-68010"
+      }
+    }
+  ]
+}

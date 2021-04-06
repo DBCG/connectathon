@@ -1,0 +1,255 @@
+{
+  "resourceType": "Bundle",
+  "id": "Lori-McCullough-Rush-2686-Encounter-340",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-340",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-340",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "ambulatory",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "428191000124101",
+                "display": "Documentation of current medications"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-2686",
+          "display": "Lori McCullough Rush"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2016-02-06T00:00:00-05:00",
+              "end": "2016-02-06T00:00:00-05:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-2270",
+              "display": "Ted Lawson Boyle MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2016-02-06T00:00:00-05:00",
+          "end": "2016-02-06T00:00:00-05:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-181",
+              "display": "Mother Charity Hospital"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1015",
+          "display": "Mother Charity Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-340"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Task/Task-6592",
+      "resource": {
+        "resourceType": "Task",
+        "id": "Task-6592",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "accepted",
+        "intent": "original-order",
+        "code": {
+          "coding": [
+            {
+              "system": "SNOMED-CT",
+              "code": "430193006",
+              "display": "Medication Reconciliation (procedure)"
+            }
+          ]
+        },
+        "description": "Care_Plan_Start Task 1",
+        "for": {
+          "reference": "Patient/Patient-2686",
+          "display": "Lori McCullough Rush"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-340",
+          "display": "Ambulatory_Encounter"
+        },
+        "executionPeriod": {
+          "start": "2016-02-06T00:00:00-05:00",
+          "end": "2016-02-06T00:00:00-05:00"
+        },
+        "authoredOn": "2016-02-06T00:00:00-05:00",
+        "requester": {
+          "agent": {
+            "reference": "Practitioner/Practitioner-2270",
+            "display": "Ted Lawson Boyle MD"
+          },
+          "onBehalfOf": {
+            "reference": "Organization/Organization-1015",
+            "display": "Mother Charity Hospital"
+          }
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Task/Task-6592"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/CarePlan/CarePlan-6591",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "CarePlan-6591",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "244a0179-e976-4b93-bdf2-c56253cd4350"
+          }
+        ],
+        "status": "active",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "430193006",
+                "display": "Medication Reconciliation (procedure)"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-2686",
+          "display": "Lori McCullough Rush"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-340",
+          "display": "Ambulatory_Encounter"
+        },
+        "period": {
+          "start": "2016-02-06T00:00:00-05:00",
+          "end": "2016-02-06T00:00:00-05:00"
+        },
+        "author": [
+          {
+            "reference": "Practitioner/Practitioner-2270",
+            "display": "Ted Lawson Boyle MD"
+          }
+        ],
+        "activity": [
+          {
+            "reference": {
+              "reference": "Task/Task-6592",
+              "display": "Care_Plan_Start Task 1"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/CarePlan/CarePlan-6591"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-6593",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-6593",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "49fc19f9-5bc8-404f-aba5-b0762e49ad68"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "430193006",
+              "display": "Medication Reconciliation (procedure)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2686",
+          "display": "Lori McCullough Rush"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-340",
+          "display": "Ambulatory_Encounter"
+        },
+        "performedPeriod": {
+          "start": "2016-02-06T00:00:00-05:00",
+          "end": "2016-02-06T00:00:00-05:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-2270",
+              "display": "Ted Lawson Boyle MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-181",
+          "display": "Mother Charity Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-6593"
+      }
+    }
+  ]
+}

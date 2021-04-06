@@ -1,0 +1,330 @@
+{
+  "resourceType": "Bundle",
+  "id": "Margaret-Farrell-Tucker-2706-Encounter-229",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-229",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-229",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "inpatient",
+          "display": "inpatient"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "185347001",
+                "display": "Encounter for problem"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-2706",
+          "display": "Margaret Farrell Tucker"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2016-01-08T00:00:00-05:00",
+              "end": "2016-01-29T00:00:00-05:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-2238",
+              "display": "Jeanette Kelly Koch MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2016-01-08T00:00:00-05:00",
+          "end": "2016-01-29T00:00:00-05:00"
+        },
+        "reason": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "9876",
+                "display": "Exampleitis"
+              }
+            ]
+          }
+        ],
+        "hospitalization": {
+          "dischargeDisposition": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/discharge-disposition",
+                "code": "home",
+                "display": "Home"
+              }
+            ]
+          }
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-137",
+              "display": "EMS Comprehensive Care"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1006",
+          "display": "EMS Comprehensive Care"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-229"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-3486",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-3486",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "90055b2e-cc99-4aba-9842-c3152522db87"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "173959002",
+              "display": "Bypass of ileum by anastomosis of jejunum to ileum (procedure)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2706",
+          "display": "Margaret Farrell Tucker"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-229",
+          "display": "Planned_Surgery"
+        },
+        "performedPeriod": {
+          "start": "2016-01-08T00:00:00-05:00",
+          "end": "2016-01-15T00:00:00-05:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-2238",
+              "display": "Jeanette Kelly Koch MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-137",
+          "display": "EMS Comprehensive Care"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-3486"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationRequest/MedicationRequest-3487",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "MedicationRequest-3487",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-medicationrequest"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "b4fe4a06-0984-4459-a8a2-863e50c93c29"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "861365",
+              "display": "0.6 ML Fondaparinux sodium 12.5 MG/ML Prefilled Syringe"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2706",
+          "display": "Margaret Farrell Tucker"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-229",
+          "display": "Planned_Surgery"
+        },
+        "authoredOn": "2016-01-15T00:00:00-05:00",
+        "requester": {
+          "agent": {
+            "reference": "Practitioner/Practitioner-2238",
+            "display": "Jeanette Kelly Koch MD"
+          }
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://www.icd10data.com/icd10pcs",
+                "code": "0DQ67ZZ",
+                "display": "Repair Stomach, Via Natural or Artificial Opening"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationRequest/MedicationRequest-3487"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationAdministration/MedicationAdministration-3488",
+      "resource": {
+        "resourceType": "MedicationAdministration",
+        "id": "MedicationAdministration-3488",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "completed",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "861365",
+              "display": "0.6 ML Fondaparinux sodium 12.5 MG/ML Prefilled Syringe"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2706",
+          "display": "Margaret Farrell Tucker"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-229",
+          "display": "Planned_Surgery"
+        },
+        "effectiveDateTime": "2016-01-15T00:00:00-05:00",
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-2238",
+              "display": "Jeanette Kelly Koch MD"
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://www.icd10data.com/icd10pcs",
+                "code": "0DQ67ZZ",
+                "display": "Repair Stomach, Via Natural or Artificial Opening"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationAdministration/MedicationAdministration-3488"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/DeviceRequest/DeviceRequest-3818",
+      "resource": {
+        "resourceType": "DeviceRequest",
+        "id": "DeviceRequest-3818",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "active",
+        "subject": {
+          "reference": "Patient/Patient-2706",
+          "display": "Margaret Farrell Tucker"
+        },
+        "authoredOn": "2016-01-26T00:00:00-05:00"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/DeviceRequest/DeviceRequest-3818"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/DeviceUseStatement/DeviceUseStatement-3819",
+      "resource": {
+        "resourceType": "DeviceUseStatement",
+        "id": "DeviceUseStatement-3819",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-2706",
+          "display": "Margaret Farrell Tucker"
+        },
+        "timingDateTime": "2016-01-26T00:00:00-05:00",
+        "recordedOn": "2016-01-26T00:00:00-05:00"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/DeviceUseStatement/DeviceUseStatement-3819"
+      }
+    }
+  ]
+}

@@ -1,0 +1,330 @@
+{
+  "resourceType": "Bundle",
+  "id": "Clifton-Guy-Bowman-2671-Encounter-237",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-237",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-237",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "inpatient",
+          "display": "inpatient"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "185347001",
+                "display": "Encounter for problem"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-2671",
+          "display": "Clifton Guy Bowman"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2016-01-08T00:00:00-05:00",
+              "end": "2016-01-29T00:00:00-05:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-2239",
+              "display": "Brett Rene Dawson MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2016-01-08T00:00:00-05:00",
+          "end": "2016-01-29T00:00:00-05:00"
+        },
+        "reason": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "9876",
+                "display": "Exampleitis"
+              }
+            ]
+          }
+        ],
+        "hospitalization": {
+          "dischargeDisposition": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/discharge-disposition",
+                "code": "home",
+                "display": "Home"
+              }
+            ]
+          }
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-137",
+              "display": "EMS Comprehensive Care"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1006",
+          "display": "EMS Comprehensive Care"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-237"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-3492",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-3492",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "9ffc512b-e76c-4eab-a955-999dee9f00fb"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.icd10data.com/icd10pcs",
+              "code": "0FBF0ZZ",
+              "display": "Excision of Accessory Pancreatic Duct, Open Approach"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2671",
+          "display": "Clifton Guy Bowman"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-237",
+          "display": "Planned_Surgery"
+        },
+        "performedPeriod": {
+          "start": "2016-01-08T00:00:00-05:00",
+          "end": "2016-01-15T00:00:00-05:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-2239",
+              "display": "Brett Rene Dawson MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-137",
+          "display": "EMS Comprehensive Care"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-3492"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationRequest/MedicationRequest-3493",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "MedicationRequest-3493",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-medicationrequest"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "7f65d85f-73ea-472c-aeed-52e35a447781"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "978725",
+              "display": "0.2 ML Dalteparin Sodium 12500 UNT/ML Prefilled Syringe"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2671",
+          "display": "Clifton Guy Bowman"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-237",
+          "display": "Planned_Surgery"
+        },
+        "authoredOn": "2016-01-15T00:00:00-05:00",
+        "requester": {
+          "agent": {
+            "reference": "Practitioner/Practitioner-2239",
+            "display": "Brett Rene Dawson MD"
+          }
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://www.icd10data.com/icd10pcs",
+                "code": "0D1B0JB",
+                "display": "Bypass Ileum to Ileum with Synthetic Substitute, Open Approach"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationRequest/MedicationRequest-3493"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationAdministration/MedicationAdministration-3494",
+      "resource": {
+        "resourceType": "MedicationAdministration",
+        "id": "MedicationAdministration-3494",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "completed",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "978725",
+              "display": "0.2 ML Dalteparin Sodium 12500 UNT/ML Prefilled Syringe"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2671",
+          "display": "Clifton Guy Bowman"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-237",
+          "display": "Planned_Surgery"
+        },
+        "effectiveDateTime": "2016-01-15T00:00:00-05:00",
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-2239",
+              "display": "Brett Rene Dawson MD"
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://www.icd10data.com/icd10pcs",
+                "code": "0D1B0JB",
+                "display": "Bypass Ileum to Ileum with Synthetic Substitute, Open Approach"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationAdministration/MedicationAdministration-3494"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/DeviceRequest/DeviceRequest-3829",
+      "resource": {
+        "resourceType": "DeviceRequest",
+        "id": "DeviceRequest-3829",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "active",
+        "subject": {
+          "reference": "Patient/Patient-2671",
+          "display": "Clifton Guy Bowman"
+        },
+        "authoredOn": "2016-01-23T00:00:00-05:00"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/DeviceRequest/DeviceRequest-3829"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/DeviceUseStatement/DeviceUseStatement-3830",
+      "resource": {
+        "resourceType": "DeviceUseStatement",
+        "id": "DeviceUseStatement-3830",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-2671",
+          "display": "Clifton Guy Bowman"
+        },
+        "timingDateTime": "2016-01-23T00:00:00-05:00",
+        "recordedOn": "2016-01-23T00:00:00-05:00"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/DeviceUseStatement/DeviceUseStatement-3830"
+      }
+    }
+  ]
+}

@@ -1,0 +1,264 @@
+{
+  "resourceType": "Bundle",
+  "id": "Bobbie-Simon-Jackson-410-Encounter-4048",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-4048",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-4048",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "ambulatory",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "185345009",
+                "display": "Encounter for symptom"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-410",
+          "display": "Bobbie Simon Jackson"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2019-03-12T21:21:00-04:00",
+              "end": "2019-03-12T22:50:00-04:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-66",
+              "display": "Joyce Fisher Gentry MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2019-03-12T21:21:00-04:00",
+          "end": "2019-03-12T22:50:00-04:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-199",
+              "display": "Ruth Israel Hospital"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1022",
+          "display": "Ruth Israel Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-4048"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-118446",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-118446",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "b33a1f4f-65de-4546-88e5-f87cdf975a55"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "45333"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-410",
+          "display": "Bobbie Simon Jackson"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-4048",
+          "display": "Sigmoidoscopy_Encounter"
+        },
+        "performedPeriod": {
+          "start": "2019-03-12T21:21:00-04:00",
+          "end": "2019-03-12T22:50:00-04:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-66",
+              "display": "Joyce Fisher Gentry MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-199",
+          "display": "Ruth Israel Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-118446"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-118447",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-118447",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "1ddbf375-056e-4dbe-9c26-23e7cf0f0edc"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "45350",
+              "display": "Sigmoidoscopy, flexible; with band ligation(s) (eg, hemorrhoids)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-410",
+          "display": "Bobbie Simon Jackson"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-4048",
+          "display": "Sigmoidoscopy_Encounter"
+        },
+        "effectiveDateTime": "2019-03-12T22:50:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-66",
+            "display": "Joyce Fisher Gentry MD"
+          }
+        ],
+        "valueString": "NEGATIVE"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-118447"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-118448",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "DiagnosticReport-118448",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-diagnosticreport"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "77d6cc66-da5e-4d68-b21a-47e2ea63e28a"
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "45337",
+              "display": "Sigmoidoscopy, flexible; with decompression (for pathologic distention) (eg, volvulus, megacolon), including placement of decompression tube, when performed"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-410",
+          "display": "Bobbie Simon Jackson"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-4048",
+          "display": "Sigmoidoscopy_Encounter"
+        },
+        "effectivePeriod": {
+          "start": "2019-03-12T22:50:00-04:00",
+          "end": "2019-03-12T22:50:00-04:00"
+        },
+        "issued": "2019-03-12T22:50:00.000-04:00",
+        "result": [
+          {
+            "reference": "Observation/Observation-118447",
+            "display": "Negative_Sigmoidoscopy_Diagnostic_Report_Observation_1"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-118448"
+      }
+    }
+  ]
+}

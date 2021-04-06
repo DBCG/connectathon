@@ -1,0 +1,330 @@
+{
+  "resourceType": "Bundle",
+  "id": "Regina-Wilkerson-Hayden-2645-Encounter-268",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-268",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-268",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "inpatient",
+          "display": "inpatient"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "185347001",
+                "display": "Encounter for problem"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-2645",
+          "display": "Regina Wilkerson Hayden"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2016-01-08T00:00:00-05:00",
+              "end": "2016-01-29T00:00:00-05:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-2267",
+              "display": "Tracy Carroll Roberts MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2016-01-08T00:00:00-05:00",
+          "end": "2016-01-29T00:00:00-05:00"
+        },
+        "reason": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "9876",
+                "display": "Exampleitis"
+              }
+            ]
+          }
+        ],
+        "hospitalization": {
+          "dischargeDisposition": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/discharge-disposition",
+                "code": "home",
+                "display": "Home"
+              }
+            ]
+          }
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-181",
+              "display": "Mother Charity Hospital"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1015",
+          "display": "Mother Charity Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-268"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-3515",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-3515",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "5d39f150-dfc8-4913-bc76-29e8197846ea"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.icd10data.com/icd10pcs",
+              "code": "0D168JL",
+              "display": "Bypass Stomach to Transverse Colon with Synthetic Substitute, Via Natural or Artificial Opening Endoscopic"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2645",
+          "display": "Regina Wilkerson Hayden"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-268",
+          "display": "Planned_Surgery"
+        },
+        "performedPeriod": {
+          "start": "2016-01-08T00:00:00-05:00",
+          "end": "2016-01-15T00:00:00-05:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-2267",
+              "display": "Tracy Carroll Roberts MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-181",
+          "display": "Mother Charity Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-3515"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationRequest/MedicationRequest-3516",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "MedicationRequest-3516",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-medicationrequest"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "3ce5535f-a3b8-47fc-b98e-872afa076b15"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "854255",
+              "display": "Enoxaparin sodium 100 MG/ML Injectable Solution"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2645",
+          "display": "Regina Wilkerson Hayden"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-268",
+          "display": "Planned_Surgery"
+        },
+        "authoredOn": "2016-01-15T00:00:00-05:00",
+        "requester": {
+          "agent": {
+            "reference": "Practitioner/Practitioner-2267",
+            "display": "Tracy Carroll Roberts MD"
+          }
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://www.icd10data.com/icd10pcs",
+                "code": "0FWD03Z",
+                "display": "Revision of Infusion Device in Pancreatic Duct, Open Approach"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationRequest/MedicationRequest-3516"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationAdministration/MedicationAdministration-3517",
+      "resource": {
+        "resourceType": "MedicationAdministration",
+        "id": "MedicationAdministration-3517",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "completed",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "854255",
+              "display": "Enoxaparin sodium 100 MG/ML Injectable Solution"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2645",
+          "display": "Regina Wilkerson Hayden"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-268",
+          "display": "Planned_Surgery"
+        },
+        "effectiveDateTime": "2016-01-15T00:00:00-05:00",
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-2267",
+              "display": "Tracy Carroll Roberts MD"
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://www.icd10data.com/icd10pcs",
+                "code": "0FWD03Z",
+                "display": "Revision of Infusion Device in Pancreatic Duct, Open Approach"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationAdministration/MedicationAdministration-3517"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/DeviceRequest/DeviceRequest-3848",
+      "resource": {
+        "resourceType": "DeviceRequest",
+        "id": "DeviceRequest-3848",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "active",
+        "subject": {
+          "reference": "Patient/Patient-2645",
+          "display": "Regina Wilkerson Hayden"
+        },
+        "authoredOn": "2016-01-24T00:00:00-05:00"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/DeviceRequest/DeviceRequest-3848"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/DeviceUseStatement/DeviceUseStatement-3849",
+      "resource": {
+        "resourceType": "DeviceUseStatement",
+        "id": "DeviceUseStatement-3849",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-2645",
+          "display": "Regina Wilkerson Hayden"
+        },
+        "timingDateTime": "2016-01-24T00:00:00-05:00",
+        "recordedOn": "2016-01-24T00:00:00-05:00"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/DeviceUseStatement/DeviceUseStatement-3849"
+      }
+    }
+  ]
+}

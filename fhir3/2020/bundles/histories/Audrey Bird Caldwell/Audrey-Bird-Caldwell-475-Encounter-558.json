@@ -1,0 +1,310 @@
+{
+  "resourceType": "Bundle",
+  "id": "Audrey-Bird-Caldwell-475-Encounter-558",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-558",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-558",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "outpatient",
+          "display": "outpatient"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "185345009",
+                "display": "Encounter for symptom"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-475",
+          "display": "Audrey Bird Caldwell"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2017-02-03T00:00:00-05:00",
+              "end": "2017-02-03T00:00:00-05:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-404",
+              "display": "Raymond Guy Barton MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2017-02-03T00:00:00-05:00",
+          "end": "2017-02-03T00:00:00-05:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-274",
+              "display": "Healthy Living Clinic"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1111",
+          "display": "Healthy Living Clinic"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-558"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-36486",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-36486",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "757c6f87-cd93-4825-8284-cea0375658fe"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "428181000124104",
+              "display": "Depression screening positive (situation)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-475",
+          "display": "Audrey Bird Caldwell"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-558",
+          "display": "Wellness_Encounter"
+        },
+        "effectiveDateTime": "2017-02-03T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-404",
+            "display": "Raymond Guy Barton MD"
+          }
+        ],
+        "valueString": "POSITIVE"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-36486"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Condition/Condition-36489",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "Condition-36489",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-condition"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "767d73e8-d8e5-4d34-b100-67c17427ef98"
+          }
+        ],
+        "clinicalStatus": "active",
+        "verificationStatus": "confirmed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "310496002",
+              "display": "Moderate depression (disorder)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-475",
+          "display": "Audrey Bird Caldwell"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-558",
+          "display": "Wellness_Encounter"
+        },
+        "onsetDateTime": "2017-02-03T00:00:00-05:00",
+        "assertedDate": "2017-02-03T00:00:00-05:00",
+        "asserter": {
+          "reference": "Practitioner/Practitioner-404",
+          "display": "Raymond Guy Barton MD"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Condition/Condition-36489"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationRequest/MedicationRequest-36491",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "MedicationRequest-36491",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-medicationrequest"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "369ed3dd-86ab-48bf-94d9-1c20609f80cd"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "687025",
+              "display": "24 HR Alprazolam 0.5 MG Extended Release Oral Tablet [Xanax]"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-475",
+          "display": "Audrey Bird Caldwell"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-558",
+          "display": "Wellness_Encounter"
+        },
+        "authoredOn": "2017-02-03T00:00:00-05:00",
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "310496002",
+                "display": "Moderate depression (disorder)"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationRequest/MedicationRequest-36491"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-36492",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "DiagnosticReport-36492",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-diagnosticreport"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "f4205a0d-594c-4965-b7c5-e1cab26c2f2c"
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "718636001",
+              "display": "Minimal depression (disorder)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-475",
+          "display": "Audrey Bird Caldwell"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-558",
+          "display": "Wellness_Encounter"
+        },
+        "effectivePeriod": {
+          "start": "2017-02-03T00:00:00-05:00",
+          "end": "2017-02-03T00:00:00-05:00"
+        },
+        "issued": "2017-02-03T00:00:00.000-05:00"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-36492"
+      }
+    }
+  ]
+}

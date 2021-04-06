@@ -1,0 +1,330 @@
+{
+  "resourceType": "Bundle",
+  "id": "Ruth-Clara-Sutton-2666-Encounter-17",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-17",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-17",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "inpatient",
+          "display": "inpatient"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "185347001",
+                "display": "Encounter for problem"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-2666",
+          "display": "Ruth Clara Sutton"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2016-01-08T00:00:00-05:00",
+              "end": "2016-01-29T00:00:00-05:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-2273",
+              "display": "Chad Boyd Moore MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2016-01-08T00:00:00-05:00",
+          "end": "2016-01-29T00:00:00-05:00"
+        },
+        "reason": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "9876",
+                "display": "Exampleitis"
+              }
+            ]
+          }
+        ],
+        "hospitalization": {
+          "dischargeDisposition": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/discharge-disposition",
+                "code": "home",
+                "display": "Home"
+              }
+            ]
+          }
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-199",
+              "display": "Ruth Israel Hospital"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1022",
+          "display": "Ruth Israel Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-17"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-3309",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-3309",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "1f7286d2-1b97-4c45-9043-3aaf87683aa6"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "27892007",
+              "display": "Closure of fecal fistula (procedure)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2666",
+          "display": "Ruth Clara Sutton"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-17",
+          "display": "Planned_Surgery"
+        },
+        "performedPeriod": {
+          "start": "2016-01-08T00:00:00-05:00",
+          "end": "2016-01-15T00:00:00-05:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-2273",
+              "display": "Chad Boyd Moore MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-199",
+          "display": "Ruth Israel Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-3309"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationRequest/MedicationRequest-3310",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "MedicationRequest-3310",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-medicationrequest"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "a6a09872-0a46-45ef-b624-e4de70f54abb"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "861365",
+              "display": "0.6 ML Fondaparinux sodium 12.5 MG/ML Prefilled Syringe"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2666",
+          "display": "Ruth Clara Sutton"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-17",
+          "display": "Planned_Surgery"
+        },
+        "authoredOn": "2016-01-15T00:00:00-05:00",
+        "requester": {
+          "agent": {
+            "reference": "Practitioner/Practitioner-2273",
+            "display": "Chad Boyd Moore MD"
+          }
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "448053007",
+                "display": "Resuturing of previous incision of anterior abdominal wall (procedure)"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationRequest/MedicationRequest-3310"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationAdministration/MedicationAdministration-3311",
+      "resource": {
+        "resourceType": "MedicationAdministration",
+        "id": "MedicationAdministration-3311",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "completed",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "861365",
+              "display": "0.6 ML Fondaparinux sodium 12.5 MG/ML Prefilled Syringe"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2666",
+          "display": "Ruth Clara Sutton"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-17",
+          "display": "Planned_Surgery"
+        },
+        "effectiveDateTime": "2016-01-15T00:00:00-05:00",
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-2273",
+              "display": "Chad Boyd Moore MD"
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "448053007",
+                "display": "Resuturing of previous incision of anterior abdominal wall (procedure)"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationAdministration/MedicationAdministration-3311"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/DeviceRequest/DeviceRequest-3693",
+      "resource": {
+        "resourceType": "DeviceRequest",
+        "id": "DeviceRequest-3693",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "active",
+        "subject": {
+          "reference": "Patient/Patient-2666",
+          "display": "Ruth Clara Sutton"
+        },
+        "authoredOn": "2016-01-24T00:00:00-05:00"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/DeviceRequest/DeviceRequest-3693"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/DeviceUseStatement/DeviceUseStatement-3694",
+      "resource": {
+        "resourceType": "DeviceUseStatement",
+        "id": "DeviceUseStatement-3694",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-2666",
+          "display": "Ruth Clara Sutton"
+        },
+        "timingDateTime": "2016-01-24T00:00:00-05:00",
+        "recordedOn": "2016-01-24T00:00:00-05:00"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/DeviceUseStatement/DeviceUseStatement-3694"
+      }
+    }
+  ]
+}

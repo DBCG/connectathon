@@ -1,0 +1,221 @@
+{
+  "resourceType": "Bundle",
+  "id": "Rick-Leslie-Gay-456-Encounter-857",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-857",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-857",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "outpatient",
+          "display": "outpatient"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://www.ama-assn.org/go/cpt",
+                "code": "99202",
+                "display": "OFFICE/OUTPATIENT VISIT NEW"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-456",
+          "display": "Rick Leslie Gay"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2017-03-25T01:00:00-04:00",
+              "end": "2017-03-25T01:00:00-04:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-302",
+              "display": "Oscar Larry Hartman MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2017-03-25T01:00:00-04:00",
+          "end": "2017-03-25T01:00:00-04:00"
+        },
+        "reason": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "310495003",
+                "display": "Mild depression (disorder)"
+              }
+            ]
+          }
+        ],
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-246",
+              "display": "Bay Area Family Practice"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1054",
+          "display": "Bay Area Family Practice"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-857"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-44752",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-44752",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "4eb5458f-d06d-4661-b5ee-ec78ad31f822"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://test",
+              "code": "2.16.840.1.113883.3.67.1.101.11.723",
+              "display": "2.16.840.1.113883.3.67.1.101.11.723"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-456",
+          "display": "Rick Leslie Gay"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-857",
+          "display": "DRR_Encounter"
+        },
+        "performedPeriod": {
+          "start": "2017-03-25T01:00:00-04:00",
+          "end": "2017-03-25T01:00:00-04:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-302",
+              "display": "Oscar Larry Hartman MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-246",
+          "display": "Bay Area Family Practice"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-44752"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-44753",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-44753",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "63348bb3-513a-48ff-8b82-70a7213a3365"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://cqframework.info/codesystem/placeholder",
+              "code": "00009",
+              "display": "PHQ-9 Modified Score"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-456",
+          "display": "Rick Leslie Gay"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-857",
+          "display": "DRR_Encounter"
+        },
+        "effectiveDateTime": "2017-03-25T01:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-302",
+            "display": "Oscar Larry Hartman MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 0.0,
+          "unit": "score"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-44753"
+      }
+    }
+  ]
+}

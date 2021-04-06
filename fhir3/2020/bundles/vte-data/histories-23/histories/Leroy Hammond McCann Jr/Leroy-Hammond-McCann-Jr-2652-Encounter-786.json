@@ -1,0 +1,939 @@
+{
+  "resourceType": "Bundle",
+  "id": "Leroy-Hammond-McCann-Jr-2652-Encounter-786",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-786",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-786",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "outpatient",
+          "display": "outpatient"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "185349003",
+                "display": "Wellness Visit"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-2652",
+          "display": "Leroy Hammond McCann Jr"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2019-09-03T01:00:00-04:00",
+              "end": "2019-09-06T00:00:00-04:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-2540",
+              "display": "Minnie Becky Jordan MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2019-09-03T01:00:00-04:00",
+          "end": "2019-09-06T00:00:00-04:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-254",
+              "display": "Freedom Physicians"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1062",
+          "display": "Freedom Physicians"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-786"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Immunization/Immunization-90371",
+      "resource": {
+        "resourceType": "Immunization",
+        "id": "Immunization-90371",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "170a966a-63d7-4dfa-b60d-23660e09bcea"
+          }
+        ],
+        "status": "completed",
+        "notGiven": false,
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "140",
+              "display": "Influenza, seasonal, injectable, preservative free"
+            }
+          ]
+        },
+        "patient": {
+          "reference": "Patient/Patient-2652",
+          "display": "Leroy Hammond McCann Jr"
+        },
+        "date": "2019-09-03T01:00:00-04:00",
+        "primarySource": true,
+        "location": {
+          "reference": "Location/Location-254",
+          "display": "Freedom Physicians"
+        },
+        "practitioner": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-2540",
+              "display": "Minnie Becky Jordan MD"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Immunization/Immunization-90371"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-123556",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-123556",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "f1498d1a-d824-44d1-80f3-75372a477177"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8302-2",
+              "display": "Body Height"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2652",
+          "display": "Leroy Hammond McCann Jr"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-786",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2019-09-06T00:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2540",
+            "display": "Minnie Becky Jordan MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 177,
+          "unit": "cm"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-123556"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-123557",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-123557",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "77fc0f56-7692-490f-a3c9-91266ff686f5"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "29463-7",
+              "display": "Body Weight"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2652",
+          "display": "Leroy Hammond McCann Jr"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-786",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2019-09-06T00:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2540",
+            "display": "Minnie Becky Jordan MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 65.2,
+          "unit": "kg"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-123557"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-123558",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-123558",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "28b2c986-21a6-4e1d-8152-99967d73d270"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "39156-5",
+              "display": "Body Mass Index"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2652",
+          "display": "Leroy Hammond McCann Jr"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-786",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2019-09-06T00:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2540",
+            "display": "Minnie Becky Jordan MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 20.9,
+          "unit": "kg/m2"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-123558"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-123559",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-123559",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "58edc790-a232-4ec0-a9c6-38c91b45c5d1"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic Blood Pressure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2652",
+          "display": "Leroy Hammond McCann Jr"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-786",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2019-09-06T00:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2540",
+            "display": "Minnie Becky Jordan MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 110,
+          "unit": "mmHg"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-123559"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-123560",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-123560",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "48694ff1-9f05-4bbb-b01f-e1e222a8ce42"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8462-4",
+              "display": "Diastolic Blood Pressure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2652",
+          "display": "Leroy Hammond McCann Jr"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-786",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2019-09-06T00:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2540",
+            "display": "Minnie Becky Jordan MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 77,
+          "unit": "mmHg"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-123560"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-123561",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-123561",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "bf66637a-9a8c-43da-b5c2-25cd7d46c3f0"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "55284-4",
+              "display": "Blood Pressure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2652",
+          "display": "Leroy Hammond McCann Jr"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-786",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2019-09-06T00:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2540",
+            "display": "Minnie Becky Jordan MD"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-123561"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-123562",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-123562",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "1eaded97-3165-4f59-aecb-7b75d3e84c77"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4548-4",
+              "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2652",
+          "display": "Leroy Hammond McCann Jr"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-786",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2019-09-06T00:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2540",
+            "display": "Minnie Becky Jordan MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 5.2,
+          "unit": "%"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-123562"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-123572",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-123572",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "77adf6ad-a3eb-4b7d-821d-83ad122f8bf7"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "51990-0",
+              "display": "Basic Metabolic Panel"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2652",
+          "display": "Leroy Hammond McCann Jr"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-786",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2019-09-06T00:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2540",
+            "display": "Minnie Becky Jordan MD"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "2339-0",
+                  "display": "Glucose"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 100,
+              "unit": "mg/dL"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "6299-2",
+                  "display": "Urea Nitrogen"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 10.2,
+              "unit": "mg/dL"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "38483-4",
+                  "display": "Creatinine"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 1.4,
+              "unit": "mg/dL"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "49765-1",
+                  "display": "Calcium"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 2.4,
+              "unit": "mmol/L"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "2947-0",
+                  "display": "Sodium"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 138,
+              "unit": "mmol/L"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "6298-4",
+                  "display": "Potassium"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 5.0,
+              "unit": "mmol/L"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "2069-3",
+                  "display": "Chloride"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 105,
+              "unit": "mmol/L"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "20565-8",
+                  "display": "Carbon Dioxide"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 21,
+              "unit": "mmol/L"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "33914-3",
+                  "display": "Estimated Glomerular Filtration Rate"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 32.82,
+              "unit": "mL/min/{1.73_m2}"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-123572"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-123577",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-123577",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "50c0ed25-ba67-4979-a596-2b28556e23ec"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "57698-3",
+              "display": "Lipid Panel"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2652",
+          "display": "Leroy Hammond McCann Jr"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-786",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2019-09-06T00:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2540",
+            "display": "Minnie Becky Jordan MD"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "2093-3",
+                  "display": "Total Cholesterol"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 131,
+              "unit": "mg/dL"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "2571-8",
+                  "display": "Triglycerides"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 55,
+              "unit": "mg/dL"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "18262-6",
+                  "display": "Low Density Lipoprotein Cholesterol"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 82,
+              "unit": "mg/dL"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "2085-9",
+                  "display": "High Density Lipoprotein Cholesterol"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 38,
+              "unit": "mg/dL"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-123577"
+      }
+    }
+  ]
+}

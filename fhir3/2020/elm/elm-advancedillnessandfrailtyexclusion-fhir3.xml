@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="urn:hl7-org:elm:r1" xmlns:t="urn:hl7-org:elm-types:r1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fhir="http://hl7.org/fhir" xmlns:qdm43="urn:healthit-gov:qdm:v4_3" xmlns:qdm53="urn:healthit-gov:qdm:v5_3" xmlns:a="urn:hl7-org:cql-annotations:r1">
+   <annotation startLine="73" startChar="15" endLine="73" endChar="52" message="Retrieve has a terminology target but does not specify a code path and the type of the retrieve does not have a primary code path defined." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
+   <annotation startLine="73" startChar="15" endLine="73" endChar="52" message="Could not resolve membership operator for terminology target of the retrieve." errorType="semantic" errorSeverity="warning" xsi:type="a:CqlToElmError"/>
+   <identifier id="AdvancedIllnessandFrailtyExclusion_FHIR3" version="4.0.000"/>
+   <schemaIdentifier id="urn:hl7-org:elm" version="r1"/>
+   <usings>
+      <def localIdentifier="System" uri="urn:hl7-org:elm-types:r1"/>
+      <def localIdentifier="FHIR" uri="http://hl7.org/fhir" version="3.0.0"/>
+   </usings>
+   <includes>
+      <def localIdentifier="FHIRHelpers" path="FHIRHelpers" version="3.0.0"/>
+      <def localIdentifier="Global" path="MATGlobalCommonFunctions_FHIR3" version="2.0.000"/>
+   </includes>
+   <parameters>
+      <def name="Measurement Period" accessLevel="Public">
+         <parameterTypeSpecifier xsi:type="IntervalTypeSpecifier">
+            <pointType name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+         </parameterTypeSpecifier>
+      </def>
+   </parameters>
+   <codeSystems>
+      <def name="LOINC" id="urn:oid:2.16.840.1.113883.6.1" accessLevel="Public"/>
+   </codeSystems>
+   <valueSets>
+      <def name="Acute Inpatient" id="urn:oid:2.16.840.1.113883.3.464.1003.101.12.1083" accessLevel="Public"/>
+      <def name="Advanced Illness" id="urn:oid:2.16.840.1.113883.3.464.1003.110.12.1082" accessLevel="Public"/>
+      <def name="Care Services in Long-Term Residential Facility" id="urn:oid:2.16.840.1.113883.3.464.1003.101.12.1014" accessLevel="Public"/>
+      <def name="Dementia Medications" id="urn:oid:2.16.840.1.113883.3.464.1003.196.12.1510" accessLevel="Public"/>
+      <def name="ED" id="urn:oid:2.16.840.1.113883.3.464.1003.101.12.1085" accessLevel="Public"/>
+      <def name="Frailty Device" id="urn:oid:2.16.840.1.113883.3.464.1003.118.12.1300" accessLevel="Public"/>
+      <def name="Frailty Diagnosis" id="urn:oid:2.16.840.1.113883.3.464.1003.113.12.1074" accessLevel="Public"/>
+      <def name="Frailty Encounter" id="urn:oid:2.16.840.1.113883.3.464.1003.101.12.1088" accessLevel="Public"/>
+      <def name="Frailty Symptom" id="urn:oid:2.16.840.1.113883.3.464.1003.113.12.1075" accessLevel="Public"/>
+      <def name="Nonacute Inpatient" id="urn:oid:2.16.840.1.113883.3.464.1003.101.12.1084" accessLevel="Public"/>
+      <def name="Nursing Facility Visit" id="urn:oid:2.16.840.1.113883.3.464.1003.101.12.1012" accessLevel="Public"/>
+      <def name="Observation" id="urn:oid:2.16.840.1.113883.3.464.1003.101.12.1086" accessLevel="Public"/>
+      <def name="Outpatient" id="urn:oid:2.16.840.1.113883.3.464.1003.101.12.1087" accessLevel="Public"/>
+   </valueSets>
+   <codes>
+      <def name="Birth date" id="21112-8" display="Birth date" accessLevel="Public">
+         <codeSystem name="LOINC"/>
+      </def>
+   </codes>
+   <statements>
+      <def name="Patient" context="Patient">
+         <expression xsi:type="SingletonFrom">
+            <operand dataType="fhir:Patient" xsi:type="Retrieve"/>
+         </expression>
+      </def>
+      <def name="Advanced Illness Diagnoses" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="AdvancedIllnessDiagnosis">
+               <expression dataType="fhir:Condition" codeProperty="code" xsi:type="Retrieve">
+                  <codes name="Advanced Illness" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+         </expression>
+      </def>
+      <def name="Outpatient Encounters with Advanced Illness" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="OutpatientEncounter">
+               <expression xsi:type="Union">
+                  <operand xsi:type="Union">
+                     <operand dataType="fhir:Encounter" codeProperty="type" xsi:type="Retrieve">
+                        <codes name="Outpatient" xsi:type="ValueSetRef"/>
+                     </operand>
+                     <operand dataType="fhir:Encounter" codeProperty="type" xsi:type="Retrieve">
+                        <codes name="Observation" xsi:type="ValueSetRef"/>
+                     </operand>
+                  </operand>
+                  <operand xsi:type="Union">
+                     <operand dataType="fhir:Encounter" codeProperty="type" xsi:type="Retrieve">
+                        <codes name="ED" xsi:type="ValueSetRef"/>
+                     </operand>
+                     <operand dataType="fhir:Encounter" codeProperty="type" xsi:type="Retrieve">
+                        <codes name="Nonacute Inpatient" xsi:type="ValueSetRef"/>
+                     </operand>
+                  </operand>
+               </expression>
+            </source>
+            <relationship alias="AdvancedIllnessDiagnosis" xsi:type="With">
+               <expression name="Advanced Illness Diagnoses" xsi:type="ExpressionRef"/>
+               <suchThat xsi:type="And">
+                  <operand xsi:type="Exists">
+                     <operand xsi:type="Query">
+                        <source alias="Condition">
+                           <expression xsi:type="Query">
+                              <source alias="$this">
+                                 <expression path="diagnosis" scope="OutpatientEncounter" xsi:type="Property"/>
+                              </source>
+                              <where xsi:type="Not">
+                                 <operand xsi:type="IsNull">
+                                    <operand path="condition" xsi:type="Property">
+                                       <source name="$this" xsi:type="AliasRef"/>
+                                    </operand>
+                                 </operand>
+                              </where>
+                              <return>
+                                 <expression path="condition" xsi:type="Property">
+                                    <source name="$this" xsi:type="AliasRef"/>
+                                 </expression>
+                              </return>
+                           </expression>
+                        </source>
+                        <where xsi:type="EndsWith">
+                           <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="reference" scope="Condition" xsi:type="Property"/>
+                           </operand>
+                           <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="id" scope="AdvancedIllnessDiagnosis" xsi:type="Property"/>
+                           </operand>
+                        </where>
+                     </operand>
+                  </operand>
+                  <operand xsi:type="In">
+                     <operand xsi:type="Start">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand path="period" scope="OutpatientEncounter" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                     <operand lowClosed="true" highClosed="false" xsi:type="Interval">
+                        <low xsi:type="Subtract">
+                           <operand xsi:type="End">
+                              <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                           </operand>
+                           <operand value="2" unit="years" xsi:type="Quantity"/>
+                        </low>
+                        <high xsi:type="End">
+                           <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                        </high>
+                     </operand>
+                  </operand>
+               </suchThat>
+            </relationship>
+         </expression>
+      </def>
+      <def name="Long Term Care Periods During Measurement Period" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="LongTermFacilityEncounter">
+               <expression xsi:type="Union">
+                  <operand dataType="fhir:Encounter" codeProperty="type" xsi:type="Retrieve">
+                     <codes name="Care Services in Long-Term Residential Facility" xsi:type="ValueSetRef"/>
+                  </operand>
+                  <operand dataType="fhir:Encounter" codeProperty="type" xsi:type="Retrieve">
+                     <codes name="Nursing Facility Visit" xsi:type="ValueSetRef"/>
+                  </operand>
+               </expression>
+            </source>
+            <where xsi:type="Overlaps">
+               <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                  <operand path="period" scope="LongTermFacilityEncounter" xsi:type="Property"/>
+               </operand>
+               <operand name="Measurement Period" xsi:type="ParameterRef"/>
+            </where>
+            <return>
+               <expression xsi:type="Intersect">
+                  <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                     <operand path="period" scope="LongTermFacilityEncounter" xsi:type="Property"/>
+                  </operand>
+                  <operand name="Measurement Period" xsi:type="ParameterRef"/>
+               </expression>
+            </return>
+         </expression>
+      </def>
+      <def name="Inpatient Encounter with Advanced Illness" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="InpatientEncounter">
+               <expression dataType="fhir:Encounter" codeProperty="type" xsi:type="Retrieve">
+                  <codes name="Acute Inpatient" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <relationship alias="AdvancedIllnessDiagnosis" xsi:type="With">
+               <expression name="Advanced Illness Diagnoses" xsi:type="ExpressionRef"/>
+               <suchThat xsi:type="And">
+                  <operand xsi:type="Exists">
+                     <operand xsi:type="Query">
+                        <source alias="Condition">
+                           <expression xsi:type="Query">
+                              <source alias="$this">
+                                 <expression path="diagnosis" scope="InpatientEncounter" xsi:type="Property"/>
+                              </source>
+                              <where xsi:type="Not">
+                                 <operand xsi:type="IsNull">
+                                    <operand path="condition" xsi:type="Property">
+                                       <source name="$this" xsi:type="AliasRef"/>
+                                    </operand>
+                                 </operand>
+                              </where>
+                              <return>
+                                 <expression path="condition" xsi:type="Property">
+                                    <source name="$this" xsi:type="AliasRef"/>
+                                 </expression>
+                              </return>
+                           </expression>
+                        </source>
+                        <where xsi:type="EndsWith">
+                           <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="reference" scope="Condition" xsi:type="Property"/>
+                           </operand>
+                           <operand name="ToString" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="id" scope="AdvancedIllnessDiagnosis" xsi:type="Property"/>
+                           </operand>
+                        </where>
+                     </operand>
+                  </operand>
+                  <operand xsi:type="In">
+                     <operand xsi:type="Start">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand path="period" scope="InpatientEncounter" xsi:type="Property"/>
+                        </operand>
+                     </operand>
+                     <operand lowClosed="true" highClosed="false" xsi:type="Interval">
+                        <low xsi:type="Subtract">
+                           <operand xsi:type="End">
+                              <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                           </operand>
+                           <operand value="2" unit="years" xsi:type="Quantity"/>
+                        </low>
+                        <high xsi:type="End">
+                           <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                        </high>
+                     </operand>
+                  </operand>
+               </suchThat>
+            </relationship>
+         </expression>
+      </def>
+      <def name="Dementia Medications In Year Before or During Measurement Period" context="Patient" accessLevel="Public">
+         <expression xsi:type="Query">
+            <source alias="DementiaMed">
+               <expression dataType="fhir:MedicationDispense" codeProperty="medication" xsi:type="Retrieve">
+                  <codes name="Dementia Medications" xsi:type="ValueSetRef"/>
+               </expression>
+            </source>
+            <where precision="Day" xsi:type="In">
+               <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                  <operand strict="false" xsi:type="As">
+                     <operand path="whenHandedOver" scope="DementiaMed" xsi:type="Property"/>
+                     <asTypeSpecifier name="fhir:dateTime" xsi:type="NamedTypeSpecifier"/>
+                  </operand>
+               </operand>
+               <operand lowClosed="true" highClosed="true" xsi:type="Interval">
+                  <low xsi:type="Subtract">
+                     <operand xsi:type="Start">
+                        <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                     </operand>
+                     <operand value="1" unit="year" xsi:type="Quantity"/>
+                  </low>
+                  <high xsi:type="End">
+                     <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                  </high>
+               </operand>
+            </where>
+         </expression>
+      </def>
+      <def name="Has Criteria Indicating Frailty" context="Patient" accessLevel="Public">
+         <expression xsi:type="Or">
+            <operand xsi:type="Or">
+               <operand xsi:type="Or">
+                  <operand xsi:type="Or">
+                     <operand xsi:type="Exists">
+                        <operand xsi:type="Query">
+                           <source alias="FrailtyDeviceOrder">
+                              <expression dataType="fhir:DeviceRequest" codeProperty="code" xsi:type="Retrieve">
+                                 <codes name="Frailty Device" xsi:type="ValueSetRef"/>
+                              </expression>
+                           </source>
+                           <where precision="Day" xsi:type="In">
+                              <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand path="authoredOn" scope="FrailtyDeviceOrder" xsi:type="Property"/>
+                              </operand>
+                              <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                           </where>
+                        </operand>
+                     </operand>
+                     <operand xsi:type="Exists">
+                        <operand xsi:type="Query">
+                           <source alias="FrailtyDeviceUse">
+                              <expression dataType="fhir:DeviceUseStatement" xsi:type="Retrieve">
+                                 <codes name="Frailty Device" xsi:type="ValueSetRef"/>
+                              </expression>
+                           </source>
+                           <where xsi:type="Or">
+                              <operand xsi:type="Overlaps">
+                                 <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                    <operand strict="false" xsi:type="As">
+                                       <operand path="timing" scope="FrailtyDeviceUse" xsi:type="Property"/>
+                                       <asTypeSpecifier name="fhir:Period" xsi:type="NamedTypeSpecifier"/>
+                                    </operand>
+                                 </operand>
+                                 <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                              </operand>
+                              <operand precision="Day" xsi:type="In">
+                                 <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                    <operand strict="false" xsi:type="As">
+                                       <operand path="timing" scope="FrailtyDeviceUse" xsi:type="Property"/>
+                                       <asTypeSpecifier name="fhir:dateTime" xsi:type="NamedTypeSpecifier"/>
+                                    </operand>
+                                 </operand>
+                                 <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                              </operand>
+                           </where>
+                        </operand>
+                     </operand>
+                  </operand>
+                  <operand xsi:type="Exists">
+                     <operand xsi:type="Query">
+                        <source alias="FrailtyDiagnosis">
+                           <expression dataType="fhir:Condition" codeProperty="code" xsi:type="Retrieve">
+                              <codes name="Frailty Diagnosis" xsi:type="ValueSetRef"/>
+                           </expression>
+                        </source>
+                        <where xsi:type="Or">
+                           <operand xsi:type="Overlaps">
+                              <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand strict="false" xsi:type="As">
+                                    <operand path="onset" scope="FrailtyDiagnosis" xsi:type="Property"/>
+                                    <asTypeSpecifier name="fhir:Period" xsi:type="NamedTypeSpecifier"/>
+                                 </operand>
+                              </operand>
+                              <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                           </operand>
+                           <operand precision="Day" xsi:type="In">
+                              <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                                 <operand strict="false" xsi:type="As">
+                                    <operand path="onset" scope="FrailtyDiagnosis" xsi:type="Property"/>
+                                    <asTypeSpecifier name="fhir:dateTime" xsi:type="NamedTypeSpecifier"/>
+                                 </operand>
+                              </operand>
+                              <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                           </operand>
+                        </where>
+                     </operand>
+                  </operand>
+               </operand>
+               <operand xsi:type="Exists">
+                  <operand xsi:type="Query">
+                     <source alias="FrailtyEncounter">
+                        <expression dataType="fhir:Encounter" codeProperty="type" xsi:type="Retrieve">
+                           <codes name="Frailty Encounter" xsi:type="ValueSetRef"/>
+                        </expression>
+                     </source>
+                     <where xsi:type="Overlaps">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand path="period" scope="FrailtyEncounter" xsi:type="Property"/>
+                        </operand>
+                        <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                     </where>
+                  </operand>
+               </operand>
+            </operand>
+            <operand xsi:type="Exists">
+               <operand xsi:type="Query">
+                  <source alias="FrailtySymptomObservation">
+                     <expression dataType="fhir:Observation" codeProperty="code" xsi:type="Retrieve">
+                        <codes name="Frailty Symptom" xsi:type="ValueSetRef"/>
+                     </expression>
+                  </source>
+                  <where xsi:type="Or">
+                     <operand xsi:type="Overlaps">
+                        <operand name="ToInterval" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand strict="false" xsi:type="As">
+                              <operand path="effective" scope="FrailtySymptomObservation" xsi:type="Property"/>
+                              <asTypeSpecifier name="fhir:Period" xsi:type="NamedTypeSpecifier"/>
+                           </operand>
+                        </operand>
+                        <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                     </operand>
+                     <operand precision="Day" xsi:type="In">
+                        <operand name="ToDateTime" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand strict="false" xsi:type="As">
+                              <operand path="effective" scope="FrailtySymptomObservation" xsi:type="Property"/>
+                              <asTypeSpecifier name="fhir:dateTime" xsi:type="NamedTypeSpecifier"/>
+                           </operand>
+                        </operand>
+                        <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                     </operand>
+                  </where>
+               </operand>
+            </operand>
+         </expression>
+      </def>
+      <def name="Advanced Illness and Frailty Exclusion Including Over Age 80" context="Patient" accessLevel="Public">
+         <expression xsi:type="Or">
+            <operand xsi:type="And">
+               <operand xsi:type="And">
+                  <operand xsi:type="In">
+                     <operand name="CalendarAgeInYearsAt" libraryName="Global" xsi:type="FunctionRef">
+                        <operand xsi:type="ToDateTime">
+                           <operand name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                              <operand path="birthDate" xsi:type="Property">
+                                 <source name="Patient" xsi:type="ExpressionRef"/>
+                              </operand>
+                           </operand>
+                        </operand>
+                        <operand xsi:type="Start">
+                           <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                        </operand>
+                     </operand>
+                     <operand lowClosed="true" highClosed="true" xsi:type="Interval">
+                        <low valueType="t:Integer" value="66" xsi:type="Literal"/>
+                        <high valueType="t:Integer" value="80" xsi:type="Literal"/>
+                     </operand>
+                  </operand>
+                  <operand name="Has Criteria Indicating Frailty" xsi:type="ExpressionRef"/>
+               </operand>
+               <operand xsi:type="Or">
+                  <operand xsi:type="Or">
+                     <operand xsi:type="GreaterOrEqual">
+                        <operand xsi:type="Count">
+                           <source name="Outpatient Encounters with Advanced Illness" xsi:type="ExpressionRef"/>
+                        </operand>
+                        <operand valueType="t:Integer" value="2" xsi:type="Literal"/>
+                     </operand>
+                     <operand xsi:type="Exists">
+                        <operand name="Inpatient Encounter with Advanced Illness" xsi:type="ExpressionRef"/>
+                     </operand>
+                  </operand>
+                  <operand xsi:type="Exists">
+                     <operand name="Dementia Medications In Year Before or During Measurement Period" xsi:type="ExpressionRef"/>
+                  </operand>
+               </operand>
+            </operand>
+            <operand xsi:type="And">
+               <operand xsi:type="GreaterOrEqual">
+                  <operand name="CalendarAgeInYearsAt" libraryName="Global" xsi:type="FunctionRef">
+                     <operand xsi:type="ToDateTime">
+                        <operand name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand path="birthDate" xsi:type="Property">
+                              <source name="Patient" xsi:type="ExpressionRef"/>
+                           </operand>
+                        </operand>
+                     </operand>
+                     <operand xsi:type="Start">
+                        <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                     </operand>
+                  </operand>
+                  <operand valueType="t:Integer" value="81" xsi:type="Literal"/>
+               </operand>
+               <operand name="Has Criteria Indicating Frailty" xsi:type="ExpressionRef"/>
+            </operand>
+         </expression>
+      </def>
+      <def name="Advanced Illness and Frailty Exclusion Including Under Age 80" context="Patient" accessLevel="Public">
+         <expression xsi:type="And">
+            <operand xsi:type="And">
+               <operand xsi:type="GreaterOrEqual">
+                  <operand name="CalendarAgeInYearsAt" libraryName="Global" xsi:type="FunctionRef">
+                     <operand xsi:type="ToDateTime">
+                        <operand name="ToDate" libraryName="FHIRHelpers" xsi:type="FunctionRef">
+                           <operand path="birthDate" xsi:type="Property">
+                              <source name="Patient" xsi:type="ExpressionRef"/>
+                           </operand>
+                        </operand>
+                     </operand>
+                     <operand xsi:type="Start">
+                        <operand name="Measurement Period" xsi:type="ParameterRef"/>
+                     </operand>
+                  </operand>
+                  <operand valueType="t:Integer" value="65" xsi:type="Literal"/>
+               </operand>
+               <operand name="Has Criteria Indicating Frailty" xsi:type="ExpressionRef"/>
+            </operand>
+            <operand xsi:type="Or">
+               <operand xsi:type="Or">
+                  <operand xsi:type="GreaterOrEqual">
+                     <operand xsi:type="Count">
+                        <source name="Outpatient Encounters with Advanced Illness" xsi:type="ExpressionRef"/>
+                     </operand>
+                     <operand valueType="t:Integer" value="2" xsi:type="Literal"/>
+                  </operand>
+                  <operand xsi:type="Exists">
+                     <operand name="Inpatient Encounter with Advanced Illness" xsi:type="ExpressionRef"/>
+                  </operand>
+               </operand>
+               <operand xsi:type="Exists">
+                  <operand name="Dementia Medications In Year Before or During Measurement Period" xsi:type="ExpressionRef"/>
+               </operand>
+            </operand>
+         </expression>
+      </def>
+      <def name="CumulativeDays" context="Patient" accessLevel="Public" xsi:type="FunctionDef">
+         <expression xsi:type="Sum">
+            <source xsi:type="Query">
+               <source alias="CollapsedInterval">
+                  <expression xsi:type="Collapse">
+                     <operand name="Intervals" xsi:type="OperandRef"/>
+                     <operand resultTypeName="t:Quantity" xsi:type="Null"/>
+                  </expression>
+               </source>
+               <return distinct="false">
+                  <expression precision="Day" xsi:type="DurationBetween">
+                     <operand xsi:type="Start">
+                        <operand name="CollapsedInterval" xsi:type="AliasRef"/>
+                     </operand>
+                     <operand xsi:type="End">
+                        <operand name="CollapsedInterval" xsi:type="AliasRef"/>
+                     </operand>
+                  </expression>
+               </return>
+            </source>
+         </expression>
+         <operand name="Intervals">
+            <operandTypeSpecifier xsi:type="ListTypeSpecifier">
+               <elementType xsi:type="IntervalTypeSpecifier">
+                  <pointType name="t:DateTime" xsi:type="NamedTypeSpecifier"/>
+               </elementType>
+            </operandTypeSpecifier>
+         </operand>
+      </def>
+      <def name="Days Spent in Long Term Care During Measurement Period" context="Patient" accessLevel="Public">
+         <expression name="CumulativeDays" xsi:type="FunctionRef">
+            <operand name="Long Term Care Periods During Measurement Period" xsi:type="ExpressionRef"/>
+         </expression>
+      </def>
+      <def name="Has Spent More Than 90 Days in Long Term Care" context="Patient" accessLevel="Public">
+         <expression xsi:type="Greater">
+            <operand name="Days Spent in Long Term Care During Measurement Period" xsi:type="ExpressionRef"/>
+            <operand valueType="t:Integer" value="90" xsi:type="Literal"/>
+         </expression>
+      </def>
+   </statements>
+</library>

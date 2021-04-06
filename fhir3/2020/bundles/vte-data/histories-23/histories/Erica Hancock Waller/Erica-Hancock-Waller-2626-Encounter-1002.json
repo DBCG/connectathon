@@ -1,0 +1,992 @@
+{
+  "resourceType": "Bundle",
+  "id": "Erica-Hancock-Waller-2626-Encounter-1002",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-1002",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-1002",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "outpatient",
+          "display": "outpatient"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "185349003",
+                "display": "Wellness Visit"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-2626",
+          "display": "Erica Hancock Waller"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2020-11-25T00:00:00-05:00",
+              "end": "2020-11-27T00:00:00-05:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-2603",
+              "display": "Justin Rose Torres MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2020-11-25T00:00:00-05:00",
+          "end": "2020-11-27T00:00:00-05:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-273",
+              "display": "Healthcare Managed Services"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1110",
+          "display": "Healthcare Managed Services"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-1002"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Immunization/Immunization-131811",
+      "resource": {
+        "resourceType": "Immunization",
+        "id": "Immunization-131811",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "902e188b-4adc-42fc-996f-5df915ddd7f3"
+          }
+        ],
+        "status": "completed",
+        "notGiven": false,
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "140",
+              "display": "Influenza, seasonal, injectable, preservative free"
+            }
+          ]
+        },
+        "patient": {
+          "reference": "Patient/Patient-2626",
+          "display": "Erica Hancock Waller"
+        },
+        "date": "2020-11-25T00:00:00-05:00",
+        "primarySource": true,
+        "location": {
+          "reference": "Location/Location-273",
+          "display": "Healthcare Managed Services"
+        },
+        "practitioner": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-2603",
+              "display": "Justin Rose Torres MD"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Immunization/Immunization-131811"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Immunization/Immunization-131812",
+      "resource": {
+        "resourceType": "Immunization",
+        "id": "Immunization-131812",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "712990de-0b54-4992-8363-57dd6a2d8360"
+          }
+        ],
+        "status": "completed",
+        "notGiven": false,
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "113",
+              "display": "Td (adult) preservative free"
+            }
+          ]
+        },
+        "patient": {
+          "reference": "Patient/Patient-2626",
+          "display": "Erica Hancock Waller"
+        },
+        "date": "2020-11-25T00:00:00-05:00",
+        "primarySource": true,
+        "location": {
+          "reference": "Location/Location-273",
+          "display": "Healthcare Managed Services"
+        },
+        "practitioner": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-2603",
+              "display": "Justin Rose Torres MD"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Immunization/Immunization-131812"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-165244",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-165244",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "74ac7fc3-43c7-4b9b-bdad-6307ea9d81e8"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8302-2",
+              "display": "Body Height"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2626",
+          "display": "Erica Hancock Waller"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-1002",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2020-11-27T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2603",
+            "display": "Justin Rose Torres MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 155,
+          "unit": "cm"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-165244"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-165245",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-165245",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "95d08a94-3941-4a7c-8e7e-a4a2c8a545c5"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "29463-7",
+              "display": "Body Weight"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2626",
+          "display": "Erica Hancock Waller"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-1002",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2020-11-27T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2603",
+            "display": "Justin Rose Torres MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 66.7,
+          "unit": "kg"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-165245"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-165246",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-165246",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "2657cb79-3cd7-4543-8ef8-49e3eecf4322"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "39156-5",
+              "display": "Body Mass Index"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2626",
+          "display": "Erica Hancock Waller"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-1002",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2020-11-27T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2603",
+            "display": "Justin Rose Torres MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 27.8,
+          "unit": "kg/m2"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-165246"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-165247",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-165247",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "54b67f38-f90b-409b-8c0b-540012669a22"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic Blood Pressure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2626",
+          "display": "Erica Hancock Waller"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-1002",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2020-11-27T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2603",
+            "display": "Justin Rose Torres MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 133,
+          "unit": "mmHg"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-165247"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-165248",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-165248",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "03abdda0-3e84-4d2c-a96c-ccb3e9c00704"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8462-4",
+              "display": "Diastolic Blood Pressure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2626",
+          "display": "Erica Hancock Waller"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-1002",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2020-11-27T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2603",
+            "display": "Justin Rose Torres MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 81,
+          "unit": "mmHg"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-165248"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-165249",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-165249",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "4c1c760a-48bc-47e1-a00c-def5dd7a3ff7"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "55284-4",
+              "display": "Blood Pressure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2626",
+          "display": "Erica Hancock Waller"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-1002",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2020-11-27T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2603",
+            "display": "Justin Rose Torres MD"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-165249"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-165250",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-165250",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "c57a2456-6355-48f7-9469-d7dedc6af289"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4548-4",
+              "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2626",
+          "display": "Erica Hancock Waller"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-1002",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2020-11-27T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2603",
+            "display": "Justin Rose Torres MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 5.1,
+          "unit": "%"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-165250"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-165260",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-165260",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "c822b9a0-6c45-4fd7-8331-ecf1b5ca21b3"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "51990-0",
+              "display": "Basic Metabolic Panel"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2626",
+          "display": "Erica Hancock Waller"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-1002",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2020-11-27T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2603",
+            "display": "Justin Rose Torres MD"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "2339-0",
+                  "display": "Glucose"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 74,
+              "unit": "mg/dL"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "6299-2",
+                  "display": "Urea Nitrogen"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 18.4,
+              "unit": "mg/dL"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "38483-4",
+                  "display": "Creatinine"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 1.5,
+              "unit": "mg/dL"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "49765-1",
+                  "display": "Calcium"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 2.4,
+              "unit": "mmol/L"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "2947-0",
+                  "display": "Sodium"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 144,
+              "unit": "mmol/L"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "6298-4",
+                  "display": "Potassium"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 5.0,
+              "unit": "mmol/L"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "2069-3",
+                  "display": "Chloride"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 105,
+              "unit": "mmol/L"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "20565-8",
+                  "display": "Carbon Dioxide"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 28,
+              "unit": "mmol/L"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "33914-3",
+                  "display": "Estimated Glomerular Filtration Rate"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 36.08,
+              "unit": "mL/min/{1.73_m2}"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-165260"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-165265",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-165265",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "a7d44206-b9b9-4805-8709-1a731bfde882"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "57698-3",
+              "display": "Lipid Panel"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2626",
+          "display": "Erica Hancock Waller"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-1002",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2020-11-27T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2603",
+            "display": "Justin Rose Torres MD"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "2093-3",
+                  "display": "Total Cholesterol"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 147,
+              "unit": "mg/dL"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "2571-8",
+                  "display": "Triglycerides"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 45,
+              "unit": "mg/dL"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "18262-6",
+                  "display": "Low Density Lipoprotein Cholesterol"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 91,
+              "unit": "mg/dL"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "2085-9",
+                  "display": "High Density Lipoprotein Cholesterol"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 47,
+              "unit": "mg/dL"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-165265"
+      }
+    }
+  ]
+}

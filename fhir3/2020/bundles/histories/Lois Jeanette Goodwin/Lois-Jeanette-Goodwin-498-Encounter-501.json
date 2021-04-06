@@ -1,0 +1,151 @@
+{
+  "resourceType": "Bundle",
+  "id": "Lois-Jeanette-Goodwin-498-Encounter-501",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-501",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-501",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "inpatient",
+          "display": "inpatient"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "32485007",
+                "display": "Hospital admission"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-498",
+          "display": "Lois Jeanette Goodwin"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2017-01-19T00:00:00-05:00",
+              "end": "2017-01-19T06:13:00-05:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-86",
+              "display": "Bernard Pope Avila MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2017-01-19T00:00:00-05:00",
+          "end": "2017-01-19T06:13:00-05:00"
+        },
+        "reason": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "397145000",
+                "display": "Mammography assessment (Category 5) - Highly suggestive of malignancy"
+              }
+            ]
+          }
+        ],
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-225",
+              "display": "Taylor Methodist Hospital"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1024",
+          "display": "Taylor Methodist Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-501"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-35245",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-35245",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "4b0053dc-dd74-4159-8067-46a551639d7c"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "https://www.cms.gov/Medicare/Coding/ICD10/index.html",
+              "code": "0HTU0ZZ"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-498",
+          "display": "Lois Jeanette Goodwin"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-501",
+          "display": "Cancer_Treatment_Encounter"
+        },
+        "performedPeriod": {
+          "start": "2017-01-19T00:00:00-05:00",
+          "end": "2017-01-19T06:13:00-05:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-86",
+              "display": "Bernard Pope Avila MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-225",
+          "display": "Taylor Methodist Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-35245"
+      }
+    }
+  ]
+}

@@ -1,0 +1,255 @@
+{
+  "resourceType": "Bundle",
+  "id": "Margaret-Farrell-Tucker-2706-Encounter-561",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-561",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-561",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "ambulatory",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "428191000124101",
+                "display": "Documentation of current medications"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-2706",
+          "display": "Margaret Farrell Tucker"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2017-07-24T00:00:00-04:00",
+              "end": "2017-07-24T00:00:00-04:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-2235",
+              "display": "Jeanne Stein Proctor MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2017-07-24T00:00:00-04:00",
+          "end": "2017-07-24T00:00:00-04:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-137",
+              "display": "EMS Comprehensive Care"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1006",
+          "display": "EMS Comprehensive Care"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-561"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Task/Task-54055",
+      "resource": {
+        "resourceType": "Task",
+        "id": "Task-54055",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "accepted",
+        "intent": "original-order",
+        "code": {
+          "coding": [
+            {
+              "system": "SNOMED-CT",
+              "code": "430193006",
+              "display": "Medication Reconciliation (procedure)"
+            }
+          ]
+        },
+        "description": "Care_Plan_Start Task 1",
+        "for": {
+          "reference": "Patient/Patient-2706",
+          "display": "Margaret Farrell Tucker"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-561",
+          "display": "Ambulatory_Encounter"
+        },
+        "executionPeriod": {
+          "start": "2017-07-24T00:00:00-04:00",
+          "end": "2017-07-24T00:00:00-04:00"
+        },
+        "authoredOn": "2017-07-24T00:00:00-04:00",
+        "requester": {
+          "agent": {
+            "reference": "Practitioner/Practitioner-2235",
+            "display": "Jeanne Stein Proctor MD"
+          },
+          "onBehalfOf": {
+            "reference": "Organization/Organization-1006",
+            "display": "EMS Comprehensive Care"
+          }
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Task/Task-54055"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/CarePlan/CarePlan-54054",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "CarePlan-54054",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "595dddc8-20ed-442b-9696-4126cf6f961f"
+          }
+        ],
+        "status": "active",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "430193006",
+                "display": "Medication Reconciliation (procedure)"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-2706",
+          "display": "Margaret Farrell Tucker"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-561",
+          "display": "Ambulatory_Encounter"
+        },
+        "period": {
+          "start": "2017-07-24T00:00:00-04:00",
+          "end": "2017-07-24T00:00:00-04:00"
+        },
+        "author": [
+          {
+            "reference": "Practitioner/Practitioner-2235",
+            "display": "Jeanne Stein Proctor MD"
+          }
+        ],
+        "activity": [
+          {
+            "reference": {
+              "reference": "Task/Task-54055",
+              "display": "Care_Plan_Start Task 1"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/CarePlan/CarePlan-54054"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-54056",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-54056",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "35136e06-554c-4762-b932-d49ba712db1d"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "430193006",
+              "display": "Medication Reconciliation (procedure)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2706",
+          "display": "Margaret Farrell Tucker"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-561",
+          "display": "Ambulatory_Encounter"
+        },
+        "performedPeriod": {
+          "start": "2017-07-24T00:00:00-04:00",
+          "end": "2017-07-24T00:00:00-04:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-2235",
+              "display": "Jeanne Stein Proctor MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-137",
+          "display": "EMS Comprehensive Care"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-54056"
+      }
+    }
+  ]
+}

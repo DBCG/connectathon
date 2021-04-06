@@ -1,0 +1,330 @@
+{
+  "resourceType": "Bundle",
+  "id": "Sean-Mario-Fowler-2653-Encounter-922",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-922",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-922",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "inpatient",
+          "display": "inpatient"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "185347001",
+                "display": "Encounter for problem"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-2653",
+          "display": "Sean Mario Fowler"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2019-05-14T10:00:00-04:00",
+              "end": "2019-06-07T00:00:00-04:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-2248",
+              "display": "Mae Alicia Jacobson MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2019-05-14T10:00:00-04:00",
+          "end": "2019-06-07T00:00:00-04:00"
+        },
+        "reason": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "9876",
+                "display": "Exampleitis"
+              }
+            ]
+          }
+        ],
+        "hospitalization": {
+          "dischargeDisposition": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/discharge-disposition",
+                "code": "home",
+                "display": "Home"
+              }
+            ]
+          }
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-155",
+              "display": "Community Family Hospital"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1013",
+          "display": "Community Family Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-922"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-115294",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-115294",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "93014d21-1e06-4fbc-be5c-071475ef7c7e"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.icd10data.com/icd10pcs",
+              "code": "0DWU0KZ",
+              "display": "Revision of Nonautologous Tissue Substitute in Omentum, Open Approach"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2653",
+          "display": "Sean Mario Fowler"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-922",
+          "display": "Planned_Surgery"
+        },
+        "performedPeriod": {
+          "start": "2019-05-14T10:00:00-04:00",
+          "end": "2019-05-24T00:00:00-04:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-2248",
+              "display": "Mae Alicia Jacobson MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-155",
+          "display": "Community Family Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-115294"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationRequest/MedicationRequest-115295",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "MedicationRequest-115295",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-medicationrequest"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "100a84d8-5039-400d-9a08-8e4bba9c0f70"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "861365",
+              "display": "0.6 ML Fondaparinux sodium 12.5 MG/ML Prefilled Syringe"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2653",
+          "display": "Sean Mario Fowler"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-922",
+          "display": "Planned_Surgery"
+        },
+        "authoredOn": "2019-05-24T00:00:00-04:00",
+        "requester": {
+          "agent": {
+            "reference": "Practitioner/Practitioner-2248",
+            "display": "Mae Alicia Jacobson MD"
+          }
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://www.icd10data.com/icd10pcs",
+                "code": "0D1M07M",
+                "display": "Bypass Descending Colon to Descending Colon with Autologous Tissue Substitute, Open Approach"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationRequest/MedicationRequest-115295"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationAdministration/MedicationAdministration-115296",
+      "resource": {
+        "resourceType": "MedicationAdministration",
+        "id": "MedicationAdministration-115296",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "completed",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "861365",
+              "display": "0.6 ML Fondaparinux sodium 12.5 MG/ML Prefilled Syringe"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2653",
+          "display": "Sean Mario Fowler"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-922",
+          "display": "Planned_Surgery"
+        },
+        "effectiveDateTime": "2019-05-24T00:00:00-04:00",
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-2248",
+              "display": "Mae Alicia Jacobson MD"
+            }
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://www.icd10data.com/icd10pcs",
+                "code": "0D1M07M",
+                "display": "Bypass Descending Colon to Descending Colon with Autologous Tissue Substitute, Open Approach"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationAdministration/MedicationAdministration-115296"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/DeviceRequest/DeviceRequest-115422",
+      "resource": {
+        "resourceType": "DeviceRequest",
+        "id": "DeviceRequest-115422",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "active",
+        "subject": {
+          "reference": "Patient/Patient-2653",
+          "display": "Sean Mario Fowler"
+        },
+        "authoredOn": "2019-06-03T00:00:00-04:00"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/DeviceRequest/DeviceRequest-115422"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/DeviceUseStatement/DeviceUseStatement-115423",
+      "resource": {
+        "resourceType": "DeviceUseStatement",
+        "id": "DeviceUseStatement-115423",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-2653",
+          "display": "Sean Mario Fowler"
+        },
+        "timingDateTime": "2019-06-03T00:00:00-04:00",
+        "recordedOn": "2019-06-03T00:00:00-04:00"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/DeviceUseStatement/DeviceUseStatement-115423"
+      }
+    }
+  ]
+}

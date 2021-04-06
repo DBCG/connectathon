@@ -1,0 +1,255 @@
+{
+  "resourceType": "Bundle",
+  "id": "Peter-Tommy-Dorsey-III-486-Encounter-6000",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-6000",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-6000",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "ambulatory",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "428191000124101",
+                "display": "Documentation of current medications"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-486",
+          "display": "Peter Tommy Dorsey III"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2020-05-14T00:00:00-04:00",
+              "end": "2020-05-14T00:00:00-04:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-43",
+              "display": "Anna Christy Rice MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2020-05-14T00:00:00-04:00",
+          "end": "2020-05-14T00:00:00-04:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-168",
+              "display": "St. Michael's Hospital"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1014",
+          "display": "St. Michael's Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-6000"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Task/Task-164830",
+      "resource": {
+        "resourceType": "Task",
+        "id": "Task-164830",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "accepted",
+        "intent": "original-order",
+        "code": {
+          "coding": [
+            {
+              "system": "SNOMED-CT",
+              "code": "430193006",
+              "display": "Medication Reconciliation (procedure)"
+            }
+          ]
+        },
+        "description": "Care_Plan_Start Task 1",
+        "for": {
+          "reference": "Patient/Patient-486",
+          "display": "Peter Tommy Dorsey III"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-6000",
+          "display": "Ambulatory_Encounter"
+        },
+        "executionPeriod": {
+          "start": "2020-05-14T00:00:00-04:00",
+          "end": "2020-05-14T00:00:00-04:00"
+        },
+        "authoredOn": "2020-05-14T00:00:00-04:00",
+        "requester": {
+          "agent": {
+            "reference": "Practitioner/Practitioner-43",
+            "display": "Anna Christy Rice MD"
+          },
+          "onBehalfOf": {
+            "reference": "Organization/Organization-1014",
+            "display": "St. Michael's Hospital"
+          }
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Task/Task-164830"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/CarePlan/CarePlan-164829",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "CarePlan-164829",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "ec1c9590-4b59-4c5c-b1e8-d88667680a9e"
+          }
+        ],
+        "status": "active",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "430193006",
+                "display": "Medication Reconciliation (procedure)"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-486",
+          "display": "Peter Tommy Dorsey III"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-6000",
+          "display": "Ambulatory_Encounter"
+        },
+        "period": {
+          "start": "2020-05-14T00:00:00-04:00",
+          "end": "2020-05-14T00:00:00-04:00"
+        },
+        "author": [
+          {
+            "reference": "Practitioner/Practitioner-43",
+            "display": "Anna Christy Rice MD"
+          }
+        ],
+        "activity": [
+          {
+            "reference": {
+              "reference": "Task/Task-164830",
+              "display": "Care_Plan_Start Task 1"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/CarePlan/CarePlan-164829"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-164831",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-164831",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "e5a20a78-ed8b-45af-926f-6c0a0f72253d"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "430193006",
+              "display": "Medication Reconciliation (procedure)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-486",
+          "display": "Peter Tommy Dorsey III"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-6000",
+          "display": "Ambulatory_Encounter"
+        },
+        "performedPeriod": {
+          "start": "2020-05-14T00:00:00-04:00",
+          "end": "2020-05-14T00:00:00-04:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-43",
+              "display": "Anna Christy Rice MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-168",
+          "display": "St. Michael's Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-164831"
+      }
+    }
+  ]
+}

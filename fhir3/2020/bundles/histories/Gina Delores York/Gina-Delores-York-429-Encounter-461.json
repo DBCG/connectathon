@@ -1,0 +1,330 @@
+{
+  "resourceType": "Bundle",
+  "id": "Gina-Delores-York-429-Encounter-461",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-461",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-461",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "ambulatory",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "HCPCS",
+                "code": "G0439",
+                "display": "Combined Office Visits"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-429",
+          "display": "Gina Delores York"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2017-01-07T00:00:00-05:00",
+              "end": "2017-01-07T00:00:00-05:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-81",
+              "display": "Jimmy Mayo Padilla MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2017-01-07T00:00:00-05:00",
+          "end": "2017-01-07T00:00:00-05:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-225",
+              "display": "Taylor Methodist Hospital"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1024",
+          "display": "Taylor Methodist Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-461"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-34179",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-34179",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "d0667212-c3e5-460e-bf1e-2225e2016cdf"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "77061"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-429",
+          "display": "Gina Delores York"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-461",
+          "display": "Ambulatory_Encounter"
+        },
+        "performedPeriod": {
+          "start": "2017-01-07T00:00:00-05:00",
+          "end": "2017-01-07T00:00:00-05:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-81",
+              "display": "Jimmy Mayo Padilla MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-225",
+          "display": "Taylor Methodist Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-34179"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-34180",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-34180",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "9b8be8f9-5b18-42d5-8d85-dfc47fa8c778"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "168749009",
+              "display": "Mammography normal (finding)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-429",
+          "display": "Gina Delores York"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-461",
+          "display": "Ambulatory_Encounter"
+        },
+        "effectiveDateTime": "2017-01-07T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-81",
+            "display": "Jimmy Mayo Padilla MD"
+          }
+        ],
+        "valueString": "NEGATIVE"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-34180"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-34182",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-34182",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "8e0c08c6-8c45-44f5-90b6-46f366e1afa4"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "397145000",
+              "display": "Mammography assessment (Category 5) - Highly suggestive of malignancy"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-429",
+          "display": "Gina Delores York"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-461",
+          "display": "Ambulatory_Encounter"
+        },
+        "effectiveDateTime": "2017-01-07T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-81",
+            "display": "Jimmy Mayo Padilla MD"
+          }
+        ],
+        "valueString": "POSITIVE"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-34182"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-34183",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "DiagnosticReport-34183",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-diagnosticreport"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "8bff3130-1363-4680-89d8-36a78a781ca4"
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "38070-9",
+              "display": "Breast implant Mammogram"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-429",
+          "display": "Gina Delores York"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-461",
+          "display": "Ambulatory_Encounter"
+        },
+        "effectivePeriod": {
+          "start": "2017-01-07T00:00:00-05:00",
+          "end": "2017-01-07T00:00:00-05:00"
+        },
+        "issued": "2017-01-07T00:00:00.000-05:00",
+        "result": [
+          {
+            "reference": "Observation/Observation-34182",
+            "display": "Breast_Cancer_Report_Observation_1"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-34183"
+      }
+    }
+  ]
+}

@@ -1,0 +1,939 @@
+{
+  "resourceType": "Bundle",
+  "id": "Hugh-Novak-Lynch-2619-Encounter-981",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-981",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-981",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "outpatient",
+          "display": "outpatient"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "185349003",
+                "display": "Wellness Visit"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-2619",
+          "display": "Hugh Novak Lynch"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2020-10-14T01:00:00-04:00",
+              "end": "2020-10-16T00:00:00-04:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-2550",
+              "display": "Tommy Virgil Herrera MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2020-10-14T01:00:00-04:00",
+          "end": "2020-10-16T00:00:00-04:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-258",
+              "display": "Hampton Internal Medicine"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1066",
+          "display": "Hampton Internal Medicine"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-981"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Immunization/Immunization-128935",
+      "resource": {
+        "resourceType": "Immunization",
+        "id": "Immunization-128935",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "5b620765-eb0d-4495-8657-ddaee9ff8c8f"
+          }
+        ],
+        "status": "completed",
+        "notGiven": false,
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/cvx",
+              "code": "140",
+              "display": "Influenza, seasonal, injectable, preservative free"
+            }
+          ]
+        },
+        "patient": {
+          "reference": "Patient/Patient-2619",
+          "display": "Hugh Novak Lynch"
+        },
+        "date": "2020-10-14T01:00:00-04:00",
+        "primarySource": true,
+        "location": {
+          "reference": "Location/Location-258",
+          "display": "Hampton Internal Medicine"
+        },
+        "practitioner": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-2550",
+              "display": "Tommy Virgil Herrera MD"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Immunization/Immunization-128935"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162280",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-162280",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "a6ea90b6-5609-4373-9740-7b5fc4e094be"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8302-2",
+              "display": "Body Height"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2619",
+          "display": "Hugh Novak Lynch"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-981",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2020-10-16T00:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2550",
+            "display": "Tommy Virgil Herrera MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 177,
+          "unit": "cm"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162280"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162281",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-162281",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "5289ae2f-0079-463e-8c60-744609a6d361"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "29463-7",
+              "display": "Body Weight"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2619",
+          "display": "Hugh Novak Lynch"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-981",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2020-10-16T00:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2550",
+            "display": "Tommy Virgil Herrera MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 85.1,
+          "unit": "kg"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162281"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162282",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-162282",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "d29442e0-e8f2-4868-a5b7-674529a191a9"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "39156-5",
+              "display": "Body Mass Index"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2619",
+          "display": "Hugh Novak Lynch"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-981",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2020-10-16T00:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2550",
+            "display": "Tommy Virgil Herrera MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 27.2,
+          "unit": "kg/m2"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162282"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162283",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-162283",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "f32f4e67-1e8b-4972-b579-f8a4f5fde6cb"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8480-6",
+              "display": "Systolic Blood Pressure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2619",
+          "display": "Hugh Novak Lynch"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-981",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2020-10-16T00:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2550",
+            "display": "Tommy Virgil Herrera MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 118,
+          "unit": "mmHg"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162283"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162284",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-162284",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "1f5b2135-aafc-415f-8b6f-117262788d3f"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8462-4",
+              "display": "Diastolic Blood Pressure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2619",
+          "display": "Hugh Novak Lynch"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-981",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2020-10-16T00:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2550",
+            "display": "Tommy Virgil Herrera MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 79,
+          "unit": "mmHg"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162284"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162285",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-162285",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "caa263db-abcd-413d-a7ad-9dd85cd1e1d3"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "55284-4",
+              "display": "Blood Pressure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2619",
+          "display": "Hugh Novak Lynch"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-981",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2020-10-16T00:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2550",
+            "display": "Tommy Virgil Herrera MD"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162285"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162286",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-162286",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "114fbf43-0113-4548-9c48-81404db5adf5"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4548-4",
+              "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2619",
+          "display": "Hugh Novak Lynch"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-981",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2020-10-16T00:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2550",
+            "display": "Tommy Virgil Herrera MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 5.2,
+          "unit": "%"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162286"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162296",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-162296",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "28dc5f87-67d2-4d1c-836a-01c65fdd8c00"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "51990-0",
+              "display": "Basic Metabolic Panel"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2619",
+          "display": "Hugh Novak Lynch"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-981",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2020-10-16T00:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2550",
+            "display": "Tommy Virgil Herrera MD"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "2339-0",
+                  "display": "Glucose"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 93,
+              "unit": "mg/dL"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "6299-2",
+                  "display": "Urea Nitrogen"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 12.8,
+              "unit": "mg/dL"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "38483-4",
+                  "display": "Creatinine"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 1.2,
+              "unit": "mg/dL"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "49765-1",
+                  "display": "Calcium"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 2.2,
+              "unit": "mmol/L"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "2947-0",
+                  "display": "Sodium"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 142,
+              "unit": "mmol/L"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "6298-4",
+                  "display": "Potassium"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 4.7,
+              "unit": "mmol/L"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "2069-3",
+                  "display": "Chloride"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 102,
+              "unit": "mmol/L"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "20565-8",
+                  "display": "Carbon Dioxide"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 27,
+              "unit": "mmol/L"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "33914-3",
+                  "display": "Estimated Glomerular Filtration Rate"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 84.43,
+              "unit": "mL/min/{1.73_m2}"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162296"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162301",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-162301",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "51c4541a-0e4e-40d4-9700-115c81cf37dd"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "57698-3",
+              "display": "Lipid Panel"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2619",
+          "display": "Hugh Novak Lynch"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-981",
+          "display": "Wellness Visit"
+        },
+        "effectiveDateTime": "2020-10-16T00:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2550",
+            "display": "Tommy Virgil Herrera MD"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "2093-3",
+                  "display": "Total Cholesterol"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 137,
+              "unit": "mg/dL"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "2571-8",
+                  "display": "Triglycerides"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 36,
+              "unit": "mg/dL"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "18262-6",
+                  "display": "Low Density Lipoprotein Cholesterol"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 78,
+              "unit": "mg/dL"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "2085-9",
+                  "display": "High Density Lipoprotein Cholesterol"
+                }
+              ]
+            },
+            "valueQuantity": {
+              "value": 51,
+              "unit": "mg/dL"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-162301"
+      }
+    }
+  ]
+}

@@ -1,0 +1,310 @@
+{
+  "resourceType": "Bundle",
+  "id": "Bessie-Lucas-Kirk-441-Encounter-633",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-633",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-633",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "outpatient",
+          "display": "outpatient"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "185345009",
+                "display": "Encounter for symptom"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-441",
+          "display": "Bessie Lucas Kirk"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2017-02-03T00:00:00-05:00",
+              "end": "2017-02-03T00:00:00-05:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-328",
+              "display": "Shane Floyd Singh MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2017-02-03T00:00:00-05:00",
+          "end": "2017-02-03T00:00:00-05:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-253",
+              "display": "Eastside Internists"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1061",
+          "display": "Eastside Internists"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-633"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-37152",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-37152",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "7eba9608-e3d7-4390-a9e7-76a4ed6b1135"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://www.cms.gov/Medicare/Coding/MedHCPCSGenInfo",
+              "code": "G8431",
+              "display": "Screening for depression is documented as being positive and a follow-up plan is documented (G8431)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-441",
+          "display": "Bessie Lucas Kirk"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-633",
+          "display": "Wellness_Encounter"
+        },
+        "effectiveDateTime": "2017-02-03T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-328",
+            "display": "Shane Floyd Singh MD"
+          }
+        ],
+        "valueString": "POSITIVE"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-37152"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Condition/Condition-37155",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "Condition-37155",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-condition"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "5bf37a03-b7dc-4983-ae98-37cf5fe9d288"
+          }
+        ],
+        "clinicalStatus": "active",
+        "verificationStatus": "confirmed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "720452006",
+              "display": "Moderately severe recurrent major depression (disorder)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-441",
+          "display": "Bessie Lucas Kirk"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-633",
+          "display": "Wellness_Encounter"
+        },
+        "onsetDateTime": "2017-02-03T00:00:00-05:00",
+        "assertedDate": "2017-02-03T00:00:00-05:00",
+        "asserter": {
+          "reference": "Practitioner/Practitioner-328",
+          "display": "Shane Floyd Singh MD"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Condition/Condition-37155"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationRequest/MedicationRequest-37157",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "MedicationRequest-37157",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-medicationrequest"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "f10228d4-0764-4d78-a2ad-1407d1d2d0dd"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "687025",
+              "display": "24 HR Alprazolam 0.5 MG Extended Release Oral Tablet [Xanax]"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-441",
+          "display": "Bessie Lucas Kirk"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-633",
+          "display": "Wellness_Encounter"
+        },
+        "authoredOn": "2017-02-03T00:00:00-05:00",
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "720452006",
+                "display": "Moderately severe recurrent major depression (disorder)"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationRequest/MedicationRequest-37157"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-37158",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "DiagnosticReport-37158",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-diagnosticreport"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "8f498de1-d845-4631-aae0-a81304e5972d"
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "310497006",
+              "display": "MSevere depression (disorder)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-441",
+          "display": "Bessie Lucas Kirk"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-633",
+          "display": "Wellness_Encounter"
+        },
+        "effectivePeriod": {
+          "start": "2017-02-03T00:00:00-05:00",
+          "end": "2017-02-03T00:00:00-05:00"
+        },
+        "issued": "2017-02-03T00:00:00.000-05:00"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-37158"
+      }
+    }
+  ]
+}

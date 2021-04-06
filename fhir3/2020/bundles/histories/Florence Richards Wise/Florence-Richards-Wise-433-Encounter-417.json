@@ -1,0 +1,329 @@
+{
+  "resourceType": "Bundle",
+  "id": "Florence-Richards-Wise-433-Encounter-417",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-417",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-417",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "ambulatory",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://www.ama-assn.org/go/cpt",
+                "code": "99344",
+                "display": "Combined Office Visits"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-433",
+          "display": "Florence Richards Wise"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2017-01-07T00:00:00-05:00",
+              "end": "2017-01-07T00:00:00-05:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-39",
+              "display": "Colleen Mattie Brady MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2017-01-07T00:00:00-05:00",
+          "end": "2017-01-07T00:00:00-05:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-155",
+              "display": "Community Family Hospital"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1013",
+          "display": "Community Family Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-417"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-33070",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-33070",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "bb267752-96ab-429c-99d2-e433cc61812d"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "87624"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-433",
+          "display": "Florence Richards Wise"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-417",
+          "display": "Ambulatory_Encounter"
+        },
+        "performedPeriod": {
+          "start": "2017-01-07T00:00:00-05:00",
+          "end": "2017-01-07T00:00:00-05:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-39",
+              "display": "Colleen Mattie Brady MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-155",
+          "display": "Community Family Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-33070"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-33071",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-33071",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "26ef3ab4-da20-45ef-8867-2bbdd9235c11"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "289829007",
+              "display": "Normal uterine cervix (finding)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-433",
+          "display": "Florence Richards Wise"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-417",
+          "display": "Ambulatory_Encounter"
+        },
+        "effectiveDateTime": "2017-01-07T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-39",
+            "display": "Colleen Mattie Brady MD"
+          }
+        ],
+        "valueString": "NEGATIVE"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-33071"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-33073",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-33073",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "ed9aaef7-c3bb-4ce9-9091-c65fcd5b0cb2"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "439888000",
+              "display": "Abnormal cervical Papanicolaou smear (finding)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-433",
+          "display": "Florence Richards Wise"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-417",
+          "display": "Ambulatory_Encounter"
+        },
+        "effectiveDateTime": "2017-01-07T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-39",
+            "display": "Colleen Mattie Brady MD"
+          }
+        ],
+        "valueString": "POSITIVE"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-33073"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-33074",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "DiagnosticReport-33074",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-diagnosticreport"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "d0223b51-d738-440e-9346-458e4c3d3eb2"
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "88167"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-433",
+          "display": "Florence Richards Wise"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-417",
+          "display": "Ambulatory_Encounter"
+        },
+        "effectivePeriod": {
+          "start": "2017-01-07T00:00:00-05:00",
+          "end": "2017-01-07T00:00:00-05:00"
+        },
+        "issued": "2017-01-07T00:00:00.000-05:00",
+        "result": [
+          {
+            "reference": "Observation/Observation-33073",
+            "display": "Cervical_Cancer_Report_Observation_1"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-33074"
+      }
+    }
+  ]
+}

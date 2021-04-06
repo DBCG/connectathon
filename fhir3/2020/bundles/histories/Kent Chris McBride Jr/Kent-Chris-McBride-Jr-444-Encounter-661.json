@@ -1,0 +1,333 @@
+{
+  "resourceType": "Bundle",
+  "id": "Kent-Chris-McBride-Jr-444-Encounter-661",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-661",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-661",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "outpatient",
+          "display": "outpatient"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://www.nubc.org",
+                "code": "0522",
+                "display": "Home visit by RHC/FQHC practitioner"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-444",
+          "display": "Kent Chris McBride Jr"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2017-02-08T00:00:00-05:00",
+              "end": "2017-02-08T00:00:00-05:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-299",
+              "display": "Virgil Kevin Ellison MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2017-02-08T00:00:00-05:00",
+          "end": "2017-02-08T00:00:00-05:00"
+        },
+        "reason": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "718636001",
+                "display": "Minimal depression (disorder)"
+              }
+            ]
+          }
+        ],
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-245",
+              "display": "Acme Medical Center"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1053",
+          "display": "Acme Medical Center"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-661"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-39275",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-39275",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "fff1b662-1491-4574-a8cc-a39c57a3b65a"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://test",
+              "code": "2.16.840.1.113883.3.67.1.101.11.723",
+              "display": "2.16.840.1.113883.3.67.1.101.11.723"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-444",
+          "display": "Kent Chris McBride Jr"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-661",
+          "display": "DMS_Followup_Encounter"
+        },
+        "performedPeriod": {
+          "start": "2017-02-08T00:00:00-05:00",
+          "end": "2017-02-08T00:00:00-05:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-299",
+              "display": "Virgil Kevin Ellison MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-245",
+          "display": "Acme Medical Center"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-39275"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-39276",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-39276",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "98fa8d9b-0101-4fec-b0b2-1275a010419c"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://cqframework.info/codesystem/placeholder",
+              "code": "00009",
+              "display": "PHQ-9 Modified Score"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-444",
+          "display": "Kent Chris McBride Jr"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-661",
+          "display": "DMS_Followup_Encounter"
+        },
+        "effectiveDateTime": "2017-02-08T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-299",
+            "display": "Virgil Kevin Ellison MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 3.0,
+          "unit": "score"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-39276"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-39278",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "DiagnosticReport-39278",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-diagnosticreport"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "d548dc95-4217-4fa6-b4a3-27ec357b7941"
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "720452006",
+              "display": "Moderately severe recurrent major depression (disorder) "
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-444",
+          "display": "Kent Chris McBride Jr"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-661",
+          "display": "DMS_Followup_Encounter"
+        },
+        "effectivePeriod": {
+          "start": "2017-02-08T00:00:00-05:00",
+          "end": "2017-02-08T00:00:00-05:00"
+        },
+        "issued": "2017-02-08T00:00:00.000-05:00"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-39278"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationRequest/MedicationRequest-39280",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "MedicationRequest-39280",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-medicationrequest"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "7cad7444-6432-4864-8f91-7231e968a022"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "687025",
+              "display": "24 HR Alprazolam 0.5 MG Extended Release Oral Tablet [Xanax]"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-444",
+          "display": "Kent Chris McBride Jr"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-661",
+          "display": "DMS_Followup_Encounter"
+        },
+        "authoredOn": "2017-02-08T00:00:00-05:00",
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "718636001",
+                "display": "Minimal depression (disorder)"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationRequest/MedicationRequest-39280"
+      }
+    }
+  ]
+}

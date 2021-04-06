@@ -1,0 +1,329 @@
+{
+  "resourceType": "Bundle",
+  "id": "Lois-Jeanette-Goodwin-498-Encounter-2225",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-2225",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-2225",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "ambulatory",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "37894004",
+                "display": "Combined Office Visits"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-498",
+          "display": "Lois Jeanette Goodwin"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2018-02-04T00:00:00-05:00",
+              "end": "2018-02-04T00:00:00-05:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-84",
+              "display": "Leroy Darryl Richmond MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2018-02-04T00:00:00-05:00",
+          "end": "2018-02-04T00:00:00-05:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-225",
+              "display": "Taylor Methodist Hospital"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1024",
+          "display": "Taylor Methodist Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-2225"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-77001",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-77001",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "c50d2b28-f85c-4901-a732-0f434bcc7dc4"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "87625"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-498",
+          "display": "Lois Jeanette Goodwin"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-2225",
+          "display": "Ambulatory_Encounter"
+        },
+        "performedPeriod": {
+          "start": "2018-02-04T00:00:00-05:00",
+          "end": "2018-02-04T00:00:00-05:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-84",
+              "display": "Leroy Darryl Richmond MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-225",
+          "display": "Taylor Methodist Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-77001"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-77002",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-77002",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "c2d3d26b-1b41-4e65-892a-ff9b8abd2e11"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "289829007",
+              "display": "Normal uterine cervix (finding)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-498",
+          "display": "Lois Jeanette Goodwin"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-2225",
+          "display": "Ambulatory_Encounter"
+        },
+        "effectiveDateTime": "2018-02-04T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-84",
+            "display": "Leroy Darryl Richmond MD"
+          }
+        ],
+        "valueString": "NEGATIVE"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-77002"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-77004",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-77004",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "0ce1d6a7-041e-4c64-8224-869b327787dd"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "439888000",
+              "display": "Abnormal cervical Papanicolaou smear (finding)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-498",
+          "display": "Lois Jeanette Goodwin"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-2225",
+          "display": "Ambulatory_Encounter"
+        },
+        "effectiveDateTime": "2018-02-04T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-84",
+            "display": "Leroy Darryl Richmond MD"
+          }
+        ],
+        "valueString": "POSITIVE"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-77004"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-77005",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "DiagnosticReport-77005",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-diagnosticreport"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "310a6cdf-3500-4011-be51-e5a6a9a100c1"
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "https://www.cms.gov/Medicare/Coding/MedHCPCSGenInfo",
+              "code": "G0143"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-498",
+          "display": "Lois Jeanette Goodwin"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-2225",
+          "display": "Ambulatory_Encounter"
+        },
+        "effectivePeriod": {
+          "start": "2018-02-04T00:00:00-05:00",
+          "end": "2018-02-04T00:00:00-05:00"
+        },
+        "issued": "2018-02-04T00:00:00.000-05:00",
+        "result": [
+          {
+            "reference": "Observation/Observation-77004",
+            "display": "Cervical_Cancer_Report_Observation_1"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-77005"
+      }
+    }
+  ]
+}

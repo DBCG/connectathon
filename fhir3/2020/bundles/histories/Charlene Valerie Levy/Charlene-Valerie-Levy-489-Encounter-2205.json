@@ -1,0 +1,330 @@
+{
+  "resourceType": "Bundle",
+  "id": "Charlene-Valerie-Levy-489-Encounter-2205",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-2205",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-2205",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "ambulatory",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://www.ama-assn.org/go/cpt",
+                "code": "99345",
+                "display": "Combined Office Visits"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-489",
+          "display": "Charlene Valerie Levy"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2018-02-04T00:00:00-05:00",
+              "end": "2018-02-04T00:00:00-05:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-8",
+              "display": "Viola Tammy Ross MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2018-02-04T00:00:00-05:00",
+          "end": "2018-02-04T00:00:00-05:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-111",
+              "display": "Windward General Hospital"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1004",
+          "display": "Windward General Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-2205"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-76455",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-76455",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "d9cf08f5-0420-4474-a0e7-ecb8bcbb4f9e"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "77067"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-489",
+          "display": "Charlene Valerie Levy"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-2205",
+          "display": "Ambulatory_Encounter"
+        },
+        "performedPeriod": {
+          "start": "2018-02-04T00:00:00-05:00",
+          "end": "2018-02-04T00:00:00-05:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-8",
+              "display": "Viola Tammy Ross MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-111",
+          "display": "Windward General Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-76455"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-76456",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-76456",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "4dfc2504-ebc6-400e-96e0-a7676d35993f"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "168749009",
+              "display": "Mammography normal (finding)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-489",
+          "display": "Charlene Valerie Levy"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-2205",
+          "display": "Ambulatory_Encounter"
+        },
+        "effectiveDateTime": "2018-02-04T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-8",
+            "display": "Viola Tammy Ross MD"
+          }
+        ],
+        "valueString": "NEGATIVE"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-76456"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-76458",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-76458",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "fa117a39-0176-4645-8526-65cbb6aaaac4"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "397145000",
+              "display": "Mammography assessment (Category 5) - Highly suggestive of malignancy"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-489",
+          "display": "Charlene Valerie Levy"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-2205",
+          "display": "Ambulatory_Encounter"
+        },
+        "effectiveDateTime": "2018-02-04T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-8",
+            "display": "Viola Tammy Ross MD"
+          }
+        ],
+        "valueString": "POSITIVE"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-76458"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-76459",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "DiagnosticReport-76459",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-diagnosticreport"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "0eed331c-d2aa-44ea-8bb2-d6f08ab6af96"
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "46356-2",
+              "display": "Breast - unilateral Mammogram screening"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-489",
+          "display": "Charlene Valerie Levy"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-2205",
+          "display": "Ambulatory_Encounter"
+        },
+        "effectivePeriod": {
+          "start": "2018-02-04T00:00:00-05:00",
+          "end": "2018-02-04T00:00:00-05:00"
+        },
+        "issued": "2018-02-04T00:00:00.000-05:00",
+        "result": [
+          {
+            "reference": "Observation/Observation-76458",
+            "display": "Breast_Cancer_Report_Observation_1"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-76459"
+      }
+    }
+  ]
+}

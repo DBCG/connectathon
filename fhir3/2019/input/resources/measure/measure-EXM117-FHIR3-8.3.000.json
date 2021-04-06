@@ -1,0 +1,211 @@
+{
+  "resourceType": "Measure",
+  "id": "measure-EXM117-FHIR3-8.3.000",
+  "meta": {
+    "versionId": "1",
+    "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm" ]
+  },
+  "text": {
+    "status": "generated"
+  },
+  "extension": [ {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-populationBasis",
+    "valueCode": "boolean"
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+    "valueReference": {
+      "reference": "cqf-tooling"
+    }
+  } ],
+  "url": "http://hl7.org/fhir/us/cqfmeasures/Measure/exm117-FHIR3",
+  "identifier": [ {
+    "use": "official",
+    "system": "http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/cms",
+    "value": "117"
+  } ],
+  "version": "8.3.000",
+  "name": "EXM117",
+  "title": "Childhood Immunization Status",
+  "status": "draft",
+  "experimental": true,
+  "date": "2018-08-28",
+  "publisher": "National Committee for Quality Assurance",
+  "description": "Percentage of children 2 years of age who had four diphtheria, tetanus and acellular pertussis (DTaP); three polio (IPV), one measles, mumps and rubella (MMR); three or four H influenza type B (HiB); three hepatitis B (Hep B); one chicken pox (VZV); four pneumococcal conjugate (PCV); one hepatitis A (Hep A); two or three rotavirus (RV); and two influenza (flu) vaccines by their second birthday",
+  "purpose": "Children who turn 2 years of age during the measurement period and who have a visit during the measurement period",
+  "approvalDate": "2016-01-01",
+  "lastReviewDate": "2016-09-01",
+  "effectivePeriod": {
+    "start": "2018-01-01",
+    "end": "2018-12-31"
+  },
+  "useContext": [ {
+    "code": {
+      "code": "program"
+    },
+    "valueCodeableConcept": {
+      "text": "eligible-provider"
+    }
+  } ],
+  "jurisdiction": [ {
+    "coding": [ {
+      "system": "urn:iso:std:iso:3166",
+      "code": "US"
+    } ]
+  } ],
+  "topic": [ {
+    "coding": [ {
+      "system": "http://loinc.org",
+      "code": "57024-2",
+      "display": "Health Quality Measure Document"
+    } ]
+  } ],
+  "contributor": [ {
+    "type": "author",
+    "name": "National Committee for Quality Assurance"
+  } ],
+  "contact": [ {
+    "telecom": [ {
+      "system": "url",
+      "value": "http://www.ncqa.org/"
+    } ]
+  } ],
+  "copyright": "This Physician Performance Measure (Measure) and related data specifications were developed by the National Committee for Quality Assurance (NCQA). NCQA is not responsible for any use of the Measure. NCQA makes no representations, warranties, or endorsement about the quality of any organization or physician that uses or reports performance measures and NCQA has no liability to anyone who relies on such measures or specifications. NCQA holds a copyright in the Measure. The Measure can be reproduced and distributed, without modification, for noncommercial purposes (eg, use by healthcare providers in connection with their practices) without obtaining approval from NCQA. Commercial use is defined as the sale, licensing, or distribution of the Measure for commercial gain, or incorporation of the Measure into a product or service that is sold, licensed or distributed for commercial gain. All commercial uses or requests for modification must be approved by NCQA and are subject to a license at the discretion of NCQA. (C) 2012-2017 National Committee for Quality Assurance. All Rights Reserved. Limited proprietary coding is contained in the Measure specifications for user convenience. Users of proprietary code sets should obtain all necessary licenses from the owners of the code sets. NCQA disclaims all liability for use or accuracy of any third party codes contained in the specifications. CPT(R) contained in the Measure specifications is copyright 2004-2017 American Medical Association. LOINC(R) copyright 2004-2017 Regenstrief Institute, Inc. This material contains SNOMED Clinical Terms(R) (SNOMED CT[R] ) copyright 2004-2017 International Health Terminology Standards Development Organisation. ICD-10 copyright 2017 World Health Organization. All Rights Reserved.",
+  "relatedArtifact": [ {
+    "type": "citation",
+    "citation": "Centers for Disease Control and Prevention. \"Infant Immunizations FAQs.\" 2017a. Available at https://www.cdc.gov/vaccines/parents/parent-questions.html"
+  }, {
+    "type": "citation",
+    "citation": "Centers for Disease Control and Prevention. \"Vaccines & Immunizations: Why Are Childhood Vaccines So Important?\" 2017b. Available at https://www.cdc.gov/vaccines/vac-gen/howvpd.htm"
+  }, {
+    "type": "citation",
+    "citation": "Centers for Disease Control and Prevention. \"Recommended Immunization Schedule for Children and Adolescents Aged 18 Years or Younger, United States, 2018.\" 2018. Available at https://www.cdc.gov/vaccines/schedules/downloads/child/0-18yrs-child-combined-schedule.pdf"
+  }, {
+    "type": "citation",
+    "citation": "HealthyChildren. \"Safety & Prevention: Why Immunize Your Child.\" 2015. Available at https://www.healthychildren.org/english/safety-prevention/immunizations/Pages/Why-Immunize-Your-Child.aspx"
+  }, {
+    "type": "citation",
+    "citation": "National Institute of Allergy and Infectious Diseases. \"Vaccine Benefits.\" 2014. Available at https://www.niaid.nih.gov/research/vaccine-benefits"
+  }, {
+    "type": "citation",
+    "citation": "Zhou, F., A. Shefer, J. Wenger, et al. \"Economic Evaluation of the Routine Childhood Immunization Program in the United States, 2009.\" \"Pediatrics\", vol. 133, no. 4, April 2014. doi:10.1542/peds.2013-0698d "
+  } ],
+  "library": [ {
+    "reference": "Library/EXM117-FHIR3-8.3.000"
+  } ],
+  "disclaimer": "The performance Measure is not a clinical guideline and does not establish a standard of medical care, and has not been tested for all potential applications. THE MEASURE AND SPECIFICATIONS ARE PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND. Due to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM].",
+  "scoring": {
+    "coding": [ {
+      "system": "http://hl7.org/fhir/measure-scoring",
+      "code": "proportion"
+    } ]
+  },
+  "type": [ {
+    "coding": [ {
+      "system": "http://hl7.org/fhir/measure-type",
+      "code": "process"
+    } ]
+  } ],
+  "rationale": "Infants and toddlers are particularly vulnerable to infectious diseases because their immune systems have not built up the necessary defenses to fight infection (Centers for Disease Control and Prevention 2017a). Most childhood vaccines are between 90 and 99 percent effective in preventing diseases (HealthyChildren 2015). Vaccination of each U.S. birth cohort with the current childhood immunization schedule prevents approximately 42,000 deaths and 20 million cases of disease and saves nearly $14 billion in direct costs and $69 billion in societal costs each year (Zhou 2014). Immunizing a child not only protects that child's health but also the health of the community, especially for those who are not immunized or are unable to be immunized due to other health complications (Centers for Disease Control and Prevention 2017b). When the majority of the community is immunized against a disease, other members of the community are also protected because herd immunity shields them. (National Institute of Allergy and Infectious Diseases 2014).",
+  "clinicalRecommendationStatement": "Advisory Committee on Immunization Practices (ACIP) Recommended Immunization Schedule for Children and Adolescents Aged 18 Years or Younger, United States, 2018 (Centers for Disease Control and Prevention 2018). Hepatitis B (HepB) \"Minimum age: birth\" \"Birth Dose (Monovalent HepB vaccine only): -- Mother is HBsAg-Negative: 1 dose within 24 hours of birth for medically stable infants >2,000 grams. Infants <2,000 grams administer 1 dose at chronological age 1 month or hospital discharge. -- Mother is HBsAg-Positive: Give HepB vaccine and 0.5 mL of HBIG (at separate anatomic sites) within 12 hours of birth, regardless of birth weight. Test for HBsAg and anti-HBs at age 9–12 months. If HepB series is delayed, test 1–2 months after final dose. -- Mother’s HBsAg status is unknown: Give HepB vaccine within 12 hours of birth, regardless of birth weight. For infants &lt;2,000 grams, give 0.5 mL of HBIG in addition to HepB vaccine within 12 hours of birth. Determine mother’s HBsAg status as soon as possible. If mother is HBsAg-positive, give 0.5 mL of HBIG to infants >2,000 grams as soon as possible, but no later than 7 days of age.  Routine Series: -- A complete series is 3 doses at 0, 1–2, and 6–18 months. (Monovalent HepB vaccine should be used for doses given before age 6 weeks.) -- Infants who did not receive a birth dose should begin the series as soon as feasible. -- Administration of 4 doses is permitted when a combination vaccine containing HepB is used after the birth dose. -- Minimum age for the final (3rd or 4th) dose: 24 weeks. -- Minimum Intervals: Dose 1 to Dose 2: 4 weeks / Dose 2 to Dose 3: 8 weeks / Dose 1 to Dose 3: 16 weeks. (When 4 doses are given, substitute \"Dose 4\" for \"Dose 3\" in these calculations.).\"  Diptheria, tetanus, acellular pertussis vaccinations (DTap) \"Minimum age: 6 weeks [4 years for Kinrix or Quadracel]\" \"Routine Vaccination: -- 5-dose series at 2, 4, 6, and 15–18 months, and 4–6 years. Prospectively: A 4th dose may be given as early as age 12 months if at least 6 months have elapsed since the 3rd dose. Retrospectively: A 4th dose that was inadvertently given as early as 12 months may be counted if at least 4 months have elapsed since the 3rd dose.\"  Hib (Haemophilus influenzae type b) \"Minimum age: 6 weeks\" \"Routine Vaccination:  -- ActHIB, Hiberix, or Pentacel: 4-dose series at 2, 4, 6, and 12–15 months. -- PedvaxHIB: 3-dose series at 2, 4, and 12–15 months.\" Polio (IPV) \"Minimum age: 6 weeks\" -- 4-dose series at ages 2, 4, 6–18 months, and 4–6 years. Administer the final dose on or after the 4th birthday and at least 6 months after the previous dose.\" Measles, mumps, rubella (MMR) \"Minimum age: 12 months for routine vaccination\" \"Routine Vaccination: -- 2-dose series at 12–15 months and 4–6 years. -- The 2nd dose may be given as early as 4 weeks after the 1st dose.\" Pneumococcal conjugate (PCV13) \"Minimum age: 6 weeks [PCV13]\" \"Routine vaccination with PCV13: -- 4-dose series at 2, 4, 6, and 12–15 months.\" Varicella (Var) \"Minimum age: 12 months\" \"Routine Vaccination: -- 2-dose series: 12–15 months and 4–6 years. -- The 2nd dose may be given as early as 3 months after the 1st dose (a dose given after a 4-week interval may be counted).\" Hepatitis A (HepA) \"Minimum age: 12 months\" \"Routine Vaccination: -- 2 doses, separated by 6-18 months, between the 1st and 2nd birthdays. (A series begun before the 2nd birthday should be completed even if the child turns 2 before the second dose is given.)\" Rotavirus (RV) \"Minimum age: 6 weeks\" \"Routine Vaccination: Rotarix: 2-dose series at 2 and 4 months. RotaTeq: 3-dose series at 2, 4, and 6 months. If any dose in the series is either RotaTeq or unknown, default to 3-dose series.\" Influenza (inactivated influenza vaccine (IIV) \"Minimum age: 6 months\" \"Routine Vaccination: -- Administer an age-appropriate formulation and dose of influenza vaccine annually. Children 6 months–8 years who did not receive at least 2 doses of influenza vaccine before July 1, 2017 should receive 2 doses separated by at least 4 weeks.\" ",
+  "improvementNotation": "increase",
+  "guidance": "For the MMR, hepatitis B, VZV and hepatitis A vaccines, numerator inclusion criteria include: evidence of receipt of the recommended vaccine; documented history of the illness; or, a seropositive test result for the antigen. For the DTaP, IPV, HiB, pneumococcal conjugate, rotavirus, and influenza vaccines, numerator inclusion criteria include only evidence of receipt of the recommended vaccine.  Patients may be included in the numerator for a particular antigen if they had an anaphylactic reaction to the vaccine. Patients may be included in the numerator for the DTaP vaccine if they have encephalopathy. Patients may be included in the numerator for the IPV vaccine if they have had an anaphylactic reaction to streptomycin, polymyxin B, or neomycin. Patients may be included in the numerator for the influenza, MMR, or VZV vaccines if they have cancer of lymphoreticular or histiocytic tissue, multiple myeloma, leukemia, have had an anaphylactic reaction to neomycin, have Immunodefiency, or have HIV. Patients may be included in the numerator for the hepatitis B vaccine if they have had an anaphylactic reaction to common baker's yeast.  The measure allows a grace period by measuring compliance with these recommendations between birth and age two.",
+  "group": [ {
+    "identifier": {
+      "value": "group-1"
+    },
+    "population": [ {
+      "identifier": {
+        "value": "initial-population-identifier"
+      },
+      "code": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+          "code": "initial-population",
+          "display": "Initial Population"
+        } ]
+      },
+      "criteria": "Initial Population"
+    }, {
+      "identifier": {
+        "value": "numerator-identifier"
+      },
+      "code": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+          "code": "numerator",
+          "display": "Numerator"
+        } ]
+      },
+      "criteria": "Numerator"
+    }, {
+      "identifier": {
+        "value": "denominator-identifier"
+      },
+      "code": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+          "code": "denominator",
+          "display": "Denominator"
+        } ]
+      },
+      "criteria": "Denominator"
+    }, {
+      "identifier": {
+        "value": "denominator-exclusions-identifier"
+      },
+      "code": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+          "code": "denominator-exclusion",
+          "display": "Denominator Exclusion"
+        } ]
+      },
+      "criteria": "Denominator Exclusion"
+    } ]
+  } ],
+  "supplementalData": [ {
+    "identifier": {
+      "value": "sde-ethnicity"
+    },
+    "usage": [ {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/measure-data-usage",
+        "code": "supplemental-data"
+      } ]
+    } ],
+    "criteria": "SDE Ethnicity"
+  }, {
+    "identifier": {
+      "value": "sde-payer"
+    },
+    "usage": [ {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/measure-data-usage",
+        "code": "supplemental-data"
+      } ]
+    } ],
+    "criteria": "SDE Payer"
+  }, {
+    "identifier": {
+      "value": "sde-race"
+    },
+    "usage": [ {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/measure-data-usage",
+        "code": "supplemental-data"
+      } ]
+    } ],
+    "criteria": "SDE Race"
+  }, {
+    "identifier": {
+      "value": "sde-sex"
+    },
+    "usage": [ {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/measure-data-usage",
+        "code": "supplemental-data"
+      } ]
+    } ],
+    "criteria": "SDE Sex"
+  } ]
+}

@@ -1,0 +1,255 @@
+{
+  "resourceType": "Bundle",
+  "id": "Hugh-Novak-Lynch-2619-Encounter-303",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-303",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-303",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "ambulatory",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "428191000124101",
+                "display": "Documentation of current medications"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-2619",
+          "display": "Hugh Novak Lynch"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2016-01-22T00:00:00-05:00",
+              "end": "2016-01-22T00:00:00-05:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-2214",
+              "display": "Wesley Jacob Perry MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2016-01-22T00:00:00-05:00",
+          "end": "2016-01-22T00:00:00-05:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-111",
+              "display": "Windward General Hospital"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1004",
+          "display": "Windward General Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-303"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Task/Task-3690",
+      "resource": {
+        "resourceType": "Task",
+        "id": "Task-3690",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "accepted",
+        "intent": "original-order",
+        "code": {
+          "coding": [
+            {
+              "system": "SNOMED-CT",
+              "code": "430193006",
+              "display": "Medication Reconciliation (procedure)"
+            }
+          ]
+        },
+        "description": "Care_Plan_Start Task 1",
+        "for": {
+          "reference": "Patient/Patient-2619",
+          "display": "Hugh Novak Lynch"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-303",
+          "display": "Ambulatory_Encounter"
+        },
+        "executionPeriod": {
+          "start": "2016-01-22T00:00:00-05:00",
+          "end": "2016-01-22T00:00:00-05:00"
+        },
+        "authoredOn": "2016-01-22T00:00:00-05:00",
+        "requester": {
+          "agent": {
+            "reference": "Practitioner/Practitioner-2214",
+            "display": "Wesley Jacob Perry MD"
+          },
+          "onBehalfOf": {
+            "reference": "Organization/Organization-1004",
+            "display": "Windward General Hospital"
+          }
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Task/Task-3690"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/CarePlan/CarePlan-3689",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "CarePlan-3689",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "ce023471-8e93-40be-832e-5c2286f2b4b3"
+          }
+        ],
+        "status": "active",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "430193006",
+                "display": "Medication Reconciliation (procedure)"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-2619",
+          "display": "Hugh Novak Lynch"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-303",
+          "display": "Ambulatory_Encounter"
+        },
+        "period": {
+          "start": "2016-01-22T00:00:00-05:00",
+          "end": "2016-01-22T00:00:00-05:00"
+        },
+        "author": [
+          {
+            "reference": "Practitioner/Practitioner-2214",
+            "display": "Wesley Jacob Perry MD"
+          }
+        ],
+        "activity": [
+          {
+            "reference": {
+              "reference": "Task/Task-3690",
+              "display": "Care_Plan_Start Task 1"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/CarePlan/CarePlan-3689"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-3691",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-3691",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "1f3cca8c-62f4-4340-bbb7-4514d5048388"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "430193006",
+              "display": "Medication Reconciliation (procedure)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2619",
+          "display": "Hugh Novak Lynch"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-303",
+          "display": "Ambulatory_Encounter"
+        },
+        "performedPeriod": {
+          "start": "2016-01-22T00:00:00-05:00",
+          "end": "2016-01-22T00:00:00-05:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-2214",
+              "display": "Wesley Jacob Perry MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-111",
+          "display": "Windward General Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-3691"
+      }
+    }
+  ]
+}

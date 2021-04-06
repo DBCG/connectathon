@@ -1,0 +1,233 @@
+{
+  "resourceType": "Bundle",
+  "id": "Craig-Gerald-Moon-406-Encounter-2105",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-2105",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-2105",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "outpatient",
+          "display": "outpatient"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "185345009",
+                "display": "Encounter for symptom"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-406",
+          "display": "Craig Gerald Moon"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2018-01-18T14:00:00-05:00",
+              "end": "2018-01-18T14:00:00-05:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-316",
+              "display": "Eva Benjamin Terry MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2018-01-18T14:00:00-05:00",
+          "end": "2018-01-18T14:00:00-05:00"
+        },
+        "reason": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "44054006",
+                "display": "Type 2 diabetes mellitus"
+              }
+            ]
+          }
+        ],
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-251",
+              "display": "Country Valley Physicians"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1059",
+          "display": "Country Valley Physicians"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-2105"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationRequest/MedicationRequest-75551",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "MedicationRequest-75551",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-medicationrequest"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "863bbb63-1d7c-4fa9-b376-08e3a3cb9717"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "106892",
+              "display": "insulin human, isophane 70 UNT/ML / Regular Insulin, Human 30 UNT/ML Injectable Suspension [Humulin]"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-406",
+          "display": "Craig Gerald Moon"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-2105",
+          "display": "Followup_Visit"
+        },
+        "authoredOn": "2018-01-18T14:00:00-05:00",
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "44054006",
+                "display": "Type 2 diabetes mellitus"
+              }
+            ]
+          }
+        ],
+        "dosageInstruction": [
+          {
+            "timing": {
+              "repeat": {
+                "frequency": 1
+              }
+            },
+            "doseQuantity": {
+              "value": 1
+            }
+          }
+        ],
+        "dispenseRequest": {
+          "validityPeriod": {
+            "start": "2018-01-18T14:00:00-05:00",
+            "end": "2018-01-18T14:00:00-05:00"
+          }
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationRequest/MedicationRequest-75551"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationRequest/MedicationRequest-75553",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "MedicationRequest-75553",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-medicationrequest"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "9546326f-eb27-48b9-8069-67ab79e7d9ed"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "897122",
+              "display": "3 ML liraglutide 6 MG/ML Pen Injector"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-406",
+          "display": "Craig Gerald Moon"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-2105",
+          "display": "Followup_Visit"
+        },
+        "authoredOn": "2018-01-18T14:00:00-05:00",
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "44054006",
+                "display": "Type 2 diabetes mellitus"
+              }
+            ]
+          }
+        ],
+        "dispenseRequest": {
+          "validityPeriod": {
+            "start": "2018-01-18T14:00:00-05:00",
+            "end": "2018-01-18T14:00:00-05:00"
+          }
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationRequest/MedicationRequest-75553"
+      }
+    }
+  ]
+}

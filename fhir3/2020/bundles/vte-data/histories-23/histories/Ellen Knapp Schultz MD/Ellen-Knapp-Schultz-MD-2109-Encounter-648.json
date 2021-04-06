@@ -1,0 +1,338 @@
+{
+  "resourceType": "Bundle",
+  "id": "Ellen-Knapp-Schultz-MD-2109-Encounter-648",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-648",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-648",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "ambulatory",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://www.ama-assn.org/go/cpt",
+                "code": "99212",
+                "display": "Combined Office Visits"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-2109",
+          "display": "Ellen Knapp Schultz MD"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2018-01-27T00:00:00-05:00",
+              "end": "2018-01-27T00:00:00-05:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-2270",
+              "display": "Ted Lawson Boyle MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2018-01-27T00:00:00-05:00",
+          "end": "2018-01-27T00:00:00-05:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-181",
+              "display": "Mother Charity Hospital"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1015",
+          "display": "Mother Charity Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-648"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-70743",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-70743",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "20a4a776-4887-46ef-9aaf-1f1cf77defcb"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "77055"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2109",
+          "display": "Ellen Knapp Schultz MD"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-648",
+          "display": "Ambulatory_Encounter"
+        },
+        "performedPeriod": {
+          "start": "2018-01-27T00:00:00-05:00",
+          "end": "2018-01-27T00:00:00-05:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-2270",
+              "display": "Ted Lawson Boyle MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-181",
+          "display": "Mother Charity Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-70743"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-70744",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-70744",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "8ebab5e9-ea06-4e57-b5d6-c0f39292fa95"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "168749009",
+              "display": "Mammography normal (finding)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2109",
+          "display": "Ellen Knapp Schultz MD"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-648",
+          "display": "Ambulatory_Encounter"
+        },
+        "effectiveDateTime": "2018-01-27T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2270",
+            "display": "Ted Lawson Boyle MD"
+          }
+        ],
+        "valueString": "NEGATIVE"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-70744"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-70745",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-70745",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "35b4de5b-1eb7-45ca-a8d0-0dd1f8dd6dd0"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "397145000",
+              "display": "Mammography assessment (Category 5) - Highly suggestive of malignancy"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2109",
+          "display": "Ellen Knapp Schultz MD"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-648",
+          "display": "Ambulatory_Encounter"
+        },
+        "effectiveDateTime": "2018-01-27T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-2270",
+            "display": "Ted Lawson Boyle MD"
+          }
+        ],
+        "valueString": "POSITIVE"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-70745"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-70746",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "DiagnosticReport-70746",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-diagnosticreport"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "d13638b4-7e72-498b-8988-99a3349b7f03"
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "46336-4",
+              "display": "Breast - left Mammogram Single view"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2109",
+          "display": "Ellen Knapp Schultz MD"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-648",
+          "display": "Ambulatory_Encounter"
+        },
+        "effectivePeriod": {
+          "start": "2018-01-27T00:00:00-05:00",
+          "end": "2018-01-27T00:00:00-05:00"
+        },
+        "issued": "2018-01-27T00:00:00.000-05:00",
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-2270",
+              "display": "Ted Lawson Boyle MD"
+            }
+          }
+        ],
+        "result": [
+          {
+            "reference": "Observation/Observation-70745",
+            "display": "Breast_Cancer_Report_Observation_1"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-70746"
+      }
+    }
+  ]
+}

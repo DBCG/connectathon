@@ -1,0 +1,333 @@
+{
+  "resourceType": "Bundle",
+  "id": "Peter-Blackburn-Carlson-Jr-436-Encounter-540",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-540",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-540",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "outpatient",
+          "display": "outpatient"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "https://www.cms.gov/Medicare/Coding/MedHCPCSGenInfo",
+                "code": "G0409",
+                "display": "Social work and psychological services, directly relating to and/or furthering the patient's rehabilitation goals, each 15 minutes, face-to-face; individual (services provided by a corf-qualified social worker or psychologist in a corf) (G0409)"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-436",
+          "display": "Peter Blackburn Carlson Jr"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2017-02-03T00:00:00-05:00",
+              "end": "2017-02-03T00:00:00-05:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-291",
+              "display": "Ruth Harrison Banks MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2017-02-03T00:00:00-05:00",
+          "end": "2017-02-03T00:00:00-05:00"
+        },
+        "reason": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "310495003",
+                "display": "Mild depression (disorder)"
+              }
+            ]
+          }
+        ],
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-244",
+              "display": "Pediatric and Adult Medicine"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1052",
+          "display": "Pediatric and Adult Medicine"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-540"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-36319",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-36319",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "be3947ae-cdb3-4ad2-8845-ef9219b07388"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://test",
+              "code": "2.16.840.1.113883.3.67.1.101.11.723",
+              "display": "2.16.840.1.113883.3.67.1.101.11.723"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-436",
+          "display": "Peter Blackburn Carlson Jr"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-540",
+          "display": "Same_Day_DMS_Encounter"
+        },
+        "performedPeriod": {
+          "start": "2017-02-03T00:00:00-05:00",
+          "end": "2017-02-03T00:00:00-05:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-291",
+              "display": "Ruth Harrison Banks MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-244",
+          "display": "Pediatric and Adult Medicine"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-36319"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-36320",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-36320",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "6f802804-06f7-44a4-92f6-18edb5716a3a"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://cqframework.info/codesystem/placeholder",
+              "code": "00009",
+              "display": "PHQ-9 Modified Score"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-436",
+          "display": "Peter Blackburn Carlson Jr"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-540",
+          "display": "Same_Day_DMS_Encounter"
+        },
+        "effectiveDateTime": "2017-02-03T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-291",
+            "display": "Ruth Harrison Banks MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 9.0,
+          "unit": "score"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-36320"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-36322",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "DiagnosticReport-36322",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-diagnosticreport"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "b924e69c-f0d0-49ae-9734-6c913ebddb52"
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "310497006",
+              "display": "MSevere depression (disorder)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-436",
+          "display": "Peter Blackburn Carlson Jr"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-540",
+          "display": "Same_Day_DMS_Encounter"
+        },
+        "effectivePeriod": {
+          "start": "2017-02-03T00:00:00-05:00",
+          "end": "2017-02-03T00:00:00-05:00"
+        },
+        "issued": "2017-02-03T00:00:00.000-05:00"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-36322"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationRequest/MedicationRequest-36324",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "MedicationRequest-36324",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-medicationrequest"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "21e0d44c-6870-4508-9f97-c5096b41e62b"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "687025",
+              "display": "24 HR Alprazolam 0.5 MG Extended Release Oral Tablet [Xanax]"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-436",
+          "display": "Peter Blackburn Carlson Jr"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-540",
+          "display": "Same_Day_DMS_Encounter"
+        },
+        "authoredOn": "2017-02-03T00:00:00-05:00",
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "310495003",
+                "display": "Mild depression (disorder)"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationRequest/MedicationRequest-36324"
+      }
+    }
+  ]
+}

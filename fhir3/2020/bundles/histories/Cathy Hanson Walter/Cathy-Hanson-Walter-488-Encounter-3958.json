@@ -1,0 +1,330 @@
+{
+  "resourceType": "Bundle",
+  "id": "Cathy-Hanson-Walter-488-Encounter-3958",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-3958",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-3958",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "ambulatory",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://www.ama-assn.org/go/cpt",
+                "code": "99350",
+                "display": "Combined Office Visits"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-488",
+          "display": "Cathy Hanson Walter"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2019-03-04T00:00:00-05:00",
+              "end": "2019-03-04T00:00:00-05:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-76",
+              "display": "Patrick Serrano Daugherty MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2019-03-04T00:00:00-05:00",
+          "end": "2019-03-04T00:00:00-05:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-212",
+              "display": "Westland Memorial Hospital"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1023",
+          "display": "Westland Memorial Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-3958"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-117216",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-117216",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "28c816f7-b06d-4799-8aed-1de8d98fde2a"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "77056"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-488",
+          "display": "Cathy Hanson Walter"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-3958",
+          "display": "Ambulatory_Encounter"
+        },
+        "performedPeriod": {
+          "start": "2019-03-04T00:00:00-05:00",
+          "end": "2019-03-04T00:00:00-05:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-76",
+              "display": "Patrick Serrano Daugherty MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-212",
+          "display": "Westland Memorial Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-117216"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-117217",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-117217",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "3624367f-20d8-4fc3-bf5b-73a8af260986"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "168749009",
+              "display": "Mammography normal (finding)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-488",
+          "display": "Cathy Hanson Walter"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-3958",
+          "display": "Ambulatory_Encounter"
+        },
+        "effectiveDateTime": "2019-03-04T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-76",
+            "display": "Patrick Serrano Daugherty MD"
+          }
+        ],
+        "valueString": "NEGATIVE"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-117217"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-117219",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-117219",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "d4ac7408-d308-4fcc-bc35-ef7636ac9e37"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "397145000",
+              "display": "Mammography assessment (Category 5) - Highly suggestive of malignancy"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-488",
+          "display": "Cathy Hanson Walter"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-3958",
+          "display": "Ambulatory_Encounter"
+        },
+        "effectiveDateTime": "2019-03-04T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-76",
+            "display": "Patrick Serrano Daugherty MD"
+          }
+        ],
+        "valueString": "POSITIVE"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-117219"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-117220",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "DiagnosticReport-117220",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-diagnosticreport"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "7fd6b5e8-ce4f-436c-beea-d17f460fa51b"
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "46354-7",
+              "display": "Breast - right FFD mammogram screening"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-488",
+          "display": "Cathy Hanson Walter"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-3958",
+          "display": "Ambulatory_Encounter"
+        },
+        "effectivePeriod": {
+          "start": "2019-03-04T00:00:00-05:00",
+          "end": "2019-03-04T00:00:00-05:00"
+        },
+        "issued": "2019-03-04T00:00:00.000-05:00",
+        "result": [
+          {
+            "reference": "Observation/Observation-117219",
+            "display": "Breast_Cancer_Report_Observation_1"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-117220"
+      }
+    }
+  ]
+}

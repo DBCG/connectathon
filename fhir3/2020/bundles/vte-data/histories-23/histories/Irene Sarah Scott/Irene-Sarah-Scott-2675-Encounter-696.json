@@ -1,0 +1,255 @@
+{
+  "resourceType": "Bundle",
+  "id": "Irene-Sarah-Scott-2675-Encounter-696",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-696",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-696",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "ambulatory",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "428191000124101",
+                "display": "Documentation of current medications"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-2675",
+          "display": "Irene Sarah Scott"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2018-03-17T00:00:00-04:00",
+              "end": "2018-03-17T00:00:00-04:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-2262",
+              "display": "Andrea Howard Serrano MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2018-03-17T00:00:00-04:00",
+          "end": "2018-03-17T00:00:00-04:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-181",
+              "display": "Mother Charity Hospital"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1015",
+          "display": "Mother Charity Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-696"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Task/Task-76360",
+      "resource": {
+        "resourceType": "Task",
+        "id": "Task-76360",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "accepted",
+        "intent": "original-order",
+        "code": {
+          "coding": [
+            {
+              "system": "SNOMED-CT",
+              "code": "430193006",
+              "display": "Medication Reconciliation (procedure)"
+            }
+          ]
+        },
+        "description": "Care_Plan_Start Task 1",
+        "for": {
+          "reference": "Patient/Patient-2675",
+          "display": "Irene Sarah Scott"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-696",
+          "display": "Ambulatory_Encounter"
+        },
+        "executionPeriod": {
+          "start": "2018-03-17T00:00:00-04:00",
+          "end": "2018-03-17T00:00:00-04:00"
+        },
+        "authoredOn": "2018-03-17T00:00:00-04:00",
+        "requester": {
+          "agent": {
+            "reference": "Practitioner/Practitioner-2262",
+            "display": "Andrea Howard Serrano MD"
+          },
+          "onBehalfOf": {
+            "reference": "Organization/Organization-1015",
+            "display": "Mother Charity Hospital"
+          }
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Task/Task-76360"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/CarePlan/CarePlan-76359",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "CarePlan-76359",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "590ffaa1-615b-44da-aa47-58e20cee31d2"
+          }
+        ],
+        "status": "active",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "430193006",
+                "display": "Medication Reconciliation (procedure)"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-2675",
+          "display": "Irene Sarah Scott"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-696",
+          "display": "Ambulatory_Encounter"
+        },
+        "period": {
+          "start": "2018-03-17T00:00:00-04:00",
+          "end": "2018-03-17T00:00:00-04:00"
+        },
+        "author": [
+          {
+            "reference": "Practitioner/Practitioner-2262",
+            "display": "Andrea Howard Serrano MD"
+          }
+        ],
+        "activity": [
+          {
+            "reference": {
+              "reference": "Task/Task-76360",
+              "display": "Care_Plan_Start Task 1"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/CarePlan/CarePlan-76359"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-76361",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-76361",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "893b0d3b-25d8-4d9f-b947-9605fb80b1ae"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "430193006",
+              "display": "Medication Reconciliation (procedure)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2675",
+          "display": "Irene Sarah Scott"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-696",
+          "display": "Ambulatory_Encounter"
+        },
+        "performedPeriod": {
+          "start": "2018-03-17T00:00:00-04:00",
+          "end": "2018-03-17T00:00:00-04:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-2262",
+              "display": "Andrea Howard Serrano MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-181",
+          "display": "Mother Charity Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-76361"
+      }
+    }
+  ]
+}

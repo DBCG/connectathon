@@ -1,0 +1,329 @@
+{
+  "resourceType": "Bundle",
+  "id": "Bessie-Lucas-Kirk-441-Encounter-2309",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-2309",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-2309",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "ambulatory",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "185462000",
+                "display": "Combined Office Visits"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-441",
+          "display": "Bessie Lucas Kirk"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2018-02-04T00:00:00-05:00",
+              "end": "2018-02-04T00:00:00-05:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-55",
+              "display": "Kristin Medina Garrett MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2018-02-04T00:00:00-05:00",
+          "end": "2018-02-04T00:00:00-05:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-181",
+              "display": "Mother Charity Hospital"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1015",
+          "display": "Mother Charity Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-2309"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-78756",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-78756",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "ee89034d-2771-42b9-ad8b-a733805db861"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "87620"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-441",
+          "display": "Bessie Lucas Kirk"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-2309",
+          "display": "Ambulatory_Encounter"
+        },
+        "performedPeriod": {
+          "start": "2018-02-04T00:00:00-05:00",
+          "end": "2018-02-04T00:00:00-05:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-55",
+              "display": "Kristin Medina Garrett MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-181",
+          "display": "Mother Charity Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-78756"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-78757",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-78757",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "c31134c0-555d-429a-b080-2831f6edc56e"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "289829007",
+              "display": "Normal uterine cervix (finding)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-441",
+          "display": "Bessie Lucas Kirk"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-2309",
+          "display": "Ambulatory_Encounter"
+        },
+        "effectiveDateTime": "2018-02-04T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-55",
+            "display": "Kristin Medina Garrett MD"
+          }
+        ],
+        "valueString": "NEGATIVE"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-78757"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-78759",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-78759",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "39ce9441-7dfd-4b27-b297-c215f937a97d"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "439888000",
+              "display": "Abnormal cervical Papanicolaou smear (finding)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-441",
+          "display": "Bessie Lucas Kirk"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-2309",
+          "display": "Ambulatory_Encounter"
+        },
+        "effectiveDateTime": "2018-02-04T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-55",
+            "display": "Kristin Medina Garrett MD"
+          }
+        ],
+        "valueString": "POSITIVE"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-78759"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-78760",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "DiagnosticReport-78760",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-diagnosticreport"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "9c9a10ff-13c3-4a22-b81f-9bfab9861c81"
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "https://www.cms.gov/Medicare/Coding/MedHCPCSGenInfo",
+              "code": "G0144"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-441",
+          "display": "Bessie Lucas Kirk"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-2309",
+          "display": "Ambulatory_Encounter"
+        },
+        "effectivePeriod": {
+          "start": "2018-02-04T00:00:00-05:00",
+          "end": "2018-02-04T00:00:00-05:00"
+        },
+        "issued": "2018-02-04T00:00:00.000-05:00",
+        "result": [
+          {
+            "reference": "Observation/Observation-78759",
+            "display": "Cervical_Cancer_Report_Observation_1"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-78760"
+      }
+    }
+  ]
+}

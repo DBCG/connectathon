@@ -1,0 +1,250 @@
+{
+  "resourceType": "Bundle",
+  "id": "Bobbie-Simon-Jackson-410-Encounter-543",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-543",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-543",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "outpatient",
+          "display": "outpatient"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "185345009",
+                "display": "Encounter for symptom"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-410",
+          "display": "Bobbie Simon Jackson"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2017-02-03T00:00:00-05:00",
+              "end": "2017-02-03T00:00:00-05:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-312",
+              "display": "Tara Vicki Powers MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2017-02-03T00:00:00-05:00",
+          "end": "2017-02-03T00:00:00-05:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-250",
+              "display": "Cranston Family Medical"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1058",
+          "display": "Cranston Family Medical"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-543"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-36351",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-36351",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "31f222a9-4a55-4a90-91cd-33eaaf623bba"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "428181000124104",
+              "display": "Depression screening positive (situation)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-410",
+          "display": "Bobbie Simon Jackson"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-543",
+          "display": "Wellness_Encounter"
+        },
+        "effectiveDateTime": "2017-02-03T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-312",
+            "display": "Tara Vicki Powers MD"
+          }
+        ],
+        "valueString": "POSITIVE"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-36351"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Condition/Condition-36354",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "Condition-36354",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-condition"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "4926e5bf-4ec6-4390-a0b1-af13567228a4"
+          }
+        ],
+        "clinicalStatus": "active",
+        "verificationStatus": "confirmed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "310495003",
+              "display": "Mild depression (disorder)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-410",
+          "display": "Bobbie Simon Jackson"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-543",
+          "display": "Wellness_Encounter"
+        },
+        "onsetDateTime": "2017-02-03T00:00:00-05:00",
+        "assertedDate": "2017-02-03T00:00:00-05:00",
+        "asserter": {
+          "reference": "Practitioner/Practitioner-312",
+          "display": "Tara Vicki Powers MD"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Condition/Condition-36354"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-36355",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "DiagnosticReport-36355",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-diagnosticreport"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "f8d97a55-0de1-47ee-9e3e-4c0c3576294e"
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "310497006",
+              "display": "MSevere depression (disorder)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-410",
+          "display": "Bobbie Simon Jackson"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-543",
+          "display": "Wellness_Encounter"
+        },
+        "effectivePeriod": {
+          "start": "2017-02-03T00:00:00-05:00",
+          "end": "2017-02-03T00:00:00-05:00"
+        },
+        "issued": "2017-02-03T00:00:00.000-05:00"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-36355"
+      }
+    }
+  ]
+}

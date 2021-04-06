@@ -1,0 +1,317 @@
+{
+  "resourceType": "Bundle",
+  "id": "Audrey-Bird-Caldwell-475-Encounter-2235",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-2235",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-2235",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "ambulatory",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "185470005",
+                "display": "Combined Office Visits"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-475",
+          "display": "Audrey Bird Caldwell"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2018-02-04T00:00:00-05:00",
+              "end": "2018-02-04T00:00:00-05:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-19",
+              "display": "Charlie Ware Graves MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2018-02-04T00:00:00-05:00",
+          "end": "2018-02-04T00:00:00-05:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-124",
+              "display": "Gift of Mercy Hospital"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1005",
+          "display": "Gift of Mercy Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-2235"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-77223",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-77223",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "7215edf8-2c43-4511-b4a4-c14013f316cc"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "87620"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-475",
+          "display": "Audrey Bird Caldwell"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-2235",
+          "display": "Ambulatory_Encounter"
+        },
+        "performedPeriod": {
+          "start": "2018-02-04T00:00:00-05:00",
+          "end": "2018-02-04T00:00:00-05:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-19",
+              "display": "Charlie Ware Graves MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-124",
+          "display": "Gift of Mercy Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-77223"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Condition/Condition-77225",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "Condition-77225",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-condition"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "a2b20925-5ac4-49dc-aaf1-d8df3430a293"
+          }
+        ],
+        "clinicalStatus": "active",
+        "verificationStatus": "confirmed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "68240008",
+              "display": "International Federation of Gynecology and Obstetrics cervical cancer stage II (finding) "
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-475",
+          "display": "Audrey Bird Caldwell"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-2235",
+          "display": "Ambulatory_Encounter"
+        },
+        "onsetDateTime": "2018-02-04T00:00:00-05:00",
+        "assertedDate": "2018-02-04T00:00:00-05:00",
+        "asserter": {
+          "reference": "Practitioner/Practitioner-19",
+          "display": "Charlie Ware Graves MD"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Condition/Condition-77225"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-77226",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-77226",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "1a93efd3-b03c-401c-91f6-a58c13980499"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "439888000",
+              "display": "Abnormal cervical Papanicolaou smear (finding)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-475",
+          "display": "Audrey Bird Caldwell"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-2235",
+          "display": "Ambulatory_Encounter"
+        },
+        "effectiveDateTime": "2018-02-04T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-19",
+            "display": "Charlie Ware Graves MD"
+          }
+        ],
+        "valueString": "POSITIVE"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-77226"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-77227",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "DiagnosticReport-77227",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-diagnosticreport"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "0f192f1f-7dd9-4985-9d52-a817e7be779a"
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "88148"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-475",
+          "display": "Audrey Bird Caldwell"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-2235",
+          "display": "Ambulatory_Encounter"
+        },
+        "effectivePeriod": {
+          "start": "2018-02-04T00:00:00-05:00",
+          "end": "2018-02-04T00:00:00-05:00"
+        },
+        "issued": "2018-02-04T00:00:00.000-05:00",
+        "result": [
+          {
+            "reference": "Observation/Observation-77226",
+            "display": "Cervical_Cancer_Report_Observation_1"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-77227"
+      }
+    }
+  ]
+}

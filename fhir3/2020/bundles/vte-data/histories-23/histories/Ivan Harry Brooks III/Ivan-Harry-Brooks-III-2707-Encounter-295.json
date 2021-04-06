@@ -1,0 +1,317 @@
+{
+  "resourceType": "Bundle",
+  "id": "Ivan-Harry-Brooks-III-2707-Encounter-295",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-295",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-295",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "ambulatory",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "428191000124101",
+                "display": "Documentation of current medications"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-2707",
+          "display": "Ivan Harry Brooks III"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2016-01-13T00:00:00-05:00",
+              "end": "2016-01-15T00:00:00-05:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-2244",
+              "display": "Melissa Lena Snyder MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2016-01-13T00:00:00-05:00",
+          "end": "2016-01-15T00:00:00-05:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-155",
+              "display": "Community Family Hospital"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1013",
+          "display": "Community Family Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-295"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Task/Task-3305",
+      "resource": {
+        "resourceType": "Task",
+        "id": "Task-3305",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "accepted",
+        "intent": "original-order",
+        "code": {
+          "coding": [
+            {
+              "system": "SNOMED-CT",
+              "code": "430193006",
+              "display": "Medication Reconciliation (procedure)"
+            }
+          ]
+        },
+        "description": "Care_Plan_Start Task 1",
+        "for": {
+          "reference": "Patient/Patient-2707",
+          "display": "Ivan Harry Brooks III"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-295",
+          "display": "Ambulatory_Encounter"
+        },
+        "executionPeriod": {
+          "start": "2016-01-13T00:00:00-05:00",
+          "end": "2016-01-13T00:00:00-05:00"
+        },
+        "authoredOn": "2016-01-13T00:00:00-05:00",
+        "requester": {
+          "agent": {
+            "reference": "Practitioner/Practitioner-2244",
+            "display": "Melissa Lena Snyder MD"
+          },
+          "onBehalfOf": {
+            "reference": "Organization/Organization-1013",
+            "display": "Community Family Hospital"
+          }
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Task/Task-3305"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/CarePlan/CarePlan-3304",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "CarePlan-3304",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "9eb82f4f-5f18-47d2-a65c-1ce70eca89ad"
+          }
+        ],
+        "status": "active",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "430193006",
+                "display": "Medication Reconciliation (procedure)"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-2707",
+          "display": "Ivan Harry Brooks III"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-295",
+          "display": "Ambulatory_Encounter"
+        },
+        "period": {
+          "start": "2016-01-13T00:00:00-05:00",
+          "end": "2016-01-13T00:00:00-05:00"
+        },
+        "author": [
+          {
+            "reference": "Practitioner/Practitioner-2244",
+            "display": "Melissa Lena Snyder MD"
+          }
+        ],
+        "activity": [
+          {
+            "reference": {
+              "reference": "Task/Task-3305",
+              "display": "Care_Plan_Start Task 1"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/CarePlan/CarePlan-3304"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-3306",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-3306",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "f8a3ed89-697f-4180-a25a-8b1452e73b54"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "430193006",
+              "display": "Medication Reconciliation (procedure)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2707",
+          "display": "Ivan Harry Brooks III"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-295",
+          "display": "Ambulatory_Encounter"
+        },
+        "performedPeriod": {
+          "start": "2016-01-13T00:00:00-05:00",
+          "end": "2016-01-13T00:00:00-05:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-2244",
+              "display": "Melissa Lena Snyder MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-155",
+          "display": "Community Family Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-3306"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationStatement/MedicationStatement-3307",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "MedicationStatement-3307",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "context": {
+          "reference": "Encounter/Encounter-295",
+          "display": "Ambulatory_Encounter"
+        },
+        "status": "active",
+        "category": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/medication-statement-category"
+            }
+          ]
+        },
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "978746",
+              "display": "0.72 ML Dalteparin Sodium 25000 UNT/ML Prefilled Syringe"
+            }
+          ]
+        },
+        "effectivePeriod": {
+          "start": "2016-01-15T00:00:00-05:00",
+          "end": "2016-01-15T00:00:00-05:00"
+        },
+        "dateAsserted": "2016-01-15T00:00:00-05:00",
+        "informationSource": {
+          "reference": "Practitioner/Practitioner-2244",
+          "display": "Melissa Lena Snyder MD"
+        },
+        "subject": {
+          "reference": "Patient/Patient-2707",
+          "display": "Ivan Harry Brooks III"
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "173980008",
+                "display": "Creation of temporary ileostomy (procedure)"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/MedicationStatement/MedicationStatement-3307"
+      }
+    }
+  ]
+}

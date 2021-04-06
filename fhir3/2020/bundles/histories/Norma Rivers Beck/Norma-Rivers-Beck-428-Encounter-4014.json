@@ -1,0 +1,317 @@
+{
+  "resourceType": "Bundle",
+  "id": "Norma-Rivers-Beck-428-Encounter-4014",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-4014",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-4014",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "ambulatory",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "439740005",
+                "display": "Combined Office Visits"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-428",
+          "display": "Norma Rivers Beck"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2019-03-04T00:00:00-05:00",
+              "end": "2019-03-04T00:00:00-05:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-13",
+              "display": "Hazel Fitzpatrick Ferguson MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2019-03-04T00:00:00-05:00",
+          "end": "2019-03-04T00:00:00-05:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-124",
+              "display": "Gift of Mercy Hospital"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1005",
+          "display": "Gift of Mercy Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-4014"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-117649",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-117649",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "daf635ea-ec30-4fde-8cd1-68c8dc9a3f66"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "87625"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-428",
+          "display": "Norma Rivers Beck"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-4014",
+          "display": "Ambulatory_Encounter"
+        },
+        "performedPeriod": {
+          "start": "2019-03-04T00:00:00-05:00",
+          "end": "2019-03-04T00:00:00-05:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-13",
+              "display": "Hazel Fitzpatrick Ferguson MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-124",
+          "display": "Gift of Mercy Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-117649"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Condition/Condition-117651",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "Condition-117651",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-condition"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "078133b6-65ab-4ebb-a965-f1726d33a409"
+          }
+        ],
+        "clinicalStatus": "active",
+        "verificationStatus": "confirmed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "68240008",
+              "display": "International Federation of Gynecology and Obstetrics cervical cancer stage II (finding) "
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-428",
+          "display": "Norma Rivers Beck"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-4014",
+          "display": "Ambulatory_Encounter"
+        },
+        "onsetDateTime": "2019-03-04T00:00:00-05:00",
+        "assertedDate": "2019-03-04T00:00:00-05:00",
+        "asserter": {
+          "reference": "Practitioner/Practitioner-13",
+          "display": "Hazel Fitzpatrick Ferguson MD"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Condition/Condition-117651"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-117652",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-117652",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "dfaa5db6-a99f-47c2-b9ef-2347d55cdeef"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "439888000",
+              "display": "Abnormal cervical Papanicolaou smear (finding)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-428",
+          "display": "Norma Rivers Beck"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-4014",
+          "display": "Ambulatory_Encounter"
+        },
+        "effectiveDateTime": "2019-03-04T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-13",
+            "display": "Hazel Fitzpatrick Ferguson MD"
+          }
+        ],
+        "valueString": "POSITIVE"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-117652"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-117653",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "DiagnosticReport-117653",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-diagnosticreport"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "2308b485-06c1-488f-af6c-b65fee8b2635"
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "https://www.cms.gov/Medicare/Coding/MedHCPCSGenInfo",
+              "code": "G0148"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-428",
+          "display": "Norma Rivers Beck"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-4014",
+          "display": "Ambulatory_Encounter"
+        },
+        "effectivePeriod": {
+          "start": "2019-03-04T00:00:00-05:00",
+          "end": "2019-03-04T00:00:00-05:00"
+        },
+        "issued": "2019-03-04T00:00:00.000-05:00",
+        "result": [
+          {
+            "reference": "Observation/Observation-117652",
+            "display": "Cervical_Cancer_Report_Observation_1"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-117653"
+      }
+    }
+  ]
+}

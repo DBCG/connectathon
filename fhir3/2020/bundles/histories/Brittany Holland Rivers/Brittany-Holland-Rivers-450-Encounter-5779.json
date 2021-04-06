@@ -1,0 +1,151 @@
+{
+  "resourceType": "Bundle",
+  "id": "Brittany-Holland-Rivers-450-Encounter-5779",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-5779",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-5779",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "inpatient",
+          "display": "inpatient"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "32485007",
+                "display": "Hospital admission"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-450",
+          "display": "Brittany Holland Rivers"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2020-04-06T01:00:00-04:00",
+              "end": "2020-04-06T05:55:00-04:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-70",
+              "display": "Chad Boyd Moore MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2020-04-06T01:00:00-04:00",
+          "end": "2020-04-06T05:55:00-04:00"
+        },
+        "reason": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "68240008",
+                "display": "International Federation of Gynecology and Obstetrics cervical cancer stage II (finding) "
+              }
+            ]
+          }
+        ],
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-199",
+              "display": "Ruth Israel Hospital"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1022",
+          "display": "Ruth Israel Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-5779"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-159672",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-159672",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "88037ec6-02ae-4770-826d-e452741d8a4a"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "57556"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-450",
+          "display": "Brittany Holland Rivers"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-5779",
+          "display": "Cancer_Treatment_Encounter"
+        },
+        "performedPeriod": {
+          "start": "2020-04-06T01:00:00-04:00",
+          "end": "2020-04-06T05:55:00-04:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-70",
+              "display": "Chad Boyd Moore MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-199",
+          "display": "Ruth Israel Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-159672"
+      }
+    }
+  ]
+}

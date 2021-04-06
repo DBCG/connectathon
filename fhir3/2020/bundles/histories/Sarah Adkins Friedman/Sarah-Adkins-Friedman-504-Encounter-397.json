@@ -1,0 +1,318 @@
+{
+  "resourceType": "Bundle",
+  "id": "Sarah-Adkins-Friedman-504-Encounter-397",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-397",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-397",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "ambulatory",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://www.ama-assn.org/go/cpt",
+                "code": "99344",
+                "display": "Combined Office Visits"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-504",
+          "display": "Sarah Adkins Friedman"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2017-01-07T00:00:00-05:00",
+              "end": "2017-01-07T00:00:00-05:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-78",
+              "display": "Alex Lowery McGee MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2017-01-07T00:00:00-05:00",
+          "end": "2017-01-07T00:00:00-05:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-212",
+              "display": "Westland Memorial Hospital"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1023",
+          "display": "Westland Memorial Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-397"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-32658",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-32658",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "1ac1a465-1c62-48c3-99ff-a14415e74d18"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "77062"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-504",
+          "display": "Sarah Adkins Friedman"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-397",
+          "display": "Ambulatory_Encounter"
+        },
+        "performedPeriod": {
+          "start": "2017-01-07T00:00:00-05:00",
+          "end": "2017-01-07T00:00:00-05:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-78",
+              "display": "Alex Lowery McGee MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-212",
+          "display": "Westland Memorial Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-32658"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Condition/Condition-32660",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "Condition-32660",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-condition"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "30677c15-d4e9-453a-9993-28e51b2790aa"
+          }
+        ],
+        "clinicalStatus": "active",
+        "verificationStatus": "confirmed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "397145000",
+              "display": "Mammography assessment (Category 5) - Highly suggestive of malignancy"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-504",
+          "display": "Sarah Adkins Friedman"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-397",
+          "display": "Ambulatory_Encounter"
+        },
+        "onsetDateTime": "2017-01-07T00:00:00-05:00",
+        "assertedDate": "2017-01-07T00:00:00-05:00",
+        "asserter": {
+          "reference": "Practitioner/Practitioner-78",
+          "display": "Alex Lowery McGee MD"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Condition/Condition-32660"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-32661",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-32661",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "fba69e4e-01f7-4542-aeaa-4b75e941ddc0"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "397145000",
+              "display": "Mammography assessment (Category 5) - Highly suggestive of malignancy"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-504",
+          "display": "Sarah Adkins Friedman"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-397",
+          "display": "Ambulatory_Encounter"
+        },
+        "effectiveDateTime": "2017-01-07T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-78",
+            "display": "Alex Lowery McGee MD"
+          }
+        ],
+        "valueString": "POSITIVE"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-32661"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-32662",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "DiagnosticReport-32662",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-diagnosticreport"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "e8070080-2a43-4b98-978e-f5ba209944d0"
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "26289-9",
+              "display": "Breast - left Mammogram limited"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-504",
+          "display": "Sarah Adkins Friedman"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-397",
+          "display": "Ambulatory_Encounter"
+        },
+        "effectivePeriod": {
+          "start": "2017-01-07T00:00:00-05:00",
+          "end": "2017-01-07T00:00:00-05:00"
+        },
+        "issued": "2017-01-07T00:00:00.000-05:00",
+        "result": [
+          {
+            "reference": "Observation/Observation-32661",
+            "display": "Breast_Cancer_Report_Observation_1"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-32662"
+      }
+    }
+  ]
+}

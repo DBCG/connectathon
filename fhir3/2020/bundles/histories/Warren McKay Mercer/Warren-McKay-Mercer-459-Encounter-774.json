@@ -1,0 +1,221 @@
+{
+  "resourceType": "Bundle",
+  "id": "Warren-McKay-Mercer-459-Encounter-774",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-774",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-774",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "outpatient",
+          "display": "outpatient"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "https://www.cms.gov/Medicare/Coding/MedHCPCSGenInfo",
+                "code": "G0411",
+                "display": "Interactive group psychotherapy, in a partial hospitalization setting, approximately 45 to 50 minutes (G0411)"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-459",
+          "display": "Warren McKay Mercer"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2017-03-03T00:00:00-05:00",
+              "end": "2017-03-03T00:00:00-05:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-326",
+              "display": "Andy Russell Curry MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2017-03-03T00:00:00-05:00",
+          "end": "2017-03-03T00:00:00-05:00"
+        },
+        "reason": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "720452006",
+                "display": "Moderately severe recurrent major depression (disorder)"
+              }
+            ]
+          }
+        ],
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-253",
+              "display": "Eastside Internists"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1061",
+          "display": "Eastside Internists"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-774"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-41445",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-41445",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "c82ed32f-951c-44e7-8d5e-1bcb1d3f6cb1"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://test",
+              "code": "2.16.840.1.113883.3.67.1.101.11.723",
+              "display": "2.16.840.1.113883.3.67.1.101.11.723"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-459",
+          "display": "Warren McKay Mercer"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-774",
+          "display": "DRR_Encounter"
+        },
+        "performedPeriod": {
+          "start": "2017-03-03T00:00:00-05:00",
+          "end": "2017-03-03T00:00:00-05:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-326",
+              "display": "Andy Russell Curry MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-253",
+          "display": "Eastside Internists"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-41445"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-41446",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-41446",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "c40965dd-18b9-4948-a89b-e6ce9f99358a"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://cqframework.info/codesystem/placeholder",
+              "code": "00009",
+              "display": "PHQ-9 Modified Score"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-459",
+          "display": "Warren McKay Mercer"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-774",
+          "display": "DRR_Encounter"
+        },
+        "effectiveDateTime": "2017-03-03T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-326",
+            "display": "Andy Russell Curry MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 0.0,
+          "unit": "score"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-41446"
+      }
+    }
+  ]
+}

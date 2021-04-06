@@ -1,0 +1,144 @@
+{
+  "resourceType": "Bundle",
+  "id": "Patrick-Tim-Butler-442-Encounter-2147",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-2147",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-2147",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "outpatient",
+          "display": "outpatient"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "185345009",
+                "display": "Encounter for symptom"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-442",
+          "display": "Patrick Tim Butler"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2018-02-02T00:00:00-05:00",
+              "end": "2018-02-02T00:00:00-05:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-339",
+              "display": "Julie Horne Cox MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2018-02-02T00:00:00-05:00",
+          "end": "2018-02-02T00:00:00-05:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-257",
+              "display": "Down East Family Medicine"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1065",
+          "display": "Down East Family Medicine"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-2147"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-75948",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-75948",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "c429eec3-dd8d-4701-8182-fcec03677478"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "428171000124102",
+              "display": "Depression screening negative (finding)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-442",
+          "display": "Patrick Tim Butler"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-2147",
+          "display": "Wellness_Encounter"
+        },
+        "effectiveDateTime": "2018-02-02T00:00:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-339",
+            "display": "Julie Horne Cox MD"
+          }
+        ],
+        "valueString": "NEGATIVE"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-75948"
+      }
+    }
+  ]
+}

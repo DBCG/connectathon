@@ -1,0 +1,263 @@
+{
+  "resourceType": "Bundle",
+  "id": "Anthony-Little-Horne-491-Encounter-4132",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-4132",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-4132",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "ambulatory",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "185345009",
+                "display": "Encounter for symptom"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-491",
+          "display": "Anthony Little Horne"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2019-03-18T21:20:00-04:00",
+              "end": "2019-03-18T22:01:00-04:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-17",
+              "display": "Marcus Gerald Dominguez MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2019-03-18T21:20:00-04:00",
+          "end": "2019-03-18T22:01:00-04:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-124",
+              "display": "Gift of Mercy Hospital"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1005",
+          "display": "Gift of Mercy Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-4132"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-120619",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-120619",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "414f6ce0-6cfb-4e19-84c6-e79608ce0694"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "44388"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-491",
+          "display": "Anthony Little Horne"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-4132",
+          "display": "Colonoscopy_Encounter"
+        },
+        "performedPeriod": {
+          "start": "2019-03-18T21:20:00-04:00",
+          "end": "2019-03-18T22:01:00-04:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-17",
+              "display": "Marcus Gerald Dominguez MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-124",
+          "display": "Gift of Mercy Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-120619"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-120620",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-120620",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "464557f8-8308-40ce-bca5-102fa1fcaa66"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "25732003",
+              "display": "Fiberoptic colonoscopy with biopsy (procedure)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-491",
+          "display": "Anthony Little Horne"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-4132",
+          "display": "Colonoscopy_Encounter"
+        },
+        "effectiveDateTime": "2019-03-18T22:01:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-17",
+            "display": "Marcus Gerald Dominguez MD"
+          }
+        ],
+        "valueString": "NEGATIVE"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-120620"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-120621",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "DiagnosticReport-120621",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-diagnosticreport"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "2200172f-61fb-4043-9d82-a5fd440b83e0"
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "44392"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-491",
+          "display": "Anthony Little Horne"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-4132",
+          "display": "Colonoscopy_Encounter"
+        },
+        "effectivePeriod": {
+          "start": "2019-03-18T22:01:00-04:00",
+          "end": "2019-03-18T22:01:00-04:00"
+        },
+        "issued": "2019-03-18T22:01:00.000-04:00",
+        "result": [
+          {
+            "reference": "Observation/Observation-120620",
+            "display": "Negative_Colonoscopy_Diagnostic_Report_Observation_1"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-120621"
+      }
+    }
+  ]
+}

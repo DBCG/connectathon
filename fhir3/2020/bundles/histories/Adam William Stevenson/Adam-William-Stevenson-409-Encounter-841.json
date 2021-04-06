@@ -1,0 +1,273 @@
+{
+  "resourceType": "Bundle",
+  "id": "Adam-William-Stevenson-409-Encounter-841",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-841",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-841",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "outpatient",
+          "display": "outpatient"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "90526000",
+                "display": "Initial evaluation and management of healthy individual (procedure)"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-409",
+          "display": "Adam William Stevenson"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2017-03-23T01:00:00-04:00",
+              "end": "2017-03-23T01:00:00-04:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-338",
+              "display": "Marcia Evelyn Vance MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2017-03-23T01:00:00-04:00",
+          "end": "2017-03-23T01:00:00-04:00"
+        },
+        "reason": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "310495003",
+                "display": "Mild depression (disorder)"
+              }
+            ]
+          }
+        ],
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-257",
+              "display": "Down East Family Medicine"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1065",
+          "display": "Down East Family Medicine"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-841"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-44535",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-44535",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "c662d769-87c3-436a-a06a-21e209a6fb89"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://test",
+              "code": "2.16.840.1.113883.3.67.1.101.11.723",
+              "display": "2.16.840.1.113883.3.67.1.101.11.723"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-409",
+          "display": "Adam William Stevenson"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-841",
+          "display": "DRR_Encounter"
+        },
+        "performedPeriod": {
+          "start": "2017-03-23T01:00:00-04:00",
+          "end": "2017-03-23T01:00:00-04:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-338",
+              "display": "Marcia Evelyn Vance MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-257",
+          "display": "Down East Family Medicine"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-44535"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-44536",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-44536",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "71cef0e8-883c-4a79-9666-a15e0fe071e4"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://cqframework.info/codesystem/placeholder",
+              "code": "00009",
+              "display": "PHQ-9 Modified Score"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-409",
+          "display": "Adam William Stevenson"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-841",
+          "display": "DRR_Encounter"
+        },
+        "effectiveDateTime": "2017-03-23T01:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-338",
+            "display": "Marcia Evelyn Vance MD"
+          }
+        ],
+        "valueQuantity": {
+          "value": 4.0,
+          "unit": "score"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-44536"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-44538",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "DiagnosticReport-44538",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-diagnosticreport"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "26d974ec-b7f6-4801-ab60-cb9407bf7c09"
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-9-cm",
+              "code": "296.32",
+              "display": "Major depressive affective disorder, recurrent episode, moderate"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-409",
+          "display": "Adam William Stevenson"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-841",
+          "display": "DRR_Encounter"
+        },
+        "effectivePeriod": {
+          "start": "2017-03-23T01:00:00-04:00",
+          "end": "2017-03-23T01:00:00-04:00"
+        },
+        "issued": "2017-03-23T01:00:00.000-04:00"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-44538"
+      }
+    }
+  ]
+}

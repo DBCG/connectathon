@@ -1,0 +1,163 @@
+{
+  "resourceType": "Bundle",
+  "id": "Lori-McCullough-Rush-2686-Encounter-884",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-884",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-884",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "inpatient",
+          "display": "inpatient"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "32485007",
+                "display": "Hospital admission"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-2686",
+          "display": "Lori McCullough Rush"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2019-03-14T01:00:00-04:00",
+              "end": "2019-03-14T08:51:00-04:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-2263",
+              "display": "Jerry Choi Walter MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2019-03-14T01:00:00-04:00",
+          "end": "2019-03-14T08:51:00-04:00"
+        },
+        "reason": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "397145000",
+                "display": "Mammography assessment (Category 5) - Highly suggestive of malignancy"
+              }
+            ]
+          }
+        ],
+        "hospitalization": {
+          "dischargeDisposition": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/discharge-disposition",
+                "code": "home",
+                "display": "Home"
+              }
+            ]
+          }
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-181",
+              "display": "Mother Charity Hospital"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1015",
+          "display": "Mother Charity Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-884"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-109497",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-109497",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "4f22d4d8-3236-474c-b204-b4caf55232c1"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "70183006",
+              "display": "Subcutaneous mastectomy (procedure)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2686",
+          "display": "Lori McCullough Rush"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-884",
+          "display": "Cancer_Treatment_Encounter"
+        },
+        "performedPeriod": {
+          "start": "2019-03-14T01:00:00-04:00",
+          "end": "2019-03-14T08:51:00-04:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-2263",
+              "display": "Jerry Choi Walter MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-181",
+          "display": "Mother Charity Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-109497"
+      }
+    }
+  ]
+}

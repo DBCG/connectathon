@@ -1,0 +1,264 @@
+{
+  "resourceType": "Bundle",
+  "id": "Erik-Byron-Singleton-III-502-Encounter-2337",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-2337",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-2337",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "ambulatory",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "185345009",
+                "display": "Encounter for symptom"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-502",
+          "display": "Erik Byron Singleton III"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2018-02-11T10:15:00-05:00",
+              "end": "2018-02-11T10:46:00-05:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-3",
+              "display": "Nicholas Brett Sanford MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2018-02-11T10:15:00-05:00",
+          "end": "2018-02-11T10:46:00-05:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-111",
+              "display": "Windward General Hospital"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1004",
+          "display": "Windward General Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-2337"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-79149",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-79149",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "c4767c4d-656c-4d88-9278-2ccace482195"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "45345"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-502",
+          "display": "Erik Byron Singleton III"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-2337",
+          "display": "Sigmoidoscopy_Encounter"
+        },
+        "performedPeriod": {
+          "start": "2018-02-11T10:15:00-05:00",
+          "end": "2018-02-11T10:46:00-05:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-3",
+              "display": "Nicholas Brett Sanford MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-111",
+          "display": "Windward General Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-79149"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-79150",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Observation-79150",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-observation"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "cb0fa50c-53e1-4963-a7f2-3123f3a8f070"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "45345",
+              "display": "Sigmoidoscopy, flexible; with transendoscopic stent placement (includes predilation)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-502",
+          "display": "Erik Byron Singleton III"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-2337",
+          "display": "Sigmoidoscopy_Encounter"
+        },
+        "effectiveDateTime": "2018-02-11T10:46:00-05:00",
+        "performer": [
+          {
+            "reference": "Practitioner/Practitioner-3",
+            "display": "Nicholas Brett Sanford MD"
+          }
+        ],
+        "valueString": "NEGATIVE"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Observation/Observation-79150"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-79151",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "DiagnosticReport-79151",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-diagnosticreport"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2018 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "77afed78-2e15-415f-a7fe-ce3cf227405c"
+          }
+        ],
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "45331",
+              "display": "Sigmoidoscopy, flexible; with biopsy, single or multiple"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-502",
+          "display": "Erik Byron Singleton III"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-2337",
+          "display": "Sigmoidoscopy_Encounter"
+        },
+        "effectivePeriod": {
+          "start": "2018-02-11T10:46:00-05:00",
+          "end": "2018-02-11T10:46:00-05:00"
+        },
+        "issued": "2018-02-11T10:46:00.000-05:00",
+        "result": [
+          {
+            "reference": "Observation/Observation-79150",
+            "display": "Negative_Sigmoidoscopy_Diagnostic_Report_Observation_1"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/DiagnosticReport/DiagnosticReport-79151"
+      }
+    }
+  ]
+}

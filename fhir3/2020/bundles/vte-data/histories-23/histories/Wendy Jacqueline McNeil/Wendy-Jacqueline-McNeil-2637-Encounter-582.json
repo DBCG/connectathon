@@ -1,0 +1,255 @@
+{
+  "resourceType": "Bundle",
+  "id": "Wendy-Jacqueline-McNeil-2637-Encounter-582",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-582",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "Encounter-582",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-encounter"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "finished",
+        "class": {
+          "system": "http://hl7.org/fhir/encounter-class",
+          "code": "ambulatory",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "428191000124101",
+                "display": "Documentation of current medications"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-2637",
+          "display": "Wendy Jacqueline McNeil"
+        },
+        "participant": [
+          {
+            "period": {
+              "start": "2017-09-26T00:00:00-04:00",
+              "end": "2017-09-26T00:00:00-04:00"
+            },
+            "individual": {
+              "reference": "Practitioner/Practitioner-2252",
+              "display": "George Michael Hutchinson MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2017-09-26T00:00:00-04:00",
+          "end": "2017-09-26T00:00:00-04:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/Location-168",
+              "display": "St. Michael's Hospital"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/Organization-1014",
+          "display": "St. Michael's Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Encounter/Encounter-582"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Task/Task-59513",
+      "resource": {
+        "resourceType": "Task",
+        "id": "Task-59513",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "status": "accepted",
+        "intent": "original-order",
+        "code": {
+          "coding": [
+            {
+              "system": "SNOMED-CT",
+              "code": "430193006",
+              "display": "Medication Reconciliation (procedure)"
+            }
+          ]
+        },
+        "description": "Care_Plan_Start Task 1",
+        "for": {
+          "reference": "Patient/Patient-2637",
+          "display": "Wendy Jacqueline McNeil"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-582",
+          "display": "Ambulatory_Encounter"
+        },
+        "executionPeriod": {
+          "start": "2017-09-26T00:00:00-04:00",
+          "end": "2017-09-26T00:00:00-04:00"
+        },
+        "authoredOn": "2017-09-26T00:00:00-04:00",
+        "requester": {
+          "agent": {
+            "reference": "Practitioner/Practitioner-2252",
+            "display": "George Michael Hutchinson MD"
+          },
+          "onBehalfOf": {
+            "reference": "Organization/Organization-1014",
+            "display": "St. Michael's Hospital"
+          }
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Task/Task-59513"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/CarePlan/CarePlan-59512",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "CarePlan-59512",
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "05a9bf0e-b484-4304-bfdb-58eae7649890"
+          }
+        ],
+        "status": "active",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "430193006",
+                "display": "Medication Reconciliation (procedure)"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/Patient-2637",
+          "display": "Wendy Jacqueline McNeil"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-582",
+          "display": "Ambulatory_Encounter"
+        },
+        "period": {
+          "start": "2017-09-26T00:00:00-04:00",
+          "end": "2017-09-26T00:00:00-04:00"
+        },
+        "author": [
+          {
+            "reference": "Practitioner/Practitioner-2252",
+            "display": "George Michael Hutchinson MD"
+          }
+        ],
+        "activity": [
+          {
+            "reference": {
+              "reference": "Task/Task-59513",
+              "display": "Care_Plan_Start Task 1"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/CarePlan/CarePlan-59512"
+      }
+    },
+    {
+      "fullUrl": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-59514",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "Procedure-59514",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/hedis/StructureDefinition/hedis-procedure"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mihin.org/extension/copyright",
+            "valueString": "Copyright 2014-2019 Michigan Health Information Network Shared Services. Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0.  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "system": "mihin.org/fhir/sid/elementId",
+            "value": "6af9d0b0-9b3c-4e44-aaff-46796957e5b0"
+          }
+        ],
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "430193006",
+              "display": "Medication Reconciliation (procedure)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/Patient-2637",
+          "display": "Wendy Jacqueline McNeil"
+        },
+        "context": {
+          "reference": "Encounter/Encounter-582",
+          "display": "Ambulatory_Encounter"
+        },
+        "performedPeriod": {
+          "start": "2017-09-26T00:00:00-04:00",
+          "end": "2017-09-26T00:00:00-04:00"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/Practitioner-2252",
+              "display": "George Michael Hutchinson MD"
+            }
+          }
+        ],
+        "location": {
+          "reference": "Location/Location-168",
+          "display": "St. Michael's Hospital"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "http://localhost:8080/cqf-ruler/baseDstu3/Procedure/Procedure-59514"
+      }
+    }
+  ]
+}
