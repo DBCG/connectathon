@@ -4,54 +4,33 @@
   "type": "transaction",
   "entry": [ {
     "resource": {
-      "resourceType": "Patient",
-      "id": "denomex-EXM105-FHIR3",
+      "resourceType": "Condition",
+      "id": "denomex-EXM105-FHIR3-1",
       "meta": {
-        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient" ]
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition" ]
       },
-      "extension": [ {
-        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
-        "extension": [ {
-          "url": "ombCategory",
-          "valueCoding": {
-            "system": "urn:oid:2.16.840.1.113883.6.238",
-            "code": "2106-3",
-            "display": "White"
-          }
-        } ]
-      }, {
-        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
-        "extension": [ {
-          "url": "ombCategory",
-          "valueCoding": {
-            "system": "urn:oid:2.16.840.1.113883.6.238",
-            "code": "2186-5",
-            "display": "Not Hispanic or Latino"
-          }
+      "verificationStatus": "confirmed",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "encounter-diagnosis",
+          "display": "Encounter Diagnosis"
         } ]
       } ],
-      "identifier": [ {
-        "use": "usual",
-        "type": {
-          "coding": [ {
-            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-            "code": "MR",
-            "display": "Medical Record Number"
-          } ]
-        },
-        "system": "http://hospital.smarthealthit.org",
-        "value": "9999999911"
-      } ],
-      "name": [ {
-        "family": "Jones",
-        "given": [ "Louise" ]
-      } ],
-      "gender": "female",
-      "birthDate": "1971-11-21"
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "116288000",
+          "display": "Paralytic stroke (disorder)"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/denomex-EXM105-FHIR3"
+      }
     },
     "request": {
       "method": "PUT",
-      "url": "Patient/denomex-EXM105-FHIR3"
+      "url": "Condition/denomex-EXM105-FHIR3-1"
     }
   }, {
     "resource": {
@@ -109,73 +88,124 @@
     }
   }, {
     "resource": {
+      "resourceType": "MedicationRequest",
+      "id": "denomex-EXM105-FHIR3-5",
+      "status": "completed",
+      "intent": "order",
+      "category": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+          "code": "discharge",
+          "display": "Discharge"
+        } ]
+      },
+      "medicationCodeableConcept": {
+        "coding": [ {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "197903",
+          "display": "Lovastatin 10 MG Oral Tablet"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/denomex-EXM105-FHIR3"
+      },
+      "authoredOn": "2019-12-19T08:00:00-07:00"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "MedicationRequest/denomex-EXM105-FHIR3-5"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Patient",
+      "id": "denomex-EXM105-FHIR3",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient" ]
+      },
+      "extension": [ {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [ {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2106-3",
+            "display": "White"
+          }
+        } ]
+      }, {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [ {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2186-5",
+            "display": "Not Hispanic or Latino"
+          }
+        } ]
+      } ],
+      "identifier": [ {
+        "use": "usual",
+        "type": {
+          "coding": [ {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR",
+            "display": "Medical Record Number"
+          } ]
+        },
+        "system": "http://hospital.smarthealthit.org",
+        "value": "9999999911"
+      } ],
+      "name": [ {
+        "family": "Jones",
+        "given": [ "Louise" ]
+      } ],
+      "gender": "female",
+      "birthDate": "1971-11-21"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Patient/denomex-EXM105-FHIR3"
+    }
+  }, {
+    "resource": {
       "resourceType": "Bundle",
-      "id": "tests-MedicationRequest-bundle",
+      "id": "tests-Condition-bundle",
       "type": "transaction",
       "entry": [ {
         "resource": {
-          "resourceType": "MedicationRequest",
-          "id": "denomex-EXM105-FHIR3-5",
-          "status": "completed",
-          "intent": "order",
-          "category": {
-            "coding": [ {
-              "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
-              "code": "discharge",
-              "display": "Discharge"
-            } ]
+          "resourceType": "Condition",
+          "id": "denomex-EXM105-FHIR3-1",
+          "meta": {
+            "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition" ]
           },
-          "medicationCodeableConcept": {
+          "verificationStatus": "confirmed",
+          "category": [ {
             "coding": [ {
-              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-              "code": "197903",
-              "display": "Lovastatin 10 MG Oral Tablet"
+              "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+              "code": "encounter-diagnosis",
+              "display": "Encounter Diagnosis"
+            } ]
+          } ],
+          "code": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "code": "116288000",
+              "display": "Paralytic stroke (disorder)"
             } ]
           },
           "subject": {
             "reference": "Patient/denomex-EXM105-FHIR3"
-          },
-          "authoredOn": "2019-12-19T08:00:00-07:00"
+          }
         },
         "request": {
           "method": "PUT",
-          "url": "MedicationRequest/denomex-EXM105-FHIR3-5"
+          "url": "Condition/denomex-EXM105-FHIR3-1"
         }
       } ]
     },
     "request": {
       "method": "PUT",
-      "url": "tests-MedicationRequest-bundle"
-    }
-  }, {
-    "resource": {
-      "resourceType": "Condition",
-      "id": "denomex-EXM105-FHIR3-1",
-      "meta": {
-        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition" ]
-      },
-      "verificationStatus": "confirmed",
-      "category": [ {
-        "coding": [ {
-          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
-          "code": "encounter-diagnosis",
-          "display": "Encounter Diagnosis"
-        } ]
-      } ],
-      "code": {
-        "coding": [ {
-          "system": "http://snomed.info/sct",
-          "code": "116288000",
-          "display": "Paralytic stroke (disorder)"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/denomex-EXM105-FHIR3"
-      }
-    },
-    "request": {
-      "method": "PUT",
-      "url": "Condition/denomex-EXM105-FHIR3-1"
+      "url": "tests-Condition-bundle"
     }
   }, {
     "resource": {
@@ -245,43 +275,42 @@
   }, {
     "resource": {
       "resourceType": "Bundle",
-      "id": "tests-Condition-bundle",
+      "id": "tests-MedicationRequest-bundle",
       "type": "transaction",
       "entry": [ {
         "resource": {
-          "resourceType": "Condition",
-          "id": "denomex-EXM105-FHIR3-1",
-          "meta": {
-            "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition" ]
-          },
-          "verificationStatus": "confirmed",
-          "category": [ {
+          "resourceType": "MedicationRequest",
+          "id": "denomex-EXM105-FHIR3-5",
+          "status": "completed",
+          "intent": "order",
+          "category": {
             "coding": [ {
-              "system": "http://terminology.hl7.org/CodeSystem/condition-category",
-              "code": "encounter-diagnosis",
-              "display": "Encounter Diagnosis"
+              "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+              "code": "discharge",
+              "display": "Discharge"
             } ]
-          } ],
-          "code": {
+          },
+          "medicationCodeableConcept": {
             "coding": [ {
-              "system": "http://snomed.info/sct",
-              "code": "116288000",
-              "display": "Paralytic stroke (disorder)"
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "197903",
+              "display": "Lovastatin 10 MG Oral Tablet"
             } ]
           },
           "subject": {
             "reference": "Patient/denomex-EXM105-FHIR3"
-          }
+          },
+          "authoredOn": "2019-12-19T08:00:00-07:00"
         },
         "request": {
           "method": "PUT",
-          "url": "Condition/denomex-EXM105-FHIR3-1"
+          "url": "MedicationRequest/denomex-EXM105-FHIR3-5"
         }
       } ]
     },
     "request": {
       "method": "PUT",
-      "url": "tests-Condition-bundle"
+      "url": "tests-MedicationRequest-bundle"
     }
   }, {
     "resource": {
@@ -344,35 +373,6 @@
     "request": {
       "method": "PUT",
       "url": "tests-Patient-bundle"
-    }
-  }, {
-    "resource": {
-      "resourceType": "MedicationRequest",
-      "id": "denomex-EXM105-FHIR3-5",
-      "status": "completed",
-      "intent": "order",
-      "category": {
-        "coding": [ {
-          "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
-          "code": "discharge",
-          "display": "Discharge"
-        } ]
-      },
-      "medicationCodeableConcept": {
-        "coding": [ {
-          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-          "code": "197903",
-          "display": "Lovastatin 10 MG Oral Tablet"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/denomex-EXM105-FHIR3"
-      },
-      "authoredOn": "2019-12-19T08:00:00-07:00"
-    },
-    "request": {
-      "method": "PUT",
-      "url": "MedicationRequest/denomex-EXM105-FHIR3-5"
     }
   } ]
 }

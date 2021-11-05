@@ -4,54 +4,33 @@
   "type": "transaction",
   "entry": [ {
     "resource": {
-      "resourceType": "Patient",
-      "id": "numer-EXM161-FHIR3",
+      "resourceType": "Condition",
+      "id": "numer-EXM161-FHIR3-8",
       "meta": {
-        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient" ]
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition" ]
       },
-      "extension": [ {
-        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
-        "extension": [ {
-          "url": "ombCategory",
-          "valueCoding": {
-            "system": "urn:oid:2.16.840.1.113883.6.238",
-            "code": "2106-3",
-            "display": "White"
-          }
-        } ]
-      }, {
-        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
-        "extension": [ {
-          "url": "ombCategory",
-          "valueCoding": {
-            "system": "urn:oid:2.16.840.1.113883.6.238",
-            "code": "2186-5",
-            "display": "Not Hispanic or Latino"
-          }
+      "verificationStatus": "confirmed",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "encounter-diagnosis",
+          "display": "Encounter Diagnosis"
         } ]
       } ],
-      "identifier": [ {
-        "use": "usual",
-        "type": {
-          "coding": [ {
-            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-            "code": "MR",
-            "display": "Medical Record Number"
-          } ]
-        },
-        "system": "http://hospital.smarthealthit.org",
-        "value": "9999999911"
-      } ],
-      "name": [ {
-        "family": "Jones",
-        "given": [ "Louise" ]
-      } ],
-      "gender": "female",
-      "birthDate": "1971-11-21"
+      "code": {
+        "coding": [ {
+          "system": "http://hl7.org/fhir/sid/icd-10",
+          "code": "F32.0",
+          "display": "Major depressive disorder, single episode, mild"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/numer-EXM161-FHIR3"
+      }
     },
     "request": {
       "method": "PUT",
-      "url": "Patient/numer-EXM161-FHIR3"
+      "url": "Condition/numer-EXM161-FHIR3-8"
     }
   }, {
     "resource": {
@@ -336,33 +315,122 @@
     }
   }, {
     "resource": {
-      "resourceType": "Condition",
-      "id": "numer-EXM161-FHIR3-8",
+      "resourceType": "Patient",
+      "id": "numer-EXM161-FHIR3",
       "meta": {
-        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition" ]
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient" ]
       },
-      "verificationStatus": "confirmed",
-      "category": [ {
-        "coding": [ {
-          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
-          "code": "encounter-diagnosis",
-          "display": "Encounter Diagnosis"
+      "extension": [ {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [ {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2106-3",
+            "display": "White"
+          }
+        } ]
+      }, {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [ {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2186-5",
+            "display": "Not Hispanic or Latino"
+          }
         } ]
       } ],
+      "identifier": [ {
+        "use": "usual",
+        "type": {
+          "coding": [ {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR",
+            "display": "Medical Record Number"
+          } ]
+        },
+        "system": "http://hospital.smarthealthit.org",
+        "value": "9999999911"
+      } ],
+      "name": [ {
+        "family": "Jones",
+        "given": [ "Louise" ]
+      } ],
+      "gender": "female",
+      "birthDate": "1971-11-21"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Patient/numer-EXM161-FHIR3"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Procedure",
+      "id": "numer-EXM161-FHIR3-5",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure" ]
+      },
+      "status": "completed",
       "code": {
         "coding": [ {
-          "system": "http://hl7.org/fhir/sid/icd-10",
-          "code": "F32.0",
-          "display": "Major depressive disorder, single episode, mild"
+          "system": "https://snomed.info/sct",
+          "code": "225337009",
+          "display": "Suicide risk assessment (procedure)"
         } ]
       },
       "subject": {
         "reference": "Patient/numer-EXM161-FHIR3"
+      },
+      "performedPeriod": {
+        "start": "2019-08-24T00:00:00-06:00",
+        "end": "2019-10-19T08:15:00-07:00"
       }
     },
     "request": {
       "method": "PUT",
-      "url": "Condition/numer-EXM161-FHIR3-8"
+      "url": "Procedure/numer-EXM161-FHIR3-5"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Bundle",
+      "id": "tests-Condition-bundle",
+      "type": "transaction",
+      "entry": [ {
+        "resource": {
+          "resourceType": "Condition",
+          "id": "numer-EXM161-FHIR3-8",
+          "meta": {
+            "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition" ]
+          },
+          "verificationStatus": "confirmed",
+          "category": [ {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+              "code": "encounter-diagnosis",
+              "display": "Encounter Diagnosis"
+            } ]
+          } ],
+          "code": {
+            "coding": [ {
+              "system": "http://hl7.org/fhir/sid/icd-10",
+              "code": "F32.0",
+              "display": "Major depressive disorder, single episode, mild"
+            } ]
+          },
+          "subject": {
+            "reference": "Patient/numer-EXM161-FHIR3"
+          }
+        },
+        "request": {
+          "method": "PUT",
+          "url": "Condition/numer-EXM161-FHIR3-8"
+        }
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "tests-Condition-bundle"
     }
   }, {
     "resource": {
@@ -414,47 +482,6 @@
     "request": {
       "method": "PUT",
       "url": "tests-Encounter-bundle"
-    }
-  }, {
-    "resource": {
-      "resourceType": "Bundle",
-      "id": "tests-Condition-bundle",
-      "type": "transaction",
-      "entry": [ {
-        "resource": {
-          "resourceType": "Condition",
-          "id": "numer-EXM161-FHIR3-8",
-          "meta": {
-            "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition" ]
-          },
-          "verificationStatus": "confirmed",
-          "category": [ {
-            "coding": [ {
-              "system": "http://terminology.hl7.org/CodeSystem/condition-category",
-              "code": "encounter-diagnosis",
-              "display": "Encounter Diagnosis"
-            } ]
-          } ],
-          "code": {
-            "coding": [ {
-              "system": "http://hl7.org/fhir/sid/icd-10",
-              "code": "F32.0",
-              "display": "Major depressive disorder, single episode, mild"
-            } ]
-          },
-          "subject": {
-            "reference": "Patient/numer-EXM161-FHIR3"
-          }
-        },
-        "request": {
-          "method": "PUT",
-          "url": "Condition/numer-EXM161-FHIR3-8"
-        }
-      } ]
-    },
-    "request": {
-      "method": "PUT",
-      "url": "tests-Condition-bundle"
     }
   }, {
     "resource": {
@@ -517,33 +544,6 @@
     "request": {
       "method": "PUT",
       "url": "tests-Patient-bundle"
-    }
-  }, {
-    "resource": {
-      "resourceType": "Procedure",
-      "id": "numer-EXM161-FHIR3-5",
-      "meta": {
-        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure" ]
-      },
-      "status": "completed",
-      "code": {
-        "coding": [ {
-          "system": "https://snomed.info/sct",
-          "code": "225337009",
-          "display": "Suicide risk assessment (procedure)"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/numer-EXM161-FHIR3"
-      },
-      "performedPeriod": {
-        "start": "2019-08-24T00:00:00-06:00",
-        "end": "2019-10-19T08:15:00-07:00"
-      }
-    },
-    "request": {
-      "method": "PUT",
-      "url": "Procedure/numer-EXM161-FHIR3-5"
     }
   }, {
     "resource": {

@@ -4,6 +4,81 @@
   "type": "transaction",
   "entry": [ {
     "resource": {
+      "resourceType": "Condition",
+      "id": "numer-EXM104-FHIR3-1",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition" ]
+      },
+      "verificationStatus": "confirmed",
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "encounter-diagnosis",
+          "display": "Encounter Diagnosis"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "116288000",
+          "display": "Paralytic stroke (disorder)"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/numer-EXM104-FHIR3"
+      }
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Condition/numer-EXM104-FHIR3-1"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Encounter",
+      "id": "numer-EXM104-FHIR3-2",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter" ]
+      },
+      "status": "finished",
+      "class": {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "IMP",
+        "display": "inpatient encounter"
+      },
+      "type": [ {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "32485007",
+          "display": "Hospital admission (procedure)"
+        } ]
+      } ],
+      "subject": {
+        "reference": "Patient/numer-EXM104-FHIR3"
+      },
+      "period": {
+        "start": "2019-08-21T00:00:00-06:00",
+        "end": "2019-12-19T08:15:00-07:00"
+      },
+      "diagnosis": [ {
+        "condition": {
+          "reference": "Condition/numer-EXM104-FHIR3-1"
+        },
+        "role": {
+          "coding": [ {
+            "system": "http://hl7.org/fhir/diagnosis-role",
+            "code": "billing",
+            "display": "Billing"
+          } ]
+        },
+        "rank": 1
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Encounter/numer-EXM104-FHIR3-2"
+    }
+  }, {
+    "resource": {
       "resourceType": "MeasureReport",
       "id": "measurereport-numer-EXM104-FHIR3",
       "contained": [ {
@@ -277,6 +352,35 @@
     }
   }, {
     "resource": {
+      "resourceType": "MedicationRequest",
+      "id": "numer-EXM104-FHIR3-5",
+      "status": "completed",
+      "intent": "order",
+      "category": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+          "code": "discharge",
+          "display": "Discharge"
+        } ]
+      },
+      "medicationCodeableConcept": {
+        "coding": [ {
+          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+          "code": "1037045",
+          "display": "dabigatran etexilate 150 MG Oral Capsule"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/numer-EXM104-FHIR3"
+      },
+      "authoredOn": "2019-12-19T08:00:00-07:00"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "MedicationRequest/numer-EXM104-FHIR3-5"
+    }
+  }, {
+    "resource": {
       "resourceType": "Patient",
       "id": "numer-EXM104-FHIR3",
       "meta": {
@@ -328,118 +432,44 @@
     }
   }, {
     "resource": {
-      "resourceType": "Encounter",
-      "id": "numer-EXM104-FHIR3-2",
-      "meta": {
-        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter" ]
-      },
-      "status": "finished",
-      "class": {
-        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-        "code": "IMP",
-        "display": "inpatient encounter"
-      },
-      "type": [ {
-        "coding": [ {
-          "system": "http://snomed.info/sct",
-          "code": "32485007",
-          "display": "Hospital admission (procedure)"
-        } ]
-      } ],
-      "subject": {
-        "reference": "Patient/numer-EXM104-FHIR3"
-      },
-      "period": {
-        "start": "2019-08-21T00:00:00-06:00",
-        "end": "2019-12-19T08:15:00-07:00"
-      },
-      "diagnosis": [ {
-        "condition": {
-          "reference": "Condition/numer-EXM104-FHIR3-1"
-        },
-        "role": {
-          "coding": [ {
-            "system": "http://hl7.org/fhir/diagnosis-role",
-            "code": "billing",
-            "display": "Billing"
-          } ]
-        },
-        "rank": 1
-      } ]
-    },
-    "request": {
-      "method": "PUT",
-      "url": "Encounter/numer-EXM104-FHIR3-2"
-    }
-  }, {
-    "resource": {
       "resourceType": "Bundle",
-      "id": "tests-MedicationRequest-bundle",
+      "id": "tests-Condition-bundle",
       "type": "transaction",
       "entry": [ {
         "resource": {
-          "resourceType": "MedicationRequest",
-          "id": "numer-EXM104-FHIR3-5",
-          "status": "completed",
-          "intent": "order",
-          "category": {
-            "coding": [ {
-              "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
-              "code": "discharge",
-              "display": "Discharge"
-            } ]
+          "resourceType": "Condition",
+          "id": "numer-EXM104-FHIR3-1",
+          "meta": {
+            "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition" ]
           },
-          "medicationCodeableConcept": {
+          "verificationStatus": "confirmed",
+          "category": [ {
             "coding": [ {
-              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-              "code": "1037045",
-              "display": "dabigatran etexilate 150 MG Oral Capsule"
+              "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+              "code": "encounter-diagnosis",
+              "display": "Encounter Diagnosis"
+            } ]
+          } ],
+          "code": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "code": "116288000",
+              "display": "Paralytic stroke (disorder)"
             } ]
           },
           "subject": {
             "reference": "Patient/numer-EXM104-FHIR3"
-          },
-          "authoredOn": "2019-12-19T08:00:00-07:00"
+          }
         },
         "request": {
           "method": "PUT",
-          "url": "MedicationRequest/numer-EXM104-FHIR3-5"
+          "url": "Condition/numer-EXM104-FHIR3-1"
         }
       } ]
     },
     "request": {
       "method": "PUT",
-      "url": "tests-MedicationRequest-bundle"
-    }
-  }, {
-    "resource": {
-      "resourceType": "Condition",
-      "id": "numer-EXM104-FHIR3-1",
-      "meta": {
-        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition" ]
-      },
-      "verificationStatus": "confirmed",
-      "category": [ {
-        "coding": [ {
-          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
-          "code": "encounter-diagnosis",
-          "display": "Encounter Diagnosis"
-        } ]
-      } ],
-      "code": {
-        "coding": [ {
-          "system": "http://snomed.info/sct",
-          "code": "116288000",
-          "display": "Paralytic stroke (disorder)"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/numer-EXM104-FHIR3"
-      }
-    },
-    "request": {
-      "method": "PUT",
-      "url": "Condition/numer-EXM104-FHIR3-1"
+      "url": "tests-Condition-bundle"
     }
   }, {
     "resource": {
@@ -500,43 +530,42 @@
   }, {
     "resource": {
       "resourceType": "Bundle",
-      "id": "tests-Condition-bundle",
+      "id": "tests-MedicationRequest-bundle",
       "type": "transaction",
       "entry": [ {
         "resource": {
-          "resourceType": "Condition",
-          "id": "numer-EXM104-FHIR3-1",
-          "meta": {
-            "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition" ]
-          },
-          "verificationStatus": "confirmed",
-          "category": [ {
+          "resourceType": "MedicationRequest",
+          "id": "numer-EXM104-FHIR3-5",
+          "status": "completed",
+          "intent": "order",
+          "category": {
             "coding": [ {
-              "system": "http://terminology.hl7.org/CodeSystem/condition-category",
-              "code": "encounter-diagnosis",
-              "display": "Encounter Diagnosis"
+              "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
+              "code": "discharge",
+              "display": "Discharge"
             } ]
-          } ],
-          "code": {
+          },
+          "medicationCodeableConcept": {
             "coding": [ {
-              "system": "http://snomed.info/sct",
-              "code": "116288000",
-              "display": "Paralytic stroke (disorder)"
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "1037045",
+              "display": "dabigatran etexilate 150 MG Oral Capsule"
             } ]
           },
           "subject": {
             "reference": "Patient/numer-EXM104-FHIR3"
-          }
+          },
+          "authoredOn": "2019-12-19T08:00:00-07:00"
         },
         "request": {
           "method": "PUT",
-          "url": "Condition/numer-EXM104-FHIR3-1"
+          "url": "MedicationRequest/numer-EXM104-FHIR3-5"
         }
       } ]
     },
     "request": {
       "method": "PUT",
-      "url": "tests-Condition-bundle"
+      "url": "tests-MedicationRequest-bundle"
     }
   }, {
     "resource": {
@@ -599,35 +628,6 @@
     "request": {
       "method": "PUT",
       "url": "tests-Patient-bundle"
-    }
-  }, {
-    "resource": {
-      "resourceType": "MedicationRequest",
-      "id": "numer-EXM104-FHIR3-5",
-      "status": "completed",
-      "intent": "order",
-      "category": {
-        "coding": [ {
-          "system": "http://terminology.hl7.org/CodeSystem/medicationrequest-category",
-          "code": "discharge",
-          "display": "Discharge"
-        } ]
-      },
-      "medicationCodeableConcept": {
-        "coding": [ {
-          "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
-          "code": "1037045",
-          "display": "dabigatran etexilate 150 MG Oral Capsule"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/numer-EXM104-FHIR3"
-      },
-      "authoredOn": "2019-12-19T08:00:00-07:00"
-    },
-    "request": {
-      "method": "PUT",
-      "url": "MedicationRequest/numer-EXM104-FHIR3-5"
     }
   } ]
 }

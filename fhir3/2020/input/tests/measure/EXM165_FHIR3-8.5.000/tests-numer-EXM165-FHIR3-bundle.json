@@ -4,162 +4,6 @@
   "type": "transaction",
   "entry": [ {
     "resource": {
-      "resourceType": "Patient",
-      "id": "numer-EXM165-FHIR3",
-      "meta": {
-        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient" ]
-      },
-      "extension": [ {
-        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
-        "extension": [ {
-          "url": "ombCategory",
-          "valueCoding": {
-            "system": "urn:oid:2.16.840.1.113883.6.238",
-            "code": "2054-5",
-            "display": "Black or African American"
-          }
-        } ]
-      }, {
-        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
-        "extension": [ {
-          "url": "ombCategory",
-          "valueCoding": {
-            "system": "urn:oid:2.16.840.1.113883.6.238",
-            "code": "2186-5",
-            "display": "Not Hispanic or Latino"
-          }
-        } ]
-      } ],
-      "identifier": [ {
-        "use": "usual",
-        "type": {
-          "coding": [ {
-            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-            "code": "MR",
-            "display": "Medical Record Number"
-          } ]
-        },
-        "system": "http://hospital.smarthealthit.org",
-        "value": "999999993"
-      } ],
-      "name": [ {
-        "family": "Doe",
-        "given": [ "Jill" ]
-      } ],
-      "gender": "female",
-      "birthDate": "1975-08-25"
-    },
-    "request": {
-      "method": "PUT",
-      "url": "Patient/numer-EXM165-FHIR3"
-    }
-  }, {
-    "resource": {
-      "resourceType": "Observation",
-      "id": "numer-EXM165-FHIR3-5",
-      "meta": {
-        "profile": [ "http://www.http://hl7.org/fhir/FHIR3/observation" ]
-      },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "http://loinc.org",
-          "code": "85354-9",
-          "display": "blood pressure"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/numer-EXM165-FHIR3"
-      },
-      "effectiveDateTime": "2019-11-01T05:00:00",
-      "component": [ {
-        "code": {
-          "coding": [ {
-            "system": "http://loinc.org",
-            "code": "8462-4",
-            "display": "Diastolic blood pressure"
-          } ]
-        },
-        "valueQuantity": {
-          "value": 89,
-          "unit": "mm[Hg]"
-        }
-      } ]
-    },
-    "request": {
-      "method": "PUT",
-      "url": "Observation/numer-EXM165-FHIR3-5"
-    }
-  }, {
-    "resource": {
-      "resourceType": "Observation",
-      "id": "numer-EXM165-FHIR3-4",
-      "meta": {
-        "profile": [ "http://www.http://hl7.org/fhir/FHIR3/observation" ]
-      },
-      "status": "final",
-      "code": {
-        "coding": [ {
-          "system": "http://loinc.org",
-          "code": "85354-9",
-          "display": "blood pressure"
-        } ]
-      },
-      "subject": {
-        "reference": "Patient/numer-EXM165-FHIR3"
-      },
-      "effectiveDateTime": "2019-11-01T00:00:00",
-      "component": [ {
-        "code": {
-          "coding": [ {
-            "system": "http://loinc.org",
-            "code": "8480-6",
-            "display": "Systolic blood pressure"
-          } ]
-        },
-        "valueQuantity": {
-          "value": 139,
-          "unit": "mm[Hg]"
-        }
-      } ]
-    },
-    "request": {
-      "method": "PUT",
-      "url": "Observation/numer-EXM165-FHIR3-4"
-    }
-  }, {
-    "resource": {
-      "resourceType": "Encounter",
-      "id": "numer-EXM165-FHIR3-1",
-      "meta": {
-        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter" ]
-      },
-      "status": "finished",
-      "class": {
-        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-        "code": "IMP",
-        "display": "inpatient encounter"
-      },
-      "type": [ {
-        "coding": [ {
-          "system": "http://www.ama-assn.org/go/cpt",
-          "code": "99202"
-        } ]
-      } ],
-      "subject": {
-        "reference": "Patient/numer-EXM165-FHIR3"
-      },
-      "period": {
-        "start": "2019-05-01T12:51:21-06:00",
-        "end": "2019-05-01T17:51:21-06:00"
-      }
-    },
-    "request": {
-      "method": "PUT",
-      "url": "Encounter/numer-EXM165-FHIR3-1"
-    }
-  }, {
-    "resource": {
       "resourceType": "Condition",
       "id": "numer-EXM165-FHIR3-2",
       "meta": {
@@ -191,87 +35,34 @@
     }
   }, {
     "resource": {
-      "resourceType": "Bundle",
-      "id": "tests-Encounter-bundle",
-      "type": "transaction",
-      "entry": [ {
-        "resource": {
-          "resourceType": "Encounter",
-          "id": "numer-EXM165-FHIR3-1",
-          "meta": {
-            "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter" ]
-          },
-          "status": "finished",
-          "class": {
-            "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-            "code": "IMP",
-            "display": "inpatient encounter"
-          },
-          "type": [ {
-            "coding": [ {
-              "system": "http://www.ama-assn.org/go/cpt",
-              "code": "99202"
-            } ]
-          } ],
-          "subject": {
-            "reference": "Patient/numer-EXM165-FHIR3"
-          },
-          "period": {
-            "start": "2019-05-01T12:51:21-06:00",
-            "end": "2019-05-01T17:51:21-06:00"
-          }
-        },
-        "request": {
-          "method": "PUT",
-          "url": "Encounter/numer-EXM165-FHIR3-1"
-        }
-      } ]
+      "resourceType": "Encounter",
+      "id": "numer-EXM165-FHIR3-1",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter" ]
+      },
+      "status": "finished",
+      "class": {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "IMP",
+        "display": "inpatient encounter"
+      },
+      "type": [ {
+        "coding": [ {
+          "system": "http://www.ama-assn.org/go/cpt",
+          "code": "99202"
+        } ]
+      } ],
+      "subject": {
+        "reference": "Patient/numer-EXM165-FHIR3"
+      },
+      "period": {
+        "start": "2019-05-01T12:51:21-06:00",
+        "end": "2019-05-01T17:51:21-06:00"
+      }
     },
     "request": {
       "method": "PUT",
-      "url": "tests-Encounter-bundle"
-    }
-  }, {
-    "resource": {
-      "resourceType": "Bundle",
-      "id": "tests-Condition-bundle",
-      "type": "transaction",
-      "entry": [ {
-        "resource": {
-          "resourceType": "Condition",
-          "id": "numer-EXM165-FHIR3-2",
-          "meta": {
-            "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition" ]
-          },
-          "verificationStatus": "confirmed",
-          "category": [ {
-            "coding": [ {
-              "system": "http://terminology.hl7.org/CodeSystem/condition-category",
-              "code": "encounter-diagnosis",
-              "display": "Encounter Diagnosis"
-            } ]
-          } ],
-          "code": {
-            "coding": [ {
-              "system": "http://snomed.info/sct",
-              "code": "65518004",
-              "display": "Labile diastolic hypertension (disorder)"
-            } ]
-          },
-          "subject": {
-            "reference": "Patient/numer-EXM165-FHIR3"
-          },
-          "assertedDate": "2019-01-12T13:51:21-07:00"
-        },
-        "request": {
-          "method": "PUT",
-          "url": "Condition/numer-EXM165-FHIR3-2"
-        }
-      } ]
-    },
-    "request": {
-      "method": "PUT",
-      "url": "tests-Condition-bundle"
+      "url": "Encounter/numer-EXM165-FHIR3-1"
     }
   }, {
     "resource": {
@@ -561,6 +352,215 @@
     "request": {
       "method": "PUT",
       "url": "MeasureReport/measurereport-numer-EXM165-FHIR3"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Observation",
+      "id": "numer-EXM165-FHIR3-4",
+      "meta": {
+        "profile": [ "http://www.http://hl7.org/fhir/FHIR3/observation" ]
+      },
+      "status": "final",
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "85354-9",
+          "display": "blood pressure"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/numer-EXM165-FHIR3"
+      },
+      "effectiveDateTime": "2019-11-01T00:00:00",
+      "component": [ {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "8480-6",
+            "display": "Systolic blood pressure"
+          } ]
+        },
+        "valueQuantity": {
+          "value": 139,
+          "unit": "mm[Hg]"
+        }
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Observation/numer-EXM165-FHIR3-4"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Observation",
+      "id": "numer-EXM165-FHIR3-5",
+      "meta": {
+        "profile": [ "http://www.http://hl7.org/fhir/FHIR3/observation" ]
+      },
+      "status": "final",
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "85354-9",
+          "display": "blood pressure"
+        } ]
+      },
+      "subject": {
+        "reference": "Patient/numer-EXM165-FHIR3"
+      },
+      "effectiveDateTime": "2019-11-01T05:00:00",
+      "component": [ {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "8462-4",
+            "display": "Diastolic blood pressure"
+          } ]
+        },
+        "valueQuantity": {
+          "value": 89,
+          "unit": "mm[Hg]"
+        }
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Observation/numer-EXM165-FHIR3-5"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Patient",
+      "id": "numer-EXM165-FHIR3",
+      "meta": {
+        "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient" ]
+      },
+      "extension": [ {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+        "extension": [ {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2054-5",
+            "display": "Black or African American"
+          }
+        } ]
+      }, {
+        "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+        "extension": [ {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2186-5",
+            "display": "Not Hispanic or Latino"
+          }
+        } ]
+      } ],
+      "identifier": [ {
+        "use": "usual",
+        "type": {
+          "coding": [ {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR",
+            "display": "Medical Record Number"
+          } ]
+        },
+        "system": "http://hospital.smarthealthit.org",
+        "value": "999999993"
+      } ],
+      "name": [ {
+        "family": "Doe",
+        "given": [ "Jill" ]
+      } ],
+      "gender": "female",
+      "birthDate": "1975-08-25"
+    },
+    "request": {
+      "method": "PUT",
+      "url": "Patient/numer-EXM165-FHIR3"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Bundle",
+      "id": "tests-Condition-bundle",
+      "type": "transaction",
+      "entry": [ {
+        "resource": {
+          "resourceType": "Condition",
+          "id": "numer-EXM165-FHIR3-2",
+          "meta": {
+            "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition" ]
+          },
+          "verificationStatus": "confirmed",
+          "category": [ {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+              "code": "encounter-diagnosis",
+              "display": "Encounter Diagnosis"
+            } ]
+          } ],
+          "code": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "code": "65518004",
+              "display": "Labile diastolic hypertension (disorder)"
+            } ]
+          },
+          "subject": {
+            "reference": "Patient/numer-EXM165-FHIR3"
+          },
+          "assertedDate": "2019-01-12T13:51:21-07:00"
+        },
+        "request": {
+          "method": "PUT",
+          "url": "Condition/numer-EXM165-FHIR3-2"
+        }
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "tests-Condition-bundle"
+    }
+  }, {
+    "resource": {
+      "resourceType": "Bundle",
+      "id": "tests-Encounter-bundle",
+      "type": "transaction",
+      "entry": [ {
+        "resource": {
+          "resourceType": "Encounter",
+          "id": "numer-EXM165-FHIR3-1",
+          "meta": {
+            "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter" ]
+          },
+          "status": "finished",
+          "class": {
+            "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            "code": "IMP",
+            "display": "inpatient encounter"
+          },
+          "type": [ {
+            "coding": [ {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "99202"
+            } ]
+          } ],
+          "subject": {
+            "reference": "Patient/numer-EXM165-FHIR3"
+          },
+          "period": {
+            "start": "2019-05-01T12:51:21-06:00",
+            "end": "2019-05-01T17:51:21-06:00"
+          }
+        },
+        "request": {
+          "method": "PUT",
+          "url": "Encounter/numer-EXM165-FHIR3-1"
+        }
+      } ]
+    },
+    "request": {
+      "method": "PUT",
+      "url": "tests-Encounter-bundle"
     }
   }, {
     "resource": {
